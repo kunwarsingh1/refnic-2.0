@@ -1,0 +1,497 @@
+.trchnologies {
+  	width: 100%;
+  	height: 318px;
+  	position: relative;
+  	box-shadow: 0px 55px 78px rgba(0, 0, 0, 0.25);
+  	border-radius: 8px;
+  	background-color: #fff;
+  	border: 1px solid #1b37b0;
+  	box-sizing: border-box;
+  	text-align: left;
+  	font-size: 16px;
+  	color: #232f1a;
+  	font-family: 'Plus Jakarta Sans';
+}
+.navContentList {
+  	position: absolute;
+  	top: 41px;
+  	left: 53px;
+  	border-radius: 4px;
+  	background-color: #fff;
+  	width: 141px;
+  	height: 40px;
+  	display: flex;
+  	align-items: flex-start;
+  	padding: 12px;
+  	box-sizing: border-box;
+  	gap: 6px;
+  	flex-shrink: 0;
+  	font-family: Inter;
+}
+.chartpolarIcon {
+  	height: 24px;
+  	width: 24px;
+  	position: relative;
+  	flex-shrink: 0;
+}
+.budgetingParent {
+  	flex: 1;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	gap: 4px;
+  	flex-shrink: 0;
+}
+.budgeting {
+  	position: relative;
+  	letter-spacing: -0.01em;
+  	line-height: 140%;
+  	font-weight: 500;
+  	flex-shrink: 0;
+}
+.keepYourSpending {
+  	width: 316px;
+  	position: relative;
+  	font-size: 14px;
+  	line-height: 140%;
+  	font-family: Manrope;
+  	color: #515251;
+  	display: inline-block;
+  	flex-shrink: 0;
+}
+.navContentList2 {
+  	position: absolute;
+  	top: 41px;
+  	left: 346px;
+  	border-radius: 4px;
+  	background-color: #fff;
+  	width: 141px;
+  	height: 40px;
+  	display: flex;
+  	align-items: flex-start;
+  	padding: 12px;
+  	box-sizing: border-box;
+  	gap: 6px;
+  	flex-shrink: 0;
+  	font-family: Inter;
+}
+.navContentList3 {
+  	position: absolute;
+  	top: 41px;
+  	left: 870px;
+  	border-radius: 4px;
+  	background-color: #fff;
+  	width: 141px;
+  	height: 40px;
+  	display: flex;
+  	align-items: flex-start;
+  	padding: 12px;
+  	box-sizing: border-box;
+  	gap: 6px;
+  	flex-shrink: 0;
+  	font-family: Inter;
+}
+.impactWrapper {
+  	position: absolute;
+  	top: 85.11px;
+  	left: 95.4px;
+  	width: 56.6px;
+  	height: 28.9px;
+  	flex-shrink: 0;
+}
+.impact {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 56.6px;
+  	height: 28.9px;
+}
+.handManualWrapper {
+  	position: absolute;
+  	top: 85px;
+  	left: 388px;
+  	width: 110px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.handManual {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 110px;
+  	height: 29px;
+}
+.blackMassCalculatorWrapper {
+  	position: absolute;
+  	top: 85px;
+  	left: 912px;
+  	width: 176px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.blackMassCalculator {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 176px;
+  	height: 29px;
+}
+.climateWrapper {
+  	position: absolute;
+  	top: 114.05px;
+  	left: 95.4px;
+  	width: 179px;
+  	height: 28.9px;
+  	flex-shrink: 0;
+}
+.climate {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 179px;
+  	height: 28.9px;
+}
+.refnicProductsSolutionBooWrapper {
+  	position: absolute;
+  	top: 114px;
+  	left: 388px;
+  	width: 251px;
+  	height: 30px;
+  	flex-shrink: 0;
+}
+.refnicProducts {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 251px;
+  	height: 30px;
+}
+.processDesignWrapper {
+  	position: absolute;
+  	top: 114px;
+  	left: 912px;
+  	width: 371px;
+  	height: 27px;
+  	flex-shrink: 0;
+}
+.processDesign {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 371px;
+  	height: 27px;
+}
+.waterWrapper {
+  	position: absolute;
+  	top: 142.99px;
+  	left: 95.4px;
+  	width: 176px;
+  	height: 28.9px;
+  	flex-shrink: 0;
+}
+.water {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 176px;
+  	height: 28.9px;
+}
+.magazineWrapper {
+  	position: absolute;
+  	top: 142.99px;
+  	left: 388.4px;
+  	width: 176px;
+  	height: 28.9px;
+  	flex-shrink: 0;
+}
+.resourcesWrapper {
+  	position: absolute;
+  	top: 171.94px;
+  	left: 95.4px;
+  	width: 135px;
+  	height: 33.9px;
+  	flex-shrink: 0;
+}
+.resources {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 135px;
+  	height: 33.9px;
+}
+.articlesWrapper {
+  	position: absolute;
+  	top: 171.94px;
+  	left: 388.4px;
+  	width: 135px;
+  	height: 33.9px;
+  	flex-shrink: 0;
+}
+.circularEconomyWrapper {
+  	position: absolute;
+  	top: 200.88px;
+  	left: 95.4px;
+  	width: 134.6px;
+  	height: 31.1px;
+  	flex-shrink: 0;
+}
+.circularEconomy {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 134.6px;
+  	height: 31.1px;
+}
+.greenTechWrapper {
+  	position: absolute;
+  	top: 231.82px;
+  	left: 95.4px;
+  	width: 135px;
+  	height: 25.9px;
+  	flex-shrink: 0;
+}
+.greenTech {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 135px;
+  	height: 25.9px;
+}
+.trchnologiesChild {
+  	position: absolute;
+  	top: 76.5px;
+  	left: 299.5px;
+  	border-top: 1px solid #000;
+  	box-sizing: border-box;
+  	width: 212px;
+  	height: 1px;
+  	transform:  rotate(89.7deg);
+  	transform-origin: 0 0;
+  	flex-shrink: 0;
+}
+.trchnologiesItem {
+  	position: absolute;
+  	top: 76.5px;
+  	left: 834.5px;
+  	border-top: 1px solid #000;
+  	box-sizing: border-box;
+  	width: 212px;
+  	height: 1px;
+  	transform:  rotate(89.5deg);
+  	transform-origin: 0 0;
+  	flex-shrink: 0;
+}
+.trchnologiesInner {
+  	position: absolute;
+  	top: 101.54px;
+  	left: 74.89px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.ellipseDiv {
+  	position: absolute;
+  	top: 101.54px;
+  	left: 367.89px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.trchnologiesChild2 {
+  	position: absolute;
+  	top: 101.54px;
+  	left: 891.89px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.trchnologiesChild3 {
+  	position: absolute;
+  	top: 129.54px;
+  	left: 74.89px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.trchnologiesChild4 {
+  	position: absolute;
+  	top: 129.54px;
+  	left: 367.89px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.trchnologiesChild5 {
+  	position: absolute;
+  	top: 129.54px;
+  	left: 891.89px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.trchnologiesChild6 {
+  	position: absolute;
+  	top: 158.54px;
+  	left: 74.89px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.trchnologiesChild7 {
+  	position: absolute;
+  	top: 158.54px;
+  	left: 367.89px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.trchnologiesChild8 {
+  	position: absolute;
+  	top: 187.54px;
+  	left: 74.89px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.trchnologiesChild9 {
+  	position: absolute;
+  	top: 187.54px;
+  	left: 367.89px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.trchnologiesChild10 {
+  	position: absolute;
+  	top: 216.54px;
+  	left: 74.89px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.trchnologiesChild11 {
+  	position: absolute;
+  	top: 247.54px;
+  	left: 74.89px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.navContentList4 {
+  	position: absolute;
+  	top: 221px;
+  	left: 346px;
+  	border-radius: 4px;
+  	background-color: #fff;
+  	width: 420px;
+  	display: flex;
+  	align-items: flex-start;
+  	padding: 12px;
+  	box-sizing: border-box;
+  	gap: 6px;
+  	flex-shrink: 0;
+  	font-family: Inter;
+}
+.chartpolarIcon4 {
+  	height: 24px;
+  	width: 24px;
+  	position: relative;
+}
+.frameDiv {
+  	flex: 1;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	gap: 4px;
+}
+.budgeting4 {
+  	position: relative;
+  	letter-spacing: -0.01em;
+  	line-height: 140%;
+  	font-weight: 500;
+}
+.keepYourSpending4 {
+  	width: 316px;
+  	position: relative;
+  	font-size: 14px;
+  	line-height: 140%;
+  	font-family: Manrope;
+  	color: #515251;
+  	display: inline-block;
+}
+.lineDiv {
+  	position: absolute;
+  	top: 43.5px;
+  	left: 1170.5px;
+  	border-right: 1px solid #000;
+  	box-sizing: border-box;
+  	width: 1px;
+  	height: 255px;
+  	flex-shrink: 0;
+}
+.refnicOverview2 {
+  	position: absolute;
+  	top: -4px;
+  	left: 1174px;
+  	border-radius: 11px;
+  	width: 341px;
+  	height: 320px;
+  	object-fit: cover;
+  	flex-shrink: 0;
+}
+.exploreOurResearch {
+  	position: absolute;
+  	top: 259px;
+  	left: 388px;
+  	font-size: 14px;
+  	line-height: 140%;
+  	font-family: Manrope;
+  	color: #515251;
+  	display: inline-block;
+  	width: 395px;
+  	flex-shrink: 0;
+}

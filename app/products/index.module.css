@@ -1,0 +1,1270 @@
+.investors,
+.investors * {
+  box-sizing: border-box;
+}
+.investors {
+  position: relative;
+  width: 1764.7px;
+  height: 11595px;
+  text-align: left;
+  font-size: var(--font-size-29xl);
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+}
+.investorsChild {
+  position: absolute;
+  top: -0.24%;
+  left: 0%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0), #161518 68.5%);
+  width: 100%;
+  height: 100%;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.investorsItem {
+  position: absolute;
+  top: 17px;
+  left: 0%;
+  background-color: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  width: 100%;
+  height: 147px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.navbarMenu {
+  position: absolute;
+  top: 53px;
+  left: 113px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-31xl);
+  text-align: left;
+  font-size: var(--font-size-5xl);
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+}
+.home {
+  position: relative;
+  letter-spacing: -0.04em;
+  line-height: 120%;
+  display: inline-block;
+  min-width: 116px;
+}
+.products {
+  position: relative;
+  letter-spacing: -0.04em;
+  line-height: 120%;
+  display: inline-block;
+  min-width: 156px;
+}
+.technologies {
+  position: relative;
+  letter-spacing: -0.04em;
+  line-height: 120%;
+  display: inline-block;
+  min-width: 192px;
+}
+.navbarMenu2 {
+  position: absolute;
+  top: 53px;
+  left: 1247px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-31xl);
+  text-align: left;
+  font-size: var(--font-size-5xl);
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+}
+.aboutUs {
+  position: relative;
+  letter-spacing: -0.04em;
+  line-height: 120%;
+  display: inline-block;
+  min-width: 135px;
+}
+.newsletters {
+  position: relative;
+  letter-spacing: -0.04em;
+  line-height: 120%;
+  display: inline-block;
+  min-width: 182px;
+}
+.contact {
+  position: relative;
+  letter-spacing: -0.04em;
+  line-height: 120%;
+  display: inline-block;
+  min-width: 129px;
+}
+.div,
+.somethinggmailcom {
+  position: absolute;
+  top: 50px;
+  left: 1451px;
+  letter-spacing: -0.04em;
+  line-height: 120%;
+  display: inline-block;
+}
+.somethinggmailcom {
+  top: 47px;
+  left: 1320px;
+  color: var(--color-white);
+  min-width: 207px;
+}
+.existingBrandKit21 {
+  position: absolute;
+  top: 34px;
+  left: 793px;
+  width: 178.7px;
+  height: 83px;
+  object-fit: cover;
+}
+.rectangleDiv {
+  position: absolute;
+  top: 77px;
+  left: 1130px;
+  background-color: var(--color-cornflower-blue);
+  border-radius: 2.5px;
+  width: 80px;
+  height: 5px;
+}
+.rectangleParent {
+  position: absolute;
+  top: 160px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-100);
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.machinesBuiltTo {
+  position: absolute;
+  top: 232px;
+  left: 286.3px;
+  font-size: var(--font-size-61xl);
+  line-height: 110%;
+  letter-spacing: -0.04em;
+  display: inline-block;
+  width: 828px;
+  height: 270px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.notCorners {
+  position: absolute;
+  top: 422px;
+  left: 286.3px;
+  font-size: var(--font-size-61xl);
+  line-height: 110%;
+  letter-spacing: -0.04em;
+  color: var(--color-cornflower-blue);
+  display: inline-block;
+  width: 557px;
+  height: 80px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.fromSkidmounted {
+  position: absolute;
+  top: 522px;
+  left: 286.3px;
+  font-size: var(--font-size-5xl);
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  color: var(--color-gainsboro);
+  display: inline-block;
+  width: 780px;
+  height: 48px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.rectangleGroup {
+  position: absolute;
+  top: 416px;
+  left: 212.3px;
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.crushers1 {
+  position: absolute;
+  top: 0px;
+  left: 74px;
+  font-size: var(--font-size-21xl);
+  line-height: 130%;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 257px;
+  height: 29px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.singleDoubleToggle {
+  position: absolute;
+  top: 0px;
+  left: 395px;
+  font-size: var(--font-size-21xl);
+  line-height: 130%;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 405px;
+  height: 29px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.smoothRoll {
+  position: absolute;
+  top: 0px;
+  left: 829px;
+  font-size: var(--font-size-21xl);
+  line-height: 130%;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 264px;
+  height: 29px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.hammerMill {
+  position: absolute;
+  top: 0px;
+  left: 1140px;
+  font-size: var(--font-size-21xl);
+  line-height: 130%;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 200px;
+  height: 29px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.investorsChild7 {
+  position: absolute;
+  top: 416px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  width: 1340px;
+  height: 414px;
+  object-fit: cover;
+}
+.crushers {
+  position: absolute;
+  top: 936px;
+  left: 212.3px;
+  font-size: 300px;
+  line-height: 100%;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 1340px;
+  height: 300px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.investorsChild8 {
+  position: absolute;
+  top: 936px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  width: 1340px;
+  height: 414px;
+  object-fit: cover;
+}
+.rectangleParent1 {
+  position: absolute;
+  top: 1658px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-100);
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.keyCapabilities {
+  position: absolute;
+  top: 1730px;
+  left: 286.3px;
+  font-size: var(--font-size-61xl);
+  line-height: 110%;
+  letter-spacing: -0.04em;
+  display: inline-block;
+  width: 830px;
+  height: 270px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.designsThatPerform {
+  position: absolute;
+  top: 1920px;
+  left: 286.3px;
+  font-size: var(--font-size-5xl);
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  color: var(--color-gainsboro);
+  display: inline-block;
+  width: 835px;
+  height: 48px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.investorsChild9 {
+  position: absolute;
+  top: 1658px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  width: 1340px;
+  height: 414px;
+  object-fit: cover;
+}
+.investorsChild10 {
+  position: absolute;
+  top: 2488px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  width: 1340px;
+  height: 414px;
+  object-fit: cover;
+}
+.frameParent {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.engineeredForThroughput {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-100);
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.engineeredFor {
+  position: absolute;
+  top: 72px;
+  left: 74px;
+  font-size: var(--font-size-21xl);
+  line-height: 130%;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 620px;
+  height: 58px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.loremIpsumDolor {
+  position: absolute;
+  top: 176px;
+  left: 74px;
+  font-size: var(--font-size-5xl);
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  color: var(--color-gainsboro);
+  display: inline-block;
+  width: 800px;
+  height: 144px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.rectangleParent2 {
+  position: absolute;
+  top: 2488px;
+  left: 212.3px;
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.rectangleParent3 {
+  position: absolute;
+  top: 3338px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-100);
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.whereItFits {
+  position: absolute;
+  top: 3410px;
+  left: 286.3px;
+  font-size: var(--font-size-61xl);
+  line-height: 110%;
+  letter-spacing: -0.04em;
+  display: inline-block;
+  width: 840px;
+  height: 270px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.fromFossilFeedstock {
+  position: absolute;
+  top: 3600px;
+  left: 286.3px;
+  font-size: var(--font-size-5xl);
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  color: var(--color-gainsboro);
+  display: inline-block;
+  width: 825px;
+  height: 48px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.investorsChild11 {
+  position: absolute;
+  top: 3338px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  width: 1340px;
+  height: 414px;
+  object-fit: cover;
+}
+.investorsChild12 {
+  position: absolute;
+  top: 3689px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  width: 414px;
+  height: 414px;
+  object-fit: cover;
+}
+.investorsChild13,
+.investorsChild14,
+.investorsChild15 {
+  position: absolute;
+  top: 3992px;
+  left: 656.3px;
+  border-radius: var(--br-3xs);
+  width: 414px;
+  height: 414px;
+  object-fit: cover;
+}
+.investorsChild14 {
+  top: 3769px;
+  left: 1100.3px;
+}
+.investorsChild15 {
+  top: 4077px;
+  left: 1100.3px;
+}
+.rectangleParent4 {
+  position: absolute;
+  top: 3649px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-100);
+  width: 414px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.acrossSectors {
+  position: absolute;
+  top: 3721px;
+  left: 286.3px;
+  font-size: var(--font-size-21xl);
+  line-height: 130%;
+  letter-spacing: -0.04em;
+  display: inline-block;
+  width: 300px;
+  height: 270px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.rectangleParent5 {
+  position: absolute;
+  top: 4328px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-100);
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.keyMaterials {
+  position: absolute;
+  top: 4400px;
+  left: 286.3px;
+  font-size: var(--font-size-61xl);
+  line-height: 110%;
+  letter-spacing: -0.04em;
+  display: inline-block;
+  width: 830px;
+  height: 270px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.materialRecovery {
+  position: absolute;
+  top: 4590px;
+  left: 286.3px;
+  font-size: var(--font-size-5xl);
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  color: var(--color-gainsboro);
+  display: inline-block;
+  width: 820px;
+  height: 48px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.investorsChild16 {
+  position: absolute;
+  top: 4328px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  width: 1340px;
+  height: 414px;
+  object-fit: cover;
+}
+.frameGroup {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.frameChild {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-100);
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.hardRock {
+  position: absolute;
+  top: 72px;
+  left: 74px;
+  font-size: var(--font-size-21xl);
+  line-height: 130%;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 410px;
+  height: 58px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.loremIpsumDolor1 {
+  position: absolute;
+  top: 176px;
+  left: 74px;
+  font-size: var(--font-size-5xl);
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  color: var(--color-gainsboro);
+  display: inline-block;
+  width: 590px;
+  height: 144px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.rectangleParent6 {
+  position: absolute;
+  top: 4393px;
+  left: 212.3px;
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.rectangleParent7 {
+  position: absolute;
+  top: 5369px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-100);
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.builtAroundYour {
+  position: absolute;
+  top: 5441px;
+  left: 286.3px;
+  font-size: var(--font-size-61xl);
+  line-height: 110%;
+  letter-spacing: -0.04em;
+  display: inline-block;
+  width: 1100px;
+  height: 270px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.layoutsThatAdapt {
+  position: absolute;
+  top: 5631px;
+  left: 286.3px;
+  font-size: var(--font-size-5xl);
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  color: var(--color-gainsboro);
+  display: inline-block;
+  width: 835px;
+  height: 48px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.investorsChild17 {
+  position: absolute;
+  top: 5369px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  width: 1340px;
+  height: 414px;
+  object-fit: cover;
+}
+.frameContainer {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.frameItem {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-100);
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.yourPlantYour {
+  position: absolute;
+  top: 72px;
+  left: 74px;
+  font-size: var(--font-size-21xl);
+  line-height: 130%;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 660px;
+  height: 58px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.loremIpsumDolor2 {
+  position: absolute;
+  top: 176px;
+  left: 74px;
+  font-size: var(--font-size-5xl);
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  color: var(--color-gainsboro);
+  display: inline-block;
+  width: 1190px;
+  height: 144px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.rectangleParent8 {
+  position: absolute;
+  top: 5448px;
+  left: 212.3px;
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.rectangleParent9 {
+  position: absolute;
+  top: 6499px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-100);
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.howRefnicWorks {
+  position: absolute;
+  top: 6571px;
+  left: 286.3px;
+  font-size: var(--font-size-61xl);
+  line-height: 110%;
+  letter-spacing: -0.04em;
+  display: inline-block;
+  width: 1150px;
+  height: 270px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.aStructuredPath {
+  position: absolute;
+  top: 6761px;
+  left: 286.3px;
+  font-size: var(--font-size-5xl);
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  color: var(--color-gainsboro);
+  display: inline-block;
+  width: 825px;
+  height: 48px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.investorsChild18 {
+  position: absolute;
+  top: 6499px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  width: 1340px;
+  height: 414px;
+  object-fit: cover;
+}
+.frameDiv {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.frameInner {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-100);
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.div1 {
+  position: absolute;
+  top: 72px;
+  left: 74px;
+  font-size: var(--font-size-21xl);
+  line-height: 130%;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 250px;
+  height: 58px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.loremIpsumDolor3 {
+  position: absolute;
+  top: 176px;
+  left: 74px;
+  font-size: var(--font-size-5xl);
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  color: var(--color-gainsboro);
+  display: inline-block;
+  width: 1000px;
+  height: 144px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.rectangleParent10 {
+  position: absolute;
+  top: 6582px;
+  left: 212.3px;
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.rectangleParent11 {
+  position: absolute;
+  top: 7549px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-100);
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.buildWithRefnic {
+  position: absolute;
+  top: 7621px;
+  left: 286.3px;
+  font-size: var(--font-size-61xl);
+  line-height: 110%;
+  letter-spacing: -0.04em;
+  display: inline-block;
+  width: 870px;
+  height: 270px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.letsEngineerYour {
+  position: absolute;
+  top: 7811px;
+  left: 286.3px;
+  font-size: var(--font-size-5xl);
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  color: var(--color-gainsboro);
+  display: inline-block;
+  width: 845px;
+  height: 48px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.investorsChild19 {
+  position: absolute;
+  top: 7549px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  width: 1340px;
+  height: 414px;
+  object-fit: cover;
+}
+.frameParent1 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-darkslateblue-200);
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.discussYourRequirement {
+  position: absolute;
+  top: 7621px;
+  left: 286.3px;
+  font-size: var(--font-size-61xl);
+  line-height: 110%;
+  letter-spacing: -0.04em;
+  display: inline-block;
+  width: 1020px;
+  height: 270px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.rectangleParent12 {
+  position: absolute;
+  top: 7628px;
+  left: 212.3px;
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.cta2 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: var(--color-cornflower-blue);
+  position: absolute;
+  top: 1193px;
+  left: 1231.7px;
+  border-radius: var(--br-11xl);
+  width: 333px;
+  height: 80px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.buttonLogin1 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: var(--br-11xl);
+  background-color: var(--color-cornflower-blue);
+  width: 333px;
+  height: 80px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.discussYourRequirement1 {
+  position: absolute;
+  top: 24px;
+  left: 33px;
+  font-size: var(--font-size-5xl);
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  color: var(--color-white);
+  text-align: center;
+  display: inline-block;
+  width: 268px;
+  height: 32px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.investorsChild20 {
+  position: absolute;
+  top: 8600px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  width: 1340px;
+  height: 414px;
+  object-fit: cover;
+}
+.rectangleParent13 {
+  position: absolute;
+  top: 8600px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-100);
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.engineeredToShip {
+  position: absolute;
+  top: 8672px;
+  left: 286.3px;
+  font-size: var(--font-size-61xl);
+  line-height: 110%;
+  letter-spacing: -0.04em;
+  display: inline-block;
+  width: 1000px;
+  height: 270px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.deliveredAsPlugAnd {
+  position: absolute;
+  top: 8862px;
+  left: 286.3px;
+  font-size: var(--font-size-5xl);
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  color: var(--color-gainsboro);
+  display: inline-block;
+  width: 850px;
+  height: 48px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.investorsChild21 {
+  position: absolute;
+  top: 8600px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  width: 1340px;
+  height: 414px;
+  object-fit: cover;
+}
+.frameParent2 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.frameChild1 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-100);
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.quickDeployment {
+  position: absolute;
+  top: 72px;
+  left: 74px;
+  font-size: var(--font-size-21xl);
+  line-height: 130%;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 670px;
+  height: 58px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.loremIpsumDolor4 {
+  position: absolute;
+  top: 176px;
+  left: 74px;
+  font-size: var(--font-size-5xl);
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  color: var(--color-gainsboro);
+  display: inline-block;
+  width: 1190px;
+  height: 144px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.rectangleParent14 {
+  position: absolute;
+  top: 8684px;
+  left: 212.3px;
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.investorsChild22 {
+  position: absolute;
+  top: 9615px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  width: 1340px;
+  height: 414px;
+  object-fit: cover;
+}
+.rectangleParent15 {
+  position: absolute;
+  top: 9615px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-100);
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.helpMeChoose {
+  position: absolute;
+  top: 9687px;
+  left: 286.3px;
+  font-size: var(--font-size-61xl);
+  line-height: 110%;
+  letter-spacing: -0.04em;
+  display: inline-block;
+  width: 830px;
+  height: 270px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.unsureWhichCrusher {
+  position: absolute;
+  top: 9877px;
+  left: 286.3px;
+  font-size: var(--font-size-5xl);
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  color: var(--color-gainsboro);
+  display: inline-block;
+  width: 830px;
+  height: 48px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.investorsChild23 {
+  position: absolute;
+  top: 9615px;
+  left: 212.3px;
+  border-radius: var(--br-3xs);
+  width: 1340px;
+  height: 414px;
+  object-fit: cover;
+}
+.frameParent3 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.frameChild2 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-100);
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.tellUsYourFeedstock {
+  position: absolute;
+  top: 72px;
+  left: 74px;
+  font-size: var(--font-size-21xl);
+  line-height: 130%;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 1210px;
+  height: 58px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.loremIpsumDolor5 {
+  position: absolute;
+  top: 176px;
+  left: 74px;
+  font-size: var(--font-size-5xl);
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  color: var(--color-gainsboro);
+  display: inline-block;
+  width: 1190px;
+  height: 144px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.rectangleParent16 {
+  position: absolute;
+  top: 9698px;
+  left: 212.3px;
+  width: 1340px;
+  height: 414px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.investorsChild5 {
+  position: absolute;
+  top: 5026px;
+  left: -0.5px;
+  width: 1765.7px;
+  height: 5188px;
+  object-fit: cover;
+  opacity: 0.2;
+}
+.investorsChild6 {
+  position: absolute;
+  top: 10214px;
+  left: -0.5px;
+  width: 1764.7px;
+  height: 1567.7px;
+  object-fit: cover;
+  opacity: 0.2;
+}
+.cta {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: var(--color-cornflower-blue);
+  position: absolute;
+  top: 10317px;
+  left: 829.3px;
+  border-radius: var(--br-11xl);
+  width: 106px;
+  height: 48px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.buttonLogin {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: var(--br-11xl);
+  background-color: var(--color-cornflower-blue);
+  width: 106px;
+  height: 48px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.contactUs {
+  position: absolute;
+  top: 13px;
+  left: 20px;
+  font-size: var(--font-size-xl);
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  font-family: var(--font-poppins);
+  color: var(--color-white);
+  text-align: center;
+  display: inline-block;
+  width: 66px;
+  height: 22px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.ellipseParent {
+  position: absolute;
+  top: 10566px;
+  left: 212.3px;
+  width: 1340px;
+  height: 423px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.refnic {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 300px;
+  line-height: 100%;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  display: inline-block;
+  width: 1150px;
+  height: 300px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.ellipseDiv {
+  position: absolute;
+  top: 283px;
+  left: 0px;
+  border-radius: 50%;
+  background-color: var(--color-cornflower-blue);
+  width: 30px;
+  height: 30px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.refiningIndustrialByproducts {
+  position: absolute;
+  top: 283px;
+  left: 46px;
+  font-size: var(--font-size-xl);
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  color: var(--color-gainsboro);
+  text-align: left;
+  display: inline-block;
+  width: 520px;
+  height: 56px;
+  transform: rotate(0deg);
+  transform-origin: 0 0;
+}
+.existingBrandKit22 {
+  position: absolute;
+  top: 10979px;
+  left: 793px;
+  width: 178.7px;
+  height: 83px;
+  object-fit: cover;
+}

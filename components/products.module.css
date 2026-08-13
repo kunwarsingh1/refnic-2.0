@@ -1,0 +1,1002 @@
+.products {
+  	width: 100%;
+  	height: 470px;
+  	position: relative;
+  	box-shadow: 0px 55px 78px rgba(0, 0, 0, 0.25);
+  	border-radius: 8px;
+  	background-color: #fff;
+  	border: 1px solid #1b37b0;
+  	box-sizing: border-box;
+  	text-align: left;
+  	font-size: 16px;
+  	color: #232f1a;
+  	font-family: 'Plus Jakarta Sans';
+}
+.navContentList {
+  	position: absolute;
+  	top: 22px;
+  	left: 35px;
+  	border-radius: 2px;
+  	background-color: #fff;
+  	width: 141px;
+  	height: 40px;
+  	display: flex;
+  	align-items: flex-start;
+  	padding: 12px;
+  	box-sizing: border-box;
+  	gap: 6px;
+  	flex-shrink: 0;
+  	font-family: Inter;
+}
+.chartpolarIcon {
+  	height: 24px;
+  	width: 24px;
+  	position: relative;
+  	flex-shrink: 0;
+}
+.budgetingParent {
+  	flex: 1;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	gap: 4px;
+  	flex-shrink: 0;
+}
+.budgeting {
+  	position: relative;
+  	letter-spacing: -0.01em;
+  	line-height: 140%;
+  	flex-shrink: 0;
+}
+.keepYourSpending {
+  	width: 316px;
+  	position: relative;
+  	font-size: 14px;
+  	line-height: 140%;
+  	font-family: Manrope;
+  	color: #515251;
+  	display: inline-block;
+  	flex-shrink: 0;
+}
+.navContentList2 {
+  	position: absolute;
+  	top: 22.23px;
+  	left: 570.51px;
+  	border-radius: 2px;
+  	background-color: #fff;
+  	width: 141px;
+  	height: 40px;
+  	display: flex;
+  	align-items: flex-start;
+  	padding: 12px;
+  	box-sizing: border-box;
+  	gap: 6px;
+  	flex-shrink: 0;
+  	font-family: Inter;
+}
+.budgeting2 {
+  	position: relative;
+  	letter-spacing: -0.01em;
+  	line-height: 140%;
+  	font-weight: 500;
+  	flex-shrink: 0;
+}
+.navContentList3 {
+  	position: absolute;
+  	top: 24px;
+  	left: 1165.71px;
+  	border-radius: 2px;
+  	background-color: #fff;
+  	width: 141px;
+  	height: 40px;
+  	display: flex;
+  	align-items: flex-start;
+  	padding: 12px;
+  	box-sizing: border-box;
+  	gap: 6px;
+  	flex-shrink: 0;
+  	font-family: Inter;
+}
+.mechanicalWrapper {
+  	position: absolute;
+  	top: 74px;
+  	left: 57px;
+  	width: 99px;
+  	height: 25px;
+  	flex-shrink: 0;
+}
+.mechanical {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 99px;
+  	height: 25px;
+}
+.mechanicalContainer {
+  	position: absolute;
+  	top: 70.76px;
+  	left: 595.04px;
+  	width: 99px;
+  	height: 25px;
+  	flex-shrink: 0;
+}
+.liIonBatteryRecyclingPlantWrapper {
+  	position: absolute;
+  	top: 115.48px;
+  	left: 78.96px;
+  	width: 224px;
+  	height: 31px;
+  	flex-shrink: 0;
+}
+.liIonBatteryRecycling {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 224px;
+  	height: 31px;
+}
+.hydrometallurgicalMetalExtraWrapper {
+  	position: absolute;
+  	top: 115.48px;
+  	left: 341.96px;
+  	width: 179px;
+  	height: 46px;
+  	flex-shrink: 0;
+}
+.hydrometallurgicalMetalExtra {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 22px;
+  	white-space: pre-wrap;
+  	display: inline-block;
+  	width: 179px;
+  	height: 46px;
+}
+.eWasteRecyclingLineWrapper {
+  	position: absolute;
+  	top: 146.48px;
+  	left: 78.96px;
+  	width: 179px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.eWasteRecyclingLine {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 179px;
+  	height: 29px;
+}
+.leachingSystemsWrapper {
+  	position: absolute;
+  	top: 162.48px;
+  	left: 341.96px;
+  	width: 179px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.batteryAssemblyLineWrapper {
+  	position: absolute;
+  	top: 175.48px;
+  	left: 78.96px;
+  	width: 179px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.storageTanksWrapper {
+  	position: absolute;
+  	top: 191.48px;
+  	left: 341.96px;
+  	width: 179px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.lithiumIonBatteryRecyclingWrapper {
+  	position: absolute;
+  	top: 112.23px;
+  	left: 615.51px;
+  	width: 229px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.lithiumIonBatteryRecycling {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 229px;
+  	height: 29px;
+}
+.metalRefiningHydrometallurWrapper {
+  	position: absolute;
+  	top: 120px;
+  	left: 900px;
+  	width: 205.5px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.metalRefining {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 20px;
+  	display: inline-block;
+  	width: 205.5px;
+  	height: 29px;
+}
+.comprehensiveEngineeringWrapper {
+  	position: absolute;
+  	top: 92px;
+  	left: 1204.71px;
+  	width: 266px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.comprehensiveEngineering {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 266px;
+  	height: 29px;
+}
+.processEngineeringWrapper {
+  	position: absolute;
+  	top: 167px;
+  	left: 1204.71px;
+  	width: 266px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.maintenanceRepairWrapper {
+  	position: absolute;
+  	top: 225px;
+  	left: 1208.71px;
+  	width: 165px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.maintenanceRepair {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 165px;
+  	height: 29px;
+}
+.licensingDocumentationWrapper {
+  	position: absolute;
+  	top: 283px;
+  	left: 1208.71px;
+  	width: 279px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.licensingDocumentation {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 279px;
+  	height: 29px;
+}
+.recyclingEquipmentWrapper {
+  	position: absolute;
+  	top: 204.48px;
+  	left: 78.96px;
+  	width: 179px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.filtrationUnitsWrapper {
+  	position: absolute;
+  	top: 220.48px;
+  	left: 341.96px;
+  	width: 179px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.eWasteRecyclingWrapper {
+  	position: absolute;
+  	top: 141.23px;
+  	left: 615.51px;
+  	width: 179px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.filtrationUnitsContainer {
+  	position: absolute;
+  	top: 163.39px;
+  	left: 900.55px;
+  	width: 179px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.customizedEquipmentDesignWrapper {
+  	position: absolute;
+  	top: 130px;
+  	left: 1204.71px;
+  	width: 205px;
+  	height: 40px;
+  	flex-shrink: 0;
+}
+.customizedEquipmentDesign {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 19px;
+  	display: inline-block;
+  	width: 205px;
+  	height: 40px;
+}
+.sparesConsumablesWrapper {
+  	position: absolute;
+  	top: 196.17px;
+  	left: 1209px;
+  	width: 179px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.sopTrainingWrapper {
+  	position: absolute;
+  	top: 254px;
+  	left: 1208.71px;
+  	width: 98px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.sopTraining {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 98px;
+  	height: 29px;
+}
+.projectReportsWrapper {
+  	position: absolute;
+  	top: 312.17px;
+  	left: 1209px;
+  	width: 179px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.financialModelingWrapper {
+  	position: absolute;
+  	top: 341px;
+  	left: 1208.71px;
+  	width: 179px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.financialChannelSupportWrapper {
+  	position: absolute;
+  	top: 370px;
+  	left: 1208.71px;
+  	width: 201px;
+  	height: 33px;
+  	flex-shrink: 0;
+}
+.financialChannelSupport {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 201px;
+  	height: 33px;
+}
+.seperatorsWrapper {
+  	position: absolute;
+  	top: 233.48px;
+  	left: 78.96px;
+  	width: 86px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.seperators {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 86px;
+  	height: 29px;
+}
+.neutralizationSystemsWrapper {
+  	position: absolute;
+  	top: 249.48px;
+  	left: 341.96px;
+  	width: 176px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.neutralizationSystems {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 176px;
+  	height: 29px;
+}
+.shreddingWrapper {
+  	position: absolute;
+  	top: 170.23px;
+  	left: 615.51px;
+  	width: 176px;
+  	height: 29px;
+  	flex-srink: 0;
+}
+.neutralizationSystemsContainer {
+  	position: absolute;
+  	top: 192.39px;
+  	left: 900.55px;
+  	width: 176px;
+  	height: 29px;
+  	flex-shrink: 0;
+}
+.materialHandlingWrapper {
+  	position: absolute;
+  	top: 262.48px;
+  	left: 78.96px;
+  	width: 135px;
+  	height: 34px;
+  	flex-shrink: 0;
+}
+.materialHandling {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 135px;
+  	height: 34px;
+}
+.reactorsWrapper {
+  	position: absolute;
+  	top: 278.48px;
+  	left: 341.96px;
+  	width: 135px;
+  	height: 34px;
+  	flex-shrink: 0;
+}
+.crushingWrapper {
+  	position: absolute;
+  	top: 199.23px;
+  	left: 615.51px;
+  	width: 135px;
+  	height: 34px;
+  	flex-shrink: 0;
+}
+.reactorsContainer {
+  	position: absolute;
+  	top: 221.39px;
+  	left: 900.55px;
+  	width: 135px;
+  	height: 34px;
+  	flex-shrink: 0;
+}
+.pollutionControlWrapper {
+  	position: absolute;
+  	top: 291.48px;
+  	left: 78.96px;
+  	width: 135px;
+  	height: 34px;
+  	flex-shrink: 0;
+}
+.separationEquipmentWrapper {
+  	position: absolute;
+  	top: 307.48px;
+  	left: 341.96px;
+  	width: 173px;
+  	height: 34px;
+  	flex-shrink: 0;
+}
+.separationEquipment {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 173px;
+  	height: 34px;
+}
+.separationWrapper {
+  	position: absolute;
+  	top: 228.23px;
+  	left: 615.51px;
+  	width: 87px;
+  	height: 34px;
+  	flex-shrink: 0;
+}
+.separation {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 87px;
+  	height: 34px;
+}
+.separationEquipmentContainer {
+  	position: absolute;
+  	top: 250.39px;
+  	left: 900.55px;
+  	width: 173px;
+  	height: 34px;
+  	flex-shrink: 0;
+}
+.processUtilitiesWrapper {
+  	position: absolute;
+  	top: 338.48px;
+  	left: 341.96px;
+  	width: 124px;
+  	height: 34px;
+  	flex-shrink: 0;
+}
+.processUtilities {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 124px;
+  	height: 34px;
+}
+.pollutionControlContainer {
+  	position: absolute;
+  	top: 259.23px;
+  	left: 615.51px;
+  	width: 135px;
+  	height: 26px;
+  	flex-shrink: 0;
+}
+.pollutionControl2 {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 135px;
+  	height: 26px;
+}
+.processUtilitiesContainer {
+  	position: absolute;
+  	top: 281.39px;
+  	left: 900.55px;
+  	width: 124px;
+  	height: 34px;
+  	flex-shrink: 0;
+}
+.chemicalWrapper {
+  	position: absolute;
+  	top: 72px;
+  	left: 323px;
+  	width: 74px;
+  	height: 31px;
+  	flex-shrink: 0;
+}
+.chemical {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	line-height: 38.88px;
+  	display: inline-block;
+  	width: 74px;
+  	height: 31px;
+}
+.chemicalContainer {
+  	position: absolute;
+  	top: 70.52px;
+  	left: 882.45px;
+  	width: 74px;
+  	height: 31px;
+  	flex-shrink: 0;
+}
+.productsChild {
+  	position: absolute;
+  	top: 69.5px;
+  	left: 546.5px;
+  	border-top: 1px solid #000;
+  	box-sizing: border-box;
+  	width: 344px;
+  	height: 1px;
+  	transform:  rotate(90.2deg);
+  	transform-origin: 0 0;
+  	flex-shrink: 0;
+}
+.productsItem {
+  	position: absolute;
+  	top: 69.5px;
+  	left: 1122.5px;
+  	border-top: 1px solid #000;
+  	box-sizing: border-box;
+  	width: 344px;
+  	height: 1px;
+  	transform:  rotate(90.2deg);
+  	transform-origin: 0 0;
+  	flex-shrink: 0;
+}
+.productsInner {
+  	position: absolute;
+  	top: 131.48px;
+  	left: 57.96px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.ellipseDiv {
+  	position: absolute;
+  	top: 131.48px;
+  	left: 320.96px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild2 {
+  	position: absolute;
+  	top: 161.48px;
+  	left: 57.96px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild3 {
+  	position: absolute;
+  	top: 178.48px;
+  	left: 320.96px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild4 {
+  	position: absolute;
+  	top: 191.48px;
+  	left: 57.96px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild5 {
+  	position: absolute;
+  	top: 207.48px;
+  	left: 320.96px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild6 {
+  	position: absolute;
+  	top: 128.23px;
+  	left: 594.51px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild7 {
+  	position: absolute;
+  	top: 128.23px;
+  	left: 878.51px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild8 {
+  	position: absolute;
+  	top: 108px;
+  	left: 1183.71px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild9 {
+  	position: absolute;
+  	top: 183px;
+  	left: 1183.71px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild10 {
+  	position: absolute;
+  	top: 241.17px;
+  	left: 1188px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild11 {
+  	position: absolute;
+  	top: 299.17px;
+  	left: 1188px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild12 {
+  	position: absolute;
+  	top: 220.48px;
+  	left: 57.96px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild13 {
+  	position: absolute;
+  	top: 236.48px;
+  	left: 320.96px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild14 {
+  	position: absolute;
+  	top: 157.23px;
+  	left: 594.51px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild15 {
+  	position: absolute;
+  	top: 179.39px;
+  	left: 879.55px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild16 {
+  	position: absolute;
+  	top: 137px;
+  	left: 1183.71px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild17 {
+  	position: absolute;
+  	top: 212.17px;
+  	left: 1188px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild18 {
+  	position: absolute;
+  	top: 270.17px;
+  	left: 1188px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild19 {
+  	position: absolute;
+  	top: 328.17px;
+  	left: 1188px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild20 {
+  	position: absolute;
+  	top: 357px;
+  	left: 1187.71px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild21 {
+  	position: absolute;
+  	top: 386px;
+  	left: 1187.71px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild22 {
+  	position: absolute;
+  	top: 249.48px;
+  	left: 57.96px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild23 {
+  	position: absolute;
+  	top: 265.48px;
+  	left: 320.96px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild24 {
+  	position: absolute;
+  	top: 186.23px;
+  	left: 594.51px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild25 {
+  	position: absolute;
+  	top: 208.39px;
+  	left: 879.55px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild26 {
+  	position: absolute;
+  	top: 278.48px;
+  	left: 57.96px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild27 {
+  	position: absolute;
+  	top: 294.48px;
+  	left: 320.96px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild28 {
+  	position: absolute;
+  	top: 215.23px;
+  	left: 594.51px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild29 {
+  	position: absolute;
+  	top: 237.39px;
+  	left: 879.55px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild30 {
+  	position: absolute;
+  	top: 307.48px;
+  	left: 57.96px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild31 {
+  	position: absolute;
+  	top: 323.48px;
+  	left: 320.96px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild32 {
+  	position: absolute;
+  	top: 244.23px;
+  	left: 594.51px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild33 {
+  	position: absolute;
+  	top: 266.39px;
+  	left: 879.55px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild34 {
+  	position: absolute;
+  	top: 354.48px;
+  	left: 320.96px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild35 {
+  	position: absolute;
+  	top: 275.23px;
+  	left: 594.51px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}
+.productsChild36 {
+  	position: absolute;
+  	top: 297.39px;
+  	left: 879.55px;
+  	border-radius: 50%;
+  	background-color: #232f1a;
+  	width: 9px;
+  	height: 9px;
+  	flex-shrink: 0;
+}

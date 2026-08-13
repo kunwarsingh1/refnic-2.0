@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  /* Colors -- from Figma variable definitions */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-image: #f2f2f7;
+  --color-accent-blue: #2e4be0;
+  --color-accent-blue-dark: #243bc0;
+  --color-navy-950: #060a14;
+  --color-navy-900: #0a101f;
+  --color-navy-800: #111a30;
+  --color-neutral-0: #ffffff;
+  --color-neutral-1: #eff2f6;
+  --color-neutral-6: #9cb0c9;
+  --color-neutral-7: #8ca2c0;
+  --color-neutral-10: #486284;
+}
+
+@theme inline {
+  --font-sans: "Plus Jakarta Sans", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "DM Sans", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --font-alt: "Inter", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+
+  --color-black: var(--color-black);
+  --color-white: var(--color-white);
+  --color-gray-50: var(--color-gray-50);
+  --color-gray-100: var(--color-gray-100);
+  --color-gray-200: var(--color-gray-200);
+  --color-gray-300: var(--color-gray-300);
+  --color-gray-400: var(--color-gray-400);
+  --color-gray-500: var(--color-gray-500);
+  --color-gray-image: var(--color-gray-image);
+  --color-accent-blue: var(--color-accent-blue);
+  --color-accent-blue-dark: var(--color-accent-blue-dark);
+  --color-navy-950: var(--color-navy-950);
+  --color-navy-900: var(--color-navy-900);
+  --color-navy-800: var(--color-navy-800);
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+/* Subtle grid-line patterns used across the dark industrial sections */
+.bg-grid-dark {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.bg-grid-light {
+  background-image:
+    linear-gradient(to right, rgba(10, 16, 31, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(10, 16, 31, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}

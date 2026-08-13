@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command \"\\(Get-Item 'C:\\\\Users\\\\hp\\\\Downloads\\\\Hero 31 \\(1\\).pdf'\\).Length / 1MB\")",
+      "Bash(powershell -Command \"Get-Command npx -ErrorAction SilentlyContinue | Out-Null; npx --yes playwright --version\")",
+      "Bash(npx --yes playwright --version)",
+      "Bash(npx --yes playwright install chromium)",
+      "Bash(npx --yes playwright install chromium --with-deps)",
+      "Bash(mkdir -p 'C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-hp-Downloads-refnic-app-1-2-refnic-app\\\\f28d190b-43b6-476a-9c83-af145c670736\\\\scratchpad/pw')",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Bash(npx playwright *)",
+      "Bash(node shot.js 'C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-hp-Downloads-refnic-app-1-2-refnic-app\\\\f28d190b-43b6-476a-9c83-af145c670736\\\\scratchpad/pdf_pages/live_full.png')",
+      "Bash(python *)",
+      "Bash(node shot.js 'C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-hp-Downloads-refnic-app-1-2-refnic-app\\\\f28d190b-43b6-476a-9c83-af145c670736\\\\scratchpad/pdf_pages/live_intro1.png')",
+      "Bash(node shot_wait.js 'C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-hp-Downloads-refnic-app-1-2-refnic-app\\\\f28d190b-43b6-476a-9c83-af145c670736\\\\scratchpad/pdf_pages/live_intro2.png')",
+      "Bash(node shot.js 'C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-hp-Downloads-refnic-app-1-2-refnic-app\\\\f28d190b-43b6-476a-9c83-af145c670736\\\\scratchpad/pdf_pages/slide_a.png')",
+      "Bash(node shot.js 'C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-hp-Downloads-refnic-app-1-2-refnic-app\\\\f28d190b-43b6-476a-9c83-af145c670736\\\\scratchpad/pdf_pages/slide_b.png')",
+      "Bash(node debug_intro.js)",
+      "Bash(node debug_intro2.js)",
+      "Bash(node shot.js 'C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-hp-Downloads-refnic-app-1-2-refnic-app\\\\f28d190b-43b6-476a-9c83-af145c670736\\\\scratchpad/pdf_pages/cutcheck1.png')",
+      "Bash(node debug_cut2.js 'C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-hp-Downloads-refnic-app-1-2-refnic-app\\\\f28d190b-43b6-476a-9c83-af145c670736\\\\scratchpad/pdf_pages/sample1.png')",
+      "Bash(node multi_width.js 'C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-hp-Downloads-refnic-app-1-2-refnic-app\\\\f28d190b-43b6-476a-9c83-af145c670736\\\\scratchpad/pdf_pages/mw')",
+      "Bash(node debug_cut2.js 'C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-hp-Downloads-refnic-app-1-2-refnic-app\\\\f28d190b-43b6-476a-9c83-af145c670736\\\\scratchpad/pdf_pages/sample2.png')",
+      "Bash(node debug_boundary.js)",
+      "Bash(node debug_chain.js)",
+      "Bash(node shot.js 'C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-hp-Downloads-refnic-app-1-2-refnic-app\\\\f28d190b-43b6-476a-9c83-af145c670736\\\\scratchpad/pdf_pages/refmatch1.png')",
+      "Bash(node shot.js 'C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-hp-Downloads-refnic-app-1-2-refnic-app\\\\f28d190b-43b6-476a-9c83-af145c670736\\\\scratchpad/pdf_pages/refmatch2.png')",
+      "Bash(node shot.js 'C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-hp-Downloads-refnic-app-1-2-refnic-app\\\\f28d190b-43b6-476a-9c83-af145c670736\\\\scratchpad/pdf_pages/refmatch3.png')",
+      "Bash(node shot.js 'C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-hp-Downloads-refnic-app-1-2-refnic-app\\\\f28d190b-43b6-476a-9c83-af145c670736\\\\scratchpad/pdf_pages/refmatch4.png')",
+      "Bash(node shot.js 'C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-hp-Downloads-refnic-app-1-2-refnic-app\\\\f28d190b-43b6-476a-9c83-af145c670736\\\\scratchpad/pdf_pages/refmatch5.png')",
+      "Bash(node shot_mobile_stats.js 'C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-hp-Downloads-refnic-app-1-2-refnic-app\\\\f28d190b-43b6-476a-9c83-af145c670736\\\\scratchpad/pdf_pages/mobile_stats.png')"
+    ]
+  }
+}
