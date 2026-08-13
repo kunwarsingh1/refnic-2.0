@@ -1,15 +1,18 @@
 import { ReactNode } from "react";
+import Link from "next/link";
 
 export function Button({
   children,
   variant = "primary",
   icon,
   className = "",
+  href,
 }: {
   children: ReactNode;
   variant?: "primary" | "outline";
   icon?: ReactNode;
   className?: string;
+  href?: string;
 }) {
   const base =
     "inline-flex items-center gap-2 rounded-none px-7 py-[16px] text-[16px] font-bold leading-none whitespace-nowrap transition-colors";
@@ -17,8 +20,17 @@ export function Button({
     variant === "primary"
       ? "bg-accent-blue text-white hover:bg-accent-blue-dark"
       : "bg-white text-black border border-gray-300 hover:bg-gray-50";
+  const cls = `${base} ${styles} ${className}`;
+  if (href) {
+    return (
+      <Link href={href} className={cls}>
+        {icon}
+        {children}
+      </Link>
+    );
+  }
   return (
-    <button className={`${base} ${styles} ${className}`}>
+    <button className={cls}>
       {icon}
       {children}
     </button>

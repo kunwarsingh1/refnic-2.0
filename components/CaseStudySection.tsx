@@ -110,7 +110,7 @@ export default function CaseStudySection() {
                 <p className="mt-6 text-sm font-bold text-[#1b37b0]">{cs.label}</p>
                 <p className="mt-3 leading-relaxed text-gray-600">{cs.body}</p>
                 <div className="mt-8">
-                  <Button className="rounded-lg">View Case Study</Button>
+                  <Button href="/case-study" className="rounded-lg">View Case Study</Button>
                 </div>
               </div>
             </div>

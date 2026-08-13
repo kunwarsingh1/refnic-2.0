@@ -133,7 +133,7 @@ export default function IntroSection() {
 
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="mt-20 flex justify-center">
-          <Button>View Products</Button>
+          <Button href="/products">View Products</Button>
         </div>
       </div>
     </section>

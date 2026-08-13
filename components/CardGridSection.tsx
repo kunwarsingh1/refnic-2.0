@@ -77,9 +77,9 @@ export default function CardGridSection({
               <p className={`mt-2 flex-1 text-sm leading-relaxed ${light ? "text-gray-500" : "text-white/55"}`}>
                 {c.body}
               </p>
-              <button className="mt-6 self-start rounded-none bg-accent-blue px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-accent-blue-dark">
+              <Link href="/products" className="mt-6 self-start rounded-none bg-accent-blue px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-accent-blue-dark">
                 View
-              </button>
+              </Link>
             </div>
           ))}
         </div>
@@ -93,9 +93,9 @@ export default function CardGridSection({
               Explore all
             </Link>
           ) : (
-            <button className="rounded-none bg-accent-blue px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-accent-blue-dark">
+            <Link href="/products" className="rounded-none bg-accent-blue px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-accent-blue-dark">
               Explore all
-            </button>
+            </Link>
           )}
         </div>
       </div>

@@ -7,13 +7,6 @@ export default function Footer() {
         <div className="absolute inset-0 -z-10 overflow-hidden bg-grid-dark" aria-hidden />
 
         <div className="mx-auto max-w-6xl px-6 pt-6 md:pt-8 pb-2 md:pb-4 flex flex-col items-center text-center">
-          <Link
-            href="/careers"
-            className="mb-12 inline-block rounded-md bg-[#3b4fe4] px-4 py-2 text-sm font-semibold text-white hover:bg-[#2d3fe0] transition-colors md:mb-20"
-          >
-            View Open Positions
-          </Link>
-
           <p
             className="pointer-events-none select-none whitespace-nowrap font-display font-black leading-none text-white/[0.06] text-[16vw] md:text-[9rem] [mask-image:linear-gradient(to_bottom,black_92%,transparent_100%)]"
             aria-hidden

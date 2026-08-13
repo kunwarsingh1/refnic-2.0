@@ -47,7 +47,7 @@ export default function Hero() {
           </p>
 
           <div className="mt-10 flex justify-center">
-            <Button>Explore Our Solution</Button>
+            <Button href="/products">Explore Our Solution</Button>
           </div>
         </div>
       </div>
