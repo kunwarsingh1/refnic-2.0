@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { CaretDown } from "./ui/primitives";
-import { BookOpen, Globe, BarChart3, TrendingUp, MapPin, ArrowUpRight, Boxes, Lightbulb, Settings, Leaf, Library, Wrench, FileText } from "lucide-react";
+import { BookOpen, Globe, BarChart3, TrendingUp, MapPin, ArrowUpRight, Boxes, Lightbulb, Settings, Leaf, Library, Wrench, FileText, Menu, X } from "lucide-react";
 import styles from "./aboutDropdown.module.css";
 import productStyles from "./products.module.css";
 import techStyles from "./technologies.module.css";
@@ -66,6 +66,11 @@ export default function Navbar({
   const [navScale, setNavScale] = useState(1);
   const [productsScale, setProductsScale] = useState(1);
   const [techScale, setTechScale] = useState(1);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     const compute = () => {
@@ -80,13 +85,14 @@ export default function Navbar({
   }, []);
 
   return (
+    <>
     <div className="relative flex items-center gap-4 px-6 py-3 text-sm">
       <div className="flex flex-1 items-center gap-4">
         <a href={`mailto:${contactEmail}`} className="hidden lg:block hover:underline">
           {contactEmail}
         </a>
 
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden lg:flex items-center gap-10">
           {leftLinks.map((l) =>
             l.label === "Products" ? (
               <div
@@ -423,7 +429,7 @@ export default function Navbar({
         </Link>
 
       <div className="flex flex-1 items-center justify-end gap-4">
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden lg:flex items-center gap-10">
           {rightLinks.map((l) =>
             l.label === "About Us" ? (
               <div
@@ -505,7 +511,59 @@ export default function Navbar({
         <a href={`tel:${contactPhone.replace(/\s+/g, "")}`} className="hidden lg:block hover:underline">
           {contactPhone}
         </a>
+
+        <button
+          type="button"
+          onClick={() => setMobileOpen((v) => !v)}
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
+          className="flex items-center justify-center rounded-md p-1.5 text-black lg:hidden"
+        >
+          {mobileOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+        </button>
       </div>
       </div>
+
+      {mobileOpen && (
+        <div className="border-t border-gray-100 px-6 py-4 lg:hidden">
+          <nav className="flex flex-col gap-1 text-sm">
+            <Link href="/" className="rounded-md px-2 py-2.5 hover:bg-gray-50">
+              Home
+            </Link>
+            <Link href="/products" className="rounded-md px-2 py-2.5 hover:bg-gray-50">
+              Products
+            </Link>
+            <Link href="/technologies" className="rounded-md px-2 py-2.5 hover:bg-gray-50">
+              Technologies
+            </Link>
+
+            <p className="mt-2 px-2 text-xs font-bold uppercase tracking-wide text-gray-400">About Us</p>
+            {aboutMenu.map((item) => (
+              <a key={item.title} href={item.href} className="rounded-md px-2 py-2.5 hover:bg-gray-50">
+                {item.title}
+              </a>
+            ))}
+
+            <div className="mt-2 border-t border-gray-100 pt-2">
+              <a href="/newsletter" className="block rounded-md px-2 py-2.5 hover:bg-gray-50">
+                Newsletters
+              </a>
+              <a href="#contact" className="block rounded-md px-2 py-2.5 hover:bg-gray-50">
+                Contact
+              </a>
+            </div>
+
+            <div className="mt-2 flex flex-col gap-1 border-t border-gray-100 pt-3 text-xs text-gray-500">
+              <a href={`mailto:${contactEmail}`} className="px-2 py-1 hover:underline">
+                {contactEmail}
+              </a>
+              <a href={`tel:${contactPhone.replace(/\s+/g, "")}`} className="px-2 py-1 hover:underline">
+                {contactPhone}
+              </a>
+            </div>
+          </nav>
+        </div>
+      )}
+    </>
   );
 }

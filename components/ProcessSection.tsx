@@ -47,20 +47,20 @@ export default function ProcessSection({ steps }: { steps: ProcessStep[] }) {
                 >
                   <div className="flex min-h-0 flex-1 flex-col">
                     <span
-                      className={`font-display font-black text-5xl text-black transition-colors duration-300 ${highlighted ? "group-hover:text-[#3b4fe4]" : ""}`}
+                      className={`font-display font-black text-5xl ${highlighted ? "text-[#3b4fe4] md:text-black md:transition-colors md:duration-300 md:group-hover:text-[#3b4fe4]" : "text-black"}`}
                     >
                       {n}
                     </span>
                     {s.modelUrl ? (
                       <div
-                        className={`mt-2 mr-[-2rem] min-h-0 flex-1 transition-opacity duration-300 ${highlighted ? "group-hover:opacity-0" : ""}`}
+                        className={`mt-2 mr-[-2rem] min-h-0 flex-1 ${highlighted ? "opacity-0 md:opacity-100 md:transition-opacity md:duration-300 md:group-hover:opacity-0" : ""}`}
                       >
                         <ModelViewer src={s.modelUrl} alt={s.title} className="h-full w-full" />
                       </div>
                     ) : (
                       s.imageUrl && (
                         <div
-                          className={`mt-2 mr-[-2rem] min-h-0 flex-1 transition-opacity duration-300 ${highlighted ? "group-hover:opacity-0" : ""}`}
+                          className={`mt-2 mr-[-2rem] min-h-0 flex-1 ${highlighted ? "opacity-0 md:opacity-100 md:transition-opacity md:duration-300 md:group-hover:opacity-0" : ""}`}
                         >
                           <img
                             src={s.imageUrl}
@@ -72,7 +72,7 @@ export default function ProcessSection({ steps }: { steps: ProcessStep[] }) {
                     )}
                   </div>
                   {s.extra && (
-                    <p className="pointer-events-none absolute inset-x-8 top-28 bottom-8 text-sm leading-relaxed text-[#3b4fe4] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <p className="pointer-events-none absolute inset-x-8 top-28 bottom-8 text-sm leading-relaxed text-[#3b4fe4] opacity-100 md:opacity-0 md:transition-opacity md:duration-300 md:group-hover:opacity-100">
                       {s.extra}
                     </p>
                   )}

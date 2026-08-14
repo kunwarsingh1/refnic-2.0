@@ -293,13 +293,19 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                   animation: "csFade 0.45s ease",
                 }}
                 className="
-                  absolute
-                  left-[13%]
-                  top-[57px]
-                  bottom-[57px]
+                  relative
                   z-10
-                  w-[32%]
+                  mb-6
+                  aspect-[4/3]
+                  w-full
                   shadow-[0_4px_86.9px_rgba(0,0,0,0.25),0_4px_76px_rgba(49,82,223,0.35)]
+                  md:absolute
+                  md:left-[13%]
+                  md:top-[57px]
+                  md:bottom-[57px]
+                  md:mb-0
+                  md:aspect-auto
+                  md:w-[32%]
                 "
               >
                 {cs.modelUrl ? (

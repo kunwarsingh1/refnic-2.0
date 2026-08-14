@@ -9,22 +9,22 @@ export default function Hero() {
         <img
           src="/white_stone.png"
           alt=""
-          className="absolute left-0 top-1/2 z-20 w-80 -translate-x-[10%] -translate-y-[70%] rotate-[0deg] object-contain md:w-96"
+          className="absolute left-0 top-1/2 z-20 w-32 -translate-x-[10%] -translate-y-[70%] rotate-[0deg] object-contain sm:w-56 md:w-96"
         />
         <img
           src="/blur_stone.png"
           alt=""
-          className="absolute right-0 top-1/2 z-20 w-56 translate-x-[30%] -translate-y-[90%] rotate-[150deg] -scale-x-100 object-contain md:w-72"
+          className="absolute right-0 top-1/2 z-20 w-28 translate-x-[30%] -translate-y-[90%] rotate-[150deg] -scale-x-100 object-contain sm:w-44 md:w-72"
         />
         <img
           src="/blue_blur.png"
           alt=""
-          className="absolute bottom-0 left-0 z-20 w-48 -translate-x-[35%] object-contain md:w-56"
+          className="absolute bottom-0 left-0 z-20 w-28 -translate-x-[35%] object-contain sm:w-40 md:w-56"
         />
         <img
           src="/blue_stone.png"
           alt=""
-          className="absolute bottom-0 right-0 z-20 w-56 translate-x-[20%] translate-y-[20%] object-contain md:w-72"
+          className="absolute bottom-0 right-0 z-20 w-28 translate-x-[20%] translate-y-[20%] object-contain sm:w-44 md:w-72"
         />
         
 

@@ -52,7 +52,7 @@ export default function StatsSection({
           so it straddles the boundary with the white section below without
           affecting this section's height or overlapping the stats above. */}
       <div className="absolute inset-x-0 top-full z-20 -translate-y-[85px] md:-translate-y-[245px]">
-        <div className="relative mx-auto max-w-[960px] -translate-x-10 px-6 md:-translate-x-3">
+        <div className="relative mx-auto max-w-[960px] -translate-x-3 px-6">
           <div className="relative">
             <img
   src={plantImageUrl}
