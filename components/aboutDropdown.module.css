@@ -2,7 +2,7 @@
 	position: absolute;
 	top: -9px;
 	left: 0px;
-	width: 1198px;
+	width: 1515px;
 	height: 320px;
 	flex-shrink: 0;
 }
@@ -15,7 +15,7 @@
 	background-color: #fff;
 	border: 1px solid #1b37b0;
 	box-sizing: border-box;
-	width: 1198px;
+	width: 1515px;
 	height: 313px;
 	display: flex;
 	align-items: flex-start;
@@ -59,7 +59,7 @@
 	position: relative;
 	font-size: 14px;
 	line-height: 140%;
-	font-family: Manrope;
+	font-family: 'Plus Jakarta Sans';
 	color: #515251;
 	display: inline-block;
 }
@@ -86,7 +86,7 @@
 	position: relative;
 	font-size: 14px;
 	line-height: 140%;
-	font-family: Manrope;
+	font-family: 'Plus Jakarta Sans';
 	color: #515251;
 	display: inline-block;
 	flex-shrink: 0;

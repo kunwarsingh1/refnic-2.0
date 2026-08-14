@@ -1,12 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
-import { posts } from "@/lib/newsletter";
+import { useEffect, useMemo, useRef } from "react";
+import type { NewsletterPost } from "@/lib/content/newsletter";
 
-const loopPosts = [...posts, ...posts];
-
-export default function NewsletterSection() {
+export default function NewsletterSection({ posts }: { posts: NewsletterPost[] }) {
+  const loopPosts = useMemo(() => [...posts, ...posts], [posts]);
   const scrollerRef = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
 
@@ -33,7 +32,7 @@ export default function NewsletterSection() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-navy-950 pt-12 md:pt-16 pb-0">
+    <section className="relative overflow-hidden bg-black pt-12 md:pt-16 pb-0">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative w-full px-6">
@@ -41,7 +40,7 @@ export default function NewsletterSection() {
           <h2 className="font-sans font-bold text-3xl leading-tight text-white md:text-5xl">
             Newsletters
           </h2>
-          <p className="max-w-md text-white/60">
+          <p className="ml-auto max-w-md text-right text-white/60">
             From concept development to long-term operational support, Refnic
             delivers the expertise that powers successful industrial projects.
           </p>
@@ -56,7 +55,7 @@ export default function NewsletterSection() {
       >
         {loopPosts.map((post, i) => (
           <article
-            key={i}
+            key={`${post.id}-${i}`}
             className="flex w-[320px] shrink-0 flex-col overflow-hidden rounded-none bg-white text-black shadow-sm transition-transform duration-300 hover:scale-[1.03] hover:shadow-[0_0_40px_-15px_rgba(46,75,224,0.55)]"
           >
             <div className="aspect-[412/244] bg-white" />

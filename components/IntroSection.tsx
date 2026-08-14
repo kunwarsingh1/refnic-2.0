@@ -1,39 +1,17 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { Button } from "./ui/primitives";
-
-const cards = [
-  {
-    title: "Metal Refining",
-    image: "/Metall_refining.png",
-  },
-  {
-    title: "Material Recovery",
-    image: "/Material_recovery.png",
-  },
-  {
-    title: "Hydrometallurgy",
-    image: "/Hydrometallurgy.png",
-  },
-  {
-    title: "Process Engineering",
-    image: "/PROCESS_ENG.png",
-  },
-  {
-    title: "E-Waste Recycling",
-    image: "/E_waste_recycling.png",
-  },
-];
-
-const N = cards.length;
-// three copies back-to-back so the track can keep sliding left and loop seamlessly
-const track = [...cards, ...cards, ...cards];
+import type { IntroCard } from "@/lib/content/introCards";
 
 const ROTATE_MS = 3500;
 const TRANSITION_MS = 700;
 
-export default function IntroSection() {
+export default function IntroSection({ cards }: { cards: IntroCard[] }) {
+  const N = cards.length;
+  // three copies back-to-back so the track can keep sliding left and loop seamlessly
+  const track = useMemo(() => [...cards, ...cards, ...cards], [cards]);
+
   const trackRef = useRef<HTMLDivElement>(null);
   const [step, setStep] = useState(0);
   const [position, setPosition] = useState(N);
@@ -80,11 +58,8 @@ export default function IntroSection() {
   const middleIndex = position + 1;
 
   return (
-    <section className="relative overflow-hidden bg-navy-950 py-10 md:py-12">
+    <section className="relative overflow-hidden bg-black py-10 md:py-12">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
-
-      <div className="pointer-events-none absolute -left-40 top-20 h-[626px] w-[626px] rounded-full bg-[#3152df] opacity-30 blur-[360px]" aria-hidden />
-      <div className="pointer-events-none absolute -right-32 top-1/3 h-[797px] w-[797px] rounded-full bg-[#3152df] opacity-50 blur-[456px]" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="grid items-end gap-10 md:grid-cols-2 md:gap-24">
@@ -114,12 +89,14 @@ export default function IntroSection() {
               return (
                 <div
                   key={i}
-                  className={`flex w-[calc((100%-3rem)/3)] shrink-0 flex-col items-center border border-white/10 p-6 text-center transition-all duration-700 md:w-[calc((100%-4rem)/3)] ${emphasized ? "md:py-10" : ""}`}
+                  style={{ perspective: "1000px" }}
+                  className={`flex w-[calc((100%-3rem)/3)] shrink-0 flex-col items-center border border-white/10 p-6 text-center transition-all duration-700 md:w-[calc((100%-4rem)/3)]`}
                 >
                   <img
-                    src={c.image}
+                    src={c.imageUrl}
                     alt={c.title}
-                    className={`w-full object-contain transition-all duration-700 ${emphasized ? "h-40 md:h-56" : "h-28 md:h-36"}`}
+                    className={`w-full object-contain transition-all duration-700 ${emphasized ? "h-42 md:h-60" : "h-28 md:h-40"}`}
+                    style={{ filter: "drop-shadow(0 0 60px rgba(46, 75, 224, 0.85))" }}
                   />
                   <p className={`mt-6 font-sans text-white transition-all duration-700 ${emphasized ? "text-2xl font-bold md:text-3xl" : "text-lg font-medium text-white/80"}`}>
                     {c.title}

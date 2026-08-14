@@ -1,29 +1,31 @@
-"use client";
-
-import Navbar from "@/components/Navbar";
+import type { Metadata } from "next";
+import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
+import CardGridSection from "@/components/CardGridSection";
+import { getCards } from "@/lib/content/cards";
+import { getProductsPageConfig } from "@/lib/content/productsPage";
 
-const Page: React.FC = () => {
+export const metadata: Metadata = {
+  title: "Products — Refine Nicely",
+  description: "Indigenously designed industrial machinery built for high performance, reliability, and long-term operation.",
+};
+
+export const revalidate = 60;
+
+export default async function ProductsPage() {
+  const [products, config] = await Promise.all([getCards("products"), getProductsPageConfig()]);
+
   return (
     <>
-      <div className="bg-navy-950">
-        <header className="mt-4 md:mt-6">
-          <div className="mx-auto max-w-[90rem] bg-white">
-            <Navbar />
-          </div>
-        </header>
+      <div className="bg-black">
+        <SiteHeader />
       </div>
 
-      <section className="relative flex min-h-[80vh] w-full items-center justify-center overflow-hidden bg-[#161518]">
-        <h1 className="pointer-events-none absolute z-0 select-none text-[20vw] font-bold uppercase leading-none text-white/10">
-          Products
-        </h1>
-        <div className="relative z-10 h-72 w-[80%] max-w-4xl rounded-2xl border border-white/15 bg-white/5 backdrop-blur-sm" />
-      </section>
+      <main className="bg-black">
+        <CardGridSection title={config.heading} subtitle={config.subtitle} cards={products} variant="products" />
+      </main>
 
       <Footer />
     </>
   );
-};
-
-export default Page;
+}

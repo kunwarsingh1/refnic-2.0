@@ -1,128 +1,449 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ArrowLeftIcon, ArrowRightIcon, Button } from "./ui/primitives";
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  Button,
+} from "./ui/primitives";
 import type { TouchEvent as ReactTouchEvent } from "react";
+import type { CaseStudy } from "@/lib/content/caseStudies";
+import { ModelViewer } from "./ModelViewer";
 
-const caseStudies = [
-  {
-    number: "01",
-    city: "Mumbai",
-    label: "Li-ion battery recycling Plant",
-    image: "/Li-ion battery recycling.png",
-    body: "Designed and commissioned as a turnkey lithium-ion battery recycling facility, this plant enables efficient material recovery through advanced process engineering, indigenous equipment, and scalable industrial infrastructure.",
-  },
-  {
-    number: "02",
-    city: "Pune",
-    label: "E-Waste Recycling Line",
-    image: "/E-waste recycling line.png",
-    body: "An integrated mechanical line engineered for safe e-waste processing and high-yield recovery of valuable fractions, from shredding and separation through to refining-ready concentrates.",
-  },
-  {
-    number: "03",
-    city: "Ahmedabad",
-    label: "Hydrometallurgical Refinery",
-    image: "/Metal refining hydrometellury.png",
-    body: "A complete hydrometallurgical facility delivering battery-grade refined metals through precisely engineered leaching, solvent extraction, and electrowinning stages.",
-  },
-];
-
-export default function CaseStudySection() {
+export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStudy[] }) {
   const [index, setIndex] = useState(0);
   const cs = caseStudies[index];
+  const number = String(index + 1).padStart(2, "0");
 
-  const prev = () => setIndex((i) => (i - 1 + caseStudies.length) % caseStudies.length);
-  const next = () => setIndex((i) => (i + 1) % caseStudies.length);
+  const prev = () => {
+    setIndex(
+      (i) => (i - 1 + caseStudies.length) % caseStudies.length
+    );
+  };
+
+  const next = () => {
+    setIndex(
+      (i) => (i + 1) % caseStudies.length
+    );
+  };
+
+  /* --------------------------------
+     Keyboard navigation
+  -------------------------------- */
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") prev();
-      if (e.key === "ArrowRight") next();
+      if (e.key === "ArrowLeft") {
+        prev();
+      }
+
+      if (e.key === "ArrowRight") {
+        next();
+      }
     };
+
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+
+    return () => {
+      window.removeEventListener("keydown", onKey);
+    };
   }, []);
 
+  /* --------------------------------
+     Touch / swipe navigation
+  -------------------------------- */
+
   const [touchX, setTouchX] = useState<number | null>(null);
-  const onTouchStart = (e: ReactTouchEvent) => setTouchX(e.touches[0].clientX);
+
+  const onTouchStart = (e: ReactTouchEvent) => {
+    setTouchX(e.touches[0].clientX);
+  };
+
   const onTouchEnd = (e: ReactTouchEvent) => {
     if (touchX === null) return;
+
     const dx = e.changedTouches[0].clientX - touchX;
+
     if (Math.abs(dx) > 50) {
-      if (dx < 0) next();
-      else prev();
+      if (dx < 0) {
+        next();
+      } else {
+        prev();
+      }
     }
+
     setTouchX(null);
   };
 
+  if (!cs) {
+    return (
+      <section className="relative overflow-hidden bg-black pt-[80px] pb-12 md:pt-[204px] md:pb-16">
+        <div className="absolute inset-0 bg-grid-dark" aria-hidden />
+        <div className="relative z-10 mx-auto w-[90%] px-6">
+          <div className="rounded-t-[2.5rem] bg-white px-6 py-14 text-center text-gray-400 md:px-12">
+            No case studies yet.
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section className="relative overflow-hidden rounded-t-[2.5rem] bg-white pt-[80px] pb-12 md:pt-[204px] md:pb-16">
+    <section className="relative overflow-hidden bg-black pt-[80px] pb-12 md:pt-[204px] md:pb-16">
+      
+      {/* ==========================================
+          BACKGROUND GRID
+      ========================================== */}
+
+      <div
+        className="absolute inset-0 bg-grid-dark"
+        aria-hidden
+      />
+
+      {/* ==========================================
+          ANIMATION
+      ========================================== */}
+
       <style>{`
         @keyframes csFade {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
       `}</style>
 
-      <div className="pointer-events-none absolute -right-40 top-10 h-[626px] w-[626px] rounded-full bg-[#3152df] opacity-20 blur-[360px]" aria-hidden />
+      {/* ==========================================
+          MAIN CONTAINER
+      ========================================== */}
 
-      <div className="relative z-10 mx-auto max-w-6xl px-6">
-        <div className="mb-14 grid items-end gap-8 md:grid-cols-2">
-          <h2 className="font-sans font-bold text-3xl leading-tight text-black md:text-5xl">
-            Projects That Speak for Themselves
-          </h2>
-          <p className="max-w-md text-gray-500">
-            Every project is a benchmark in precision engineering and
-            sustainable resource recovery.
-          </p>
-        </div>
+      <div className="relative z-10 mx-auto w-[90%] px-6">
+        
+        <div className="rounded-t-[2.5rem] bg-white px-6 pt-10 pb-14 md:px-12 md:pt-14 md:pb-20">
 
-        <div className="relative px-16 md:px-20">
-          <button
-            onClick={prev}
-            aria-label="Previous case study"
-            className="absolute left-0 top-1/2 z-20 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border border-gray-300 bg-white text-black transition-colors hover:border-accent-blue hover:text-accent-blue"
-          >
-            <ArrowLeftIcon className="size-5" />
-          </button>
+          {/* ========================================
+              SECTION HEADER
+          ======================================== */}
 
-          <div className="relative rounded-2xl bg-[#f8f8f8] px-8 py-10 md:px-12 md:py-14">
+          <div className="mb-14 grid items-end gap-8 md:grid-cols-2">
+            
+            <h2 className="font-sans text-3xl font-bold leading-tight text-black md:text-5xl">
+              Projects That Speak for Themselves
+            </h2>
+
+            <p className="max-w-md text-gray-500">
+              Every project is a benchmark in precision engineering and
+              sustainable resource recovery.
+            </p>
+
+          </div>
+
+          {/* ========================================
+              CAROUSEL WRAPPER
+          ======================================== */}
+
+          <div className="relative px-16 md:px-20">
+
+            {/* ======================================
+                PREVIOUS BUTTON
+            ====================================== */}
+
+            <button
+              onClick={prev}
+              aria-label="Previous case study"
+              className="
+                absolute
+                left-0
+                top-1/2
+                z-40
+                flex
+                size-12
+                -translate-y-1/2
+                items-center
+                justify-center
+                rounded-full
+                border
+                border-gray-300
+                bg-white
+                text-black
+                transition-colors
+                hover:border-accent-blue
+                hover:text-accent-blue
+              "
+            >
+              <ArrowLeftIcon className="size-5" />
+            </button>
+
+            {/* ======================================
+                CASE STUDY CARD
+
+                IMPORTANT:
+                NO PADDING HERE.
+
+                This allows the image and grid
+                lines to use exactly the same
+                coordinate system.
+            ====================================== */}
+
             <div
-              key={index}
+              className="
+                relative
+                min-h-[470px]
+                overflow-hidden
+                rounded-2xl
+                bg-[#f8f8f8]
+                md:min-h-[410px]
+              "
               onTouchStart={onTouchStart}
               onTouchEnd={onTouchEnd}
-              style={{ animation: "csFade 0.45s ease" }}
-              className="grid items-center gap-10 md:grid-cols-2"
             >
-              <div className="flex items-center justify-center">
-                <img
-                  src={cs.image}
-                  alt={cs.label}
-                  className="aspect-[438/309] w-full rounded-xl object-cover shadow-[0_4px_86.9px_rgba(0,0,0,0.25),0_4px_76px_rgba(49,82,223,0.35)]"
-                />
+
+              {/* ====================================
+                  GRID — LEFT VERTICAL LINE
+              ==================================== */}
+
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-y-0
+                  left-[13%]
+                  z-30
+                  w-px
+                  bg-gray-300
+                "
+                aria-hidden
+              />
+
+              {/* ====================================
+                  GRID — IMAGE / CONTENT LINE
+              ==================================== */}
+
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-y-0
+                  left-[45%]
+                  z-30
+                  w-px
+                  bg-accent-blue/40
+                "
+                aria-hidden
+              />
+
+              {/* ====================================
+                  GRID — TOP HORIZONTAL LINE
+              ==================================== */}
+
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-x-0
+                  top-[56px]
+                  z-30
+                  h-px
+                  bg-accent-blue/40
+                "
+                aria-hidden
+              />
+
+              {/* ====================================
+                  GRID — BOTTOM HORIZONTAL LINE
+              ==================================== */}
+
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-x-0
+                  bottom-[56px]
+                  z-30
+                  h-px
+                  bg-accent-blue/40
+                "
+                aria-hidden
+              />
+
+              {/* ====================================
+                  IMAGE
+
+                  13% → 45%
+
+                  Therefore:
+
+                  left = 13%
+                  width = 32%
+
+                  13 + 32 = 45%
+
+                  So the image ends EXACTLY
+                  at the second vertical line.
+              ==================================== */}
+
+              <div
+                key={`img-${index}`}
+                style={{
+                  animation: "csFade 0.45s ease",
+                }}
+                className="
+                  absolute
+                  left-[13%]
+                  top-[57px]
+                  bottom-[57px]
+                  z-10
+                  w-[32%]
+                  shadow-[0_4px_86.9px_rgba(0,0,0,0.25),0_4px_76px_rgba(49,82,223,0.35)]
+                "
+              >
+                {cs.modelUrl ? (
+                  <ModelViewer src={cs.modelUrl} alt={cs.label} className="h-full w-full" />
+                ) : (
+                  <img
+                    src={cs.imageUrl}
+                    alt={cs.label}
+                    className="h-full w-full object-cover"
+                  />
+                )}
               </div>
-              <div>
-                <p className="font-display font-black text-4xl md:text-6xl">
-                  <span className="text-[#3152df]">{cs.number} — </span>
-                  <span className="text-black">{cs.city}</span>
-                </p>
-                <p className="mt-6 text-sm font-bold text-[#1b37b0]">{cs.label}</p>
-                <p className="mt-3 leading-relaxed text-gray-600">{cs.body}</p>
-                <div className="mt-8">
-                  <Button href="/case-study" className="rounded-lg">View Case Study</Button>
+
+              {/* ====================================
+                  CONTENT GRID
+
+                  13% = number
+                  32% = image
+                  55% = content
+
+                  Total = 100%
+              ==================================== */}
+
+              <div
+                key={index}
+                style={{
+                  animation: "csFade 0.45s ease",
+                }}
+                className="
+                  relative
+                  z-10
+                  grid
+                  min-h-[470px]
+                  items-center
+                  md:min-h-[410px]
+                  md:grid-cols-[13%_32%_55%]
+                "
+              >
+
+                {/* ==================================
+                    NUMBER
+                ================================== */}
+
+                <div className="flex items-center justify-center">
+                  <p className="
+                    hidden
+                    font-display
+                    text-6xl
+                    font-black
+                    text-black/10
+                    md:block
+                  ">
+                    {number}
+                  </p>
+                </div>
+
+                {/* ==================================
+                    IMAGE COLUMN
+
+                    Empty intentionally.
+                    The actual image is absolutely
+                    positioned above this column.
+                ================================== */}
+
+                <div aria-hidden />
+
+                {/* ==================================
+                    CONTENT
+                ================================== */}
+
+                <div className="px-8 py-16 md:px-12 md:py-20">
+
+                  <p className="
+                    font-display
+                    text-4xl
+                    font-black
+                    text-[#3152df]
+                    md:text-6xl
+                  ">
+                    {cs.city}
+                  </p>
+
+                  <p className="
+                    mt-3
+                    text-sm
+                    font-bold
+                    text-[#1b37b0]
+                  ">
+                    {cs.label}
+                  </p>
+
+                  <p className="
+                    mt-2
+                    max-w-xl
+                    leading-snug
+                    text-gray-600
+                  ">
+                    {cs.body}
+                  </p>
+
+                  <div className="mt-3">
+                    <Button
+                      href="/case-study"
+                      className="rounded-lg"
+                    >
+                      View Case Study
+                    </Button>
+                  </div>
+
                 </div>
               </div>
             </div>
-          </div>
 
-          <button
-            onClick={next}
-            aria-label="Next case study"
-            className="absolute right-0 top-1/2 z-20 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border border-gray-300 bg-white text-black transition-colors hover:border-accent-blue hover:text-accent-blue"
-          >
-            <ArrowRightIcon className="size-5" />
-          </button>
+            {/* ======================================
+                NEXT BUTTON
+            ====================================== */}
+
+            <button
+              onClick={next}
+              aria-label="Next case study"
+              className="
+                absolute
+                right-0
+                top-1/2
+                z-40
+                flex
+                size-12
+                -translate-y-1/2
+                items-center
+                justify-center
+                rounded-full
+                border
+                border-gray-300
+                bg-white
+                text-black
+                transition-colors
+                hover:border-accent-blue
+                hover:text-accent-blue
+              "
+            >
+              <ArrowRightIcon className="size-5" />
+            </button>
+
+          </div>
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import SiteHeader from "@/components/SiteHeader";
 import Hero from "@/components/Hero";
 import IntroSection from "@/components/IntroSection";
 import PillarsSection from "@/components/PillarsSection";
@@ -9,94 +9,95 @@ import CardGridSection from "@/components/CardGridSection";
 import NewsletterSection from "@/components/NewsletterSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import { getCards } from "@/lib/content/cards";
+import { getCaseStudies } from "@/lib/content/caseStudies";
+import { getProcessSteps } from "@/lib/content/processSteps";
+import { getStatsConfig } from "@/lib/content/stats";
+import { getIntroCards } from "@/lib/content/introCards";
+import { getPillars } from "@/lib/content/pillars";
+import { getNewsletterPosts } from "@/lib/content/newsletter";
 
-const products = [
-  {
-    title: "Li-ion Battery Recycling Plant",
-    body: "Complete mechanical plant systems for processing end-of-life lithium-ion batteries.",
-  },
-  {
-    title: "E-Waste Recycling Line",
-    body: "Integrated equipment lines for processing e-waste and recovering valuable materials.",
-  },
-  {
-    title: "Battery Assembly Line",
-    body: "Industrial assembly systems designed for efficient and scalable battery manufacturing.",
-  },
-];
+export const revalidate = 60;
 
-const solutions = [
-  {
-    title: "Metal Refining / Hydrometallurgy",
-    body: "Complete hydrometallurgical process solutions for extracting, refining, and producing high-purity critical metals from recycled materials.",
-  },
-  {
-    title: "Solvent Extraction",
-    body: "Selective solvent extraction processes designed for efficient purification and separation of valuable metal ions.",
-  },
-  {
-    title: "Lithium-ion Battery Recycling",
-    body: "End-to-end recycling plants engineered for the safe processing and recovery of valuable materials from end-of-life lithium-ion batteries.",
-  },
-];
+export default async function Home() {
+  const [products, solutions, services, caseStudies, processSteps, statsConfig, introCards, pillars, newsletterPosts] =
+    await Promise.all([
+      getCards("products"),
+      getCards("solutions"),
+      getCards("services"),
+      getCaseStudies(),
+      getProcessSteps(),
+      getStatsConfig(),
+      getIntroCards(),
+      getPillars(),
+      getNewsletterPosts(),
+    ]);
+  const allSolutions = [...solutions, ...solutions];
 
-const allSolutions = [...solutions, ...solutions];
-
-const services = [
-  {
-    title: "Comprehensive Engineering Services",
-    body: "Supporting every stage of your project lifecycle with technical expertise, documentation, training, and strategic guidance.",
-  },
-  {
-    title: "Customized Equipment Design & Manufacturing",
-    body: "Engineered exclusively for your process requirements.",
-  },
-  {
-    title: "Process Engineering",
-    body: "Optimized process design for maximum efficiency and recovery.",
-  },
-];
-
-export default function Home() {
   return (
-    <>
-      <div className="bg-navy-950">
-        <header className="mt-4 md:mt-6">
-          <div className="mx-auto max-w-[90rem] bg-white">
-            <Navbar />
-          </div>
-        </header>
+    <div className="home">
+      <div className="bg-black">
+        <SiteHeader />
         <Hero />
       </div>
-      <main>
-        <IntroSection />
-        <PillarsSection />
-        <ProcessSection />
-        <StatsSection />
-        <CaseStudySection />
-        <CardGridSection
-          title="Products"
-          subtitle="Indigenously designed industrial machinery built for high performance, reliability, and long-term operation."
-          cards={products}
-          variant="products"
-        />
-        <CardGridSection
-          title="Solution"
-          subtitle="Integrated mechanical and chemical engineering solutions tailored for industrial-scale resource recovery."
-          cards={allSolutions.slice(0, 3)}
-          variant="solutions"
-          exploreHref="/products"
-        />
-        <CardGridSection
-          title="Services"
-          subtitle="From concept development to long-term operational support, Refnic delivers the expertise that powers successful industrial projects."
-          cards={services}
-          variant="services"
-        />
-        <NewsletterSection />
-        <ContactSection />
+      <main className="relative bg-black bg-grid-dark">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+          <div className="absolute left-[26%] top-[9%] h-[900px] w-[896px] rounded-full bg-[#3152df] opacity-30 blur-[430px]" />
+          <div className="absolute left-[-22%] top-[15%] h-[700px] w-[694px] rounded-full bg-[#3152df] opacity-20 blur-[360px]" />
+          <div className="absolute left-[87%] top-[15%] h-[700px] w-[694px] rounded-full bg-[#3152df] opacity-20 blur-[360px]" />
+          <div className="absolute left-[34%] top-[22%] h-[640px] w-[633px] rounded-full bg-[#3152df] opacity-20 blur-[330px]" />
+          <div className="absolute left-[35%] top-[32%] h-[700px] w-[694px] rounded-full bg-[#3152df] opacity-20 blur-[360px]" />
+          <div className="absolute left-[26%] top-[39%] h-[980px] w-[972px] rounded-full bg-[#3152df] opacity-20 blur-[380px]" />
+          <div className="absolute left-[24%] top-[87%] h-[980px] w-[972px] rounded-full bg-[#3152df] opacity-20 blur-[380px]" />
+        </div>
+        <section className="flex min-h-screen flex-col justify-center">
+          <IntroSection cards={introCards} />
+        </section>
+        <section className="flex min-h-screen flex-col justify-center">
+          <PillarsSection pillars={pillars} />
+        </section>
+        <section className="flex min-h-screen flex-col justify-center">
+          <ProcessSection steps={processSteps} />
+        </section>
+        <section className="flex min-h-screen flex-col justify-center">
+          <StatsSection {...statsConfig} />
+        </section>
+        <section className="flex min-h-screen flex-col justify-center">
+          <CaseStudySection caseStudies={caseStudies} />
+        </section>
+        <section className="flex min-h-screen flex-col justify-center">
+          <CardGridSection
+            title="Products"
+            subtitle="Indigenously designed industrial machinery built for high performance, reliability, and long-term operation."
+            cards={products}
+            variant="products"
+          />
+        </section>
+        <section className="flex min-h-screen flex-col justify-center">
+          <CardGridSection
+            title="Solution"
+            subtitle="Integrated mechanical and chemical engineering solutions tailored for industrial-scale resource recovery."
+            cards={allSolutions.slice(0, 3)}
+            variant="solutions"
+            exploreHref="/products"
+          />
+        </section>
+        <section className="flex min-h-screen flex-col justify-center">
+          <CardGridSection
+            title="Services"
+            subtitle="From concept development to long-term operational support, Refnic delivers the expertise that powers successful industrial projects."
+            cards={services}
+            variant="services"
+          />
+        </section>
+        <section className="flex min-h-screen flex-col justify-center">
+          <NewsletterSection posts={newsletterPosts} />
+        </section>
+        <section className="flex min-h-screen flex-col justify-center">
+          <ContactSection />
+        </section>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

@@ -1,12 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { CaretDown, AboutMenuIcon } from "./ui/primitives";
+import { CaretDown } from "./ui/primitives";
+import { BookOpen, Globe, BarChart3, TrendingUp, MapPin, ArrowUpRight, Boxes, Lightbulb, Settings, Leaf, Library, Wrench, FileText } from "lucide-react";
 import styles from "./aboutDropdown.module.css";
 import productStyles from "./products.module.css";
 import techStyles from "./technologies.module.css";
+import type { NavLink, AboutMenuItem } from "@/lib/content/navbar";
 
 function useHoverDropdown(delay = 180) {
   const [open, setOpen] = useState(false);
@@ -25,19 +28,6 @@ function useHoverDropdown(delay = 180) {
   return { open, openNow, closeLater };
 }
 
-const aboutHref = (title: string) =>
-  title === "Investors"
-    ? "/investors"
-    : title === "Our Story"
-      ? "/our-story"
-      : title === "Case Study"
-        ? "/case-study"
-        : title === "Indian Market"
-          ? "/indian-market"
-          : title === "Global Market"
-            ? "/global-market"
-            : "#";
-
 const leftLinks = [
   { label: "Home", caret: false },
   { label: "Products", caret: true },
@@ -50,21 +40,25 @@ const rightLinks = [
   { label: "Contact", caret: false },
 ];
 
-const aboutItems = [
-  { icon: "story", title: "Our Story", subtitle: "How we started and where we're headed" },
-  { icon: "globe", title: "Global Market", subtitle: "Perspectives from markets worldwide" },
-  { icon: "case", title: "Case Study", subtitle: "Real results from real businesses" },
-  { icon: "invest", title: "Investors", subtitle: "Building value for the future" },
-  { icon: "flag", title: "Indian Market", subtitle: "Insights shaping India's growth" },
-];
-
-const PANEL_W = 1198;
+const PANEL_W = 1515;
 const PRODUCTS_W = 1515;
 const PRODUCTS_H = 470;
 const TECH_W = 1515;
 const TECH_H = 318;
 
-export default function Navbar() {
+export default function Navbar({
+  contactEmail = "something@gmail.com",
+  contactPhone = "+91 9999999999",
+  productsMenu,
+  technologiesMenu,
+  aboutMenu,
+}: {
+  contactEmail?: string;
+  contactPhone?: string;
+  productsMenu: NavLink[];
+  technologiesMenu: NavLink[];
+  aboutMenu: AboutMenuItem[];
+}) {
   const about = useHoverDropdown();
   const products = useHoverDropdown();
   const tech = useHoverDropdown();
@@ -86,9 +80,10 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="relative flex items-center justify-between gap-4 px-6 py-3 text-sm">
-        <a href="mailto:something@gmail.com" className="hidden lg:block hover:underline">
-          something@gmail.com
+    <div className="relative flex items-center gap-4 px-6 py-3 text-sm">
+      <div className="flex flex-1 items-center gap-4">
+        <a href={`mailto:${contactEmail}`} className="hidden lg:block hover:underline">
+          {contactEmail}
         </a>
 
         <nav className="hidden md:flex items-center gap-10">
@@ -112,149 +107,149 @@ export default function Navbar() {
                   >
                     <div style={{ transform: `scale(${productsScale})`, transformOrigin: "top left" }}>
                       <div className={productStyles.products} style={{ width: PRODUCTS_W, height: PRODUCTS_H }}>
-                        <Link href="/products" className={productStyles.navContentList}>
-                          <AboutMenuIcon type="case" className="size-6 shrink-0 text-black" />
+                         <Link href={productsMenu[0].href} className={productStyles.navContentList}>
+                           <Boxes className={productStyles.chartpolarIcon} />
                           <div className={productStyles.budgetingParent}>
-                            <b className={productStyles.budgeting}>Products</b>
+                            <b className={productStyles.budgeting}>{productsMenu[0].label}</b>
                             <div className={productStyles.keepYourSpending} />
                           </div>
                         </Link>
-                        <Link href="/products" className={productStyles.navContentList2}>
-                          <AboutMenuIcon type="globe" className="size-6 shrink-0 text-black" />
+                         <Link href={productsMenu[1].href} className={productStyles.navContentList2}>
+                           <Lightbulb className={productStyles.chartpolarIcon} />
                           <div className={productStyles.budgetingParent}>
-                            <div className={productStyles.budgeting2}>Solution</div>
+                            <div className={productStyles.budgeting2}>{productsMenu[1].label}</div>
                             <div className={productStyles.keepYourSpending} />
                           </div>
                         </Link>
-                        <Link href="/products" className={productStyles.navContentList3}>
-                          <AboutMenuIcon type="invest" className="size-6 shrink-0 text-black" />
+                         <Link href={productsMenu[2].href} className={productStyles.navContentList3}>
+                           <Settings className={productStyles.chartpolarIcon} />
                           <div className={productStyles.budgetingParent}>
-                            <div className={productStyles.budgeting2}>Services</div>
+                            <div className={productStyles.budgeting2}>{productsMenu[2].label}</div>
                             <div className={productStyles.keepYourSpending} />
                           </div>
                         </Link>
-                        <Link href="/products" className={productStyles.mechanicalWrapper}>
-                          <b className={productStyles.mechanical}>Mechanical</b>
+                        <Link href={productsMenu[3].href} className={productStyles.mechanicalWrapper}>
+                          <b className={productStyles.mechanical}>{productsMenu[3].label}</b>
                         </Link>
-                        <Link href="/products" className={productStyles.mechanicalContainer}>
-                          <b className={productStyles.mechanical}>Mechanical</b>
+                        <Link href={productsMenu[4].href} className={productStyles.mechanicalContainer}>
+                          <b className={productStyles.mechanical}>{productsMenu[4].label}</b>
                         </Link>
-                        <Link href="/products" className={productStyles.liIonBatteryRecyclingPlantWrapper}>
-                          <div className={productStyles.liIonBatteryRecycling}>Li-ion Battery Recycling Plant</div>
+                        <Link href={productsMenu[5].href} className={productStyles.liIonBatteryRecyclingPlantWrapper}>
+                          <div className={productStyles.liIonBatteryRecycling}>{productsMenu[5].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.hydrometallurgicalMetalExtraWrapper}>
-                          <div className={productStyles.hydrometallurgicalMetalExtra}>hydrometallurgical  metal extraction plant</div>
+                        <Link href={productsMenu[6].href} className={productStyles.hydrometallurgicalMetalExtraWrapper}>
+                          <div className={productStyles.hydrometallurgicalMetalExtra}>{productsMenu[6].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.eWasteRecyclingLineWrapper}>
-                          <div className={productStyles.eWasteRecyclingLine}>E-Waste Recycling Line</div>
+                        <Link href={productsMenu[7].href} className={productStyles.eWasteRecyclingLineWrapper}>
+                          <div className={productStyles.eWasteRecyclingLine}>{productsMenu[7].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.leachingSystemsWrapper}>
-                          <div className={productStyles.eWasteRecyclingLine}>Leaching Systems</div>
+                        <Link href={productsMenu[8].href} className={productStyles.leachingSystemsWrapper}>
+                          <div className={productStyles.eWasteRecyclingLine}>{productsMenu[8].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.batteryAssemblyLineWrapper}>
-                          <div className={productStyles.eWasteRecyclingLine}>Battery Assembly Line</div>
+                        <Link href={productsMenu[9].href} className={productStyles.batteryAssemblyLineWrapper}>
+                          <div className={productStyles.eWasteRecyclingLine}>{productsMenu[9].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.storageTanksWrapper}>
-                          <div className={productStyles.eWasteRecyclingLine}>Storage Tanks</div>
+                        <Link href={productsMenu[10].href} className={productStyles.storageTanksWrapper}>
+                          <div className={productStyles.eWasteRecyclingLine}>{productsMenu[10].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.lithiumIonBatteryRecyclingWrapper}>
-                          <div className={productStyles.lithiumIonBatteryRecycling}>Lithium-ion Battery Recycling</div>
+                        <Link href={productsMenu[11].href} className={productStyles.lithiumIonBatteryRecyclingWrapper}>
+                          <div className={productStyles.lithiumIonBatteryRecycling}>{productsMenu[11].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.metalRefiningHydrometallurWrapper}>
-                          <div className={productStyles.metalRefining}>Metal Refining / Hydrometallurgy</div>
+                        <Link href={productsMenu[12].href} className={productStyles.metalRefiningHydrometallurWrapper}>
+                          <div className={productStyles.metalRefining}>{productsMenu[12].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.comprehensiveEngineeringWrapper}>
-                          <div className={productStyles.comprehensiveEngineering}>Comprehensive Engineering</div>
+                        <Link href={productsMenu[13].href} className={productStyles.comprehensiveEngineeringWrapper}>
+                          <div className={productStyles.comprehensiveEngineering}>{productsMenu[13].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.processEngineeringWrapper}>
-                          <div className={productStyles.comprehensiveEngineering}>Process Engineering</div>
+                        <Link href={productsMenu[14].href} className={productStyles.processEngineeringWrapper}>
+                          <div className={productStyles.comprehensiveEngineering}>{productsMenu[14].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.maintenanceRepairWrapper}>
-                          <div className={productStyles.maintenanceRepair}>{`Maintenance & Repair`}</div>
+                        <Link href={productsMenu[15].href} className={productStyles.maintenanceRepairWrapper}>
+                          <div className={productStyles.maintenanceRepair}>{productsMenu[15].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.licensingDocumentationWrapper}>
-                          <div className={productStyles.licensingDocumentation}>{`Licensing & Documentation `}</div>
+                        <Link href={productsMenu[16].href} className={productStyles.licensingDocumentationWrapper}>
+                          <div className={productStyles.licensingDocumentation}>{productsMenu[16].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.recyclingEquipmentWrapper}>
-                          <div className={productStyles.eWasteRecyclingLine}>Recycling Equipment</div>
+                        <Link href={productsMenu[17].href} className={productStyles.recyclingEquipmentWrapper}>
+                          <div className={productStyles.eWasteRecyclingLine}>{productsMenu[17].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.filtrationUnitsWrapper}>
-                          <div className={productStyles.eWasteRecyclingLine}>Filtration Units</div>
+                        <Link href={productsMenu[18].href} className={productStyles.filtrationUnitsWrapper}>
+                          <div className={productStyles.eWasteRecyclingLine}>{productsMenu[18].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.eWasteRecyclingWrapper}>
-                          <div className={productStyles.eWasteRecyclingLine}>E-Waste Recycling</div>
+                        <Link href={productsMenu[19].href} className={productStyles.eWasteRecyclingWrapper}>
+                          <div className={productStyles.eWasteRecyclingLine}>{productsMenu[19].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.filtrationUnitsContainer}>
-                          <div className={productStyles.eWasteRecyclingLine}>Filtration Units</div>
+                        <Link href={productsMenu[20].href} className={productStyles.filtrationUnitsContainer}>
+                          <div className={productStyles.eWasteRecyclingLine}>{productsMenu[20].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.customizedEquipmentDesignWrapper}>
-                          <div className={productStyles.customizedEquipmentDesign}>{`Customized Equipment Design & Manufacturing`}</div>
+                        <Link href={productsMenu[21].href} className={productStyles.customizedEquipmentDesignWrapper}>
+                          <div className={productStyles.customizedEquipmentDesign}>{productsMenu[21].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.sparesConsumablesWrapper}>
-                          <div className={productStyles.eWasteRecyclingLine}>{`Spares & Consumables`}</div>
+                        <Link href={productsMenu[22].href} className={productStyles.sparesConsumablesWrapper}>
+                          <div className={productStyles.eWasteRecyclingLine}>{productsMenu[22].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.sopTrainingWrapper}>
-                          <div className={productStyles.sopTraining}>SOP Training</div>
+                        <Link href={productsMenu[23].href} className={productStyles.sopTrainingWrapper}>
+                          <div className={productStyles.sopTraining}>{productsMenu[23].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.projectReportsWrapper}>
-                          <div className={productStyles.eWasteRecyclingLine}>Project Reports</div>
+                        <Link href={productsMenu[24].href} className={productStyles.projectReportsWrapper}>
+                          <div className={productStyles.eWasteRecyclingLine}>{productsMenu[24].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.financialModelingWrapper}>
-                          <div className={productStyles.eWasteRecyclingLine}>Financial Modeling</div>
+                        <Link href={productsMenu[25].href} className={productStyles.financialModelingWrapper}>
+                          <div className={productStyles.eWasteRecyclingLine}>{productsMenu[25].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.financialChannelSupportWrapper}>
-                          <div className={productStyles.financialChannelSupport}>Financial Channel Support</div>
+                        <Link href={productsMenu[26].href} className={productStyles.financialChannelSupportWrapper}>
+                          <div className={productStyles.financialChannelSupport}>{productsMenu[26].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.seperatorsWrapper}>
-                          <div className={productStyles.seperators}>Seperators</div>
+                        <Link href={productsMenu[27].href} className={productStyles.seperatorsWrapper}>
+                          <div className={productStyles.seperators}>{productsMenu[27].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.neutralizationSystemsWrapper}>
-                          <div className={productStyles.neutralizationSystems}>Neutralization Systems</div>
+                        <Link href={productsMenu[28].href} className={productStyles.neutralizationSystemsWrapper}>
+                          <div className={productStyles.neutralizationSystems}>{productsMenu[28].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.shreddingWrapper}>
-                          <div className={productStyles.neutralizationSystems}>Shredding</div>
+                        <Link href={productsMenu[29].href} className={productStyles.shreddingWrapper}>
+                          <div className={productStyles.neutralizationSystems}>{productsMenu[29].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.neutralizationSystemsContainer}>
-                          <div className={productStyles.neutralizationSystems}>Neutralization Systems</div>
+                        <Link href={productsMenu[30].href} className={productStyles.neutralizationSystemsContainer}>
+                          <div className={productStyles.neutralizationSystems}>{productsMenu[30].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.materialHandlingWrapper}>
-                          <div className={productStyles.materialHandling}>Material Handling</div>
+                        <Link href={productsMenu[31].href} className={productStyles.materialHandlingWrapper}>
+                          <div className={productStyles.materialHandling}>{productsMenu[31].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.reactorsWrapper}>
-                          <div className={productStyles.materialHandling}>Reactors</div>
+                        <Link href={productsMenu[32].href} className={productStyles.reactorsWrapper}>
+                          <div className={productStyles.materialHandling}>{productsMenu[32].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.crushingWrapper}>
-                          <div className={productStyles.materialHandling}>Crushing</div>
+                        <Link href={productsMenu[33].href} className={productStyles.crushingWrapper}>
+                          <div className={productStyles.materialHandling}>{productsMenu[33].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.reactorsContainer}>
-                          <div className={productStyles.materialHandling}>Reactors</div>
+                        <Link href={productsMenu[34].href} className={productStyles.reactorsContainer}>
+                          <div className={productStyles.materialHandling}>{productsMenu[34].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.pollutionControlWrapper}>
-                          <div className={productStyles.materialHandling}>Pollution Control</div>
+                        <Link href={productsMenu[35].href} className={productStyles.pollutionControlWrapper}>
+                          <div className={productStyles.materialHandling}>{productsMenu[35].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.separationEquipmentWrapper}>
-                          <div className={productStyles.separationEquipment}>Separation Equipment</div>
+                        <Link href={productsMenu[36].href} className={productStyles.separationEquipmentWrapper}>
+                          <div className={productStyles.separationEquipment}>{productsMenu[36].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.separationWrapper}>
-                          <div className={productStyles.separation}>Separation</div>
+                        <Link href={productsMenu[37].href} className={productStyles.separationWrapper}>
+                          <div className={productStyles.separation}>{productsMenu[37].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.separationEquipmentContainer}>
-                          <div className={productStyles.separationEquipment}>Separation Equipment</div>
+                        <Link href={productsMenu[38].href} className={productStyles.separationEquipmentContainer}>
+                          <div className={productStyles.separationEquipment}>{productsMenu[38].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.processUtilitiesWrapper}>
-                          <div className={productStyles.processUtilities}>Process Utilities</div>
+                        <Link href={productsMenu[39].href} className={productStyles.processUtilitiesWrapper}>
+                          <div className={productStyles.processUtilities}>{productsMenu[39].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.pollutionControlContainer}>
-                          <div className={productStyles.pollutionControl2}>Pollution Control</div>
+                        <Link href={productsMenu[40].href} className={productStyles.pollutionControlContainer}>
+                          <div className={productStyles.pollutionControl2}>{productsMenu[40].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.processUtilitiesContainer}>
-                          <div className={productStyles.processUtilities}>Process Utilities</div>
+                        <Link href={productsMenu[41].href} className={productStyles.processUtilitiesContainer}>
+                          <div className={productStyles.processUtilities}>{productsMenu[41].label}</div>
                         </Link>
-                        <Link href="/products" className={productStyles.chemicalWrapper}>
-                          <b className={productStyles.chemical}>{`Chemical `}</b>
+                        <Link href={productsMenu[42].href} className={productStyles.chemicalWrapper}>
+                          <b className={productStyles.chemical}>{productsMenu[42].label}</b>
                         </Link>
-                        <Link href="/products" className={productStyles.chemicalContainer}>
-                          <b className={productStyles.chemical}>{`Chemical `}</b>
+                        <Link href={productsMenu[43].href} className={productStyles.chemicalContainer}>
+                          <b className={productStyles.chemical}>{productsMenu[43].label}</b>
                         </Link>
                         <div className={productStyles.productsChild} />
                         <div className={productStyles.productsItem} />
@@ -319,62 +314,62 @@ export default function Navbar() {
                   >
                     <div style={{ transform: `scale(${techScale})`, transformOrigin: "top left" }}>
                       <div className={techStyles.trchnologies} style={{ width: TECH_W, height: TECH_H }}>
-                        <Link href="/sustainability" className={techStyles.navContentList}>
-                          <div className={`${techStyles.chartpolarIcon} bg-gray-image`} />
+                         <Link href={technologiesMenu[0].href} className={techStyles.navContentList}>
+                           <Leaf className={techStyles.chartpolarIcon} />
                           <div className={techStyles.budgetingParent}>
-                            <div className={techStyles.budgeting}>Sustainability</div>
+                            <div className={techStyles.budgeting}>{technologiesMenu[0].label}</div>
                             <div className={techStyles.keepYourSpending} />
                           </div>
                         </Link>
-                        <Link href="/technologies" className={techStyles.navContentList2}>
-                          <div className={`${techStyles.chartpolarIcon} bg-gray-image`} />
+                         <Link href={technologiesMenu[1].href} className={techStyles.navContentList2}>
+                           <Library className={techStyles.chartpolarIcon} />
                           <div className={techStyles.budgetingParent}>
-                            <div className={techStyles.budgeting}>{`Resources `}</div>
+                            <div className={techStyles.budgeting}>{technologiesMenu[1].label}</div>
                             <div className={techStyles.keepYourSpending} />
                           </div>
                         </Link>
-                        <Link href="/technologies" className={techStyles.navContentList3}>
-                          <div className={`${techStyles.chartpolarIcon} bg-gray-image`} />
+                         <Link href={technologiesMenu[2].href} className={techStyles.navContentList3}>
+                           <Wrench className={techStyles.chartpolarIcon} />
                           <div className={techStyles.budgetingParent}>
-                            <div className={techStyles.budgeting}>Digital Tools</div>
+                            <div className={techStyles.budgeting}>{technologiesMenu[2].label}</div>
                             <div className={techStyles.keepYourSpending} />
                           </div>
                         </Link>
-                        <Link href="/technologies" className={techStyles.impactWrapper}>
-                          <div className={techStyles.impact}>Impact</div>
+                        <Link href={technologiesMenu[3].href} className={techStyles.impactWrapper}>
+                          <div className={techStyles.impact}>{technologiesMenu[3].label}</div>
                         </Link>
-                        <Link href="/technologies" className={techStyles.handManualWrapper}>
-                          <div className={techStyles.handManual}>{`Hand Manual `}</div>
+                        <Link href={technologiesMenu[4].href} className={techStyles.handManualWrapper}>
+                          <div className={techStyles.handManual}>{technologiesMenu[4].label}</div>
                         </Link>
-                        <Link href="/technologies" className={techStyles.blackMassCalculatorWrapper}>
-                          <div className={techStyles.blackMassCalculator}>Black Mass calculator</div>
+                        <Link href={technologiesMenu[5].href} className={techStyles.blackMassCalculatorWrapper}>
+                          <div className={techStyles.blackMassCalculator}>{technologiesMenu[5].label}</div>
                         </Link>
-                        <Link href="/technologies" className={techStyles.climateWrapper}>
-                          <div className={techStyles.climate}>Climate</div>
+                        <Link href={technologiesMenu[6].href} className={techStyles.climateWrapper}>
+                          <div className={techStyles.climate}>{technologiesMenu[6].label}</div>
                         </Link>
-                        <Link href="/technologies" className={techStyles.refnicProductsSolutionBooWrapper}>
-                          <div className={techStyles.refnicProducts}>{`Refnic Products & Solution Book `}</div>
+                        <Link href={technologiesMenu[7].href} className={techStyles.refnicProductsSolutionBooWrapper}>
+                          <div className={techStyles.refnicProducts}>{technologiesMenu[7].label}</div>
                         </Link>
-                        <Link href="/technologies" className={techStyles.processDesignWrapper}>
-                          <div className={techStyles.processDesign}>Process Design</div>
+                        <Link href={technologiesMenu[8].href} className={techStyles.processDesignWrapper}>
+                          <div className={techStyles.processDesign}>{technologiesMenu[8].label}</div>
                         </Link>
-                        <Link href="/technologies" className={techStyles.waterWrapper}>
-                          <div className={techStyles.water}>Water</div>
+                        <Link href={technologiesMenu[9].href} className={techStyles.waterWrapper}>
+                          <div className={techStyles.water}>{technologiesMenu[9].label}</div>
                         </Link>
-                        <Link href="/technologies" className={techStyles.magazineWrapper}>
-                          <div className={techStyles.water}>Magazine</div>
+                        <Link href={technologiesMenu[10].href} className={techStyles.magazineWrapper}>
+                          <div className={techStyles.water}>{technologiesMenu[10].label}</div>
                         </Link>
-                        <Link href="/technologies" className={techStyles.resourcesWrapper}>
-                          <div className={techStyles.resources}>Resources</div>
+                        <Link href={technologiesMenu[11].href} className={techStyles.resourcesWrapper}>
+                          <div className={techStyles.resources}>{technologiesMenu[11].label}</div>
                         </Link>
-                        <Link href="/technologies" className={techStyles.articlesWrapper}>
-                          <div className={techStyles.resources}>Articles</div>
+                        <Link href={technologiesMenu[12].href} className={techStyles.articlesWrapper}>
+                          <div className={techStyles.resources}>{technologiesMenu[12].label}</div>
                         </Link>
-                        <Link href="/technologies" className={techStyles.circularEconomyWrapper}>
-                          <div className={techStyles.circularEconomy}>Circular Economy</div>
+                        <Link href={technologiesMenu[13].href} className={techStyles.circularEconomyWrapper}>
+                          <div className={techStyles.circularEconomy}>{technologiesMenu[13].label}</div>
                         </Link>
-                        <Link href="/technologies" className={techStyles.greenTechWrapper}>
-                          <div className={techStyles.greenTech}>Green Tech</div>
+                        <Link href={technologiesMenu[14].href} className={techStyles.greenTechWrapper}>
+                          <div className={techStyles.greenTech}>{technologiesMenu[14].label}</div>
                         </Link>
                         <div className={techStyles.trchnologiesChild} />
                         <div className={techStyles.trchnologiesItem} />
@@ -390,15 +385,15 @@ export default function Navbar() {
                         <div className={techStyles.trchnologiesChild9} />
                         <div className={techStyles.trchnologiesChild10} />
                         <div className={techStyles.trchnologiesChild11} />
-                        <Link href="/technologies" className={techStyles.navContentList4}>
-                          <div className={`${techStyles.chartpolarIcon4} bg-gray-image`} />
+                        <Link href={technologiesMenu[15].href} className={techStyles.navContentList4}>
+                           <FileText className={techStyles.chartpolarIcon4} />
                           <div className={techStyles.frameDiv}>
-                            <div className={techStyles.budgeting4}>White papers</div>
+                            <div className={techStyles.budgeting4}>{technologiesMenu[15].label}</div>
                             <div className={techStyles.keepYourSpending4} />
                           </div>
                         </Link>
                         <div className={techStyles.lineDiv} />
-                        <div className={`${techStyles.refnicOverview2} bg-gray-image`} />
+                         <Image className={techStyles.refnicOverview2} src="/refnicOverview2.png" width={341} height={320} sizes="100vw" alt="" />
                         <div className={techStyles.exploreOurResearch}>Explore our research, engineering insights, and perspectives</div>
                       </div>
                     </div>
@@ -417,15 +412,17 @@ export default function Navbar() {
             )
           )}
         </nav>
+      </div>
 
         <Link
           href="/"
-          className="font-display font-bold text-2xl tracking-tight text-black"
+          className="shrink-0 font-display font-bold text-2xl tracking-tight text-black"
           aria-label="Refnic"
         >
           <img src="/logo_blue.png" alt="Refnic Logo" className="h-15 w-auto" />
         </Link>
 
+      <div className="flex flex-1 items-center justify-end gap-4">
         <nav className="hidden md:flex items-center gap-10">
           {rightLinks.map((l) =>
             l.label === "About Us" ? (
@@ -448,43 +445,46 @@ export default function Navbar() {
                     <div style={{ transform: `scale(${navScale})`, transformOrigin: "top left" }}>
                     <div className={styles.openNavParent}>
                       <div className={styles.openNav}>
-                        <a className={styles.navContentList} href="/our-story">
-                          <AboutMenuIcon type="story" className="size-6 shrink-0 text-black" />
+                       <a className={styles.navContentList} href={aboutMenu[0].href}>
+                         <BookOpen className={styles.chartpolarIcon} />
                           <div className={styles.budgetingParent}>
-                            <div className={styles.budgeting}>Our Story</div>
-                            <div className={styles.keepYourSpending}>How we started and where we’re headed.</div>
+                            <div className={styles.budgeting}>{aboutMenu[0].title}</div>
+                            <div className={styles.keepYourSpending}>{aboutMenu[0].subtitle}</div>
                           </div>
                         </a>
-                        <a className={styles.navContentList2} href="/global-market">
-                          <AboutMenuIcon type="globe" className="size-6 shrink-0 text-black" />
+                       <a className={styles.navContentList2} href={aboutMenu[1].href}>
+                         <Globe className={styles.chartpolarIcon} />
                           <div className={styles.budgetingParent}>
-                            <div className={styles.budgeting2}>Global Market</div>
-                            <div className={styles.keepYourSpending2}>Perspectives from markets worldwide.</div>
+                            <div className={styles.budgeting2}>{aboutMenu[1].title}</div>
+                            <div className={styles.keepYourSpending2}>{aboutMenu[1].subtitle}</div>
                           </div>
                         </a>
-                        <a className={styles.navContentList3} href="/case-study">
-                          <AboutMenuIcon type="case" className="size-6 shrink-0 text-black" />
+                       <a className={styles.navContentList3} href={aboutMenu[2].href}>
+                         <BarChart3 className={styles.chartpolarIcon} />
                           <div className={styles.budgetingParent}>
-                            <div className={styles.budgeting}>Case Study</div>
-                            <div className={styles.keepYourSpending}>Real results from real businesses.</div>
+                            <div className={styles.budgeting}>{aboutMenu[2].title}</div>
+                            <div className={styles.keepYourSpending}>{aboutMenu[2].subtitle}</div>
                           </div>
                         </a>
-                        <a className={styles.navContentList4} href="/investors">
-                          <AboutMenuIcon type="invest" className="size-6 shrink-0 text-black" />
+                       <ArrowUpRight className={styles.vectorIcon} />
+                       <a className={styles.navContentList4} href={aboutMenu[3].href}>
+                         <TrendingUp className={styles.chartpolarIcon} />
                           <div className={styles.budgetingParent}>
-                            <div className={styles.budgeting}>Investors</div>
-                            <div className={styles.keepYourSpending}>Building value for the future.</div>
+                            <div className={styles.budgeting}>{aboutMenu[3].title}</div>
+                            <div className={styles.keepYourSpending}>{aboutMenu[3].subtitle}</div>
                           </div>
                         </a>
-                        <a className={styles.navContentList5} href="/indian-market">
-                          <AboutMenuIcon type="flag" className="size-6 shrink-0 text-black" />
+                       <a className={styles.navContentList5} href={aboutMenu[4].href}>
+                         <MapPin className={styles.chartpolarIcon} />
                           <div className={styles.budgetingParent}>
-                            <div className={styles.budgeting}>Indian Market</div>
-                            <div className={styles.keepYourSpending}>Insights shaping India’s growth.</div>
+                            <div className={styles.budgeting}>{aboutMenu[4].title}</div>
+                            <div className={styles.keepYourSpending}>{aboutMenu[4].subtitle}</div>
                           </div>
-                        </a>
-                      </div>
-                    </div>
+                         </a>
+                       </div>
+                       <div className={styles.groupChild} />
+                       <Image className={styles.refnicOverview2} src="/refnicOverview2.png" width={344} height={320} sizes="100vw" alt="" />
+                     </div>
                   </div>
                 </div>
                 )}
@@ -502,9 +502,10 @@ export default function Navbar() {
           )}
         </nav>
 
-        <a href="tel:+919999999999" className="hidden lg:block hover:underline">
-          +91 9999999999
+        <a href={`tel:${contactPhone.replace(/\s+/g, "")}`} className="hidden lg:block hover:underline">
+          {contactPhone}
         </a>
+      </div>
       </div>
   );
 }

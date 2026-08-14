@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/Navbar";
+import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
-import { posts } from "@/lib/newsletter";
+import { getNewsletterPosts } from "@/lib/content/newsletter";
 
 export const metadata: Metadata = {
   title: "Newsletters — Refine Nicely",
@@ -9,15 +9,15 @@ export const metadata: Metadata = {
     "News and insights from Refnic on recycling technology, metal refining, and the circular economy.",
 };
 
-export default function NewsletterPage() {
+export const revalidate = 60;
+
+export default async function NewsletterPage() {
+  const posts = await getNewsletterPosts();
+
   return (
     <>
       <div className="bg-navy-950">
-        <header className="mt-4 md:mt-6">
-          <div className="mx-auto max-w-[90rem] bg-white">
-            <Navbar />
-          </div>
-        </header>
+        <SiteHeader />
       </div>
 
       <main className="relative overflow-hidden bg-navy-950 py-20 md:py-28">
@@ -35,9 +35,9 @@ export default function NewsletterPage() {
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post, i) => (
+            {posts.map((post) => (
               <article
-                key={i}
+                key={post.id}
                 className="flex flex-col rounded-xl border border-white/10 bg-white/[0.03] p-4 transition-all duration-300 hover:scale-[1.03] hover:border-accent-blue/60 hover:shadow-[0_0_40px_-15px_rgba(46,75,224,0.55)]"
               >
                 <div className={`aspect-[412/244] rounded-xl bg-gradient-to-br ${post.gradient}`} />

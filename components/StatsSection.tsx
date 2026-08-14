@@ -1,14 +1,17 @@
-const stats = [
-  { value: "20,000+", label: "Tonnes of Annual Recycling Capacity Enabled" },
-  { value: "95%+", label: "Material Recovery Efficiency" },
-  { value: "100%", label: "Indigenous Engineering" },
-];
+export type StatItem = { value: string; label: string };
 
-export default function StatsSection() {
+export default function StatsSection({
+  stats,
+  batteryImageUrl,
+  plantImageUrl,
+}: {
+  stats: StatItem[];
+  batteryImageUrl: string;
+  plantImageUrl: string;
+}) {
   return (
-    <section className="relative bg-navy-950 pt-12 pb-[150px] md:pt-16 md:pb-[345px]">
+    <section className="relative min-h-screen bg-black pt-12 pb-[150px] md:pt-16 md:pb-[345px]">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
-
       <div className="relative mx-auto max-w-4xl px-6 overflow-visible">
         <div className="relative overflow-visible">
           {/* Changed from top-0 bottom-0 (strictly bound to this div)
@@ -25,7 +28,7 @@ export default function StatsSection() {
           <div className="absolute left-1/2 top-0 -translate-x-[60%] -translate-y-[55%]">
             <div className="relative">
               <div className="pointer-events-none absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3152df] opacity-40 blur-[100px]" aria-hidden />
-              <img src="/battery.png" alt="" className="relative z-10 h-40 w-auto md:h-60" />
+              <img src={batteryImageUrl} alt="" className="relative z-10 h-40 w-auto md:h-60" />
             </div>
           </div>
 
@@ -48,14 +51,14 @@ export default function StatsSection() {
           own bottom edge (top-full) and pulled back up by a fixed amount,
           so it straddles the boundary with the white section below without
           affecting this section's height or overlapping the stats above. */}
-      <div className="absolute inset-x-0 top-full z-20 -translate-y-[130px] md:-translate-y-[308px]">
+      <div className="absolute inset-x-0 top-full z-20 -translate-y-[85px] md:-translate-y-[245px]">
         <div className="relative mx-auto max-w-[960px] -translate-x-10 px-6 md:-translate-x-3">
           <div className="relative">
             <img
-  src="/REFNIC PLANT STATS.png"
+  src={plantImageUrl}
   alt="Refnic plant"
   className="relative aspect-[1200/600] w-full rounded-2xl object-cover"
-  style={{ filter: "drop-shadow(0 0 50px black)" }}
+  style={{ filter: "drop-shadow(0 0 100px rgba(46, 75, 224, 0.7))", transform: "scale(1.1)" }}
 />
           </div>
         </div>

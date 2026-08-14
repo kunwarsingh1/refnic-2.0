@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -25,8 +26,8 @@
 
 @theme inline {
   --font-sans: "Plus Jakarta Sans", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "DM Sans", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
-  --font-alt: "Inter", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --font-alt: "Plus Jakarta Sans", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
 
   --color-black: var(--color-black);
   --color-white: var(--color-white);
@@ -51,9 +52,32 @@ body {
 /* Subtle grid-line patterns used across the dark industrial sections */
 .bg-grid-dark {
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
   background-size: 48px 48px;
+}
+
+/* Same grid, but fades out near the top/bottom edges so the pattern blends
+   seamlessly into the adjacent section instead of showing a hard seam line. */
+.bg-grid-dark-fade {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    black 120px,
+    black calc(100% - 120px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    black 120px,
+    black calc(100% - 120px),
+    transparent 100%
+  );
 }
 
 .bg-grid-light {
@@ -61,4 +85,29 @@ body {
     linear-gradient(to right, rgba(10, 16, 31, 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(10, 16, 31, 0.05) 1px, transparent 1px);
   background-size: 48px 48px;
+}
+
+/* Glowing halo on every image of the home page so they appear to emit light */
+.home img {
+  filter: drop-shadow(0 0 22px rgba(46, 75, 224, 0.5));
+}
+
+/* Images sitting on a white background should not glow */
+.home .bg-white img {
+  filter: none;
+}
+
+
+@keyframes text-shine {
+  0% {
+    background-position: 200% center;
+  }
+
+  100% {
+    background-position: -200% center;
+  }
+}
+
+.animate-text-shine {
+  animation: text-shine 5s ease-in-out infinite;
 }

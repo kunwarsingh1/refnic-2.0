@@ -1,22 +1,5 @@
-const steps = [
-  { n: "01", title: "Research", icon: "flask", image: "/RESEARCH.png" },
-  { n: "02", title: "Process Design", icon: "monitor", image: "/PROCESS DESIGN.png" },
-  {
-    n: "03",
-    title: "Equipment Manufacturing",
-    icon: "hopper",
-    image: "/EQUIPMENT MANUFACTURIMNG.png",
-  },
-  {
-    n: "04",
-    title: "Plant Engineering",
-    icon: "shredder",
-    image: "/PLANT ENG.png",
-    extra: "Optimized process design for maximum efficiency and recovery.",
-  },
-  { n: "05", title: "Installation", icon: "crane" },
-  { n: "06", title: "Commissioning & Training", icon: "plant", image: "/COMMISIONING AND TRAINING.png" },
-];
+import type { ProcessStep } from "@/lib/content/processSteps";
+import { ModelViewer } from "@/components/ModelViewer";
 
 const placement = [
   "lg:col-start-1 lg:row-start-1",
@@ -27,55 +10,72 @@ const placement = [
   "lg:col-start-4 lg:row-start-1 lg:row-span-2",
 ];
 
-export default function ProcessSection() {
+export default function ProcessSection({ steps }: { steps: ProcessStep[] }) {
   return (
-    <section className="relative overflow-hidden bg-navy-950 py-8 md:py-10">
+      <section className="relative min-h-screen overflow-hidden bg-black py-16 md:py-24">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
-
-      <div className="pointer-events-none absolute -left-32 top-24 h-[882px] w-[882px] rounded-full bg-[#3152df] opacity-30 blur-[360px]" aria-hidden />
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[850px] w-[850px] -translate-x-1/2 rounded-full bg-[#3152df] opacity-30 blur-[380px]" aria-hidden />
 
       <p
-        className="pointer-events-none absolute left-1/2 top-4 select-none font-display font-black leading-none text-[28vw] text-white/[0.03] md:text-[18rem] -translate-x-1/2"
-        aria-hidden
-      >
-        PROCESS
-      </p>
+  className="pointer-events-none absolute inset-x-0 -top-2 select-none whitespace-nowrap text-center font-display font-black leading-none text-transparent bg-clip-text text-[19vw] md:text-[9rem] opacity-30 drop-shadow-[0_0_25px_rgba(255,255,255,0.35)]"
+  style={{
+    background: "linear-gradient(0deg, #232323, #919191 54.33%, #fffefe)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent"
+  }}
+  aria-hidden
+>
+  PROCESS
+</p>
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:auto-rows-[16rem]">
+        <div className="mt-2 grid grid-cols-1 gap-6 sm:grid-cols-2 md:mt-[55px] lg:grid-cols-4 lg:auto-rows-[16rem]">
           {steps.map((s, i) => {
             const isTall = i === 2 || i === 5;
             const highlighted = Boolean(s.extra);
+            const n = String(i + 1).padStart(2, "0");
             return (
               <div
-                key={s.n}
+                key={s.id}
                 className={`relative ${isTall ? "lg:h-auto" : "h-64"} ${placement[i]}`}
               >
+                <div className="absolute -top-3 left-5 z-20 rounded-full bg-accent-blue px-4 py-1.5 font-sans font-bold text-sm text-white shadow-lg">
+                  {s.title}
+                </div>
                 <div
-                  className={`group flex h-full flex-col justify-between overflow-hidden rounded-lg bg-white p-8 transition-colors duration-300 ${highlighted ? "shadow-[0_0_60px_-10px_rgba(59,79,228,0.55)]" : ""}`}
+                  className={`group relative flex h-full flex-col overflow-hidden rounded-lg bg-white p-8 transition-colors duration-300 ${highlighted ? "shadow-[0_0_60px_-10px_rgba(59,79,228,0.55)]" : ""}`}
                 >
                   <div className="flex min-h-0 flex-1 flex-col">
                     <span
-                      className={`font-display font-black text-5xl ${highlighted ? "text-[#3b4fe4]" : "text-black"}`}
+                      className={`font-display font-black text-5xl text-black transition-colors duration-300 ${highlighted ? "group-hover:text-[#3b4fe4]" : ""}`}
                     >
-                      {s.n}
+                      {n}
                     </span>
-                    {s.image && (
-                      <div className="mt-2 mr-[-2rem] min-h-0 flex-1">
-                        <img
-                          src={s.image}
-                          alt={s.title}
-                          className="h-full w-full rounded-md object-contain object-right"
-                        />
+                    {s.modelUrl ? (
+                      <div
+                        className={`mt-2 mr-[-2rem] min-h-0 flex-1 transition-opacity duration-300 ${highlighted ? "group-hover:opacity-0" : ""}`}
+                      >
+                        <ModelViewer src={s.modelUrl} alt={s.title} className="h-full w-full" />
                       </div>
+                    ) : (
+                      s.imageUrl && (
+                        <div
+                          className={`mt-2 mr-[-2rem] min-h-0 flex-1 transition-opacity duration-300 ${highlighted ? "group-hover:opacity-0" : ""}`}
+                        >
+                          <img
+                            src={s.imageUrl}
+                            alt={s.title}
+                            className="h-full w-full rounded-md object-contain object-right"
+                          />
+                        </div>
+                      )
                     )}
                   </div>
-                  <div>
-                    <h3 className={`font-sans font-bold text-xl ${highlighted ? "text-[#3b4fe4]" : "text-black group-hover:text-[#3b4fe4]"}`}>{s.title}</h3>
-                    {s.extra && (
-                      <p className="mt-2 text-sm leading-relaxed text-[#3b4fe4]">{s.extra}</p>
-                    )}
-                  </div>
+                  {s.extra && (
+                    <p className="pointer-events-none absolute inset-x-8 top-28 bottom-8 text-sm leading-relaxed text-[#3b4fe4] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      {s.extra}
+                    </p>
+                  )}
                 </div>
               </div>
             );

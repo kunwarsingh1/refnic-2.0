@@ -69,7 +69,7 @@ export default function ContactSection() {
   const [subject, setSubject] = useState(subjects[0]);
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-navy-950">
+    <section id="contact" className="relative overflow-hidden bg-black">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       {/* TOP AREA */}
@@ -92,7 +92,7 @@ export default function ContactSection() {
             />
           </div>
 
-          <p className="w-[28%] text-lg leading-relaxed text-white">
+          <p className="w-[28%] text-right text-lg leading-relaxed text-white">
             Refnic delivers the{" "}
             <mark className="rounded-sm bg-yellow-300 px-1 text-navy-950">
               technology
@@ -118,7 +118,7 @@ export default function ContactSection() {
               className="relative z-10 w-full rounded-xl"
             />
           </div>
-          <p className="text-base leading-relaxed text-white">
+          <p className="text-right text-base leading-relaxed text-white">
             Refnic delivers the{" "}
             <mark className="rounded-sm bg-yellow-300 px-1 text-navy-950">
               technology
@@ -135,7 +135,7 @@ export default function ContactSection() {
           className="p-px"
           style={{ backgroundImage: "linear-gradient(to top right, #1f1313, #737373, #191717)" }}
         >
-          <div className="bg-navy-950/80 px-8 py-6 backdrop-blur-sm md:px-12">
+          <div className="bg-black/80 px-8 py-6 backdrop-blur-sm md:px-12">
             <div className="grid gap-12 md:grid-cols-2">
           <div>
             <h2 className="font-sans font-bold text-3xl text-white md:text-4xl">

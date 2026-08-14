@@ -9,7 +9,7 @@
   text-align: left;
   font-size: var(--font-size-29xl);
   color: var(--color-white);
-  font-family: var(--font-poppins);
+  font-family: 'Plus Jakarta Sans';
 }
 .investorsChild {
   position: absolute;
@@ -43,7 +43,7 @@
   text-align: left;
   font-size: var(--font-size-5xl);
   color: var(--color-white);
-  font-family: var(--font-poppins);
+  font-family: 'Plus Jakarta Sans';
 }
 .home {
   position: relative;
@@ -77,7 +77,7 @@
   text-align: left;
   font-size: var(--font-size-5xl);
   color: var(--color-white);
-  font-family: var(--font-poppins);
+  font-family: 'Plus Jakarta Sans';
 }
 .aboutUs {
   position: relative;
@@ -1201,7 +1201,7 @@
   font-size: var(--font-size-xl);
   line-height: 140%;
   letter-spacing: -0.02em;
-  font-family: var(--font-poppins);
+  font-family: 'Plus Jakarta Sans';
   color: var(--color-white);
   text-align: center;
   display: inline-block;
