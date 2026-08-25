@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { CaretDown } from "./ui/primitives";
@@ -45,6 +44,7 @@ const PRODUCTS_W = 1515;
 const PRODUCTS_H = 470;
 const TECH_W = 1515;
 const TECH_H = 318;
+const MAX_DROPDOWN_SCALE = 0.8;
 
 export default function Navbar({
   contactEmail = "something@gmail.com",
@@ -52,12 +52,16 @@ export default function Navbar({
   productsMenu,
   technologiesMenu,
   aboutMenu,
+  technologiesImageUrl = "/refnicOverview2.png",
+  aboutImageUrl = "/refnicOverview2.png",
 }: {
   contactEmail?: string;
   contactPhone?: string;
   productsMenu: NavLink[];
   technologiesMenu: NavLink[];
   aboutMenu: AboutMenuItem[];
+  technologiesImageUrl?: string;
+  aboutImageUrl?: string;
 }) {
   const about = useHoverDropdown();
   const products = useHoverDropdown();
@@ -75,9 +79,9 @@ export default function Navbar({
   useEffect(() => {
     const compute = () => {
       const w = window.innerWidth;
-      setNavScale(Math.min(1, (w - 32) / PANEL_W));
-      setProductsScale(Math.min(1, (w - 32) / PRODUCTS_W));
-      setTechScale(Math.min(1, (w - 32) / TECH_W));
+      setNavScale(Math.min(MAX_DROPDOWN_SCALE, (w - 32) / PANEL_W));
+      setProductsScale(Math.min(MAX_DROPDOWN_SCALE, (w - 32) / PRODUCTS_W));
+      setTechScale(Math.min(MAX_DROPDOWN_SCALE, (w - 32) / TECH_W));
     };
     compute();
     window.addEventListener("resize", compute);
@@ -87,12 +91,12 @@ export default function Navbar({
   return (
     <>
     <div className="relative flex items-center gap-4 px-6 py-3 text-sm">
-      <div className="flex flex-1 items-center gap-4">
+      <div className="flex flex-1 items-center justify-between gap-4">
         <a href={`mailto:${contactEmail}`} className="hidden lg:block hover:underline">
           {contactEmail}
         </a>
 
-        <nav className="hidden lg:flex items-center gap-10">
+        <nav className="hidden lg:flex items-center gap-6">
           {leftLinks.map((l) =>
             l.label === "Products" ? (
               <div
@@ -399,7 +403,7 @@ export default function Navbar({
                           </div>
                         </Link>
                         <div className={techStyles.lineDiv} />
-                         <Image className={techStyles.refnicOverview2} src="/refnicOverview2.png" width={341} height={320} sizes="100vw" alt="" />
+                         <img className={techStyles.refnicOverview2} src={technologiesImageUrl} alt="" />
                         <div className={techStyles.exploreOurResearch}>Explore our research, engineering insights, and perspectives</div>
                       </div>
                     </div>
@@ -425,11 +429,11 @@ export default function Navbar({
           className="shrink-0 font-display font-bold text-2xl tracking-tight text-black"
           aria-label="Refnic"
         >
-          <img src="/logo_blue.png" alt="Refnic Logo" className="h-15 w-auto" />
+          <img src="/logo_blue.png" alt="Refnic Logo" className="h-18 w-auto" />
         </Link>
 
-      <div className="flex flex-1 items-center justify-end gap-4">
-        <nav className="hidden lg:flex items-center gap-10">
+      <div className="flex flex-1 items-center justify-between gap-4">
+        <nav className="hidden lg:flex items-center gap-6">
           {rightLinks.map((l) =>
             l.label === "About Us" ? (
               <div
@@ -489,7 +493,7 @@ export default function Navbar({
                          </a>
                        </div>
                        <div className={styles.groupChild} />
-                       <Image className={styles.refnicOverview2} src="/refnicOverview2.png" width={344} height={320} sizes="100vw" alt="" />
+                       <img className={styles.refnicOverview2} src={aboutImageUrl} alt="" />
                      </div>
                   </div>
                 </div>

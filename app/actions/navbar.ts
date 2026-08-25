@@ -27,6 +27,8 @@ export async function updateNavbarConfigAction(formData: FormData): Promise<void
     productsMenu: parseLinkRows(formData, "productsLabel", "productsHref"),
     technologiesMenu: parseLinkRows(formData, "techLabel", "techHref"),
     aboutMenu: parseAboutRows(formData),
+    technologiesImageUrl: String(formData.get("technologiesImageUrl") ?? ""),
+    aboutImageUrl: String(formData.get("aboutImageUrl") ?? ""),
   };
 
   const previous = await getNavbarConfig();

@@ -13,6 +13,8 @@ export default async function SiteHeader() {
           productsMenu={config.productsMenu}
           technologiesMenu={config.technologiesMenu}
           aboutMenu={config.aboutMenu}
+          technologiesImageUrl={config.technologiesImageUrl}
+          aboutImageUrl={config.aboutImageUrl}
         />
       </div>
     </header>

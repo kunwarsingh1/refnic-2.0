@@ -12,6 +12,12 @@
   	color: #232f1a;
   	font-family: 'Plus Jakarta Sans';
 }
+.products a {
+  	transition: color 0.15s ease;
+}
+.products a:hover {
+  	color: #2e4be0;
+}
 .navContentList {
   	position: absolute;
   	top: 22px;
@@ -46,6 +52,7 @@
   	position: relative;
   	letter-spacing: -0.01em;
   	line-height: 140%;
+  	font-weight: 500;
   	flex-shrink: 0;
 }
 .keepYourSpending {

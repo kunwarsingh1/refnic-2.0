@@ -12,6 +12,12 @@
   	color: #232f1a;
   	font-family: 'Plus Jakarta Sans';
 }
+.trchnologies a {
+  	transition: color 0.15s ease;
+}
+.trchnologies a:hover {
+  	color: #2e4be0;
+}
 .navContentList {
   	position: absolute;
   	top: 41px;

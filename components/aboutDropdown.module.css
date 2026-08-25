@@ -24,6 +24,16 @@
 	padding: 32px;
 	isolation: isolate;
 	gap: 20px 12px;
+	text-align: left;
+	font-size: 16px;
+	color: #232f1a;
+	font-family: 'Plus Jakarta Sans';
+}
+.openNav a {
+	transition: color 0.15s ease;
+}
+.openNav a:hover {
+	color: #2e4be0;
 }
 .navContentList {
 	width: 370px;

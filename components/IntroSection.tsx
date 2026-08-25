@@ -92,12 +92,14 @@ export default function IntroSection({ cards }: { cards: IntroCard[] }) {
                   style={{ perspective: "1000px" }}
                   className={`flex w-[calc((100%-3rem)/3)] shrink-0 flex-col items-center border border-white/10 p-6 text-center transition-all duration-700 md:w-[calc((100%-4rem)/3)]`}
                 >
-                  <img
-                    src={c.imageUrl}
-                    alt={c.title}
-                    className={`w-full object-contain transition-all duration-700 ${emphasized ? "h-42 md:h-60" : "h-28 md:h-40"}`}
-                    style={{ filter: "drop-shadow(0 0 60px rgba(46, 75, 224, 0.85))" }}
-                  />
+                  {c.imageUrl && (
+                    <img
+                      src={c.imageUrl}
+                      alt={c.title}
+                      className={`w-full object-contain transition-all duration-700 ${emphasized ? "h-42 md:h-60" : "h-28 md:h-40"}`}
+                      style={{ filter: "drop-shadow(0 0 60px rgba(46, 75, 224, 0.85))" }}
+                    />
+                  )}
                   <p className={`mt-6 font-sans text-white transition-all duration-700 ${emphasized ? "text-2xl font-bold md:text-3xl" : "text-lg font-medium text-white/80"}`}>
                     {c.title}
                   </p>

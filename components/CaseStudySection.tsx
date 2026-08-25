@@ -196,7 +196,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                 min-h-[470px]
                 overflow-hidden
                 rounded-2xl
-                bg-[#f8f8f8]
+                bg-white
                 md:min-h-[410px]
               "
               onTouchStart={onTouchStart}
@@ -311,11 +311,13 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                 {cs.modelUrl ? (
                   <ModelViewer src={cs.modelUrl} alt={cs.label} className="h-full w-full" />
                 ) : (
-                  <img
-                    src={cs.imageUrl}
-                    alt={cs.label}
-                    className="h-full w-full object-cover"
-                  />
+                  cs.imageUrl && (
+                    <img
+                      src={cs.imageUrl}
+                      alt={cs.label}
+                      className="h-full w-full object-cover"
+                    />
+                  )
                 )}
               </div>
 
@@ -341,6 +343,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                   min-h-[470px]
                   items-center
                   md:min-h-[410px]
+                  md:items-start
                   md:grid-cols-[13%_32%_55%]
                 "
               >
@@ -376,15 +379,18 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                     CONTENT
                 ================================== */}
 
-                <div className="px-8 py-16 md:px-12 md:py-20">
+                <div className="px-8 pt-16 pb-16 md:px-12 md:pt-0 md:pb-20">
 
-                  <p className="
-                    font-display
-                    text-4xl
-                    font-black
-                    text-[#3152df]
-                    md:text-6xl
-                  ">
+                  <p
+                    style={{
+                      color: "#1B37B0",
+                      fontSize: 64,
+                      fontFamily: "Plus Jakarta Sans",
+                      fontWeight: 700,
+                      lineHeight: "64px",
+                      wordWrap: "break-word",
+                    }}
+                  >
                     {cs.city}
                   </p>
 

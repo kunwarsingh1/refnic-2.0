@@ -11,6 +11,8 @@ export type NavbarConfig = {
   productsMenu: NavLink[];
   technologiesMenu: NavLink[];
   aboutMenu: AboutMenuItem[];
+  technologiesImageUrl: string;
+  aboutImageUrl: string;
 };
 
 const DEFAULT_PRODUCTS_MENU: NavLink[] = [
@@ -93,6 +95,8 @@ export const DEFAULT_NAVBAR_CONFIG: NavbarConfig = {
   productsMenu: DEFAULT_PRODUCTS_MENU,
   technologiesMenu: DEFAULT_TECHNOLOGIES_MENU,
   aboutMenu: DEFAULT_ABOUT_MENU,
+  technologiesImageUrl: "/refnicOverview2.png",
+  aboutImageUrl: "/refnicOverview2.png",
 };
 
 export async function getNavbarConfig(): Promise<NavbarConfig> {

@@ -1,6 +1,7 @@
 "use client";
 
 import { buttonClass, inputClass, labelClass } from "@/components/admin/formStyles";
+import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import type { NavbarConfig } from "@/lib/content/navbar";
 
 function LinkRows({ links, labelName, hrefName }: { links: { label: string; href: string }[]; labelName: string; hrefName: string }) {
@@ -43,6 +44,9 @@ export function NavbarConfigForm({
       <div>
         <p className={labelClass}>About Us dropdown</p>
         <p className="mb-3 text-xs text-white/40">Fixed 5 items — title, subtitle and link are editable.</p>
+        <div className="mb-4">
+          <ImageUploadField name="aboutImageUrl" label="Dropdown image" defaultValue={config.aboutImageUrl} />
+        </div>
         <div className="space-y-3">
           {config.aboutMenu.map((item, i) => (
             <div key={i} className="rounded-md border border-white/10 p-3">
@@ -83,6 +87,9 @@ export function NavbarConfigForm({
       <div>
         <p className={labelClass}>Technologies dropdown</p>
         <p className="mb-3 text-xs text-white/40">Fixed {config.technologiesMenu.length} items — labels and links are editable.</p>
+        <div className="mb-4">
+          <ImageUploadField name="technologiesImageUrl" label="Dropdown image" defaultValue={config.technologiesImageUrl} />
+        </div>
         <LinkRows links={config.technologiesMenu} labelName="techLabel" hrefName="techHref" />
       </div>
 
