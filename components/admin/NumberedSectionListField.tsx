@@ -2,14 +2,15 @@
 
 import { useState } from "react";
 import { inputClass } from "@/components/admin/formStyles";
+import { ImageUploadField } from "@/components/admin/ImageUploadField";
 
 export function NumberedSectionListField({
   defaultItems,
 }: {
-  defaultItems: { number: string; heading: string; body: string }[];
+  defaultItems: { number: string; heading: string; body: string; imageUrl?: string }[];
 }) {
   const [items, setItems] = useState(
-    defaultItems.length > 0 ? defaultItems : [{ number: "01", heading: "", body: "" }],
+    defaultItems.length > 0 ? defaultItems : [{ number: "01", heading: "", body: "", imageUrl: "" }],
   );
 
   return (
@@ -35,6 +36,9 @@ export function NumberedSectionListField({
               />
             </div>
             <textarea name="sectionBody" rows={3} defaultValue={item.body} className={inputClass} placeholder="Body" />
+            <div className="mt-2">
+              <ImageUploadField name="sectionImageUrl" label="Image (optional)" defaultValue={item.imageUrl} />
+            </div>
             <button
               type="button"
               onClick={() => setItems((cur) => cur.filter((_, idx) => idx !== i))}
@@ -47,7 +51,7 @@ export function NumberedSectionListField({
       </div>
       <button
         type="button"
-        onClick={() => setItems((cur) => [...cur, { number: "", heading: "", body: "" }])}
+        onClick={() => setItems((cur) => [...cur, { number: "", heading: "", body: "", imageUrl: "" }])}
         className="mt-2 text-sm font-medium text-accent-blue hover:underline"
       >
         + Add

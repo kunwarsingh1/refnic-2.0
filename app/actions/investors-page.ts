@@ -15,12 +15,18 @@ export async function updateInvestorsPageConfigAction(formData: FormData): Promi
   const numbers = formData.getAll("sectionNumber").map(String);
   const headings = formData.getAll("sectionHeading").map(String);
   const bodies = formData.getAll("sectionBody").map(String);
+  const imageUrls = formData.getAll("sectionImageUrl").map(String);
 
   const args: InvestorsPageConfig = {
     heroHeading: String(formData.get("heroHeading") ?? ""),
     heroSubheading: String(formData.get("heroSubheading") ?? ""),
     numberedSections: headings
-      .map((heading, i) => ({ number: numbers[i] ?? String(i + 1).padStart(2, "0"), heading, body: bodies[i] ?? "" }))
+      .map((heading, i) => ({
+        number: numbers[i] ?? String(i + 1).padStart(2, "0"),
+        heading,
+        body: bodies[i] ?? "",
+        imageUrl: imageUrls[i] || undefined,
+      }))
       .filter((s) => s.heading.trim() !== ""),
     whyNowHeading: String(formData.get("whyNowHeading") ?? ""),
     whyNowReasons: nonEmpty(formData.getAll("whyNowReason")),

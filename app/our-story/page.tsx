@@ -3,6 +3,7 @@ import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/primitives";
 import { getOurStoryPageConfig } from "@/lib/content/ourStoryPage";
+import { ZigzagFeatureSections } from "@/components/ZigzagFeatureSections";
 
 export const metadata: Metadata = {
   title: "Our Story — Refine Nicely",
@@ -30,17 +31,7 @@ export default async function OurStoryPage() {
         </div>
 
         <div className="relative z-10 mx-auto max-w-6xl px-6 pb-20">
-          <div className="space-y-14">
-            {c.numberedSections.map((s) => (
-              <div key={s.number} className="grid gap-4 md:grid-cols-[100px_1fr]">
-                <p className="font-display font-black text-5xl text-white/10">{s.number}</p>
-                <div>
-                  <p className="font-display font-black text-2xl text-white md:text-3xl">{s.heading}</p>
-                  <p className="mt-3 max-w-2xl leading-relaxed text-white/60">{s.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ZigzagFeatureSections sections={c.numberedSections} />
         </div>
 
         <div className="relative z-10 mx-auto max-w-6xl px-6 pb-24 text-center">

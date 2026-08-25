@@ -2,7 +2,7 @@ import { getSiteConfig } from "@/lib/content/siteConfig";
 
 export const INVESTORS_PAGE_KEY = "investorsPage";
 
-export type NumberedSection = { number: string; heading: string; body: string };
+export type NumberedSection = { number: string; heading: string; body: string; imageUrl?: string };
 
 export type InvestorsPageConfig = {
   heroHeading: string;

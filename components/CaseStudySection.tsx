@@ -147,7 +147,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
               CAROUSEL WRAPPER
           ======================================== */}
 
-          <div className="relative px-16 md:px-20">
+          <div className="relative px-2 md:px-20">
 
             {/* ======================================
                 PREVIOUS BUTTON
@@ -162,7 +162,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                 top-1/2
                 z-40
                 flex
-                size-12
+                size-9
                 -translate-y-1/2
                 items-center
                 justify-center
@@ -174,9 +174,10 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                 transition-colors
                 hover:border-accent-blue
                 hover:text-accent-blue
+                md:size-12
               "
             >
-              <ArrowLeftIcon className="size-5" />
+              <ArrowLeftIcon className="size-4 md:size-5" />
             </button>
 
             {/* ======================================
@@ -193,7 +194,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
             <div
               className="
                 relative
-                min-h-[470px]
+                min-h-0
                 overflow-hidden
                 rounded-2xl
                 bg-white
@@ -211,11 +212,13 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                 className="
                   pointer-events-none
                   absolute
-                  inset-y-0
+                  inset-y-6
                   left-[13%]
                   z-30
+                  hidden
                   w-px
                   bg-gray-300
+                  md:block
                 "
                 aria-hidden
               />
@@ -228,11 +231,13 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                 className="
                   pointer-events-none
                   absolute
-                  inset-y-0
+                  inset-y-6
                   left-[45%]
                   z-30
+                  hidden
                   w-px
                   bg-accent-blue/40
+                  md:block
                 "
                 aria-hidden
               />
@@ -246,10 +251,12 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                   pointer-events-none
                   absolute
                   inset-x-0
-                  top-[56px]
+                  top-[96px]
                   z-30
+                  hidden
                   h-px
                   bg-accent-blue/40
+                  md:block
                 "
                 aria-hidden
               />
@@ -265,8 +272,10 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                   inset-x-0
                   bottom-[56px]
                   z-30
+                  hidden
                   h-px
                   bg-accent-blue/40
+                  md:block
                 "
                 aria-hidden
               />
@@ -298,10 +307,10 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                   mb-6
                   aspect-[4/3]
                   w-full
-                  shadow-[0_4px_86.9px_rgba(0,0,0,0.25),0_4px_76px_rgba(49,82,223,0.35)]
+                  shadow-[0_4px_40px_rgba(0,0,0,0.2),0_4px_32px_rgba(49,82,223,0.3)]
                   md:absolute
                   md:left-[13%]
-                  md:top-[57px]
+                  md:top-[96px]
                   md:bottom-[57px]
                   md:mb-0
                   md:aspect-auto
@@ -340,8 +349,9 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                   relative
                   z-10
                   grid
-                  min-h-[470px]
-                  items-center
+                  min-h-0
+                  grid-cols-1
+                  items-start
                   md:min-h-[410px]
                   md:items-start
                   md:grid-cols-[13%_32%_55%]
@@ -352,14 +362,12 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                     NUMBER
                 ================================== */}
 
-                <div className="flex items-center justify-center">
+                <div className="hidden items-center justify-center md:flex">
                   <p className="
-                    hidden
                     font-display
                     text-6xl
                     font-black
                     text-black/10
-                    md:block
                   ">
                     {number}
                   </p>
@@ -373,22 +381,26 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                     positioned above this column.
                 ================================== */}
 
-                <div aria-hidden />
+                <div aria-hidden className="hidden md:block" />
 
                 {/* ==================================
                     CONTENT
                 ================================== */}
 
-                <div className="px-8 pt-16 pb-16 md:px-12 md:pt-0 md:pb-20">
+                <div className="min-w-0 px-8 pt-16 pb-16 md:px-12 md:pt-0 md:pb-20">
 
                   <p
+                    className="
+                      break-words
+                      text-4xl
+                      font-bold
+                      leading-tight
+                      md:text-[64px]
+                      md:leading-[64px]
+                    "
                     style={{
                       color: "#1B37B0",
-                      fontSize: 64,
                       fontFamily: "Plus Jakarta Sans",
-                      fontWeight: 700,
-                      lineHeight: "64px",
-                      wordWrap: "break-word",
                     }}
                   >
                     {cs.city}
@@ -438,7 +450,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                 top-1/2
                 z-40
                 flex
-                size-12
+                size-9
                 -translate-y-1/2
                 items-center
                 justify-center
@@ -450,9 +462,10 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                 transition-colors
                 hover:border-accent-blue
                 hover:text-accent-blue
+                md:size-12
               "
             >
-              <ArrowRightIcon className="size-5" />
+              <ArrowRightIcon className="size-4 md:size-5" />
             </button>
 
           </div>
