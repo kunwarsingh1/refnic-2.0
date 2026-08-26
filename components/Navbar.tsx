@@ -71,9 +71,11 @@ export default function Navbar({
   const [productsScale, setProductsScale] = useState(1);
   const [techScale, setTechScale] = useState(1);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
 
   useEffect(() => {
     setMobileOpen(false);
+    setMobileExpanded(null);
   }, [pathname]);
 
   useEffect(() => {
@@ -518,7 +520,13 @@ export default function Navbar({
 
         <button
           type="button"
-          onClick={() => setMobileOpen((v) => !v)}
+          onClick={() =>
+            setMobileOpen((v) => {
+              const next = !v;
+              if (!next) setMobileExpanded(null);
+              return next;
+            })
+          }
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
           className="flex items-center justify-center rounded-md p-1.5 text-black lg:hidden"
@@ -534,19 +542,87 @@ export default function Navbar({
             <Link href="/" className="rounded-md px-2 py-2.5 hover:bg-gray-50">
               Home
             </Link>
-            <Link href="/products" className="rounded-md px-2 py-2.5 hover:bg-gray-50">
-              Products
-            </Link>
-            <Link href="/technologies" className="rounded-md px-2 py-2.5 hover:bg-gray-50">
-              Technologies
-            </Link>
 
-            <p className="mt-2 px-2 text-xs font-bold uppercase tracking-wide text-gray-400">About Us</p>
-            {aboutMenu.map((item) => (
-              <a key={item.title} href={item.href} className="rounded-md px-2 py-2.5 hover:bg-gray-50">
-                {item.title}
-              </a>
-            ))}
+            <div>
+              <div className="flex items-center justify-between rounded-md hover:bg-gray-50">
+                <Link href="/products" className="flex-1 px-2 py-2.5">
+                  Products
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => setMobileExpanded((v) => (v === "products" ? null : "products"))}
+                  aria-label={mobileExpanded === "products" ? "Collapse Products menu" : "Expand Products menu"}
+                  aria-expanded={mobileExpanded === "products"}
+                  className="px-3 py-2.5"
+                >
+                  <CaretDown className={`transition-transform ${mobileExpanded === "products" ? "rotate-180" : ""}`} />
+                </button>
+              </div>
+              {mobileExpanded === "products" && (
+                <div className="ml-2 flex flex-col gap-0.5 border-l border-gray-100 pl-3">
+                  {productsMenu.map((item, i) => (
+                    <Link
+                      key={i}
+                      href={item.href}
+                      className="rounded-md px-2 py-2 text-gray-600 hover:bg-gray-50"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div>
+              <div className="flex items-center justify-between rounded-md hover:bg-gray-50">
+                <Link href="/technologies" className="flex-1 px-2 py-2.5">
+                  Technologies
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => setMobileExpanded((v) => (v === "technologies" ? null : "technologies"))}
+                  aria-label={mobileExpanded === "technologies" ? "Collapse Technologies menu" : "Expand Technologies menu"}
+                  aria-expanded={mobileExpanded === "technologies"}
+                  className="px-3 py-2.5"
+                >
+                  <CaretDown className={`transition-transform ${mobileExpanded === "technologies" ? "rotate-180" : ""}`} />
+                </button>
+              </div>
+              {mobileExpanded === "technologies" && (
+                <div className="ml-2 flex flex-col gap-0.5 border-l border-gray-100 pl-3">
+                  {technologiesMenu.map((item, i) => (
+                    <Link
+                      key={i}
+                      href={item.href}
+                      className="rounded-md px-2 py-2 text-gray-600 hover:bg-gray-50"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div className="mt-2">
+              <button
+                type="button"
+                onClick={() => setMobileExpanded((v) => (v === "about" ? null : "about"))}
+                aria-expanded={mobileExpanded === "about"}
+                className="flex w-full items-center justify-between rounded-md px-2 py-2.5 text-xs font-bold uppercase tracking-wide text-gray-400 hover:bg-gray-50"
+              >
+                About Us
+                <CaretDown className={`transition-transform ${mobileExpanded === "about" ? "rotate-180" : ""}`} />
+              </button>
+              {mobileExpanded === "about" && (
+                <div className="flex flex-col gap-0.5">
+                  {aboutMenu.map((item, i) => (
+                    <a key={i} href={item.href} className="rounded-md px-2 py-2.5 hover:bg-gray-50">
+                      {item.title}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
 
             <div className="mt-2 border-t border-gray-100 pt-2">
               <a href="/newsletter" className="block rounded-md px-2 py-2.5 hover:bg-gray-50">

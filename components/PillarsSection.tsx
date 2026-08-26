@@ -2,7 +2,7 @@ import type { Pillar } from "@/lib/content/pillars";
 
 export default function PillarsSection({ pillars }: { pillars: Pillar[] }) {
   return (
-    <section className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-black py-8 md:py-10">
+    <section className="relative flex flex-col justify-center overflow-hidden bg-black py-8 md:min-h-screen md:py-10">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="mx-auto mb-14 max-w-2xl text-center">

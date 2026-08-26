@@ -15,7 +15,7 @@ export function Button({
   href?: string;
 }) {
   const base =
-    "inline-flex items-center gap-2 rounded-none px-7 py-[16px] text-[16px] font-bold leading-none whitespace-nowrap transition-colors";
+    "inline-flex items-center gap-2 rounded-none px-7 py-[16px] text-[16px] font-bold leading-none transition-colors sm:whitespace-nowrap";
   const styles =
     variant === "primary"
       ? "bg-accent-blue text-white hover:bg-accent-blue-dark"
@@ -66,6 +66,23 @@ export function ImagePlaceholder({
         backgroundImage: `repeating-linear-gradient(135deg, ${t} 0px, ${t} 1px, transparent 1px, transparent 12px)`,
       }}
     />
+  );
+}
+
+/**
+ * Stand-in for a real photo/image asset that hasn't been uploaded via the CMS yet —
+ * a light gray card with a generic "image" glyph, so it reads as "add an image here"
+ * rather than as intentional decoration.
+ */
+export function CmsImagePlaceholder({ className = "" }: { className?: string }) {
+  return (
+    <div className={`flex items-center justify-center overflow-hidden bg-gray-200 ${className}`}>
+      <svg viewBox="0 0 24 24" fill="none" stroke="#9ca3af" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-2/5 w-2/5" aria-hidden>
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <circle cx="8.5" cy="8.5" r="1.5" />
+        <path d="M21 15l-5-5L5 21" />
+      </svg>
+    </div>
   );
 }
 

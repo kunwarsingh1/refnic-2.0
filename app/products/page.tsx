@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
-import CardGridSection from "@/components/CardGridSection";
-import { getCards } from "@/lib/content/cards";
+import ProductsHero from "@/components/ProductsHero";
+import PlantProcessOverview from "@/components/PlantProcessOverview";
+import MaterialRecoverySection from "@/components/MaterialRecoverySection";
+import ProductsCtaSection from "@/components/ProductsCtaSection";
 import { getProductsPageConfig } from "@/lib/content/productsPage";
 
 export const metadata: Metadata = {
   title: "Products — Refine Nicely",
-  description: "Indigenously designed industrial machinery built for high performance, reliability, and long-term operation.",
+  description: "Refnic designs lithium-ion battery recycling plants for the controlled recovery of valuable materials from end-of-life NMC and LCO batteries.",
 };
 
 export const revalidate = 60;
 
 export default async function ProductsPage() {
-  const [products, config] = await Promise.all([getCards("products"), getProductsPageConfig()]);
+  const config = await getProductsPageConfig();
 
   return (
     <>
@@ -22,7 +24,10 @@ export default async function ProductsPage() {
       </div>
 
       <main className="bg-black">
-        <CardGridSection title={config.heading} subtitle={config.subtitle} cards={products} variant="products" />
+        <ProductsHero config={config} />
+        <PlantProcessOverview config={config} />
+        <MaterialRecoverySection config={config} />
+        <ProductsCtaSection config={config} />
       </main>
 
       <Footer />

@@ -53,7 +53,11 @@ export default async function Footer() {
   return (
     <footer className="relative bg-black">
       <div className="relative">
-        <div className="absolute inset-0 -z-10 overflow-hidden bg-grid-dark" aria-hidden />
+        <div
+          className="absolute bg-grid-dark"
+          style={{ top: "-64px", left: 0, right: 0, height: "220px" }}
+          aria-hidden
+        />
 
         <div className="relative h-[9.5vw] md:h-[90px]">
          <p

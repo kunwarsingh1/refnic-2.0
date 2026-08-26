@@ -21,6 +21,7 @@ export type ContentType =
   | "investorsPage"
   | "ourStoryPage"
   | "productsPage"
+  | "solutionsPage"
   | "sustainabilityPage"
   | "technologiesPage";
 

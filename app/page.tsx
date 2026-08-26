@@ -50,22 +50,22 @@ export default async function Home() {
           <div className="absolute left-[26%] top-[39%] h-[980px] w-[972px] rounded-full bg-[#3152df] opacity-20 blur-[380px]" />
           <div className="absolute left-[24%] top-[87%] h-[980px] w-[972px] rounded-full bg-[#3152df] opacity-20 blur-[380px]" />
         </div>
-        <section className="flex min-h-screen flex-col justify-center">
+        <section className="flex flex-col justify-center md:min-h-screen">
           <IntroSection cards={introCards} />
         </section>
-        <section className="flex min-h-screen flex-col justify-center">
+        <section className="flex flex-col justify-center md:min-h-screen">
           <PillarsSection pillars={pillars} />
         </section>
-        <section className="flex min-h-screen flex-col justify-center">
+        <section className="flex flex-col justify-center md:min-h-screen">
           <ProcessSection steps={processSteps} />
         </section>
-        <section className="flex min-h-screen flex-col justify-center">
+        <section className="flex flex-col justify-center md:min-h-screen">
           <StatsSection {...statsConfig} />
         </section>
-        <section className="flex min-h-screen flex-col justify-center">
+        <section className="flex flex-col justify-center md:min-h-screen">
           <CaseStudySection caseStudies={caseStudies} />
         </section>
-        <section className="flex min-h-screen flex-col justify-center">
+        <section className="flex flex-col justify-center md:min-h-screen">
           <CardGridSection
             title="Products"
             subtitle="Indigenously designed industrial machinery built for high performance, reliability, and long-term operation."
@@ -73,7 +73,7 @@ export default async function Home() {
             variant="products"
           />
         </section>
-        <section className="flex min-h-screen flex-col justify-center">
+        <section className="flex flex-col justify-center md:min-h-screen">
           <CardGridSection
             title="Solution"
             subtitle="Integrated mechanical and chemical engineering solutions tailored for industrial-scale resource recovery."
@@ -82,7 +82,7 @@ export default async function Home() {
             exploreHref="/products"
           />
         </section>
-        <section className="flex min-h-screen flex-col justify-center">
+        <section className="flex flex-col justify-center md:min-h-screen">
           <CardGridSection
             title="Services"
             subtitle="From concept development to long-term operational support, Refnic delivers the expertise that powers successful industrial projects."
@@ -90,10 +90,10 @@ export default async function Home() {
             variant="services"
           />
         </section>
-        <section className="flex min-h-screen flex-col justify-center">
+        <section className="flex flex-col justify-center md:min-h-screen">
           <NewsletterSection posts={newsletterPosts} />
         </section>
-        <section className="flex min-h-screen flex-col justify-center">
+        <section className="flex flex-col justify-center md:min-h-screen">
           <ContactSection />
         </section>
       </main>

@@ -26,7 +26,7 @@ export function NavbarConfigForm({
 }) {
   return (
     <form action={action} className="max-w-2xl space-y-10">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="contactEmail" className={labelClass}>
             Contact email
@@ -50,7 +50,7 @@ export function NavbarConfigForm({
         <div className="space-y-3">
           {config.aboutMenu.map((item, i) => (
             <div key={i} className="rounded-md border border-white/10 p-3">
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                 <input
                   name="aboutTitle"
                   type="text"

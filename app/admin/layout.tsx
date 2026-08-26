@@ -38,6 +38,7 @@ const NAV_SECTIONS: { heading: string; items: { label: string; href: string }[] 
       { label: "Sustainability", href: "/admin/sustainability-page" },
       { label: "Technologies", href: "/admin/technologies-page" },
       { label: "Products", href: "/admin/products-page" },
+      { label: "Solution", href: "/admin/solutions-page" },
     ],
   },
 ];

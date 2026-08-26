@@ -19,6 +19,7 @@ import { INDIAN_MARKET_PAGE_KEY } from "@/lib/content/indianMarketPage";
 import { INVESTORS_PAGE_KEY } from "@/lib/content/investorsPage";
 import { OUR_STORY_PAGE_KEY } from "@/lib/content/ourStoryPage";
 import { PRODUCTS_PAGE_KEY } from "@/lib/content/productsPage";
+import { SOLUTIONS_PAGE_KEY } from "@/lib/content/solutionsPage";
 import { SUSTAINABILITY_PAGE_KEY } from "@/lib/content/sustainabilityPage";
 import { TECHNOLOGIES_PAGE_KEY } from "@/lib/content/technologiesPage";
 import type { PendingChange } from "@/lib/pendingChanges";
@@ -62,6 +63,7 @@ const REGISTRY: Record<string, (args: any) => Promise<void>> = {
   "investorsPage:update": (args) => setSiteConfig(INVESTORS_PAGE_KEY, args),
   "ourStoryPage:update": (args) => setSiteConfig(OUR_STORY_PAGE_KEY, args),
   "productsPage:update": (args) => setSiteConfig(PRODUCTS_PAGE_KEY, args),
+  "solutionsPage:update": (args) => setSiteConfig(SOLUTIONS_PAGE_KEY, args),
   "sustainabilityPage:update": (args) => setSiteConfig(SUSTAINABILITY_PAGE_KEY, args),
   "technologiesPage:update": (args) => setSiteConfig(TECHNOLOGIES_PAGE_KEY, args),
 };

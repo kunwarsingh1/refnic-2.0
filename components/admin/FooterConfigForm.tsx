@@ -65,7 +65,7 @@ export function FooterConfigForm({
 
   return (
     <form action={action} className="max-w-2xl space-y-8">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="brandName" className={labelClass}>
             Brand name
@@ -93,7 +93,7 @@ export function FooterConfigForm({
         <textarea id="tagline" name="tagline" rows={3} defaultValue={config.tagline} className={inputClass} />
       </div>
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <div>
           <label htmlFor="linkedin" className={labelClass}>
             LinkedIn URL
@@ -133,7 +133,7 @@ export function FooterConfigForm({
         />
       </div>
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <div>
           <label htmlFor="contactEmail" className={labelClass}>
             Contact email

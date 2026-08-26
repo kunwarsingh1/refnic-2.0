@@ -5,6 +5,7 @@ import {
   ArrowLeftIcon,
   ArrowRightIcon,
   Button,
+  CmsImagePlaceholder,
 } from "./ui/primitives";
 import type { TouchEvent as ReactTouchEvent } from "react";
 import type { CaseStudy } from "@/lib/content/caseStudies";
@@ -319,14 +320,14 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
               >
                 {cs.modelUrl ? (
                   <ModelViewer src={cs.modelUrl} alt={cs.label} className="h-full w-full" />
+                ) : cs.imageUrl ? (
+                  <img
+                    src={cs.imageUrl}
+                    alt={cs.label}
+                    className="h-full w-full object-cover"
+                  />
                 ) : (
-                  cs.imageUrl && (
-                    <img
-                      src={cs.imageUrl}
-                      alt={cs.label}
-                      className="h-full w-full object-cover"
-                    />
-                  )
+                  <CmsImagePlaceholder className="h-full w-full" />
                 )}
               </div>
 
