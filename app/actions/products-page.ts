@@ -15,12 +15,14 @@ function parsePlantSteps(formData: FormData): PlantStep[] {
   const subheadings = formData.getAll("plantStepSubheading").map(String);
   const keyEquipment = formData.getAll("plantStepKeyEquipment").map(String);
   const descriptions = formData.getAll("plantStepDescription").map(String);
+  const imageUrls = formData.getAll("plantStepImageUrl").map(String);
   return titles
     .map((title, i) => ({
       title,
       subheading: subheadings[i] ?? "",
       keyEquipment: keyEquipment[i] ?? "",
       description: descriptions[i] ?? "",
+      imageUrl: imageUrls[i] || undefined,
     }))
     .filter((s) => s.title.trim() !== "");
 }
@@ -28,8 +30,9 @@ function parsePlantSteps(formData: FormData): PlantStep[] {
 function parseMaterialCards(formData: FormData): MaterialCard[] {
   const titles = formData.getAll("materialCardTitle").map(String);
   const descriptions = formData.getAll("materialCardDescription").map(String);
+  const imageUrls = formData.getAll("materialCardImageUrl").map(String);
   return titles
-    .map((title, i) => ({ title, description: descriptions[i] ?? "" }))
+    .map((title, i) => ({ title, description: descriptions[i] ?? "", imageUrl: imageUrls[i] || undefined }))
     .filter((c) => c.title.trim() !== "");
 }
 
@@ -40,9 +43,11 @@ export async function updateProductsPageConfigAction(formData: FormData): Promis
     heroWatermark: String(formData.get("heroWatermark") ?? ""),
     heroHeading: String(formData.get("heroHeading") ?? ""),
     heroIntro: String(formData.get("heroIntro") ?? ""),
+    heroImageUrl: String(formData.get("heroImageUrl") ?? "") || undefined,
     heroCtaLabel: String(formData.get("heroCtaLabel") ?? ""),
     heroCtaHref: String(formData.get("heroCtaHref") ?? ""),
     crushingBlurb: String(formData.get("crushingBlurb") ?? ""),
+    crushingImageUrl: String(formData.get("crushingImageUrl") ?? "") || undefined,
     processHeading: String(formData.get("processHeading") ?? ""),
     processIntro: String(formData.get("processIntro") ?? ""),
     plantSteps: parsePlantSteps(formData),
@@ -50,6 +55,7 @@ export async function updateProductsPageConfigAction(formData: FormData): Promis
     materialCards: parseMaterialCards(formData),
     ctaHeading: String(formData.get("ctaHeading") ?? ""),
     ctaBlurb: String(formData.get("ctaBlurb") ?? ""),
+    ctaImageUrl: String(formData.get("ctaImageUrl") ?? "") || undefined,
     ctaButtonLabel: String(formData.get("ctaButtonLabel") ?? ""),
     ctaButtonHref: String(formData.get("ctaButtonHref") ?? ""),
   };

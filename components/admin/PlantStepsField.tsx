@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { inputClass } from "@/components/admin/formStyles";
+import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import type { PlantStep } from "@/lib/content/productsPage";
 
-const EMPTY: PlantStep = { title: "", subheading: "", keyEquipment: "", description: "" };
+const EMPTY: PlantStep = { title: "", subheading: "", keyEquipment: "", description: "", imageUrl: "" };
 
 export function PlantStepsField({ label, defaultItems }: { label: string; defaultItems: PlantStep[] }) {
   const [items, setItems] = useState(defaultItems.length > 0 ? defaultItems : [EMPTY]);
@@ -44,6 +45,9 @@ export function PlantStepsField({ label, defaultItems }: { label: string; defaul
               placeholder="Description"
               className={inputClass}
             />
+            <div className="mt-2">
+              <ImageUploadField name="plantStepImageUrl" label="Image (optional)" defaultValue={item.imageUrl} />
+            </div>
             <button
               type="button"
               onClick={() => setItems((cur) => cur.filter((_, idx) => idx !== i))}

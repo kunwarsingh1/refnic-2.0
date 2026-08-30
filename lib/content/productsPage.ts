@@ -7,20 +7,24 @@ export type PlantStep = {
   subheading: string;
   keyEquipment: string;
   description: string;
+  imageUrl?: string;
 };
 
 export type MaterialCard = {
   title: string;
   description: string;
+  imageUrl?: string;
 };
 
 export type ProductsPageConfig = {
   heroWatermark: string;
   heroHeading: string;
   heroIntro: string;
+  heroImageUrl?: string;
   heroCtaLabel: string;
   heroCtaHref: string;
   crushingBlurb: string;
+  crushingImageUrl?: string;
   processHeading: string;
   processIntro: string;
   plantSteps: PlantStep[];
@@ -28,6 +32,7 @@ export type ProductsPageConfig = {
   materialCards: MaterialCard[];
   ctaHeading: string;
   ctaBlurb: string;
+  ctaImageUrl?: string;
   ctaButtonLabel: string;
   ctaButtonHref: string;
 };

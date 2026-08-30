@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { inputClass } from "@/components/admin/formStyles";
+import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import type { MaterialCard } from "@/lib/content/productsPage";
 
-const EMPTY: MaterialCard = { title: "", description: "" };
+const EMPTY: MaterialCard = { title: "", description: "", imageUrl: "" };
 
 export function MaterialCardsField({ label, defaultItems }: { label: string; defaultItems: MaterialCard[] }) {
   const [items, setItems] = useState(defaultItems.length > 0 ? defaultItems : [EMPTY]);
@@ -29,6 +30,9 @@ export function MaterialCardsField({ label, defaultItems }: { label: string; def
               placeholder="Description"
               className={inputClass}
             />
+            <div className="mt-2">
+              <ImageUploadField name="materialCardImageUrl" label="Icon (optional)" defaultValue={item.imageUrl} />
+            </div>
             <button
               type="button"
               onClick={() => setItems((cur) => cur.filter((_, idx) => idx !== i))}

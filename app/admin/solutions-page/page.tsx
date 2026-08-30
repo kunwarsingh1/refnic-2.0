@@ -1,6 +1,7 @@
 import { getSolutionsPageConfig } from "@/lib/content/solutionsPage";
 import { updateSolutionsPageConfigAction } from "@/app/actions/solutions-page";
 import { NarrativeSectionsField } from "@/components/admin/NarrativeSectionsField";
+import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import { buttonClass, inputClass, labelClass } from "@/components/admin/formStyles";
 
 export default async function AdminSolutionsPagePage() {
@@ -41,6 +42,7 @@ export default async function AdminSolutionsPagePage() {
             </label>
             <textarea id="heroBody" name="heroBody" rows={3} defaultValue={c.heroBody} className={inputClass} />
           </div>
+          <ImageUploadField name="heroImageUrl" label="Hero image" defaultValue={c.heroImageUrl} />
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <label htmlFor="heroCtaLabel" className={labelClass}>
@@ -100,6 +102,7 @@ export default async function AdminSolutionsPagePage() {
               className={inputClass}
             />
           </div>
+          <ImageUploadField name="closingImageUrl" label="Closing image" defaultValue={c.closingImageUrl} />
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <label htmlFor="closingCtaLabel" className={labelClass}>

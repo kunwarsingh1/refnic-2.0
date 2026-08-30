@@ -8,17 +8,20 @@ export type NarrativeSection = {
   heading: string;
   body: string;
   layout: NarrativeLayout;
+  imageUrl?: string;
 };
 
 export type SolutionsPageConfig = {
   heroWatermark: string;
   heroHeading: string;
   heroBody: string;
+  heroImageUrl?: string;
   heroCtaLabel: string;
   heroCtaHref: string;
   narrativeSections: NarrativeSection[];
   closingHeading: string;
   closingBody: string;
+  closingImageUrl?: string;
   closingCtaLabel: string;
   closingCtaHref: string;
 };

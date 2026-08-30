@@ -37,7 +37,7 @@ export default function ProcessSection({ steps }: { steps: ProcessStep[] }) {
             return (
               <div
                 key={s.id}
-                className={`relative ${isTall ? "lg:h-auto" : "h-64"} ${placement[i]}`}
+                className={`relative h-64 ${isTall ? "lg:h-auto" : ""} ${placement[i]}`}
               >
                 <div
                   className={`group relative flex h-full flex-col overflow-hidden rounded-lg bg-white p-8 transition-colors duration-300 ${highlighted ? "shadow-[0_0_60px_-10px_rgba(59,79,228,0.55)]" : ""}`}

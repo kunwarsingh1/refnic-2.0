@@ -14,7 +14,15 @@ export default function SolutionsHero({ config: c }: { config: SolutionsPageConf
       </p>
 
       <div className="relative z-10 mx-auto mt-30 max-w-5xl px-6 text-center">
-        <CmsImagePlaceholder className="relative z-10 mx-auto mb-6 aspect-[495/488] w-40 rounded-2xl md:w-60" />
+        {c.heroImageUrl ? (
+          <img
+            src={c.heroImageUrl}
+            alt=""
+            className="relative z-10 mx-auto mb-6 aspect-[495/488] w-40 rounded-2xl object-cover md:w-60"
+          />
+        ) : (
+          <CmsImagePlaceholder className="relative z-10 mx-auto mb-6 aspect-[495/488] w-40 rounded-2xl md:w-60" />
+        )}
 
         <h1 className="font-display font-bold text-4xl leading-tight text-[#EBEBEB] md:text-[64px] md:leading-none">
           {c.heroHeading}

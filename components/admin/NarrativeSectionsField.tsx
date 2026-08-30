@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { inputClass } from "@/components/admin/formStyles";
+import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import type { NarrativeLayout, NarrativeSection } from "@/lib/content/solutionsPage";
 
-const EMPTY: NarrativeSection = { heading: "", body: "", layout: "banner" };
+const EMPTY: NarrativeSection = { heading: "", body: "", layout: "banner", imageUrl: "" };
 const LAYOUTS: NarrativeLayout[] = ["banner", "side-right", "plain"];
 
 export function NarrativeSectionsField({ label, defaultItems }: { label: string; defaultItems: NarrativeSection[] }) {
@@ -37,6 +38,13 @@ export function NarrativeSectionsField({ label, defaultItems }: { label: string;
               placeholder="Body"
               className={inputClass}
             />
+            <div className="mt-2">
+              <ImageUploadField
+                name="narrativeImageUrl"
+                label="Image (optional — used by banner and side-right layouts)"
+                defaultValue={item.imageUrl}
+              />
+            </div>
             <button
               type="button"
               onClick={() => setItems((cur) => cur.filter((_, idx) => idx !== i))}

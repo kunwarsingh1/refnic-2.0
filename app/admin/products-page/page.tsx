@@ -2,6 +2,7 @@ import { getProductsPageConfig } from "@/lib/content/productsPage";
 import { updateProductsPageConfigAction } from "@/app/actions/products-page";
 import { PlantStepsField } from "@/components/admin/PlantStepsField";
 import { MaterialCardsField } from "@/components/admin/MaterialCardsField";
+import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import { buttonClass, inputClass, labelClass } from "@/components/admin/formStyles";
 
 export default async function AdminProductsPagePage() {
@@ -42,6 +43,7 @@ export default async function AdminProductsPagePage() {
             </label>
             <textarea id="heroIntro" name="heroIntro" rows={4} defaultValue={c.heroIntro} className={inputClass} />
           </div>
+          <ImageUploadField name="heroImageUrl" label="Hero image" defaultValue={c.heroImageUrl} />
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <label htmlFor="heroCtaLabel" className={labelClass}>
@@ -80,6 +82,7 @@ export default async function AdminProductsPagePage() {
               className={inputClass}
             />
           </div>
+          <ImageUploadField name="crushingImageUrl" label="Crushing systems image" defaultValue={c.crushingImageUrl} />
         </div>
 
         <div className="space-y-5 border-t border-white/10 pt-8">
@@ -142,6 +145,7 @@ export default async function AdminProductsPagePage() {
             </label>
             <textarea id="ctaBlurb" name="ctaBlurb" rows={2} defaultValue={c.ctaBlurb} className={inputClass} />
           </div>
+          <ImageUploadField name="ctaImageUrl" label="CTA image" defaultValue={c.ctaImageUrl} />
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <label htmlFor="ctaButtonLabel" className={labelClass}>

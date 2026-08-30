@@ -10,7 +10,11 @@ export default function ProductsCtaSection({ config: c }: { config: ProductsPage
         <h2 className="font-display font-bold text-3xl leading-tight text-[#EBEBEB] md:text-[64px] md:leading-none">
           {c.ctaHeading}
         </h2>
-        <CmsImagePlaceholder className="mx-auto mt-8 h-24 w-24 rounded-xl md:h-28 md:w-28" />
+        {c.ctaImageUrl ? (
+          <img src={c.ctaImageUrl} alt="" className="mx-auto mt-8 h-24 w-24 rounded-xl object-cover md:h-28 md:w-28" />
+        ) : (
+          <CmsImagePlaceholder className="mx-auto mt-8 h-24 w-24 rounded-xl md:h-28 md:w-28" />
+        )}
         <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-white md:text-[21.64px] md:leading-[32.46px]">
           {c.ctaBlurb}
         </p>
@@ -19,10 +23,6 @@ export default function ProductsCtaSection({ config: c }: { config: ProductsPage
             {c.ctaButtonLabel}
           </Button>
         </div>
-      </div>
-
-      <div className="relative z-10 mx-auto mt-20 max-w-[90rem] px-4 md:px-6">
-        <CmsImagePlaceholder className="h-[280px] w-full rounded-2xl md:h-[520px]" />
       </div>
     </section>
   );

@@ -59,7 +59,15 @@ export default function SolutionsNarrative({ config: c }: { config: SolutionsPag
                     >
                       {section.body}
                     </p>
-                    <CmsImagePlaceholder className="aspect-[627/549] w-full shrink-0 rounded-[23px] md:w-[560px]" />
+                    {section.imageUrl ? (
+                      <img
+                        src={section.imageUrl}
+                        alt=""
+                        className="aspect-[627/549] w-full shrink-0 rounded-[23px] object-cover md:w-[560px]"
+                      />
+                    ) : (
+                      <CmsImagePlaceholder className="aspect-[627/549] w-full shrink-0 rounded-[23px] md:w-[560px]" />
+                    )}
                   </div>
                 </div>
               );
@@ -73,7 +81,15 @@ export default function SolutionsNarrative({ config: c }: { config: SolutionsPag
                 >
                   {section.heading}
                 </h2>
-                <CmsImagePlaceholder className="mt-10 aspect-[1435/506] w-full rounded-[23px]" />
+                {section.imageUrl ? (
+                  <img
+                    src={section.imageUrl}
+                    alt=""
+                    className="mt-10 aspect-[1435/506] w-full rounded-[23px] object-cover"
+                  />
+                ) : (
+                  <CmsImagePlaceholder className="mt-10 aspect-[1435/506] w-full rounded-[23px]" />
+                )}
                 <p
                   style={{ color }}
                   className="mt-10 whitespace-pre-line text-base leading-relaxed md:text-[21.64px] md:leading-[32.46px]"

@@ -37,7 +37,7 @@ export default async function Home() {
   return (
     <div className="home">
       <div className="bg-black">
-        <SiteHeader />
+        <SiteHeader roundedBottom={false} />
         <Hero />
       </div>
       <main className="relative bg-black bg-grid-dark">
