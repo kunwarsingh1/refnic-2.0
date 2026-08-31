@@ -24,6 +24,7 @@ export default function CardGridSection({
   const light = variant === "solutions";
   const dark = !light;
   const isProducts = variant === "products";
+  const titleOnTop = true;
 
   return (
       <section className={`relative overflow-hidden bg-black ${isProducts ? "py-16 md:py-24" : "py-8 md:py-10"}`}>
@@ -63,8 +64,8 @@ export default function CardGridSection({
                   : "border border-transparent bg-transparent"
               }`}
             >
-              {isProducts && (
-                <h3 className="font-sans font-bold text-lg md:text-xl text-white">
+              {titleOnTop && (
+                <h3 className={`font-sans font-bold text-lg md:text-xl ${light ? "text-black" : "text-white"}`}>
                   {c.title}
                 </h3>
               )}
@@ -72,21 +73,21 @@ export default function CardGridSection({
                 <ModelViewer
                   src={c.modelUrl}
                   alt={c.title}
-                  className={`w-full ${isProducts ? "mt-4" : ""} aspect-[4/3] rounded-xl`}
+                  className={`w-full ${titleOnTop ? "mt-4" : ""} aspect-[4/3] rounded-xl`}
                 />
               ) : c.imageUrl ? (
                 <img
                   src={c.imageUrl}
                   alt={c.title}
-                  className={`w-full ${isProducts ? "mt-4" : ""} aspect-[4/3] rounded-xl ${light ? "object-contain" : variant === "services" ? "object-contain" : "object-cover"}`}
+                  className={`w-full ${titleOnTop ? "mt-4" : ""} aspect-[4/3] rounded-xl ${light ? "object-contain" : variant === "services" ? "object-contain" : "object-cover"}`}
                 />
               ) : (
                 <ImagePlaceholder
                   dark={dark}
-                  className={`w-full ${isProducts ? "mt-4" : ""} aspect-[4/3] rounded-xl`}
+                  className={`w-full ${titleOnTop ? "mt-4" : ""} aspect-[4/3] rounded-xl`}
                 />
               )}
-              {!isProducts && (
+              {!titleOnTop && (
                 <h3 className={`mt-5 font-sans font-bold text-lg md:text-xl ${light ? "text-black" : "text-white"}`}>
                   {c.title}
                 </h3>

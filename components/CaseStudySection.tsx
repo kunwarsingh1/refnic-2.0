@@ -271,7 +271,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                   pointer-events-none
                   absolute
                   inset-x-0
-                  bottom-[56px]
+                  bottom-[110px]
                   z-30
                   hidden
                   h-px
@@ -308,11 +308,12 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                   mb-6
                   aspect-[4/3]
                   w-full
+                  overflow-hidden
                   shadow-[0_4px_40px_rgba(0,0,0,0.2),0_4px_32px_rgba(49,82,223,0.3)]
                   md:absolute
                   md:left-[13%]
                   md:top-[96px]
-                  md:bottom-[57px]
+                  md:bottom-[110px]
                   md:mb-0
                   md:aspect-auto
                   md:w-[32%]
@@ -324,7 +325,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                   <img
                     src={cs.imageUrl}
                     alt={cs.label}
-                    className="h-full w-full object-cover"
+                    className="h-full w-full scale-150 object-cover"
                   />
                 ) : (
                   <CmsImagePlaceholder className="h-full w-full" />
@@ -354,7 +355,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                   grid-cols-1
                   items-start
                   md:min-h-[410px]
-                  md:items-start
+                  md:items-stretch
                   md:grid-cols-[13%_32%_55%]
                 "
               >
@@ -363,7 +364,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                     NUMBER
                 ================================== */}
 
-                <div className="hidden items-center justify-center md:flex">
+                <div className="hidden items-start justify-center md:flex">
                   <p className="
                     font-display
                     text-6xl
@@ -388,7 +389,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                     CONTENT
                 ================================== */}
 
-                <div className="min-w-0 px-8 pt-16 pb-16 md:px-12 md:pt-0 md:pb-20">
+                <div className="min-w-0 px-8 pt-16 pb-16 md:relative md:h-full md:px-12 md:pt-0 md:pb-20">
 
                   <p
                     className="
@@ -407,25 +408,28 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                     {cs.city}
                   </p>
 
-                  <p className="
-                    mt-3
-                    text-sm
-                    font-bold
-                    text-[#1b37b0]
-                  ">
-                    {cs.label}
-                  </p>
+                  <div className="md:absolute md:left-12 md:right-12 md:top-[96px] md:bottom-[110px] md:flex md:flex-col md:justify-center">
+                    <p className="
+                      mt-3
+                      text-sm
+                      font-bold
+                      text-[#1b37b0]
+                      md:mt-0
+                    ">
+                      {cs.label}
+                    </p>
 
-                  <p className="
-                    mt-2
-                    max-w-xl
-                    leading-snug
-                    text-gray-600
-                  ">
-                    {cs.body}
-                  </p>
+                    <p className="
+                      mt-2
+                      max-w-xl
+                      leading-snug
+                      text-gray-600
+                    ">
+                      {cs.body}
+                    </p>
+                  </div>
 
-                  <div className="mt-3">
+                  <div className="mt-3 md:absolute md:bottom-8 md:left-12">
                     <Button
                       href="/case-study"
                       className="rounded-lg"

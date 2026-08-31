@@ -3,6 +3,7 @@ import { createCard, updateCard, deleteCard, reorderCard } from "@/lib/content/c
 import { createCaseStudy, updateCaseStudy, deleteCaseStudy, reorderCaseStudy } from "@/lib/content/caseStudies";
 import { updateProcessStep, reorderProcessStep } from "@/lib/content/processSteps";
 import { createPillar, updatePillar, deletePillar, reorderPillar } from "@/lib/content/pillars";
+import { PILLARS_SECTION_KEY } from "@/lib/content/pillarsSection";
 import { createIntroCard, updateIntroCard, deleteIntroCard, reorderIntroCard } from "@/lib/content/introCards";
 import {
   createNewsletterPost,
@@ -43,6 +44,7 @@ const REGISTRY: Record<string, (args: any) => Promise<void>> = {
   "pillars:update": (args) => updatePillar(args.id, args),
   "pillars:delete": (args) => deletePillar(args.id),
   "pillars:reorder": (args) => reorderPillar(args.id, args.direction),
+  "pillarsSection:update": (args) => setSiteConfig(PILLARS_SECTION_KEY, args),
 
   "introCards:create": (args) => createIntroCard(args),
   "introCards:update": (args) => updateIntroCard(args.id, args),

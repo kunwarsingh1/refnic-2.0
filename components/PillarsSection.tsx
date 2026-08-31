@@ -1,15 +1,47 @@
 import type { Pillar } from "@/lib/content/pillars";
 
-export default function PillarsSection({ pillars }: { pillars: Pillar[] }) {
+export default function PillarsSection({
+  pillars,
+  desktopVideoUrl,
+  mobileVideoUrl,
+}: {
+  pillars: Pillar[];
+  desktopVideoUrl: string;
+  mobileVideoUrl?: string;
+}) {
   return (
-    <section className="relative flex flex-col justify-center overflow-hidden bg-black py-8 md:min-h-screen md:py-10">
+    <section className="relative flex flex-col justify-center overflow-hidden bg-black py-8 md:py-10">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
-      <div className="relative mx-auto max-w-6xl px-6">
+
+      <div className="relative h-screen w-full overflow-hidden bg-black">
+        <video
+          src={desktopVideoUrl}
+          autoPlay
+          loop
+          muted
+          playsInline
+          aria-hidden
+          className="absolute inset-0 hidden h-full w-full scale-[1.18] object-contain md:block"
+        />
+        {mobileVideoUrl && (
+          <video
+            src={mobileVideoUrl}
+            autoPlay
+            loop
+            muted
+            playsInline
+            aria-hidden
+            className="absolute inset-0 h-full w-full scale-[1.18] object-contain md:hidden"
+          />
+        )}
+      </div>
+
+      <div className="relative mx-auto max-w-6xl px-6 py-14 md:py-20">
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <h2 className="font-sans font-bold text-3xl text-white md:text-5xl">
             Designed for Industrial Excellence
           </h2>
-          <p className="mt-4 text-white/60">
+          <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-white md:text-[21.64px] md:leading-[32.46px]">
             Precision engineering, intelligent process design, and indigenous
             manufacturing working together to redefine recycling.
           </p>

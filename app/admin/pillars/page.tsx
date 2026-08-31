@@ -1,23 +1,46 @@
 import Link from "next/link";
 import { getPillars } from "@/lib/content/pillars";
+import { getPillarsSectionConfig } from "@/lib/content/pillarsSection";
 import { deletePillarAction, reorderPillarAction } from "@/app/actions/pillars";
+import { updatePillarsSectionConfigAction } from "@/app/actions/pillars-section";
 import { DeleteButton } from "@/components/admin/DeleteButton";
+import { VideoUploadField } from "@/components/admin/VideoUploadField";
 import { buttonClass } from "@/components/admin/formStyles";
 
 export default async function AdminPillarsPage() {
   const items = await getPillars();
+  const sectionConfig = await getPillarsSectionConfig();
 
   return (
     <div>
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white">Pillars</h1>
-          <p className="mt-1 text-sm text-white/50">The 3 "Designed for Industrial Excellence" cards.</p>
+          <p className="mt-1 text-sm text-white/50">
+            The full-screen looping video and the 3 cards below it on the homepage.
+          </p>
         </div>
         <Link href="/admin/pillars/new" className={buttonClass}>
           Add pillar
         </Link>
       </div>
+
+      <form action={updatePillarsSectionConfigAction} className="mt-8 max-w-md space-y-4 border-b border-white/10 pb-8">
+        <p className="text-xs font-bold uppercase tracking-wide text-white/40">Section video</p>
+        <VideoUploadField
+          name="desktopVideoUrl"
+          label="Background video — laptop/desktop (muted, looping, full screen)"
+          defaultValue={sectionConfig.desktopVideoUrl}
+        />
+        <VideoUploadField
+          name="mobileVideoUrl"
+          label="Background video — mobile (leave empty to show no video on phones)"
+          defaultValue={sectionConfig.mobileVideoUrl}
+        />
+        <button type="submit" className={buttonClass}>
+          Save video
+        </button>
+      </form>
 
       <div className="mt-8">
         {items.length === 0 ? (

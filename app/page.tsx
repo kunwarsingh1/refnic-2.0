@@ -15,23 +15,35 @@ import { getProcessSteps } from "@/lib/content/processSteps";
 import { getStatsConfig } from "@/lib/content/stats";
 import { getIntroCards } from "@/lib/content/introCards";
 import { getPillars } from "@/lib/content/pillars";
+import { getPillarsSectionConfig } from "@/lib/content/pillarsSection";
 import { getNewsletterPosts } from "@/lib/content/newsletter";
 
 export const revalidate = 60;
 
 export default async function Home() {
-  const [products, solutions, services, caseStudies, processSteps, statsConfig, introCards, pillars, newsletterPosts] =
-    await Promise.all([
-      getCards("products"),
-      getCards("solutions"),
-      getCards("services"),
-      getCaseStudies(),
-      getProcessSteps(),
-      getStatsConfig(),
-      getIntroCards(),
-      getPillars(),
-      getNewsletterPosts(),
-    ]);
+  const [
+    products,
+    solutions,
+    services,
+    caseStudies,
+    processSteps,
+    statsConfig,
+    introCards,
+    pillars,
+    pillarsSectionConfig,
+    newsletterPosts,
+  ] = await Promise.all([
+    getCards("products"),
+    getCards("solutions"),
+    getCards("services"),
+    getCaseStudies(),
+    getProcessSteps(),
+    getStatsConfig(),
+    getIntroCards(),
+    getPillars(),
+    getPillarsSectionConfig(),
+    getNewsletterPosts(),
+  ]);
   const allSolutions = [...solutions, ...solutions];
 
   return (
@@ -54,7 +66,11 @@ export default async function Home() {
           <IntroSection cards={introCards} />
         </section>
         <section className="flex flex-col justify-center md:min-h-screen">
-          <PillarsSection pillars={pillars} />
+          <PillarsSection
+            pillars={pillars}
+            desktopVideoUrl={pillarsSectionConfig.desktopVideoUrl}
+            mobileVideoUrl={pillarsSectionConfig.mobileVideoUrl}
+          />
         </section>
         <section className="flex flex-col justify-center md:min-h-screen">
           <ProcessSection steps={processSteps} />

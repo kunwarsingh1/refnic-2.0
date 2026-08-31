@@ -10,6 +10,7 @@ export type ContentType =
   | "caseStudies"
   | "processSteps"
   | "pillars"
+  | "pillarsSection"
   | "introCards"
   | "newsletter"
   | "stats"
