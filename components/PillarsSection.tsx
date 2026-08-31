@@ -13,7 +13,7 @@ export default function PillarsSection({
     <section className="relative flex flex-col justify-center overflow-hidden bg-black py-8 md:py-10">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
-      <div className="relative h-screen w-full overflow-hidden bg-black">
+      <div className={`relative w-full overflow-hidden bg-black ${mobileVideoUrl ? "h-screen" : "md:h-screen"}`}>
         <video
           src={desktopVideoUrl}
           autoPlay

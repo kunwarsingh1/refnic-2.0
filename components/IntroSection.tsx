@@ -90,7 +90,7 @@ export default function IntroSection({ cards }: { cards: IntroCard[] }) {
                 <div
                   key={i}
                   style={{ perspective: "1000px" }}
-                  className={`flex w-[calc((100%-3rem)/3)] shrink-0 flex-col items-center border border-white/10 p-6 text-center transition-all duration-700 md:w-[calc((100%-4rem)/3)]`}
+                  className={`flex w-[78%] shrink-0 flex-col items-center border border-white/10 p-6 text-center transition-all duration-700 sm:w-[calc((100%-1.5rem)/2)] md:w-[calc((100%-4rem)/3)]`}
                 >
                   {c.imageUrl && (
                     <img
