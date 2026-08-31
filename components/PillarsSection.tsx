@@ -13,7 +13,7 @@ export default function PillarsSection({
     <section className="relative flex flex-col justify-center overflow-hidden bg-black py-8 md:py-10">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
-      <div className="relative mx-auto max-w-6xl px-6 pt-14 md:pt-20">
+      <div className="relative mx-auto max-w-6xl px-6 pt-2 md:pt-4">
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <h2 className="font-sans font-bold text-3xl text-white md:text-5xl">
             Designed for Industrial Excellence
@@ -26,6 +26,8 @@ export default function PillarsSection({
       </div>
 
       <div className="relative mx-auto w-full max-w-[90rem] px-6 py-8 md:py-10">
+        <div className="pointer-events-none absolute -bottom-10 left-0 h-[300px] w-[300px] rounded-full bg-[#3152df] opacity-30 blur-[120px] md:h-[420px] md:w-[420px] md:blur-[160px]" aria-hidden />
+        <div className="pointer-events-none absolute -bottom-10 right-0 h-[300px] w-[300px] rounded-full bg-[#3152df] opacity-30 blur-[120px] md:h-[420px] md:w-[420px] md:blur-[160px]" aria-hidden />
         <div className="relative h-72 w-full overflow-hidden rounded-3xl bg-black sm:h-96 md:h-[80vh]">
           <video
             src={desktopVideoUrl}
@@ -34,7 +36,7 @@ export default function PillarsSection({
             muted
             playsInline
             aria-hidden
-            className="absolute inset-0 hidden h-full w-full scale-[1.18] object-contain md:block"
+            className="absolute inset-0 hidden h-full w-full rounded-3xl object-cover md:block"
           />
           <video
             src={mobileVideoUrl || desktopVideoUrl}
@@ -43,7 +45,7 @@ export default function PillarsSection({
             muted
             playsInline
             aria-hidden
-            className="absolute inset-0 h-full w-full scale-[1.18] object-contain md:hidden"
+            className="absolute inset-0 h-full w-full rounded-3xl object-cover md:hidden"
           />
         </div>
       </div>
