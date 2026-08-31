@@ -75,7 +75,7 @@ export default function IntroSection({ cards }: { cards: IntroCard[] }) {
       </div>
 
       <div className="relative z-10 mt-24 px-6 md:px-16">
-        <div className="overflow-hidden">
+        <div className="overflow-hidden px-[11%] sm:px-0">
           <div
             ref={trackRef}
             className="flex items-center gap-6 md:gap-8"
@@ -90,7 +90,7 @@ export default function IntroSection({ cards }: { cards: IntroCard[] }) {
                 <div
                   key={i}
                   style={{ perspective: "1000px" }}
-                  className={`flex w-[78%] shrink-0 flex-col items-center border border-white/10 p-6 text-center transition-all duration-700 sm:w-[calc((100%-1.5rem)/2)] md:w-[calc((100%-4rem)/3)]`}
+                  className={`flex w-full shrink-0 flex-col items-center border border-white/10 p-6 text-center transition-all duration-700 sm:w-[calc((100%-1.5rem)/2)] md:w-[calc((100%-4rem)/3)]`}
                 >
                   {c.imageUrl && (
                     <img

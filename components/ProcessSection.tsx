@@ -74,7 +74,7 @@ export default function ProcessSection({ steps }: { steps: ProcessStep[] }) {
                     {s.title}
                   </p>
                   {s.extra && (
-                    <p className="mt-2 text-sm leading-relaxed text-[#3b4fe4] opacity-100 md:opacity-0 md:transition-opacity md:duration-300 md:group-hover:opacity-100">
+                    <p className="mt-2 text-sm leading-relaxed text-[#3b4fe4] opacity-100 md:absolute md:inset-x-8 md:bottom-8 md:rounded-md md:bg-white/95 md:p-2 md:opacity-0 md:transition-opacity md:duration-300 md:group-hover:opacity-100">
                       {s.extra}
                     </p>
                   )}

@@ -13,6 +13,7 @@ function parseInput(formData: FormData) {
     author: String(formData.get("author") ?? ""),
     meta: String(formData.get("meta") ?? ""),
     gradient: String(formData.get("gradient") ?? ""),
+    imageUrl: String(formData.get("imageUrl") ?? "") || undefined,
     date: String(formData.get("date") ?? ""),
   };
 }

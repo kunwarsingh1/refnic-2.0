@@ -13,30 +13,7 @@ export default function PillarsSection({
     <section className="relative flex flex-col justify-center overflow-hidden bg-black py-8 md:py-10">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
-      <div className={`relative w-full overflow-hidden bg-black ${mobileVideoUrl ? "h-screen" : "md:h-screen"}`}>
-        <video
-          src={desktopVideoUrl}
-          autoPlay
-          loop
-          muted
-          playsInline
-          aria-hidden
-          className="absolute inset-0 hidden h-full w-full scale-[1.18] object-contain md:block"
-        />
-        {mobileVideoUrl && (
-          <video
-            src={mobileVideoUrl}
-            autoPlay
-            loop
-            muted
-            playsInline
-            aria-hidden
-            className="absolute inset-0 h-full w-full scale-[1.18] object-contain md:hidden"
-          />
-        )}
-      </div>
-
-      <div className="relative mx-auto max-w-6xl px-6 py-14 md:py-20">
+      <div className="relative mx-auto max-w-6xl px-6 pt-14 md:pt-20">
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <h2 className="font-sans font-bold text-3xl text-white md:text-5xl">
             Designed for Industrial Excellence
@@ -46,7 +23,32 @@ export default function PillarsSection({
             manufacturing working together to redefine recycling.
           </p>
         </div>
+      </div>
 
+      <div className="relative mx-auto w-full max-w-[90rem] px-6 py-8 md:py-10">
+        <div className="relative h-72 w-full overflow-hidden rounded-3xl bg-black sm:h-96 md:h-[80vh]">
+          <video
+            src={desktopVideoUrl}
+            autoPlay
+            loop
+            muted
+            playsInline
+            aria-hidden
+            className="absolute inset-0 hidden h-full w-full scale-[1.18] object-contain md:block"
+          />
+          <video
+            src={mobileVideoUrl || desktopVideoUrl}
+            autoPlay
+            loop
+            muted
+            playsInline
+            aria-hidden
+            className="absolute inset-0 h-full w-full scale-[1.18] object-contain md:hidden"
+          />
+        </div>
+      </div>
+
+      <div className="relative mx-auto max-w-6xl px-6 pb-14 pt-14 md:pb-20 md:pt-20">
         <div className="grid gap-6 md:grid-cols-3">
           {pillars.map((p) => (
             <div

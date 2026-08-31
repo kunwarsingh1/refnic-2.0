@@ -162,7 +162,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                 left-0
                 top-1/2
                 z-40
-                flex
+                hidden
                 size-9
                 -translate-y-1/2
                 items-center
@@ -175,6 +175,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                 transition-colors
                 hover:border-accent-blue
                 hover:text-accent-blue
+                md:flex
                 md:size-12
               "
             >
@@ -454,7 +455,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                 right-0
                 top-1/2
                 z-40
-                flex
+                hidden
                 size-9
                 -translate-y-1/2
                 items-center
@@ -467,6 +468,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                 transition-colors
                 hover:border-accent-blue
                 hover:text-accent-blue
+                md:flex
                 md:size-12
               "
             >

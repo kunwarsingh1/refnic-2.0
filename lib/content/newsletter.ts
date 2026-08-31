@@ -14,6 +14,7 @@ type NewsletterPostDoc = {
   author: string;
   meta: string;
   gradient: string;
+  imageUrl?: string;
   order: number;
 };
 
@@ -27,6 +28,7 @@ export type NewsletterPost = {
   author: string;
   meta: string;
   gradient: string;
+  imageUrl?: string;
   order: number;
 };
 
@@ -46,6 +48,7 @@ function toPost(doc: NewsletterPostDoc): NewsletterPost {
     author: doc.author,
     meta: doc.meta,
     gradient: doc.gradient,
+    imageUrl: doc.imageUrl,
     order: doc.order ?? 0,
   };
 }
@@ -106,6 +109,7 @@ export async function createNewsletterPost(input: {
   author: string;
   meta: string;
   gradient?: string;
+  imageUrl?: string;
   date: string;
 }): Promise<void> {
   const col = await getCollection();
@@ -121,13 +125,23 @@ export async function createNewsletterPost(input: {
     author: input.author,
     meta: input.meta,
     gradient: input.gradient || GRADIENTS[count % GRADIENTS.length],
+    imageUrl: input.imageUrl || undefined,
     order: count,
   });
 }
 
 export async function updateNewsletterPost(
   id: string,
-  input: { category: string; title: string; excerpt: string; author: string; meta: string; gradient: string; date: string },
+  input: {
+    category: string;
+    title: string;
+    excerpt: string;
+    author: string;
+    meta: string;
+    gradient: string;
+    imageUrl?: string;
+    date: string;
+  },
 ): Promise<void> {
   const col = await getCollection();
   const objectId = new ObjectId(id);
@@ -145,6 +159,7 @@ export async function updateNewsletterPost(
         author: input.author,
         meta: input.meta,
         gradient: input.gradient,
+        imageUrl: input.imageUrl || undefined,
       },
     },
   );

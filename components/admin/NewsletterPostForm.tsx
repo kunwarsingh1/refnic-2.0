@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { buttonClass, inputClass, labelClass, secondaryButtonClass } from "@/components/admin/formStyles";
+import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import type { NewsletterPost } from "@/lib/content/newsletter";
 import { NEWSLETTER_GRADIENTS } from "@/lib/newsletterGradients";
 
@@ -43,6 +44,8 @@ export function NewsletterPostForm({
         </label>
         <textarea id="excerpt" name="excerpt" required rows={3} defaultValue={post?.excerpt} className={inputClass} />
       </div>
+
+      <ImageUploadField name="imageUrl" label="Featured image" defaultValue={post?.imageUrl} />
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>

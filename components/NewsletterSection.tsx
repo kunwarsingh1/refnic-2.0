@@ -14,7 +14,7 @@ export default function NewsletterSection({ posts }: { posts: NewsletterPost[] }
     if (!el) return;
     let raf = 0;
     let last = performance.now();
-    const speed = 0.15;
+    const speed = 0.12;
     const tick = (now: number) => {
       const dt = now - last;
       last = now;
@@ -58,7 +58,11 @@ export default function NewsletterSection({ posts }: { posts: NewsletterPost[] }
             key={`${post.id}-${i}`}
             className="flex w-[320px] shrink-0 flex-col overflow-hidden rounded-none bg-white text-black shadow-sm transition-transform duration-300 hover:scale-[1.03] hover:shadow-[0_0_40px_-15px_rgba(46,75,224,0.55)]"
           >
-            <div className="aspect-[412/244] bg-white" />
+            {post.imageUrl ? (
+              <img src={post.imageUrl} alt={post.title} className="aspect-[412/244] w-full object-cover" />
+            ) : (
+              <div className="aspect-[412/244] bg-white" />
+            )}
             <div className="px-5 pb-5 pt-5">
               <span className="text-xs text-gray-500">
                 {post.category}

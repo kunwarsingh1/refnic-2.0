@@ -40,7 +40,15 @@ export default async function NewsletterPage() {
                 key={post.id}
                 className="flex flex-col rounded-xl border border-white/10 bg-white/[0.03] p-4 transition-all duration-300 hover:scale-[1.03] hover:border-accent-blue/60 hover:shadow-[0_0_40px_-15px_rgba(46,75,224,0.55)]"
               >
-                <div className={`aspect-[412/244] rounded-xl bg-gradient-to-br ${post.gradient}`} />
+                {post.imageUrl ? (
+                  <img
+                    src={post.imageUrl}
+                    alt={post.title}
+                    className="aspect-[412/244] w-full rounded-xl object-cover"
+                  />
+                ) : (
+                  <div className={`aspect-[412/244] rounded-xl bg-gradient-to-br ${post.gradient}`} />
+                )}
                 <div className="pt-5">
                   <span className="text-xs font-bold uppercase tracking-wide text-accent-blue">
                     {post.category}
