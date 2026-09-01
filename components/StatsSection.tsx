@@ -10,7 +10,7 @@ export default function StatsSection({
   plantImageUrl: string;
 }) {
   return (
-    <section className="relative min-h-screen bg-black pt-12 pb-[150px] md:pt-16 md:pb-[345px]">
+    <section className="relative bg-black pt-12 pb-[150px] md:min-h-screen md:pt-16 md:pb-[345px]">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
       <div className="relative mx-auto max-w-4xl px-6 overflow-visible">
         <div className="relative overflow-visible">
