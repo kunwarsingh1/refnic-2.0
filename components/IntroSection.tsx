@@ -62,11 +62,14 @@ export default function IntroSection({ cards }: { cards: IntroCard[] }) {
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
-        <div className="grid items-start gap-10 md:grid-cols-2 md:gap-24">
+        <div className="grid items-center gap-10 md:grid-cols-2 md:gap-24">
           <h2 className="font-sans font-bold text-3xl leading-tight text-white md:text-5xl">
             Engineering Every Stage of Resource Recovery.
           </h2>
-          <p className="ml-auto max-w-md text-right leading-relaxed text-white/60 md:max-w-[460px] md:pb-2">
+          <p
+            className="ml-auto max-w-md text-left text-white md:max-w-[600px] md:pb-2 md:text-[clamp(0.8rem,calc(2.213vw_-_5.34px),20px)] md:leading-[32.46px]"
+            style={{ fontFamily: "Plus Jakarta Sans", fontWeight: 400 }}
+          >
             Engineering the technologies that transform industrial waste into
             critical materials powering a cleaner, circular future through
             indigenous innovation.

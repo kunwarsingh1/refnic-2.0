@@ -138,7 +138,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
             </h2>
 
             <p
-              className="ml-auto max-w-md text-right text-black/60 md:max-w-xl md:text-[clamp(0.8rem,calc(2.213vw_-_3.7px),21.64px)] md:leading-[32.46px]"
+              className="ml-auto max-w-md text-right text-black/60 md:max-w-xl md:text-[clamp(0.8rem,calc(2.213vw_-_3.7px),16px)] md:leading-[32.46px]"
               style={{ fontFamily: "Plus Jakarta Sans", fontWeight: 400 }}
             >
               Every project is a benchmark in precision engineering and

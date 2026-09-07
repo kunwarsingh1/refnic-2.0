@@ -469,3 +469,81 @@ export async function appendLead(input: Lead): Promise<void> {
     },
   });
 }
+
+const ENQUIRIES_SHEET_NAME = "Enquiries";
+const ENQUIRIES_HEADERS = [
+  "first_name",
+  "last_name",
+  "email",
+  "phone",
+  "subject",
+  "message",
+  "created_at",
+];
+
+async function ensureEnquiriesSheet(): Promise<void> {
+  const sheets = getSheets();
+  const spreadsheetId = getSpreadsheetId();
+  const range = `'${ENQUIRIES_SHEET_NAME}'!A1:${columnLetter(ENQUIRIES_HEADERS.length)}1`;
+
+  try {
+    const res = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range,
+    });
+    const first = res.data.values?.[0];
+    if (first && first.length >= ENQUIRIES_HEADERS.length) return;
+  } catch {
+    try {
+      await sheets.spreadsheets.batchUpdate({
+        spreadsheetId,
+        requestBody: {
+          requests: [{ addSheet: { properties: { title: ENQUIRIES_SHEET_NAME } } }],
+        },
+      });
+    } catch {
+      // Sheet likely already exists; continue to header write below.
+    }
+  }
+
+  await sheets.spreadsheets.values.update({
+    spreadsheetId,
+    range,
+    valueInputOption: "RAW",
+    requestBody: { values: [ENQUIRIES_HEADERS] },
+  });
+}
+
+export type Enquiry = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+};
+
+export async function appendEnquiry(input: Enquiry): Promise<void> {
+  const sheets = getSheets();
+  const spreadsheetId = getSpreadsheetId();
+  await ensureEnquiriesSheet();
+
+  await sheets.spreadsheets.values.append({
+    spreadsheetId,
+    range: `'${ENQUIRIES_SHEET_NAME}'!A:G`,
+    valueInputOption: "RAW",
+    requestBody: {
+      values: [
+        [
+          input.firstName,
+          input.lastName,
+          input.email,
+          input.phone,
+          input.subject,
+          input.message,
+          new Date().toISOString(),
+        ],
+      ],
+    },
+  });
+}

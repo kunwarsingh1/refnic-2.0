@@ -27,6 +27,11 @@ export default function CardGridSection({
   const isServices = variant === "services";
   const titleOnTop = true;
   const subtitleMaxW = isServices ? "md:max-w-[540px]" : "md:max-w-[420px]";
+  const subtitleFontSize = isServices
+    ? "md:text-[clamp(0.8rem,calc(2.213vw_-_3.7px),21.64px)]"
+    : isProducts || light
+    ? "md:text-[clamp(0.8rem,calc(2.213vw_-_5.34px),20px)]"
+    : "md:text-[clamp(9px,calc(2.213vw_-_3.7px),11px)]";
 
   return (
       <section className={`relative overflow-hidden bg-black ${isProducts ? "py-16 md:py-24" : "py-8 md:py-10"}`}>
@@ -51,7 +56,7 @@ export default function CardGridSection({
             </h2>
           </div>
           <p
-            className={`ml-auto max-w-md text-right ${subtitleMaxW} md:text-[clamp(0.8rem,calc(2.213vw_-_3.7px),21.64px)] md:leading-[32.46px] ${light ? "text-black/60" : "text-white/60"}`}
+            className={`ml-auto max-w-md text-right ${subtitleMaxW} ${subtitleFontSize} md:leading-[32.46px] ${light ? "text-black/60" : "text-white/60"}`}
             style={{ fontFamily: "Plus Jakarta Sans", fontWeight: 400 }}
           >
             {subtitle}

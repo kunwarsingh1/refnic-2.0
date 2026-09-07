@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
+import { submitEnquiry } from "@/app/actions/contact";
 
 const subjects = [
   "General Inquiry",
@@ -13,11 +14,13 @@ const subjects = [
 
 function Field({
   label,
+  name,
   placeholder,
   type = "text",
   defaultValue,
 }: {
   label: string;
+  name: string;
   placeholder?: string;
   type?: string;
   defaultValue?: string;
@@ -26,6 +29,7 @@ function Field({
     <label className="block">
       <span className="text-sm font-semibold text-white">{label}</span>
       <input
+        name={name}
         type={type}
         placeholder={placeholder}
         defaultValue={defaultValue}
@@ -67,6 +71,32 @@ function LocationIcon({ className = "" }: { className?: string }) {
 
 export default function ContactSection() {
   const [subject, setSubject] = useState(subjects[0]);
+  const [submitting, setSubmitting] = useState(false);
+  const [result, setResult] = useState<{ ok: boolean; error?: string } | null>(null);
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setResult(null);
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const res = await submitEnquiry({
+      firstName: String(data.get("firstName") ?? ""),
+      lastName: String(data.get("lastName") ?? ""),
+      email: String(data.get("email") ?? ""),
+      phone: String(data.get("phone") ?? ""),
+      subject,
+      message: String(data.get("message") ?? ""),
+    });
+
+    setSubmitting(false);
+    setResult(res);
+    if (res.ok) {
+      form.reset();
+      setSubject(subjects[0]);
+    }
+  };
 
   return (
     <section id="contact" className="relative overflow-hidden bg-black">
@@ -184,16 +214,16 @@ export default function ContactSection() {
 
             <form
               className="flex flex-col gap-6"
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={onSubmit}
             >
             <div className="grid gap-6 sm:grid-cols-2">
-              <Field label="First Name" />
-              <Field label="Last Name" />
+              <Field label="First Name" name="firstName" />
+              <Field label="Last Name" name="lastName" />
             </div>
 
             <div className="grid gap-6 sm:grid-cols-2">
-              <Field label="Email" type="email" />
-              <Field label="Phone Number" defaultValue="+91" />
+              <Field label="Email" name="email" type="email" />
+              <Field label="Phone Number" name="phone" defaultValue="+91" />
             </div>
 
             <div>
@@ -222,17 +252,27 @@ export default function ContactSection() {
             <label className="block">
               <span className="text-sm font-semibold text-white">Message</span>
               <textarea
+                name="message"
                 placeholder="Write your message.."
                 rows={3}
                 className="mt-2 w-full resize-none border-b border-white/25 bg-transparent pb-2 text-sm text-white placeholder:text-white/40 outline-none focus:border-accent-blue transition-colors"
               />
             </label>
 
+            {result && (
+              <p className={`text-sm ${result.ok ? "text-green-400" : "text-red-400"}`}>
+                {result.ok
+                  ? "Thanks — your enquiry has been sent. We'll be in touch soon."
+                  : result.error}
+              </p>
+            )}
+
             <button
               type="submit"
-              className="self-end bg-accent-blue px-6 py-4 text-sm font-bold text-white transition-colors hover:bg-accent-blue-dark"
+              disabled={submitting}
+              className="self-end bg-accent-blue px-6 py-4 text-sm font-bold text-white transition-colors hover:bg-accent-blue-dark disabled:opacity-50"
             >
-              Submit Enquiry
+              {submitting ? "Submitting…" : "Submit Enquiry"}
             </button>
             </form>
           </div>
