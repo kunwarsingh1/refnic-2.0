@@ -59,9 +59,9 @@ export default async function Footer() {
           aria-hidden
         />
 
-        <div className="relative h-[9.5vw] md:h-[90px]">
+        <div className="relative h-[clamp(3.5rem,9.5vw,90px)]">
          <p
-  className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-[15%] select-none whitespace-nowrap text-center font-display font-black leading-none  drop-shadow-[0_0_25px_rgba(255,255,255,0.35)] text-[10vw] sm:text-[13vw] md:text-[9rem]"
+  className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-[15%] select-none whitespace-nowrap text-center font-display font-black leading-none  drop-shadow-[0_0_25px_rgba(255,255,255,0.35)] text-[clamp(2.5rem,13vw,9rem)]"
   aria-hidden
   style={{
   background: "linear-gradient(0deg, #232323, #919191 54.33%, #fffefe)",

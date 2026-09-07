@@ -57,7 +57,7 @@ export default async function CaseStudyPage() {
                     <p className="mt-1 text-sm text-white/60">{cs.label}</p>
                     {cs.subtitle && <p className="text-sm text-white/40">{cs.subtitle}</p>}
                     <div className="mt-4">
-                      <Button href="/case-study" className="rounded-lg">
+                      <Button href="/case-study">
                         View Case Study
                       </Button>
                     </div>
@@ -92,7 +92,7 @@ export default async function CaseStudyPage() {
         <div className="relative z-10 mx-auto max-w-6xl px-6 pb-24 text-center">
           <p className="font-display font-black text-4xl text-white/10 md:text-6xl">{config.brandLine}</p>
           <div className="mt-8 flex justify-center">
-            <Button href="/#contact" className="rounded-lg">
+            <Button href="/#contact">
               {config.ctaLabel}
             </Button>
           </div>

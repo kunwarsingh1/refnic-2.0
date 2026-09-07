@@ -9,34 +9,35 @@ export default function Hero() {
         <img
           src="/white_stone.png"
           alt=""
-          className="absolute left-0 top-1/2 z-20 w-32 -translate-x-[10%] -translate-y-[70%] rotate-[0deg] object-contain sm:w-56 md:w-96"
+          className="absolute left-0 top-1/2 z-20 w-[clamp(9rem,32vw,24rem)] -translate-x-[10%] -translate-y-[70%] rotate-[0deg] object-contain"
         />
         <img
           src="/blur_stone.png"
           alt=""
-          className="absolute right-0 top-1/2 z-20 w-28 translate-x-[30%] -translate-y-[90%] rotate-[150deg] -scale-x-100 object-contain sm:w-44 md:w-72"
+          className="absolute right-0 top-1/2 z-20 w-[clamp(8rem,24vw,18rem)] translate-x-[30%] -translate-y-[90%] rotate-[150deg] -scale-x-100 object-contain"
         />
         <img
           src="/blue_blur.png"
           alt=""
-          className="absolute bottom-0 left-0 z-20 w-28 -translate-x-[35%] object-contain sm:w-40 md:w-56"
+          className="absolute bottom-0 left-0 z-20 w-[clamp(8rem,19vw,14rem)] -translate-x-[35%] object-contain"
         />
         <img
           src="/blue_stone.png"
           alt=""
-          className="absolute bottom-0 right-0 z-20 w-28 translate-x-[20%] translate-y-[20%] object-contain sm:w-44 md:w-72"
+          className="absolute bottom-0 right-0 z-20 w-[clamp(8rem,24vw,18rem)] translate-x-[20%] object-contain"
         />
         
 
         <div className="relative z-10 rounded-b-[2.5rem] bg-white px-6 py-16 text-center md:px-14 md:py-24">
-          <h1 className="group font-display font-bold leading-[0.95] tracking-[-0.015em] text-black">
-            <span className="relative block text-[23vw] md:text-[12rem]">
-              <span className="block transition-opacity duration-300 ease-out group-hover:opacity-0">REFINE</span>
-              <span className="absolute inset-0 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100">REFNIC</span>
+          <h1 className="group relative font-display font-bold leading-[0.95] tracking-[-0.015em] text-black">
+            <span className="block text-[clamp(2.75rem,12vw,10rem)] transition-all duration-500 ease-out group-hover:translate-y-1/2 group-hover:opacity-0">
+              REFINE
             </span>
-            <span className="relative block text-center text-[16vw] md:text-[8rem]">
-              <span className="block transition-opacity duration-300 ease-out group-hover:opacity-0">NICELY</span>
-              <span className="absolute inset-0 text-center opacity-0 transition-[opacity,transform] duration-300 ease-out group-hover:scale-105 group-hover:opacity-100">NICELY</span>
+            <span className="block text-[clamp(2.75rem,12vw,10rem)] transition-all duration-500 ease-out group-hover:-translate-y-1/2 group-hover:opacity-0">
+              NICELY
+            </span>
+            <span className="pointer-events-none absolute inset-0 flex scale-90 items-center justify-center text-[clamp(2.75rem,12vw,10rem)] opacity-0 transition-all duration-500 ease-out group-hover:scale-100 group-hover:opacity-100">
+              REFNIC
             </span>
           </h1>
 

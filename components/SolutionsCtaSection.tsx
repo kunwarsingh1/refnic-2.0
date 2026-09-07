@@ -21,7 +21,7 @@ export default function SolutionsCtaSection({ config: c }: { config: SolutionsPa
           {c.closingBody}
         </p>
         <div className="mt-10 flex justify-center">
-          <Button href={c.closingCtaHref} className="rounded-lg">
+          <Button href={c.closingCtaHref}>
             {c.closingCtaLabel}
           </Button>
         </div>

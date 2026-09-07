@@ -24,11 +24,14 @@ export default async function NewsletterPage() {
         <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
         <div className="relative mx-auto max-w-6xl px-6">
-          <div className="mb-14 grid items-end gap-8 md:grid-cols-2">
+          <div className="mb-14 grid items-start gap-8 md:grid-cols-2">
             <h2 className="font-sans font-bold text-3xl leading-tight text-white md:text-5xl">
               Newsletters
             </h2>
-            <p className="max-w-md text-white/60">
+            <p
+              className="ml-auto max-w-md text-right text-white/60 md:max-w-2xl md:text-[clamp(0.6rem,calc(1.333vw),14px)] md:leading-normal"
+              style={{ fontFamily: "Plus Jakarta Sans", fontWeight: 400 }}
+            >
               From concept development to long-term operational support, Refnic
               delivers the expertise that powers successful industrial projects.
             </p>

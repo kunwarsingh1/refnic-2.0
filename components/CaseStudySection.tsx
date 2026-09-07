@@ -131,13 +131,16 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
               SECTION HEADER
           ======================================== */}
 
-          <div className="mb-14 grid items-end gap-8 md:grid-cols-2">
-            
+          <div className="mb-14 grid items-start gap-8 md:grid-cols-2">
+
             <h2 className="font-sans text-3xl font-bold leading-tight text-black md:text-5xl">
               Projects That Speak for Themselves
             </h2>
 
-            <p className="max-w-md text-gray-500">
+            <p
+              className="ml-auto max-w-md text-right text-black/60 md:max-w-xl md:text-[clamp(0.8rem,calc(2.213vw_-_3.7px),21.64px)] md:leading-[32.46px]"
+              style={{ fontFamily: "Plus Jakarta Sans", fontWeight: 400 }}
+            >
               Every project is a benchmark in precision engineering and
               sustainable resource recovery.
             </p>
@@ -148,7 +151,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
               CAROUSEL WRAPPER
           ======================================== */}
 
-          <div className="relative px-2 md:px-20">
+          <div className="relative px-2 lg:px-20">
 
             {/* ======================================
                 PREVIOUS BUTTON
@@ -175,11 +178,11 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                 transition-colors
                 hover:border-accent-blue
                 hover:text-accent-blue
-                md:flex
-                md:size-12
+                lg:flex
+                lg:size-12
               "
             >
-              <ArrowLeftIcon className="size-4 md:size-5" />
+              <ArrowLeftIcon className="size-4 lg:size-5" />
             </button>
 
             {/* ======================================
@@ -200,7 +203,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                 overflow-hidden
                 rounded-2xl
                 bg-white
-                md:min-h-[410px]
+                lg:min-h-[410px]
               "
               onTouchStart={onTouchStart}
               onTouchEnd={onTouchEnd}
@@ -220,7 +223,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                   hidden
                   w-px
                   bg-gray-300
-                  md:block
+                  lg:block
                 "
                 aria-hidden
               />
@@ -239,7 +242,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                   hidden
                   w-px
                   bg-accent-blue/40
-                  md:block
+                  lg:block
                 "
                 aria-hidden
               />
@@ -258,7 +261,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                   hidden
                   h-px
                   bg-accent-blue/40
-                  md:block
+                  lg:block
                 "
                 aria-hidden
               />
@@ -277,7 +280,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                   hidden
                   h-px
                   bg-accent-blue/40
-                  md:block
+                  lg:block
                 "
                 aria-hidden
               />
@@ -311,13 +314,13 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                   w-full
                   overflow-hidden
                   shadow-[0_4px_40px_rgba(0,0,0,0.2),0_4px_32px_rgba(49,82,223,0.3)]
-                  md:absolute
-                  md:left-[13%]
-                  md:top-[96px]
-                  md:bottom-[110px]
-                  md:mb-0
-                  md:aspect-auto
-                  md:w-[32%]
+                  lg:absolute
+                  lg:left-[13%]
+                  lg:top-[96px]
+                  lg:bottom-[110px]
+                  lg:mb-0
+                  lg:aspect-auto
+                  lg:w-[32%]
                 "
               >
                 {cs.modelUrl ? (
@@ -355,9 +358,9 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                   min-h-0
                   grid-cols-1
                   items-start
-                  md:min-h-[410px]
-                  md:items-stretch
-                  md:grid-cols-[13%_32%_55%]
+                  lg:min-h-[410px]
+                  lg:items-stretch
+                  lg:grid-cols-[13%_32%_55%]
                 "
               >
 
@@ -365,7 +368,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                     NUMBER
                 ================================== */}
 
-                <div className="hidden items-start justify-center md:flex">
+                <div className="hidden items-start justify-center lg:flex">
                   <p className="
                     font-display
                     text-6xl
@@ -384,13 +387,13 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                     positioned above this column.
                 ================================== */}
 
-                <div aria-hidden className="hidden md:block" />
+                <div aria-hidden className="hidden lg:block" />
 
                 {/* ==================================
                     CONTENT
                 ================================== */}
 
-                <div className="min-w-0 px-8 pt-16 pb-16 md:relative md:h-full md:px-12 md:pt-0 md:pb-20">
+                <div className="min-w-0 px-8 pt-16 pb-16 lg:relative lg:h-full lg:px-12 lg:pt-0 lg:pb-20">
 
                   <p
                     className="
@@ -398,8 +401,8 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                       text-4xl
                       font-bold
                       leading-tight
-                      md:text-[64px]
-                      md:leading-[64px]
+                      lg:text-[clamp(1.65rem,calc(11.5vw_-_4rem),4rem)]
+                      lg:leading-[64px]
                     "
                     style={{
                       color: "#1B37B0",
@@ -409,13 +412,13 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                     {cs.city}
                   </p>
 
-                  <div className="md:absolute md:left-12 md:right-12 md:top-[96px] md:bottom-[110px] md:flex md:flex-col md:justify-center">
+                  <div className="lg:absolute lg:left-12 lg:right-12 lg:top-[96px] lg:bottom-[110px] lg:flex lg:flex-col lg:justify-center">
                     <p className="
                       mt-3
                       text-sm
                       font-bold
                       text-[#1b37b0]
-                      md:mt-0
+                      lg:mt-0
                     ">
                       {cs.label}
                     </p>
@@ -430,7 +433,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                     </p>
                   </div>
 
-                  <div className="mt-3 md:absolute md:bottom-8 md:left-12">
+                  <div className="mt-3 lg:absolute lg:bottom-8 lg:left-12">
                     <Button
                       href="/case-study"
                       className="rounded-lg"
@@ -468,11 +471,11 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                 transition-colors
                 hover:border-accent-blue
                 hover:text-accent-blue
-                md:flex
-                md:size-12
+                lg:flex
+                lg:size-12
               "
             >
-              <ArrowRightIcon className="size-4 md:size-5" />
+              <ArrowRightIcon className="size-4 lg:size-5" />
             </button>
 
           </div>

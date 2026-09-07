@@ -24,7 +24,9 @@ export default function CardGridSection({
   const light = variant === "solutions";
   const dark = !light;
   const isProducts = variant === "products";
+  const isServices = variant === "services";
   const titleOnTop = true;
+  const subtitleMaxW = isServices ? "md:max-w-[540px]" : "md:max-w-[420px]";
 
   return (
       <section className={`relative overflow-hidden bg-black ${isProducts ? "py-16 md:py-24" : "py-8 md:py-10"}`}>
@@ -39,7 +41,7 @@ export default function CardGridSection({
       >
         {light && <div className="absolute inset-0 bg-grid-light" aria-hidden />}
         <div className={light ? "relative mx-auto max-w-6xl" : ""}>
-        <div className={`grid items-end gap-8 md:grid-cols-2 ${light ? "mb-8" : "mb-14"}`}>
+        <div className={`grid items-start gap-8 md:grid-cols-2 ${light ? "mb-8" : "mb-14"}`}>
           <div>
             {eyebrow && (
               <p className="mb-4 text-xs font-bold tracking-[0.2em] text-accent-blue">{eyebrow}</p>
@@ -48,7 +50,12 @@ export default function CardGridSection({
               {title}
             </h2>
           </div>
-          <p className={`ml-auto max-w-md text-right ${light ? "text-black/60" : "text-white/60"}`}>{subtitle}</p>
+          <p
+            className={`ml-auto max-w-md text-right ${subtitleMaxW} md:text-[clamp(0.8rem,calc(2.213vw_-_3.7px),21.64px)] md:leading-[32.46px] ${light ? "text-black/60" : "text-white/60"}`}
+            style={{ fontFamily: "Plus Jakarta Sans", fontWeight: 400 }}
+          >
+            {subtitle}
+          </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
@@ -95,7 +102,7 @@ export default function CardGridSection({
               <p className={`mt-2 flex-1 text-sm leading-relaxed ${light ? "text-gray-500" : "text-white/55"}`}>
                 {c.body}
               </p>
-              <Link href="/products" className="mt-6 self-start rounded-md bg-accent-blue px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-accent-blue-dark">
+              <Link href="/products" className="mt-6 self-start bg-accent-blue px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-accent-blue-dark">
                 View
               </Link>
             </div>
@@ -106,12 +113,12 @@ export default function CardGridSection({
           {exploreHref ? (
             <Link
               href={exploreHref}
-              className="rounded-md bg-accent-blue px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-accent-blue-dark"
+              className="bg-accent-blue px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-accent-blue-dark"
             >
               Explore all
             </Link>
           ) : (
-            <Link href="/products" className="rounded-md bg-accent-blue px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-accent-blue-dark">
+            <Link href="/products" className="bg-accent-blue px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-accent-blue-dark">
               Explore all
             </Link>
           )}

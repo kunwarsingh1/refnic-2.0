@@ -52,7 +52,7 @@ export default async function InvestorsPage() {
 
           <p className="mx-auto mt-16 max-w-xl font-sans font-bold text-2xl text-white">{c.closingHeading}</p>
           <div className="mt-8 flex justify-center">
-            <Button href="/#contact" className="rounded-lg">
+            <Button href="/#contact">
               {c.ctaLabel}
             </Button>
           </div>

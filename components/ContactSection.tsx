@@ -230,7 +230,7 @@ export default function ContactSection() {
 
             <button
               type="submit"
-              className="self-end rounded-lg bg-accent-blue px-6 py-4 text-sm font-bold text-white transition-colors hover:bg-accent-blue-dark"
+              className="self-end bg-accent-blue px-6 py-4 text-sm font-bold text-white transition-colors hover:bg-accent-blue-dark"
             >
               Submit Enquiry
             </button>

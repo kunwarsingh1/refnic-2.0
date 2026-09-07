@@ -80,7 +80,7 @@ export default async function GlobalMarketPage() {
           <p className="mt-3 font-display font-black text-3xl text-white md:text-5xl">{c.closingHeading}</p>
           <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-white/60">{c.closingBody}</p>
           <div className="mt-8 flex justify-center">
-            <Button href="/technologies" className="rounded-lg">
+            <Button href="/technologies">
               {c.ctaLabel}
             </Button>
           </div>

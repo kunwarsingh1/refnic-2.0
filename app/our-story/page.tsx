@@ -37,7 +37,7 @@ export default async function OurStoryPage() {
         <div className="relative z-10 mx-auto max-w-6xl px-6 pb-24 text-center">
           <p className="mx-auto max-w-3xl text-xl leading-relaxed text-white">{c.closingTagline}</p>
           <div className="mt-8 flex justify-center">
-            <Button href="/case-study" className="rounded-lg">
+            <Button href="/case-study">
               {c.ctaLabel}
             </Button>
           </div>

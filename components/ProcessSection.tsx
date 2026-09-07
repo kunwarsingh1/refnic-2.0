@@ -33,6 +33,8 @@ export default function ProcessSection({ steps }: { steps: ProcessStep[] }) {
           {steps.map((s, i) => {
             const isTall = i === 2 || i === 5;
             const highlighted = Boolean(s.extra);
+            const shortExtra = highlighted && (s.extra as string).length <= 80;
+            const collidingExtra = highlighted && !shortExtra;
             const n = String(i + 1).padStart(2, "0");
             return (
               <div
@@ -44,20 +46,20 @@ export default function ProcessSection({ steps }: { steps: ProcessStep[] }) {
                 >
                   <div className="flex min-h-0 flex-1 flex-col">
                     <span
-                      className={`font-display font-black text-5xl ${highlighted ? "text-[#3b4fe4]" : "text-black"}`}
+                      className="font-display font-black text-5xl text-black transition-colors duration-300 group-hover:text-[#3b4fe4]"
                     >
                       {n}
                     </span>
                     {s.modelUrl ? (
                       <div
-                        className={`mt-2 mr-[-2rem] min-h-0 flex-1 ${highlighted ? "opacity-0 md:opacity-100 md:transition-opacity md:duration-300 md:group-hover:opacity-0" : ""}`}
+                        className={`mt-2 mr-[-2rem] min-h-0 flex-1 ${collidingExtra ? "opacity-0 md:opacity-100 md:transition-opacity md:duration-300 md:group-hover:opacity-0" : ""}`}
                       >
                         <ModelViewer src={s.modelUrl} alt={s.title} className="h-full w-full" />
                       </div>
                     ) : (
                       s.imageUrl && (
                         <div
-                          className={`mt-2 mr-[-2rem] min-h-0 flex-1 ${highlighted ? "opacity-0 md:opacity-100 md:transition-opacity md:duration-300 md:group-hover:opacity-0" : ""}`}
+                          className={`mt-2 mr-[-2rem] min-h-0 flex-1 ${collidingExtra ? "opacity-0 md:opacity-100 md:transition-opacity md:duration-300 md:group-hover:opacity-0" : ""}`}
                         >
                           <img
                             src={s.imageUrl}
@@ -69,14 +71,20 @@ export default function ProcessSection({ steps }: { steps: ProcessStep[] }) {
                     )}
                   </div>
                   <p
-                    className={`mt-3 font-sans font-bold text-2xl leading-tight ${highlighted ? "text-[#3b4fe4]" : "text-black"}`}
+                    className={`mt-3 font-sans font-bold text-2xl leading-tight text-black transition-colors duration-300 group-hover:text-[#3b4fe4] ${collidingExtra ? "md:transition-opacity md:duration-300 md:group-hover:opacity-0" : ""}`}
                   >
                     {s.title}
                   </p>
                   {s.extra && (
-                    <p className="mt-2 text-sm leading-relaxed text-[#3b4fe4] opacity-100 md:absolute md:inset-x-8 md:bottom-8 md:rounded-md md:bg-white/95 md:p-2 md:opacity-0 md:transition-opacity md:duration-300 md:group-hover:opacity-100">
-                      {s.extra}
-                    </p>
+                    shortExtra ? (
+                      <p className="mt-1 text-xs leading-snug text-[#3b4fe4]">
+                        {s.extra}
+                      </p>
+                    ) : (
+                      <p className="mt-2 text-sm leading-snug text-[#3b4fe4] opacity-100 md:absolute md:inset-x-8 md:top-24 md:bottom-4 md:overflow-hidden md:rounded-md md:bg-white/95 md:p-2 md:text-xs md:leading-snug md:opacity-0 md:transition-opacity md:duration-300 md:group-hover:opacity-100">
+                        {s.extra}
+                      </p>
+                    )
                   )}
                 </div>
               </div>

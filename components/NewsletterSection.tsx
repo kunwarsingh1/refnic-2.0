@@ -35,12 +35,15 @@ export default function NewsletterSection({ posts }: { posts: NewsletterPost[] }
     <section className="relative overflow-hidden bg-black pt-12 md:pt-16 pb-0">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
-      <div className="relative w-full px-6">
-        <div className="mb-14 grid items-end gap-8 md:grid-cols-2">
+      <div className="relative mx-auto max-w-6xl px-6">
+        <div className="mb-14 grid items-start gap-8 md:grid-cols-2">
           <h2 className="font-sans font-bold text-3xl leading-tight text-white md:text-5xl">
             Newsletters
           </h2>
-          <p className="ml-auto max-w-md text-right text-white/60">
+          <p
+            className="ml-auto max-w-md text-right text-white/60 md:max-w-xl md:text-[clamp(0.8rem,calc(2.213vw_-_3.7px),21.64px)] md:leading-[32.46px]"
+            style={{ fontFamily: "Plus Jakarta Sans", fontWeight: 400 }}
+          >
             From concept development to long-term operational support, Refnic
             delivers the expertise that powers successful industrial projects.
           </p>

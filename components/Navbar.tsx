@@ -529,7 +529,7 @@ export default function Navbar({
           }
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
-          className="flex items-center justify-center rounded-md p-1.5 text-black lg:hidden"
+          className="flex items-center justify-center p-1.5 text-black lg:hidden"
         >
           {mobileOpen ? <X className="size-6" /> : <Menu className="size-6" />}
         </button>

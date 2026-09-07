@@ -7,7 +7,7 @@ export default function SolutionsHero({ config: c }: { config: SolutionsPageConf
       <div className="pointer-events-none absolute left-1/2 top-16 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3152df] opacity-40 blur-[220px] md:top-[122px]" aria-hidden />
 
       <p
-        className="pointer-events-none absolute inset-x-0 top-8 select-none whitespace-nowrap text-center font-display font-bold leading-none text-[#F8F8F8]/10 text-[18vw] md:top-10 md:text-[165px]"
+        className="pointer-events-none absolute inset-x-0 top-8 select-none whitespace-nowrap text-center font-display font-bold leading-none text-[#F8F8F8]/10 text-[clamp(2.5rem,18vw,165px)] md:top-10"
         aria-hidden
       >
         {c.heroWatermark}
@@ -33,7 +33,7 @@ export default function SolutionsHero({ config: c }: { config: SolutionsPageConf
         </p>
 
         <div className="mt-8 flex justify-center">
-          <Button href={c.heroCtaHref} className="rounded-lg">
+          <Button href={c.heroCtaHref}>
             {c.heroCtaLabel}
           </Button>
         </div>

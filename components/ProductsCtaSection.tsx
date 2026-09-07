@@ -19,7 +19,7 @@ export default function ProductsCtaSection({ config: c }: { config: ProductsPage
           {c.ctaBlurb}
         </p>
         <div className="mt-10 flex justify-center">
-          <Button href={c.ctaButtonHref} className="rounded-lg">
+          <Button href={c.ctaButtonHref}>
             {c.ctaButtonLabel}
           </Button>
         </div>

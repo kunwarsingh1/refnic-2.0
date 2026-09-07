@@ -29,7 +29,7 @@ export default async function SustainabilityPage() {
           <p className="mt-3 font-display font-black text-4xl leading-tight text-white md:text-6xl">{c.heroHeading}</p>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/60">{c.heroBody}</p>
           <div className="mt-8">
-            <Button href="#impact" className="rounded-lg">
+            <Button href="#impact">
               {c.heroCtaLabel}
             </Button>
           </div>
@@ -43,7 +43,7 @@ export default async function SustainabilityPage() {
                 <p className="font-sans font-bold text-lg text-white">{card.title}</p>
                 <p className="mt-2 leading-relaxed text-white/60">{card.body}</p>
                 <div className="mt-4">
-                  <Button href="/case-study" className="rounded-lg">
+                  <Button href="/case-study">
                     {card.ctaLabel}
                   </Button>
                 </div>
@@ -73,7 +73,7 @@ export default async function SustainabilityPage() {
                 <p className="font-sans font-bold text-lg text-white">{card.title}</p>
                 <p className="mt-2 leading-relaxed text-white/60">{card.body}</p>
                 <div className="mt-4">
-                  <Button href="/#contact" className="rounded-lg">
+                  <Button href="/#contact">
                     {card.ctaLabel}
                   </Button>
                 </div>
@@ -85,7 +85,7 @@ export default async function SustainabilityPage() {
         <div className="relative z-10 mx-auto max-w-6xl px-6 pb-24 text-center">
           <p className="mx-auto max-w-2xl leading-relaxed text-white/60">{c.closingBody}</p>
           <div className="mt-8 flex justify-center">
-            <Button href="/#contact" className="rounded-lg">
+            <Button href="/#contact">
               {c.closingCtaLabel}
             </Button>
           </div>
