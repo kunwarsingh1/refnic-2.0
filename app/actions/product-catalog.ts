@@ -1,7 +1,7 @@
 "use server";
 
 import { isAdmin, getAdminEmail } from "@/lib/admin-auth";
-import { getNewsletterPostById } from "@/lib/content/newsletter";
+import { getProductCatalogItemById } from "@/lib/content/productCatalog";
 import { submitChange } from "@/lib/pendingChanges";
 import { revalidatePath } from "next/cache";
 import type { Block } from "@/lib/content/blog";
@@ -20,71 +20,66 @@ function parseInput(formData: FormData) {
     category: String(formData.get("category") ?? ""),
     title: String(formData.get("title") ?? ""),
     excerpt: String(formData.get("excerpt") ?? ""),
-    author: String(formData.get("author") ?? ""),
-    meta: String(formData.get("meta") ?? ""),
-    gradient: String(formData.get("gradient") ?? ""),
     imageUrl: String(formData.get("imageUrl") ?? "") || undefined,
     content,
-    featured: formData.get("featured") === "on",
-    date: String(formData.get("date") ?? ""),
   };
 }
 
-export async function createNewsletterPostAction(formData: FormData): Promise<void> {
+export async function createProductCatalogItemAction(formData: FormData): Promise<void> {
   if (!(await isAdmin())) return;
   const args = parseInput(formData);
   await submitChange({
-    contentType: "newsletter",
+    contentType: "productCatalog",
     operation: "create",
     args,
-    label: `New newsletter post: ${args.title}`,
+    label: `New product: ${args.title}`,
     submittedBy: await getAdminEmail(),
-    publicRevalidatePaths: ["/", "/newsletter"],
+    publicRevalidatePaths: ["/products"],
   });
   revalidatePath("/admin/pending-changes");
 }
 
-export async function updateNewsletterPostAction(id: string, formData: FormData): Promise<void> {
+export async function updateProductCatalogItemAction(id: string, formData: FormData): Promise<void> {
   if (!(await isAdmin())) return;
-  const previous = await getNewsletterPostById(id);
+  const previous = await getProductCatalogItemById(id);
   const args = { id, ...parseInput(formData) };
   await submitChange({
-    contentType: "newsletter",
+    contentType: "productCatalog",
     operation: "update",
     args,
     previousArgs: previous,
-    label: `Newsletter post: ${args.title}`,
+    label: `Product: ${args.title}`,
     submittedBy: await getAdminEmail(),
-    publicRevalidatePaths: ["/", "/newsletter"],
+    publicRevalidatePaths: ["/products"],
   });
   revalidatePath("/admin/pending-changes");
 }
 
-export async function deleteNewsletterPostAction(id: string): Promise<void> {
+export async function deleteProductCatalogItemAction(id: string): Promise<void> {
   if (!(await isAdmin())) return;
-  const previous = await getNewsletterPostById(id);
+  const previous = await getProductCatalogItemById(id);
   await submitChange({
-    contentType: "newsletter",
+    contentType: "productCatalog",
     operation: "delete",
     args: { id },
     previousArgs: previous,
-    label: `Delete newsletter post: ${previous?.title ?? id}`,
+    label: `Delete product: ${previous?.title ?? id}`,
     submittedBy: await getAdminEmail(),
-    publicRevalidatePaths: ["/", "/newsletter"],
+    publicRevalidatePaths: ["/products"],
   });
   revalidatePath("/admin/pending-changes");
 }
 
-export async function reorderNewsletterPostAction(id: string, direction: "up" | "down"): Promise<void> {
+export async function reorderProductCatalogItemAction(id: string, direction: "up" | "down"): Promise<void> {
   if (!(await isAdmin())) return;
-  const previous = await getNewsletterPostById(id);
+  const previous = await getProductCatalogItemById(id);
   await submitChange({
-    contentType: "newsletter",
+    contentType: "productCatalog",
     operation: "reorder",
     args: { id, direction },
-    label: `Reorder newsletter post: ${previous?.title ?? id}`,
+    label: `Reorder product: ${previous?.title ?? id}`,
     submittedBy: await getAdminEmail(),
-    publicRevalidatePaths: ["/", "/newsletter"],
+    publicRevalidatePaths: ["/products"],
   });
   revalidatePath("/admin/pending-changes");
 }

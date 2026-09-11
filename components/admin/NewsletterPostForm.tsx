@@ -3,18 +3,24 @@
 import { useRouter } from "next/navigation";
 import { buttonClass, inputClass, labelClass, secondaryButtonClass } from "@/components/admin/formStyles";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
+import { NewsletterContentField } from "@/components/admin/NewsletterContentField";
 import type { NewsletterPost } from "@/lib/content/newsletter";
+import type { NewsletterTab } from "@/lib/content/newsletterTabs";
 import { NEWSLETTER_GRADIENTS } from "@/lib/newsletterGradients";
 
 export function NewsletterPostForm({
   post,
+  tabs,
   action,
 }: {
   post?: NewsletterPost;
+  tabs: NewsletterTab[];
   action: (formData: FormData) => Promise<void>;
 }) {
   const router = useRouter();
   const today = new Date().toISOString().slice(0, 10);
+  const tabNames = tabs.map((t) => t.name);
+  const options = post?.category && !tabNames.includes(post.category) ? [post.category, ...tabNames] : tabNames;
 
   return (
     <form
@@ -26,9 +32,29 @@ export function NewsletterPostForm({
     >
       <div>
         <label htmlFor="category" className={labelClass}>
-          Category
+          Category / Tab
         </label>
-        <input id="category" name="category" type="text" required defaultValue={post?.category} className={inputClass} />
+        {options.length > 0 ? (
+          <select id="category" name="category" required defaultValue={post?.category} className={inputClass}>
+            {!post?.category && <option value="">Select a tab…</option>}
+            {options.map((name) => (
+              <option key={name} value={name}>
+                {name}
+              </option>
+            ))}
+          </select>
+        ) : (
+          <>
+            <input id="category" name="category" type="text" required defaultValue={post?.category} className={inputClass} />
+            <p className="mt-1 text-xs text-white/40">
+              No newsletter tabs yet —{" "}
+              <a href="/admin/newsletter-tabs/new" className="text-accent-blue hover:underline">
+                create one first
+              </a>{" "}
+              so it appears here as a dropdown option.
+            </p>
+          </>
+        )}
       </div>
 
       <div>
@@ -46,6 +72,8 @@ export function NewsletterPostForm({
       </div>
 
       <ImageUploadField name="imageUrl" label="Featured image" defaultValue={post?.imageUrl} />
+
+      <NewsletterContentField name="content" defaultValue={post?.content} />
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
@@ -81,6 +109,11 @@ export function NewsletterPostForm({
           ))}
         </select>
       </div>
+
+      <label className="flex w-fit cursor-pointer items-center gap-2 text-sm text-white/70">
+        <input type="checkbox" name="featured" defaultChecked={post?.featured ?? false} className="h-4 w-4 accent-accent-blue" />
+        Make this the featured (hero) post for its tab — shown bigger, other posts in the tab shown smaller
+      </label>
 
       <div className="flex gap-3">
         <button type="submit" className={buttonClass}>

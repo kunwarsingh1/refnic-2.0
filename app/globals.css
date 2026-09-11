@@ -49,6 +49,22 @@ body {
   font-family: var(--font-sans);
 }
 
+/* Every form on the site sits on a dark background — browser autofill
+   (name/email/phone) otherwise forces a white box with black text,
+   breaking the theme the moment a field gets filled in. */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff;
+  caret-color: #ffffff;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
 /* Subtle grid-line patterns used across the dark industrial sections */
 .bg-grid-dark {
   background-image:

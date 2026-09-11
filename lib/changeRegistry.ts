@@ -11,6 +11,24 @@ import {
   deleteNewsletterPost,
   reorderNewsletterPost,
 } from "@/lib/content/newsletter";
+import {
+  createNewsletterTab,
+  updateNewsletterTab,
+  deleteNewsletterTab,
+  reorderNewsletterTab,
+} from "@/lib/content/newsletterTabs";
+import {
+  createProductCategory,
+  updateProductCategory,
+  deleteProductCategory,
+  reorderProductCategory,
+} from "@/lib/content/productCategories";
+import {
+  createProductCatalogItem,
+  updateProductCatalogItem,
+  deleteProductCatalogItem,
+  reorderProductCatalogItem,
+} from "@/lib/content/productCatalog";
 import { STATS_KEY } from "@/lib/content/stats";
 import { FOOTER_KEY } from "@/lib/content/footer";
 import { NAVBAR_KEY } from "@/lib/content/navbar";
@@ -55,6 +73,21 @@ const REGISTRY: Record<string, (args: any) => Promise<void>> = {
   "newsletter:update": (args) => updateNewsletterPost(args.id, args),
   "newsletter:delete": (args) => deleteNewsletterPost(args.id),
   "newsletter:reorder": (args) => reorderNewsletterPost(args.id, args.direction),
+
+  "newsletterTabs:create": (args) => createNewsletterTab(args),
+  "newsletterTabs:update": (args) => updateNewsletterTab(args.id, args),
+  "newsletterTabs:delete": (args) => deleteNewsletterTab(args.id),
+  "newsletterTabs:reorder": (args) => reorderNewsletterTab(args.id, args.direction),
+
+  "productCategories:create": (args) => createProductCategory(args),
+  "productCategories:update": (args) => updateProductCategory(args.id, args),
+  "productCategories:delete": (args) => deleteProductCategory(args.id),
+  "productCategories:reorder": (args) => reorderProductCategory(args.id, args.direction),
+
+  "productCatalog:create": (args) => createProductCatalogItem(args),
+  "productCatalog:update": (args) => updateProductCatalogItem(args.id, args),
+  "productCatalog:delete": (args) => deleteProductCatalogItem(args.id),
+  "productCatalog:reorder": (args) => reorderProductCatalogItem(args.id, args.direction),
 
   "stats:update": (args) => setSiteConfig(STATS_KEY, args),
   "footer:update": (args) => setSiteConfig(FOOTER_KEY, args),

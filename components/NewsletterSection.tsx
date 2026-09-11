@@ -57,7 +57,8 @@ export default function NewsletterSection({ posts }: { posts: NewsletterPost[] }
         className="relative w-full flex gap-8 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {loopPosts.map((post, i) => (
-          <article
+          <Link
+            href={`/newsletter/${post.slug}`}
             key={`${post.id}-${i}`}
             className="flex w-[320px] shrink-0 flex-col overflow-hidden rounded-none bg-white text-black shadow-sm transition-transform duration-300 hover:scale-[1.03] hover:shadow-[0_0_40px_-15px_rgba(46,75,224,0.55)]"
           >
@@ -84,7 +85,7 @@ export default function NewsletterSection({ posts }: { posts: NewsletterPost[] }
                 </div>
               </div>
             </div>
-          </article>
+          </Link>
         ))}
       </div>
 

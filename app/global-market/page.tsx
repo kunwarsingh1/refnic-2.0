@@ -11,8 +11,28 @@ export const metadata: Metadata = {
 
 export const revalidate = 60;
 
+function splitClosingBody(body: string): [string, string] {
+  const idx = body.indexOf(",");
+  if (idx === -1) return [body, ""];
+  return [body.slice(0, idx).trim(), body.slice(idx + 1).trim()];
+}
+
+function highlightWord(text: string, word: string) {
+  const idx = text.indexOf(word);
+  if (idx === -1) return text;
+  return (
+    <>
+      {text.slice(0, idx)}
+      <mark className="rounded-sm bg-yellow-300 px-1 text-navy-950">{word}</mark>
+      {text.slice(idx + word.length)}
+    </>
+  );
+}
+
 export default async function GlobalMarketPage() {
   const c = await getGlobalMarketPageConfig();
+  const [closingBodyLeft, closingBodyRight] = splitClosingBody(c.closingBody);
+  const highlightedRight = highlightWord(closingBodyRight, "technology");
 
   return (
     <>
@@ -78,7 +98,14 @@ export default async function GlobalMarketPage() {
         <div className="relative z-10 mx-auto max-w-6xl px-6 pb-24 text-center">
           <p className="text-xs font-bold uppercase tracking-wide text-accent-blue">{c.closingLabel}</p>
           <p className="mt-3 font-display font-black text-3xl text-white md:text-5xl">{c.closingHeading}</p>
-          <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-white/60">{c.closingBody}</p>
+          <div className="mx-auto mt-4 max-w-2xl">
+            <p className="text-left text-sm leading-relaxed text-white/60">{closingBodyLeft}</p>
+            {closingBodyRight && (
+              <p className="mt-3 text-right text-lg leading-relaxed text-white">
+                {highlightedRight}
+              </p>
+            )}
+          </div>
           <div className="mt-8 flex justify-center">
             <Button href="/technologies">
               {c.ctaLabel}

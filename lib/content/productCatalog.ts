@@ -1,74 +1,64 @@
 import { ObjectId, type Collection } from "mongodb";
 import { getDb } from "@/lib/mongo";
-import { NEWSLETTER_GRADIENTS as GRADIENTS } from "@/lib/newsletterGradients";
 import type { Block } from "@/lib/content/blog";
 
-const COLLECTION = "newsletterPosts";
+const COLLECTION = "productCatalogItems";
 
-type NewsletterPostDoc = {
+type ProductCatalogItemDoc = {
   _id: ObjectId;
   slug: string;
-  date: string;
   category: string;
   title: string;
   excerpt: string;
-  author: string;
-  meta: string;
-  gradient: string;
   imageUrl?: string;
   content: Block[];
-  featured?: boolean;
   order: number;
 };
 
-export type NewsletterPost = {
+export type ProductCatalogItem = {
   id: string;
   slug: string;
-  date: string;
   category: string;
   title: string;
   excerpt: string;
-  author: string;
-  meta: string;
-  gradient: string;
   imageUrl?: string;
   content: Block[];
-  featured: boolean;
   order: number;
 };
 
-async function getCollection(): Promise<Collection<NewsletterPostDoc>> {
+async function getCollection(): Promise<Collection<ProductCatalogItemDoc>> {
   const db = await getDb();
-  return db.collection<NewsletterPostDoc>(COLLECTION);
+  return db.collection<ProductCatalogItemDoc>(COLLECTION);
 }
 
-function toPost(doc: NewsletterPostDoc): NewsletterPost {
+function toItem(doc: ProductCatalogItemDoc): ProductCatalogItem {
   return {
     id: doc._id.toHexString(),
     slug: doc.slug,
-    date: doc.date,
     category: doc.category,
     title: doc.title,
     excerpt: doc.excerpt,
-    author: doc.author,
-    meta: doc.meta,
-    gradient: doc.gradient,
     imageUrl: doc.imageUrl,
     content: doc.content ?? [],
-    featured: doc.featured ?? false,
     order: doc.order ?? 0,
   };
 }
 
 function slugify(title: string): string {
-  return title
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "") || "post";
+  return (
+    title
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "") || "product"
+  );
 }
 
-async function uniqueSlug(col: Collection<NewsletterPostDoc>, title: string, excludeId?: ObjectId): Promise<string> {
+async function uniqueSlug(
+  col: Collection<ProductCatalogItemDoc>,
+  title: string,
+  excludeId?: ObjectId,
+): Promise<string> {
   const base = slugify(title);
   let slug = base;
   let n = 2;
@@ -79,127 +69,88 @@ async function uniqueSlug(col: Collection<NewsletterPostDoc>, title: string, exc
   return slug;
 }
 
-export async function getNewsletterPosts(): Promise<NewsletterPost[]> {
+export async function getProductCatalogItems(): Promise<ProductCatalogItem[]> {
   try {
     const col = await getCollection();
     const docs = await col.find({}).sort({ order: 1 }).toArray();
-    return docs.map(toPost);
+    return docs.map(toItem);
   } catch {
     return [];
   }
 }
 
-export async function getNewsletterPostBySlug(slug: string): Promise<NewsletterPost | null> {
+export async function getProductCatalogItemBySlug(slug: string): Promise<ProductCatalogItem | null> {
   try {
     const col = await getCollection();
     const doc = await col.findOne({ slug });
-    return doc ? toPost(doc) : null;
+    return doc ? toItem(doc) : null;
   } catch {
     return null;
   }
 }
 
-export async function getNewsletterPostById(id: string): Promise<NewsletterPost | null> {
+export async function getProductCatalogItemById(id: string): Promise<ProductCatalogItem | null> {
   try {
     const col = await getCollection();
     const doc = await col.findOne({ _id: new ObjectId(id) });
-    return doc ? toPost(doc) : null;
+    return doc ? toItem(doc) : null;
   } catch {
     return null;
   }
 }
 
-async function clearOtherFeatured(
-  col: Collection<NewsletterPostDoc>,
-  category: string,
-  excludeId?: ObjectId,
-): Promise<void> {
-  await col.updateMany(
-    { category, featured: true, ...(excludeId ? { _id: { $ne: excludeId } } : {}) },
-    { $set: { featured: false } },
-  );
-}
-
-export async function createNewsletterPost(input: {
+export async function createProductCatalogItem(input: {
   category: string;
   title: string;
   excerpt: string;
-  author: string;
-  meta: string;
-  gradient?: string;
   imageUrl?: string;
   content?: Block[];
-  featured?: boolean;
-  date: string;
 }): Promise<void> {
   const col = await getCollection();
   const count = await col.countDocuments({});
   const slug = await uniqueSlug(col, input.title);
-  const id = new ObjectId();
   await col.insertOne({
-    _id: id,
+    _id: new ObjectId(),
     slug,
-    date: input.date,
     category: input.category,
     title: input.title,
     excerpt: input.excerpt,
-    author: input.author,
-    meta: input.meta,
-    gradient: input.gradient || GRADIENTS[count % GRADIENTS.length],
     imageUrl: input.imageUrl || undefined,
     content: input.content ?? [],
-    featured: input.featured ?? false,
     order: count,
   });
-  if (input.featured) await clearOtherFeatured(col, input.category, id);
 }
 
-export async function updateNewsletterPost(
+export async function updateProductCatalogItem(
   id: string,
-  input: {
-    category: string;
-    title: string;
-    excerpt: string;
-    author: string;
-    meta: string;
-    gradient: string;
-    imageUrl?: string;
-    content?: Block[];
-    featured?: boolean;
-    date: string;
-  },
+  input: { category: string; title: string; excerpt: string; imageUrl?: string; content?: Block[] },
 ): Promise<void> {
   const col = await getCollection();
   const objectId = new ObjectId(id);
   const existing = await col.findOne({ _id: objectId });
-  const slug = existing && existing.title === input.title ? existing.slug : await uniqueSlug(col, input.title, objectId);
+  const slug =
+    existing && existing.title === input.title ? existing.slug : await uniqueSlug(col, input.title, objectId);
   await col.updateOne(
     { _id: objectId },
     {
       $set: {
         slug,
-        date: input.date,
         category: input.category,
         title: input.title,
         excerpt: input.excerpt,
-        author: input.author,
-        meta: input.meta,
-        gradient: input.gradient,
         imageUrl: input.imageUrl || undefined,
         content: input.content ?? [],
-        featured: input.featured ?? false,
       },
     },
   );
-  if (input.featured) await clearOtherFeatured(col, input.category, objectId);
 }
 
-export async function deleteNewsletterPost(id: string): Promise<void> {
+export async function deleteProductCatalogItem(id: string): Promise<void> {
   const col = await getCollection();
   await col.deleteOne({ _id: new ObjectId(id) });
 }
 
-export async function reorderNewsletterPost(id: string, direction: "up" | "down"): Promise<void> {
+export async function reorderProductCatalogItem(id: string, direction: "up" | "down"): Promise<void> {
   const col = await getCollection();
   const doc = await col.findOne({ _id: new ObjectId(id) });
   if (!doc) return;

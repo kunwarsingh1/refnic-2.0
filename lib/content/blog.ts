@@ -14,6 +14,7 @@ export type ImageBlock = {
   type: "image";
   url: string;
   caption?: string;
+  align?: "left" | "center" | "right";
 };
 
 export type VideoBlock = {
