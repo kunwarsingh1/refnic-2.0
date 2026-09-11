@@ -48,8 +48,8 @@ export default async function Home() {
 
   return (
     <div className="home">
+      <SiteHeader roundedBottom={false} showTopGlow />
       <div className="bg-black">
-        <SiteHeader roundedBottom={false} />
         <Hero />
       </div>
       <main className="relative bg-black bg-grid-dark">

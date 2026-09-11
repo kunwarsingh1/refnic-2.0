@@ -19,9 +19,7 @@ export default async function ProductsOverviewPage() {
 
   return (
     <>
-      <div className="bg-black">
-        <SiteHeader />
-      </div>
+      <SiteHeader />
 
       <main className="bg-black">
         <ProductsHero config={config} />

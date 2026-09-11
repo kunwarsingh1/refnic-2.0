@@ -50,6 +50,7 @@
 	height: 24px;
 	width: 24px;
 	position: relative;
+	flex-shrink: 0;
 }
 .budgetingParent {
 	flex: 1;
@@ -92,7 +93,7 @@
 	flex-shrink: 0;
 }
 .keepYourSpending2 {
-	width: 316px;
+	width: 268px;
 	position: relative;
 	font-size: 14px;
 	line-height: 140%;

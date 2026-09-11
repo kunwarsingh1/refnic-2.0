@@ -123,12 +123,9 @@ export default function ContactSection() {
           </div>
 
           <p className="w-[28%] text-right text-lg leading-relaxed text-white">
-            Refnic delivers the{" "}
-            <mark className="rounded-sm bg-yellow-300 px-1 text-navy-950">
-              technology
-            </mark>
-            , engineering, and execution required to build the next generation
-            of resource recovery infrastructure.
+            Refnic delivers the technology, engineering, and execution
+            required to build the next generation of resource recovery
+            infrastructure.
           </p>
         </div>
 
@@ -149,12 +146,9 @@ export default function ContactSection() {
             />
           </div>
           <p className="text-right text-base leading-relaxed text-white">
-            Refnic delivers the{" "}
-            <mark className="rounded-sm bg-yellow-300 px-1 text-navy-950">
-              technology
-            </mark>
-            , engineering, and execution required to build the next generation
-            of resource recovery infrastructure.
+            Refnic delivers the technology, engineering, and execution
+            required to build the next generation of resource recovery
+            infrastructure.
           </p>
         </div>
       </div>

@@ -17,28 +17,13 @@ function splitClosingBody(body: string): [string, string] {
   return [body.slice(0, idx).trim(), body.slice(idx + 1).trim()];
 }
 
-function highlightWord(text: string, word: string) {
-  const idx = text.indexOf(word);
-  if (idx === -1) return text;
-  return (
-    <>
-      {text.slice(0, idx)}
-      <mark className="rounded-sm bg-yellow-300 px-1 text-navy-950">{word}</mark>
-      {text.slice(idx + word.length)}
-    </>
-  );
-}
-
 export default async function GlobalMarketPage() {
   const c = await getGlobalMarketPageConfig();
   const [closingBodyLeft, closingBodyRight] = splitClosingBody(c.closingBody);
-  const highlightedRight = highlightWord(closingBodyRight, "technology");
 
   return (
     <>
-      <div className="bg-black">
-        <SiteHeader />
-      </div>
+      <SiteHeader />
 
       <main className="relative overflow-hidden bg-black">
         <div className="absolute inset-0 bg-grid-dark" aria-hidden />
@@ -102,7 +87,7 @@ export default async function GlobalMarketPage() {
             <p className="text-left text-sm leading-relaxed text-white/60">{closingBodyLeft}</p>
             {closingBodyRight && (
               <p className="mt-3 text-right text-lg leading-relaxed text-white">
-                {highlightedRight}
+                {closingBodyRight}
               </p>
             )}
           </div>

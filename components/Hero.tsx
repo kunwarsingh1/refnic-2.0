@@ -24,7 +24,8 @@ export default function Hero() {
         <img
           src="/blue_stone.png"
           alt=""
-          className="absolute bottom-0 right-0 z-20 w-[clamp(8rem,24vw,18rem)] translate-x-[20%] object-contain"
+          style={{ filter: "drop-shadow(0 0 45px rgba(46, 75, 224, 0.85))" }}
+          className="absolute bottom-0 right-0 z-20 w-[clamp(10rem,30vw,23rem)] translate-x-[20%] translate-y-[28%] object-contain"
         />
         
 

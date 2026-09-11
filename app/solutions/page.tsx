@@ -18,9 +18,7 @@ export default async function SolutionsPage() {
 
   return (
     <>
-      <div className="bg-[#161518]">
-        <SiteHeader />
-      </div>
+      <SiteHeader bgClassName="bg-[#161518]" />
 
       <main className="relative overflow-hidden bg-[#161518]">
         <div className="pointer-events-none absolute inset-0 bg-grid-dark" aria-hidden />

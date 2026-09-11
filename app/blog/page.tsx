@@ -17,9 +17,7 @@ export default async function BlogPage() {
 
   return (
     <>
-      <div className="bg-navy-950">
-        <SiteHeader />
-      </div>
+      <SiteHeader bgClassName="bg-navy-950" />
 
       <main className="relative overflow-hidden bg-navy-950 py-20 md:py-28">
         <div className="absolute inset-0 bg-grid-dark" aria-hidden />

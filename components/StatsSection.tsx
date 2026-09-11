@@ -20,7 +20,7 @@ export default function StatsSection({
               the connector/image section below. Increase the h-[...]
               value until it visually reaches the image. */}
           <div
-            className="absolute left-1/2 top-0 w-px -translate-x-1/2 bg-white/10"
+            className="absolute left-1/2 top-0 w-0.5 -translate-x-1/2 bg-white/40"
             style={{ height: "calc(100% + 96px)" }}
             aria-hidden
           />
@@ -45,7 +45,7 @@ export default function StatsSection({
         </div>
       </div>
 
-      <div className="relative mx-auto h-6 w-px bg-white/10 md:h-5" aria-hidden />
+      <div className="relative mx-auto h-6 w-0.5 bg-white/40 md:h-5" aria-hidden />
 
       {/* Positioned out of normal flow, starting exactly at the section's
           own bottom edge (top-full) and pulled back up by a fixed amount,

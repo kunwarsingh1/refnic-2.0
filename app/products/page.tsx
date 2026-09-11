@@ -19,9 +19,7 @@ export default async function ProductsDirectoryPage() {
 
   return (
     <>
-      <div className="bg-black">
-        <SiteHeader />
-      </div>
+      <SiteHeader />
 
       <main className="bg-black">
         <ProductsDirectoryHero />

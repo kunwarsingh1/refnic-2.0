@@ -18,9 +18,7 @@ export default async function TechnologiesPage() {
 
   return (
     <>
-      <div className="bg-black">
-        <SiteHeader />
-      </div>
+      <SiteHeader />
 
       <main className="relative overflow-hidden bg-black">
         <div className="absolute inset-0 bg-grid-dark" aria-hidden />

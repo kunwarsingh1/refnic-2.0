@@ -77,9 +77,7 @@ export default async function NewsletterPostPage({
 
   return (
     <>
-      <div className="bg-navy-950">
-        <SiteHeader />
-      </div>
+      <SiteHeader bgClassName="bg-navy-950" />
 
       <div className="relative overflow-hidden bg-navy-950 px-6 pt-16 pb-12 md:pt-24 md:pb-16">
         <div className="absolute inset-0 bg-grid-dark" aria-hidden />
