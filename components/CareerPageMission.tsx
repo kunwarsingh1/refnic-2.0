@@ -1,4 +1,4 @@
-import CareerDecorativeRing from "@/components/CareerDecorativeRing";
+import { CmsImagePlaceholder } from "@/components/ui/primitives";
 
 export default function CareerPageMission({
   heading,
@@ -23,7 +23,7 @@ export default function CareerPageMission({
               className="h-64 w-64 shrink-0 rounded-full object-cover md:h-[28rem] md:w-[28rem]"
             />
           ) : (
-            <CareerDecorativeRing className="h-64 w-64 shrink-0 md:h-[28rem] md:w-[28rem]" />
+            <CmsImagePlaceholder className="h-64 w-64 shrink-0 rounded-full md:h-[28rem] md:w-[28rem]" />
           )}
 
           <div className="text-center md:max-w-[35rem] md:text-right">

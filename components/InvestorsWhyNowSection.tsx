@@ -1,4 +1,4 @@
-import CareerDecorativeRing from "@/components/CareerDecorativeRing";
+import { CmsImagePlaceholder } from "@/components/ui/primitives";
 
 export default function InvestorsWhyNowSection({ heading, reasons }: { heading: string; reasons: string[] }) {
   return (
@@ -14,11 +14,12 @@ export default function InvestorsWhyNowSection({ heading, reasons }: { heading: 
           {reasons.map((reason, i) => (
             <div key={i} className="relative">
               <div
-                className="pointer-events-none absolute inset-0 border-2 border-white bg-white/[0.03] opacity-[0.61] backdrop-blur-[68.9px]"
+                style={{ borderImage: "linear-gradient(to top right, #1f1313, #737373, #191717) 1" }}
+                className="pointer-events-none absolute inset-0 border-2 border-transparent bg-white/[0.03] opacity-[0.61] backdrop-blur-[68.9px]"
                 aria-hidden
               />
               <div className="relative flex h-full flex-col gap-6 p-8">
-                <CareerDecorativeRing className="h-20 w-20 opacity-40" />
+                <CmsImagePlaceholder className="h-20 w-20 rounded-xl" />
                 <p className="text-[26px] leading-[1.15] text-[#EBEBEB]">{reason}</p>
               </div>
             </div>

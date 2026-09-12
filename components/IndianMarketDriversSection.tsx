@@ -19,7 +19,8 @@ export default function IndianMarketDriversSection({
           {badges.map((badge, i) => (
             <div key={badge} className="relative">
               <div
-                className="pointer-events-none absolute inset-0 border-2 border-white bg-white/[0.03] opacity-[0.61] backdrop-blur-[68.9px]"
+                style={{ borderImage: "linear-gradient(to top right, #1f1313, #737373, #191717) 1" }}
+                className="pointer-events-none absolute inset-0 border-2 border-transparent bg-white/[0.03] opacity-[0.61] backdrop-blur-[68.9px]"
                 aria-hidden
               />
               <div className="relative flex h-full flex-col gap-4 p-8">

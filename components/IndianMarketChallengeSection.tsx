@@ -1,5 +1,3 @@
-import CareerDecorativeRing from "@/components/CareerDecorativeRing";
-
 export default function IndianMarketChallengeSection({
   subheading,
   stats,
@@ -10,7 +8,6 @@ export default function IndianMarketChallengeSection({
   return (
     <section className="relative overflow-hidden bg-[#161518] py-16 md:py-24">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
-      <CareerDecorativeRing className="pointer-events-none absolute bottom-0 left-0 hidden h-[26rem] w-[26rem] -translate-x-1/3 translate-y-1/3 opacity-40 md:block" />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <h2 className="font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-[64px]">

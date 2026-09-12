@@ -1,5 +1,4 @@
 import { CmsImagePlaceholder } from "@/components/ui/primitives";
-import CareerDecorativeRing from "@/components/CareerDecorativeRing";
 import type { NumberedSection } from "@/lib/content/investorsPage";
 
 export function ZigzagFeatureSections({
@@ -44,10 +43,10 @@ export function ZigzagFeatureSections({
                       <img
                         src={s.imageUrl}
                         alt={s.heading}
-                        className="aspect-square w-40 rounded-2xl object-cover opacity-70 md:w-60"
+                        className="aspect-square w-40 rounded-2xl object-cover md:w-60"
                       />
                     ) : (
-                      <CareerDecorativeRing className="h-40 w-40 opacity-40 md:h-60 md:w-60" />
+                      <CmsImagePlaceholder className="aspect-square w-40 rounded-2xl md:w-60" />
                     )}
                   </div>
                 </div>

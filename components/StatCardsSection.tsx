@@ -1,4 +1,4 @@
-import CareerDecorativeRing from "@/components/CareerDecorativeRing";
+import { CmsImagePlaceholder } from "@/components/ui/primitives";
 
 export default function StatCardsSection({
   heading,
@@ -12,18 +12,15 @@ export default function StatCardsSection({
   return (
     <section className="relative overflow-hidden bg-[#161518] py-16 md:py-24">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
-      {ringSide !== "none" && (
-        <CareerDecorativeRing
-          className={`pointer-events-none absolute bottom-0 hidden h-[26rem] w-[26rem] translate-y-1/3 opacity-40 md:block ${
-            ringSide === "left" ? "left-0 -translate-x-1/3" : "right-0 translate-x-1/3"
-          }`}
-        />
-      )}
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
-        <h2 className="text-center font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-[64px]">
-          {heading}
-        </h2>
+        <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
+          {ringSide === "left" && <CmsImagePlaceholder className="h-16 w-16 shrink-0 rounded-xl md:h-20 md:w-20" />}
+          <h2 className="text-center font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-[64px]">
+            {heading}
+          </h2>
+          {ringSide === "right" && <CmsImagePlaceholder className="h-16 w-16 shrink-0 rounded-xl md:h-20 md:w-20" />}
+        </div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
           {stats.map((stat) => (
