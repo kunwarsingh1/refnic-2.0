@@ -76,8 +76,8 @@ export default async function Footer() {
 
       <div className="relative rounded-t-[2rem] bg-white">
         <div className="mx-auto max-w-6xl px-6 py-14 md:py-16">
-          <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr_1fr_1.2fr]">
-            <div>
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[1.4fr_1fr_1fr_1fr_1fr_1.2fr]">
+            <div className="min-w-0">
               <Link
                 href="/"
                 className="font-sans text-2xl font-bold tracking-tight text-[#2d3fe0]"
@@ -113,7 +113,7 @@ export default async function Footer() {
             </div>
 
             {config.linkColumns.map((col) => (
-              <div key={col.title}>
+              <div key={col.title} className="min-w-0">
                 <p className="font-sans font-bold text-sm text-black">{col.title}</p>
                 <ul className="mt-4 flex flex-col gap-3 text-sm text-gray-500">
                   {col.links.map((l) => (
@@ -127,7 +127,7 @@ export default async function Footer() {
               </div>
             ))}
 
-            <div>
+            <div className="min-w-0">
               <p className="font-sans font-bold text-sm text-black">{config.contactHeading}</p>
               <div className="mt-4 flex flex-col gap-3 text-sm text-gray-500">
                 <a
