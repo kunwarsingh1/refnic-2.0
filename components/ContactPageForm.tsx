@@ -118,7 +118,7 @@ export default function ContactPageForm({
 
           <div className="relative grid gap-12 p-8 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:p-14">
             <div>
-              <h2 className="font-sans text-[36px] font-bold leading-tight text-white">{contactInfoHeading}</h2>
+              <h2 className="font-sans text-2xl font-bold leading-tight text-white md:text-3xl">{contactInfoHeading}</h2>
 
               <div className="mt-10 flex flex-col gap-6">
                 <div className="flex items-start gap-3">

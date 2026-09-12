@@ -13,7 +13,7 @@ export default function CaseStudyPageHero({ body }: { body: string }) {
       />
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <h1 className="font-display text-[clamp(2.75rem,11vw,10.3rem)] font-bold leading-[1.02] text-[#F8F8F8]">
+        <h1 className="font-display text-[clamp(2.75rem,12vw,10rem)] font-bold leading-[1.02] text-[#F8F8F8]">
           Case
           <br />
           Studies

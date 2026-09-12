@@ -11,7 +11,7 @@ export default function SolutionsCtaSection({
   return (
     <section className="relative overflow-hidden pb-16 pt-16 md:pb-24 md:pt-24">
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <h2 className="font-display font-bold text-3xl leading-tight text-[#F8F8F8] md:text-[64px] md:leading-none">
+        <h2 className="font-display font-bold text-3xl leading-tight text-[#F8F8F8] md:text-5xl md:leading-none">
           {c.closingHeading}
         </h2>
         {c.closingImageUrl ? (

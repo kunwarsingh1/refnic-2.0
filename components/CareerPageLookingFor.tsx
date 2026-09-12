@@ -10,7 +10,7 @@ export default function CareerPageLookingFor({
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <h2 className="font-display text-[clamp(2rem,6vw,4rem)] font-bold leading-tight text-[#EBEBEB]">
+        <h2 className="font-display text-3xl md:text-5xl font-bold leading-tight text-[#EBEBEB]">
           {heading}
         </h2>
 

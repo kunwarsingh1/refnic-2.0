@@ -27,7 +27,7 @@ export default function CareerPageMission({
           )}
 
           <div className="text-center md:max-w-[35rem] md:text-right">
-            <h2 className="font-display text-[clamp(2rem,6vw,4rem)] font-bold leading-tight text-[#EBEBEB]">
+            <h2 className="font-display text-3xl md:text-5xl font-bold leading-tight text-[#EBEBEB]">
               {heading}
             </h2>
             <p className="mt-6 text-[20px] leading-[32.46px] text-white">{body}</p>

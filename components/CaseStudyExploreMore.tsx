@@ -19,7 +19,7 @@ export default function CaseStudyExploreMore({
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className="flex items-center justify-between gap-4">
-          <h2 className="font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-[64px]">
+          <h2 className="font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-5xl">
             Explore more
           </h2>
           <div className="flex items-center gap-4">

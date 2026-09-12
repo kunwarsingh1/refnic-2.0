@@ -14,7 +14,7 @@ export default function CareerPageOpenPositions({
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
-        <h2 className="text-center font-display text-[clamp(2rem,6vw,4rem)] font-bold leading-tight text-[#EBEBEB]">
+        <h2 className="text-center font-display text-3xl md:text-5xl font-bold leading-tight text-[#EBEBEB]">
           {heading}
         </h2>
 
@@ -27,7 +27,7 @@ export default function CareerPageOpenPositions({
                 aria-hidden
               />
               <div className="relative flex h-full flex-col p-10">
-                <h3 className="min-h-[86px] font-display text-[36px] font-bold leading-tight text-[#EBEBEB] md:min-h-[130px]">
+                <h3 className="min-h-12 font-display text-lg font-bold leading-tight text-[#EBEBEB] md:min-h-16 md:text-xl">
                   {p.title}
                 </h3>
 

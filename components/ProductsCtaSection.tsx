@@ -7,7 +7,7 @@ export default function ProductsCtaSection({ config: c }: { config: ProductsPage
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <h2 className="font-display font-bold text-3xl leading-tight text-[#EBEBEB] md:text-[64px] md:leading-none">
+        <h2 className="font-display font-bold text-3xl leading-tight text-[#EBEBEB] md:text-5xl md:leading-none">
           {c.ctaHeading}
         </h2>
         {c.ctaImageUrl ? (

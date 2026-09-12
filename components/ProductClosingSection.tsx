@@ -21,7 +21,7 @@ export default function ProductClosingSection({
 
       {hasHeadingSection && (
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-          <h2 className="font-display text-2xl font-bold uppercase leading-tight text-[#EBEBEB] md:text-[64px]">
+          <h2 className="font-display text-2xl font-bold uppercase leading-tight text-[#EBEBEB] md:text-5xl">
             {heading}
           </h2>
           <CareerDecorativeRing className="mx-auto mt-10 h-56 w-56 opacity-40 md:h-72 md:w-72" />

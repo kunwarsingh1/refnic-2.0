@@ -26,7 +26,7 @@ export default function ProductNarrativeSections({ sections }: { sections: Narra
 
                 <div className={`flex-1 ${isRight ? "md:text-left" : "md:text-right"}`}>
                   {s.heading && (
-                    <h2 className="font-display text-2xl font-bold leading-tight text-[#EBEBEB] md:text-[36px]">
+                    <h2 className="font-display text-2xl font-bold leading-tight text-[#EBEBEB] md:text-3xl">
                       {s.heading}
                     </h2>
                   )}

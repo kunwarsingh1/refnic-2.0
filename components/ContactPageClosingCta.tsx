@@ -18,7 +18,7 @@ export default function ContactPageClosingCta({
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
-        <h2 className="font-display text-[clamp(2rem,6vw,3.75rem)] font-bold leading-tight text-[#F8F8F8]">
+        <h2 className="font-display text-3xl md:text-5xl font-bold leading-tight text-[#F8F8F8]">
           {heading}
         </h2>
 

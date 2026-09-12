@@ -32,7 +32,7 @@ export function ZigzagFeatureSections({
                     <p className="font-display text-6xl font-bold leading-none text-[#F8F8F8]/20 md:text-[120px]">
                       {s.number}
                     </p>
-                    <h2 className="mt-2 font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-[64px] md:leading-tight">
+                    <h2 className="mt-2 font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-5xl md:leading-tight">
                       {s.heading}
                     </h2>
                     <p className="mx-auto mt-6 max-w-md text-[20px] leading-[32.46px] text-white md:mx-0">{s.body}</p>
@@ -56,7 +56,7 @@ export function ZigzagFeatureSections({
                     <p className="font-display text-6xl font-bold leading-none text-[#F8F8F8]/20 md:text-[120px]">
                       {s.number}
                     </p>
-                    <h2 className="mt-2 font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-[64px] md:leading-tight">
+                    <h2 className="mt-2 font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-5xl md:leading-tight">
                       {s.heading}
                     </h2>
                     <div className={`mt-6 flex justify-center ${isRight ? "md:justify-end" : "md:justify-start"}`}>

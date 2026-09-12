@@ -17,7 +17,7 @@ export default function OurStoryHero({ heading, body }: { heading: string; body:
       />
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <h1 className="font-display text-[clamp(2.75rem,11vw,10.3rem)] font-bold leading-[1.02] text-[#F8F8F8]">
+        <h1 className="font-display text-[clamp(2.75rem,12vw,10rem)] font-bold leading-[1.02] text-[#F8F8F8]">
           {words.map((word, i) => (
             <Fragment key={i}>
               {i > 0 && <br />}

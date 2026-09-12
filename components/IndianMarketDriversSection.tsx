@@ -11,7 +11,7 @@ export default function IndianMarketDriversSection({
     <section className="relative overflow-hidden bg-[#161518] py-16 md:py-24">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
       <div className="relative z-10 mx-auto max-w-6xl px-6">
-        <h2 className="text-center font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-[64px]">
+        <h2 className="text-center font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-5xl">
           {heading}
         </h2>
 

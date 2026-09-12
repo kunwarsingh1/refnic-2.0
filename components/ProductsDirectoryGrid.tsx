@@ -12,7 +12,7 @@ function ProductCard({ item }: { item: ProductCatalogItem }) {
         aria-hidden
       />
       <div className="relative flex h-full flex-col p-10">
-        <h3 className="font-sans font-bold text-lg leading-snug text-[#EBEBEB] md:text-[36px] md:leading-[36px]">
+        <h3 className="font-sans font-bold text-lg leading-snug text-[#EBEBEB] md:text-xl">
           {item.title}
         </h3>
 
@@ -82,7 +82,7 @@ export default function ProductsDirectoryGrid({
                       }`}
                     >
                       <h2
-                        className={`font-sans font-bold text-2xl leading-tight text-[#EBEBEB] md:max-w-[431px] md:text-[64px] md:leading-[64px] ${
+                        className={`font-sans font-bold text-2xl leading-tight text-[#EBEBEB] md:max-w-[431px] md:text-5xl md:leading-[64px] ${
                           category.invertLayout ? "md:text-right" : ""
                         }`}
                       >

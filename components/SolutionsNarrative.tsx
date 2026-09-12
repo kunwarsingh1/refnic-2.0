@@ -29,7 +29,7 @@ export default function SolutionsNarrative({ config: c }: { config: SolutionsPag
                 <div key={i}>
                   <h2
                     style={{ color }}
-                    className={`font-display font-bold text-3xl leading-tight md:text-[64px] md:leading-none ${headingWidthClass}`}
+                    className={`font-display font-bold text-3xl leading-tight md:text-5xl md:leading-none ${headingWidthClass}`}
                   >
                     {section.heading}
                   </h2>
@@ -48,7 +48,7 @@ export default function SolutionsNarrative({ config: c }: { config: SolutionsPag
                 <div key={i}>
                   <h2
                     style={{ color }}
-                    className={`font-display font-bold text-3xl leading-tight md:text-[64px] md:leading-none ${headingWidthClass}`}
+                    className={`font-display font-bold text-3xl leading-tight md:text-5xl md:leading-none ${headingWidthClass}`}
                   >
                     {section.heading}
                   </h2>
@@ -77,7 +77,7 @@ export default function SolutionsNarrative({ config: c }: { config: SolutionsPag
               <div key={i}>
                 <h2
                   style={{ color }}
-                  className={`font-display font-bold text-3xl leading-tight md:text-[64px] md:leading-none ${headingWidthClass}`}
+                  className={`font-display font-bold text-3xl leading-tight md:text-5xl md:leading-none ${headingWidthClass}`}
                 >
                   {section.heading}
                 </h2>

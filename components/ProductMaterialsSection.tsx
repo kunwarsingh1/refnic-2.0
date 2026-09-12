@@ -15,7 +15,7 @@ export default function ProductMaterialsSection({
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         {heading && (
-          <h2 className="text-center font-display text-3xl font-bold uppercase leading-tight text-[#EBEBEB] md:text-[64px]">
+          <h2 className="text-center font-display text-3xl font-bold uppercase leading-tight text-[#EBEBEB] md:text-5xl">
             {heading}
           </h2>
         )}

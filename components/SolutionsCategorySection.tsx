@@ -27,7 +27,7 @@ export default function SolutionsCategorySection({
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className={`flex flex-col gap-8 md:items-center md:justify-between md:gap-10 ${imageFirst ? "md:flex-row-reverse" : "md:flex-row"}`}>
           <div className={textAlign}>
-            <h2 className="whitespace-pre-line font-display text-[clamp(2rem,6vw,4rem)] font-bold leading-tight text-[#EBEBEB]">
+            <h2 className="whitespace-pre-line font-display text-3xl md:text-5xl font-bold leading-tight text-[#EBEBEB]">
               {heading}
             </h2>
             <p
@@ -54,7 +54,7 @@ export default function SolutionsCategorySection({
                 aria-hidden
               />
               <div className="relative flex h-full flex-col p-10">
-                <h3 className="min-h-[86px] font-display text-[36px] font-bold leading-tight text-[#EBEBEB] md:min-h-[130px]">
+                <h3 className="min-h-12 font-display text-lg font-bold leading-tight text-[#EBEBEB] md:min-h-16 md:text-xl">
                   {item.title}
                 </h3>
 

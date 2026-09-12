@@ -12,7 +12,7 @@ export default function OurStoryClosingSection({ tagline, ctaLabel }: { tagline:
       <CareerDecorativeRing className="pointer-events-none absolute left-1/2 top-1/2 hidden h-[36rem] w-[36rem] -translate-x-1/2 -translate-y-1/2 opacity-40 md:block" />
 
       <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
-        <p className="font-display text-2xl font-bold leading-[1.4] text-white md:text-[36px]">{tagline}</p>
+        <p className="font-display text-2xl font-bold leading-[1.4] text-white md:text-3xl">{tagline}</p>
         <div className="mt-10 flex justify-center">
           <GradientCtaButton href="/case-study">{ctaLabel}</GradientCtaButton>
         </div>

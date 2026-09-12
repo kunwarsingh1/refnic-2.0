@@ -15,7 +15,7 @@ export default function WhitePapersPageHero() {
       />
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-        <h1 className="font-display text-[clamp(2.5rem,9vw,7.5rem)] font-bold leading-[1.02] text-[#F8F8F8]">
+        <h1 className="font-display text-[clamp(2.75rem,12vw,10rem)] font-bold leading-[1.02] text-[#F8F8F8]">
           White Papers
         </h1>
         <p className="mx-auto mt-8 max-w-[800px] text-[21.64px] leading-[32.46px] text-white">

@@ -1,9 +1,18 @@
 import { ImagePlaceholder } from "@/components/ui/primitives";
 
-const ASPECTS = ["aspect-[4/3]", "aspect-square", "aspect-[3/4]", "aspect-[4/3]"];
-
-// Vertical offset applied per grid column to create the staggered, zigzag rhythm
-const COLUMN_OFFSETS = ["translate-y-0", "translate-y-12", "translate-y-6"];
+// Explicit grid coordinates per photo, taken directly from the Figma export.
+// col/row are 1-indexed, matching the reference screenshot exactly. Keyed by
+// caption text (rather than array position) since the CMS may reorder photos.
+const PLACEMENTS: Record<string, { col: number; row: number }> = {
+  "Own Projects End-to-End": { col: 4, row: 1 },
+  "Work on Cutting-Edge Technologies": { col: 3, row: 2 },
+  "Contribute to sustainable innovation": { col: 5, row: 2 },
+  "Turn research into real-world applications": { col: 2, row: 3 },
+  "Solve complex industrial challenges": { col: 4, row: 3 },
+  "Work on real industrial plants": { col: 1, row: 4 },
+  "Build technologies from concept to commissioning": { col: 3, row: 4 },
+  "Collaborate across engineering disciplines": { col: 5, row: 4 },
+};
 
 export default function CareerPageLifeAtRefnic({
   heading,
@@ -21,25 +30,33 @@ export default function CareerPageLifeAtRefnic({
       />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:[grid-auto-flow:column] lg:[grid-template-rows:repeat(5,auto)]">
-          {/* Heading anchors the top of the first column, spanning two rows */}
-          <div className="row-span-2 flex items-start">
-            <h2 className="text-left font-display text-[clamp(2.25rem,7vw,4rem)] font-bold leading-tight text-[#F8F8F8]">
+        {/* Mobile/tablet: simple stacked flow. Desktop: exact hand-placed grid. */}
+        <div className="flex flex-col gap-10 lg:grid lg:grid-cols-5 lg:grid-rows-4 lg:gap-x-8 lg:gap-y-6">
+          <div className="lg:col-span-2 lg:col-start-1 lg:row-span-2 lg:row-start-1 flex items-start">
+            <h2 className="text-left font-display text-3xl md:text-5xl font-bold leading-tight text-[#F8F8F8]">
               {heading}
             </h2>
           </div>
 
           {photos.map((p, i) => {
-            const col = i % 3;
+            const placement = PLACEMENTS[p.caption];
             return (
               <div
                 key={i}
-                className={`flex flex-col ${COLUMN_OFFSETS[col]} transition-transform`}
+                className="flex flex-col"
+                style={
+                  placement
+                    ? {
+                        gridColumn: `${placement.col} / span 1`,
+                        gridRow: `${placement.row} / span 1`,
+                      }
+                    : undefined
+                }
               >
                 <ImagePlaceholder
                   dark
                   tone={i % 4}
-                  className={`w-full rounded-lg ${ASPECTS[i % ASPECTS.length]}`}
+                  className="aspect-[3/2] w-full rounded-lg"
                 />
                 <p className="mt-4 text-[20px] leading-[32.46px] text-white">
                   {p.caption}

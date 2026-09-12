@@ -25,7 +25,7 @@ export default function ProductsHero({ config: c }: { config: ProductsPageConfig
           <CmsImagePlaceholder className="relative z-10 mx-auto mb-6 h-24 w-24 rounded-xl md:h-32 md:w-32" />
         )}
 
-        <h1 className="font-display font-bold text-4xl leading-tight text-[#EBEBEB] md:text-[64px] md:leading-none">
+        <h1 className="font-display font-bold text-4xl leading-tight text-[#EBEBEB] md:text-5xl md:leading-none">
           {c.heroHeading}
         </h1>
 

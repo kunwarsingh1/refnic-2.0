@@ -21,7 +21,7 @@ export default function CaseStudyDetailCard({ cs }: { cs: CaseStudy }) {
                   <span className="h-full w-1/2 bg-[#E24544]" />
                 </span>
               )}
-              <p className="text-right font-display text-3xl font-bold leading-tight text-[#3152DF] md:text-[36px]">
+              <p className="text-right font-display text-3xl font-bold leading-tight text-[#3152DF] md:text-3xl">
                 {cs.city}
                 {cs.country && (
                   <>
@@ -34,7 +34,7 @@ export default function CaseStudyDetailCard({ cs }: { cs: CaseStudy }) {
           )}
         </div>
 
-        <h1 className="mt-8 max-w-xl font-display text-4xl font-bold leading-tight text-[#07070C] md:text-[64px]">
+        <h1 className="mt-8 max-w-xl font-display text-4xl font-bold leading-tight text-[#07070C] md:text-5xl">
           {cs.label}
         </h1>
         <p className="mt-6 max-w-2xl text-[21.64px] leading-[32.46px] text-[#030303]">{cs.body}</p>
@@ -49,12 +49,12 @@ export default function CaseStudyDetailCard({ cs }: { cs: CaseStudy }) {
 
         {(cs.overviewSubheading || cs.overviewBody) && (
           <div className="mt-16">
-            <h2 className="font-display text-3xl font-bold leading-tight text-[#050505] md:text-[64px]">
+            <h2 className="font-display text-3xl font-bold leading-tight text-[#050505] md:text-5xl">
               Project Overview
             </h2>
             <div className="mt-8 flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-10">
               {cs.overviewSubheading && (
-                <p className="max-w-sm font-display text-2xl font-light leading-tight text-[#050505] md:text-[36px] md:leading-[40.68px]">
+                <p className="max-w-sm font-display text-2xl font-light leading-tight text-[#050505] md:text-3xl">
                   {cs.overviewSubheading}
                 </p>
               )}
@@ -69,12 +69,12 @@ export default function CaseStudyDetailCard({ cs }: { cs: CaseStudy }) {
 
         {(cs.challengeSubheading || cs.challengeBody) && (
           <div className="mt-16">
-            <h2 className="font-display text-3xl font-bold leading-tight text-[#050505] md:text-[64px]">
+            <h2 className="font-display text-3xl font-bold leading-tight text-[#050505] md:text-5xl">
               The Challenge
             </h2>
             <div className="mt-8 flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-10">
               {cs.challengeSubheading && (
-                <p className="max-w-sm font-display text-2xl font-light leading-tight text-[#050505] md:text-[36px] md:leading-[40.68px]">
+                <p className="max-w-sm font-display text-2xl font-light leading-tight text-[#050505] md:text-3xl">
                   {cs.challengeSubheading}
                 </p>
               )}
@@ -95,12 +95,12 @@ export default function CaseStudyDetailCard({ cs }: { cs: CaseStudy }) {
 
         {(cs.approachSubheading || cs.approachBody) && (
           <div className="mt-16">
-            <h2 className="font-display text-3xl font-bold leading-tight text-[#050505] md:text-[64px]">
+            <h2 className="font-display text-3xl font-bold leading-tight text-[#050505] md:text-5xl">
               Our Approach
             </h2>
             <div className="mt-8 flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-10">
               {cs.approachSubheading && (
-                <p className="max-w-sm font-display text-2xl font-light leading-tight text-[#050505] md:text-[36px] md:leading-[40.68px]">
+                <p className="max-w-sm font-display text-2xl font-light leading-tight text-[#050505] md:text-3xl">
                   {cs.approachSubheading}
                 </p>
               )}
@@ -110,7 +110,7 @@ export default function CaseStudyDetailCard({ cs }: { cs: CaseStudy }) {
             </div>
 
             {cs.approachSecondaryHeading && (
-              <p className="mt-12 text-right font-display text-2xl font-light leading-tight text-[#050505] md:text-[36px] md:leading-[40.68px]">
+              <p className="mt-12 text-right font-display text-2xl font-light leading-tight text-[#050505] md:text-3xl">
                 {cs.approachSecondaryHeading}
               </p>
             )}

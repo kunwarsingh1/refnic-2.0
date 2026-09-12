@@ -6,7 +6,7 @@ export default function PlantProcessOverview({ config: c }: { config: ProductsPa
     <section className="relative bg-black px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto max-w-[90rem] overflow-hidden rounded-xl bg-[#F8F8F8] px-6 py-16 md:px-16 md:py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="font-display font-bold text-3xl leading-tight text-[#151417] md:text-[64px] md:leading-none">
+          <h2 className="font-display font-bold text-3xl leading-tight text-[#151417] md:text-5xl md:leading-none">
             {c.processHeading}
           </h2>
           <p className="mt-6 text-base leading-relaxed text-[#151417] md:text-[21.64px] md:leading-[32.46px]">

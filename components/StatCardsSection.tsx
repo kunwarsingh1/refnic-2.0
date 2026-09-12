@@ -16,7 +16,7 @@ export default function StatCardsSection({
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
           {ringSide === "left" && <CmsImagePlaceholder className="h-16 w-16 shrink-0 rounded-xl md:h-20 md:w-20" />}
-          <h2 className="text-center font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-[64px]">
+          <h2 className="text-center font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-5xl">
             {heading}
           </h2>
           {ringSide === "right" && <CmsImagePlaceholder className="h-16 w-16 shrink-0 rounded-xl md:h-20 md:w-20" />}

@@ -4,7 +4,7 @@ export default function ProductsDirectoryHero() {
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 text-center">
-        <h1 className="relative font-display font-bold text-4xl leading-tight text-[#F8F8F8] md:text-[clamp(2.5rem,5.6vw,120px)] md:leading-[1]">
+        <h1 className="relative font-display font-bold text-4xl leading-tight text-[#F8F8F8] md:text-[clamp(2.75rem,12vw,10rem)] md:leading-[1]">
           Engineered
           <br />
           <span className="relative inline-block">
