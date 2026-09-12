@@ -15,7 +15,7 @@ export default function InvestorsWhyNowSection({ heading, reasons }: { heading: 
             <div key={i} className="relative">
               <div
                 style={{ borderImage: "linear-gradient(to top right, #1f1313, #737373, #191717) 1" }}
-                className="pointer-events-none absolute inset-0 border-2 border-transparent bg-white/[0.03] opacity-[0.61] backdrop-blur-[68.9px]"
+                className="pointer-events-none absolute inset-0 border border-transparent bg-white/[0.03]"
                 aria-hidden
               />
               <div className="relative flex h-full flex-col gap-6 p-8">

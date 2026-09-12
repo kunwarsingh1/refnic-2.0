@@ -20,11 +20,11 @@ export default function IndianMarketDriversSection({
             <div key={badge} className="relative">
               <div
                 style={{ borderImage: "linear-gradient(to top right, #1f1313, #737373, #191717) 1" }}
-                className="pointer-events-none absolute inset-0 border-2 border-transparent bg-white/[0.03] opacity-[0.61] backdrop-blur-[68.9px]"
+                className="pointer-events-none absolute inset-0 border border-transparent bg-white/[0.03]"
                 aria-hidden
               />
               <div className="relative flex h-full flex-col gap-4 p-8">
-                <h3 className="font-display text-3xl font-bold leading-tight text-[#EBEBEB]">{badge}</h3>
+                <h3 className="font-display text-lg font-bold leading-tight text-[#EBEBEB] md:text-xl">{badge}</h3>
                 <p className="text-[21.64px] leading-[32.46px] text-white">{paragraphs[i]}</p>
               </div>
             </div>

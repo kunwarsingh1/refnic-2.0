@@ -7,7 +7,7 @@ function ToolCard({ item }: { item: Tool }) {
     <div className="relative h-full">
       <div
         style={{ borderImage: "linear-gradient(to top right, #1f1313, #737373, #191717) 1" }}
-        className="pointer-events-none absolute inset-0 border-2 border-transparent bg-white/[0.03] opacity-[0.61] backdrop-blur-[68.9px]"
+        className="pointer-events-none absolute inset-0 border border-transparent bg-white/[0.03]"
         aria-hidden
       />
       <span className="absolute right-0 top-0 rounded-bl-sm bg-[#3152DF] px-3 py-1.5 text-sm font-bold leading-[30.69px] text-white">

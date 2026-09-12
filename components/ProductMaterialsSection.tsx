@@ -1,4 +1,4 @@
-import CareerDecorativeRing from "@/components/CareerDecorativeRing";
+import { CmsImagePlaceholder } from "@/components/ui/primitives";
 import type { ProductRecoveredMaterial } from "@/lib/content/productCatalog";
 
 export default function ProductMaterialsSection({
@@ -24,12 +24,13 @@ export default function ProductMaterialsSection({
           {materials.map((m) => (
             <div key={m.title} className="relative">
               <div
-                className="pointer-events-none absolute inset-0 border-2 border-white bg-white/[0.03] opacity-[0.61] backdrop-blur-[68.9px]"
+                style={{ borderImage: "linear-gradient(to top right, #1f1313, #737373, #191717) 1" }}
+                className="pointer-events-none absolute inset-0 border border-transparent bg-white/[0.03]"
                 aria-hidden
               />
               <div className="relative flex flex-col gap-6 p-8">
-                <h3 className="font-display text-3xl font-bold leading-tight text-[#EBEBEB]">{m.title}</h3>
-                <CareerDecorativeRing className="h-28 w-28 opacity-40" />
+                <h3 className="font-display text-lg font-bold leading-tight text-[#EBEBEB] md:text-xl">{m.title}</h3>
+                <CmsImagePlaceholder className="h-28 w-28 rounded-xl" />
                 <p className="text-[21.64px] leading-[32.46px] text-white">{m.body}</p>
               </div>
             </div>
