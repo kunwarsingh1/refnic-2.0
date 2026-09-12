@@ -1,40 +1,87 @@
-import { ImagePlaceholder } from "@/components/ui/primitives";
+import { CmsImagePlaceholder } from "@/components/ui/primitives";
+import CareerDecorativeRing from "@/components/CareerDecorativeRing";
 import type { NumberedSection } from "@/lib/content/investorsPage";
 
-export function ZigzagFeatureSections({ sections }: { sections: NumberedSection[] }) {
+export function ZigzagFeatureSections({
+  sections,
+  bodyPlacement = "same",
+}: {
+  sections: NumberedSection[];
+  /** "same" keeps the body paragraph on the same side as the heading (Investors page);
+   *  "opposite" moves it to the other side, leaving the ring next to the heading (Our Story page). */
+  bodyPlacement?: "same" | "opposite";
+}) {
   return (
-    <div className="space-y-16 md:space-y-24">
+    <>
       {sections.map((s, i) => {
-        const imageFirst = i % 2 === 0;
+        const isRight = i % 2 === 0;
 
         return (
-          <div key={s.number} className="grid gap-8 md:grid-cols-2 md:items-start">
+          <section key={s.number} className="relative overflow-hidden bg-[#161518] py-14 md:py-20">
+            <div className="absolute inset-0 bg-grid-dark" aria-hidden />
             <div
-              className={`flex flex-col ${
-                imageFirst ? "md:order-2 md:ml-auto md:items-end md:text-right" : "md:order-1 md:items-start md:text-left"
+              className={`pointer-events-none absolute top-1/2 hidden h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-[#3152DF] opacity-30 blur-[180px] md:block ${
+                isRight ? "right-0 translate-x-1/3" : "left-0 -translate-x-1/3"
               }`}
-            >
-              <p className="font-display text-5xl font-black text-white/10 md:text-6xl">{s.number}</p>
-              <p className="mt-2 font-display text-2xl font-black text-white md:text-3xl">{s.heading}</p>
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-white/60">{s.body}</p>
-            </div>
+              aria-hidden
+            />
 
-            <div
-              className={`flex ${
-                imageFirst ? "md:order-1 md:justify-start" : "md:order-2 md:ml-auto md:justify-end"
-              } md:mt-16`}
-            >
-              <div className="aspect-[4/3] w-36 overflow-hidden rounded-xl md:w-52">
-                {s.imageUrl ? (
-                  <img src={s.imageUrl} alt={s.heading} className="h-full w-full object-cover" />
-                ) : (
-                  <ImagePlaceholder dark tone={i} className="h-full w-full" />
-                )}
-              </div>
+            <div className="relative z-10 mx-auto max-w-5xl px-6">
+              {bodyPlacement === "same" ? (
+                <div className={`flex flex-col gap-10 md:flex-row md:items-center ${isRight ? "md:flex-row-reverse" : ""}`}>
+                  <div className={`flex-1 ${isRight ? "text-right" : "text-left"}`}>
+                    <p className="font-display text-6xl font-bold leading-none text-[#F8F8F8]/20 md:text-[120px]">
+                      {s.number}
+                    </p>
+                    <h2 className="mt-2 font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-[64px] md:leading-tight">
+                      {s.heading}
+                    </h2>
+                    <p className="mx-auto mt-6 max-w-md text-[20px] leading-[32.46px] text-white md:mx-0">{s.body}</p>
+                  </div>
+
+                  <div className="flex flex-1 justify-center md:justify-center">
+                    {s.imageUrl ? (
+                      <img
+                        src={s.imageUrl}
+                        alt={s.heading}
+                        className="aspect-square w-40 rounded-2xl object-cover opacity-70 md:w-60"
+                      />
+                    ) : (
+                      <CareerDecorativeRing className="h-40 w-40 opacity-40 md:h-60 md:w-60" />
+                    )}
+                  </div>
+                </div>
+              ) : (
+                <div className={`flex flex-col gap-10 md:flex-row md:items-center ${isRight ? "md:flex-row-reverse" : ""}`}>
+                  <div className={`flex-1 ${isRight ? "text-right" : "text-left"}`}>
+                    <p className="font-display text-6xl font-bold leading-none text-[#F8F8F8]/20 md:text-[120px]">
+                      {s.number}
+                    </p>
+                    <h2 className="mt-2 font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-[64px] md:leading-tight">
+                      {s.heading}
+                    </h2>
+                    <div className={`mt-6 flex justify-center ${isRight ? "md:justify-end" : "md:justify-start"}`}>
+                      {s.imageUrl ? (
+                        <img
+                          src={s.imageUrl}
+                          alt={s.heading}
+                          className="aspect-square w-32 rounded-2xl object-cover md:w-40"
+                        />
+                      ) : (
+                        <CmsImagePlaceholder className="aspect-square w-32 rounded-2xl md:w-40" />
+                      )}
+                    </div>
+                  </div>
+
+                  <div className={`flex-1 ${isRight ? "text-left" : "text-right"}`}>
+                    <p className="mx-auto max-w-md text-[20px] leading-[32.46px] text-white md:mx-0">{s.body}</p>
+                  </div>
+                </div>
+              )}
             </div>
-          </div>
+          </section>
         );
       })}
-    </div>
+    </>
   );
 }

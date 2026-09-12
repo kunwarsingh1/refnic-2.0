@@ -1,0 +1,39 @@
+import CareerDecorativeRing from "@/components/CareerDecorativeRing";
+
+export default function CareerPageMission({
+  heading,
+  imageUrl,
+  body,
+}: {
+  heading: string;
+  imageUrl?: string;
+  body: string;
+}) {
+  return (
+    <section className="relative overflow-hidden bg-[#161518] py-20 md:py-28">
+      <div className="absolute inset-0 bg-grid-dark" aria-hidden />
+
+      <div className="relative z-10 mx-auto max-w-6xl px-6">
+        <div className="flex flex-col items-center gap-12 md:flex-row md:items-center md:justify-between">
+          {imageUrl ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={imageUrl}
+              alt=""
+              className="h-64 w-64 shrink-0 rounded-full object-cover md:h-[28rem] md:w-[28rem]"
+            />
+          ) : (
+            <CareerDecorativeRing className="h-64 w-64 shrink-0 md:h-[28rem] md:w-[28rem]" />
+          )}
+
+          <div className="text-center md:max-w-[35rem] md:text-right">
+            <h2 className="font-display text-[clamp(2rem,6vw,4rem)] font-bold leading-tight text-[#EBEBEB]">
+              {heading}
+            </h2>
+            <p className="mt-6 text-[20px] leading-[32.46px] text-white">{body}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

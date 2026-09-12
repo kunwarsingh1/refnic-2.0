@@ -25,3 +25,7 @@ export async function uploadImage(file: File): Promise<{ url: string | null; err
 export async function uploadVideo(file: File): Promise<{ url: string | null; error: string | null }> {
   return uploadFile("videos", file);
 }
+
+export async function uploadPdf(file: File): Promise<{ url: string | null; error: string | null }> {
+  return uploadFile("pdfs", file);
+}

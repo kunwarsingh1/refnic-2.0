@@ -1,16 +1,32 @@
 "use server";
 
 import { isAdmin, getAdminEmail } from "@/lib/admin-auth";
-import { getCaseStudyById } from "@/lib/content/caseStudies";
+import { getCaseStudyById, type CaseStudyInput } from "@/lib/content/caseStudies";
 import { submitChange } from "@/lib/pendingChanges";
 import { revalidatePath } from "next/cache";
 
-function parseInput(formData: FormData) {
+function parseInput(formData: FormData): CaseStudyInput {
   return {
     city: String(formData.get("city") ?? ""),
+    country: String(formData.get("country") ?? "") || undefined,
     label: String(formData.get("label") ?? ""),
     body: String(formData.get("body") ?? ""),
     imageUrl: String(formData.get("imageUrl") ?? ""),
+    imageUrl2: String(formData.get("imageUrl2") ?? "") || undefined,
+    tagline: String(formData.get("tagline") ?? "") || undefined,
+    overviewSubheading: String(formData.get("overviewSubheading") ?? "") || undefined,
+    overviewBody: String(formData.get("overviewBody") ?? "") || undefined,
+    challengeSubheading: String(formData.get("challengeSubheading") ?? "") || undefined,
+    challengeBody: String(formData.get("challengeBody") ?? "") || undefined,
+    approachSubheading: String(formData.get("approachSubheading") ?? "") || undefined,
+    approachIntro: String(formData.get("approachIntro") ?? "") || undefined,
+    approachBody: String(formData.get("approachBody") ?? "") || undefined,
+    approachSecondaryHeading: String(formData.get("approachSecondaryHeading") ?? "") || undefined,
+    approachBullets: formData
+      .getAll("approachBullet")
+      .map(String)
+      .map((s) => s.trim())
+      .filter(Boolean),
     status: String(formData.get("status") ?? "") || undefined,
     subtitle: String(formData.get("subtitle") ?? "") || undefined,
     modelUrl: String(formData.get("modelUrl") ?? "") || undefined,

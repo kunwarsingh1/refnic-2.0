@@ -1,8 +1,11 @@
 import { ObjectId, type Collection } from "mongodb";
 import { getDb } from "@/lib/mongo";
 import type { Block } from "@/lib/content/blog";
+import type { NarrativeSection } from "@/lib/content/solutionsPage";
 
 const COLLECTION = "productCatalogItems";
+
+export type ProductRecoveredMaterial = { title: string; body: string };
 
 type ProductCatalogItemDoc = {
   _id: ObjectId;
@@ -13,6 +16,20 @@ type ProductCatalogItemDoc = {
   imageUrl?: string;
   content: Block[];
   order: number;
+  heroCtaLabel?: string;
+  heroCtaHref?: string;
+  narrativeSections?: NarrativeSection[];
+  materialsHeading?: string;
+  materials?: ProductRecoveredMaterial[];
+  pdfUrl?: string;
+  pdfCaption?: string;
+  contentType?: "pdf" | "image" | "text";
+  showcaseImageUrl?: string;
+  showcaseText?: string;
+  closingHeading?: string;
+  closingTagline?: string;
+  closingCtaLabel?: string;
+  closingCtaHref?: string;
 };
 
 export type ProductCatalogItem = {
@@ -24,6 +41,20 @@ export type ProductCatalogItem = {
   imageUrl?: string;
   content: Block[];
   order: number;
+  heroCtaLabel: string;
+  heroCtaHref: string;
+  narrativeSections: NarrativeSection[];
+  materialsHeading: string;
+  materials: ProductRecoveredMaterial[];
+  pdfUrl?: string;
+  pdfCaption: string;
+  contentType?: "pdf" | "image" | "text";
+  showcaseImageUrl?: string;
+  showcaseText?: string;
+  closingHeading: string;
+  closingTagline: string;
+  closingCtaLabel: string;
+  closingCtaHref: string;
 };
 
 async function getCollection(): Promise<Collection<ProductCatalogItemDoc>> {
@@ -41,6 +72,20 @@ function toItem(doc: ProductCatalogItemDoc): ProductCatalogItem {
     imageUrl: doc.imageUrl,
     content: doc.content ?? [],
     order: doc.order ?? 0,
+    heroCtaLabel: doc.heroCtaLabel ?? "",
+    heroCtaHref: doc.heroCtaHref ?? "/contact",
+    narrativeSections: doc.narrativeSections ?? [],
+    materialsHeading: doc.materialsHeading ?? "",
+    materials: doc.materials ?? [],
+    pdfUrl: doc.pdfUrl,
+    pdfCaption: doc.pdfCaption ?? "",
+    contentType: doc.contentType,
+    showcaseImageUrl: doc.showcaseImageUrl,
+    showcaseText: doc.showcaseText,
+    closingHeading: doc.closingHeading ?? "",
+    closingTagline: doc.closingTagline ?? "",
+    closingCtaLabel: doc.closingCtaLabel ?? "",
+    closingCtaHref: doc.closingCtaHref ?? "/contact",
   };
 }
 
@@ -99,13 +144,29 @@ export async function getProductCatalogItemById(id: string): Promise<ProductCata
   }
 }
 
-export async function createProductCatalogItem(input: {
+export type ProductCatalogItemInput = {
   category: string;
   title: string;
   excerpt: string;
   imageUrl?: string;
   content?: Block[];
-}): Promise<void> {
+  heroCtaLabel?: string;
+  heroCtaHref?: string;
+  narrativeSections?: NarrativeSection[];
+  materialsHeading?: string;
+  materials?: ProductRecoveredMaterial[];
+  pdfUrl?: string;
+  pdfCaption?: string;
+  contentType?: "pdf" | "image" | "text";
+  showcaseImageUrl?: string;
+  showcaseText?: string;
+  closingHeading?: string;
+  closingTagline?: string;
+  closingCtaLabel?: string;
+  closingCtaHref?: string;
+};
+
+export async function createProductCatalogItem(input: ProductCatalogItemInput): Promise<void> {
   const col = await getCollection();
   const count = await col.countDocuments({});
   const slug = await uniqueSlug(col, input.title);
@@ -118,13 +179,24 @@ export async function createProductCatalogItem(input: {
     imageUrl: input.imageUrl || undefined,
     content: input.content ?? [],
     order: count,
+    heroCtaLabel: input.heroCtaLabel,
+    heroCtaHref: input.heroCtaHref,
+    narrativeSections: input.narrativeSections ?? [],
+    materialsHeading: input.materialsHeading,
+    materials: input.materials ?? [],
+    pdfUrl: input.pdfUrl || undefined,
+    pdfCaption: input.pdfCaption,
+    contentType: input.contentType,
+    showcaseImageUrl: input.showcaseImageUrl || undefined,
+    showcaseText: input.showcaseText,
+    closingHeading: input.closingHeading,
+    closingTagline: input.closingTagline,
+    closingCtaLabel: input.closingCtaLabel,
+    closingCtaHref: input.closingCtaHref,
   });
 }
 
-export async function updateProductCatalogItem(
-  id: string,
-  input: { category: string; title: string; excerpt: string; imageUrl?: string; content?: Block[] },
-): Promise<void> {
+export async function updateProductCatalogItem(id: string, input: ProductCatalogItemInput): Promise<void> {
   const col = await getCollection();
   const objectId = new ObjectId(id);
   const existing = await col.findOne({ _id: objectId });
@@ -140,6 +212,20 @@ export async function updateProductCatalogItem(
         excerpt: input.excerpt,
         imageUrl: input.imageUrl || undefined,
         content: input.content ?? [],
+        heroCtaLabel: input.heroCtaLabel,
+        heroCtaHref: input.heroCtaHref,
+        narrativeSections: input.narrativeSections ?? [],
+        materialsHeading: input.materialsHeading,
+        materials: input.materials ?? [],
+        pdfUrl: input.pdfUrl || undefined,
+        pdfCaption: input.pdfCaption,
+        contentType: input.contentType,
+        showcaseImageUrl: input.showcaseImageUrl || undefined,
+        showcaseText: input.showcaseText,
+        closingHeading: input.closingHeading,
+        closingTagline: input.closingTagline,
+        closingCtaLabel: input.closingCtaLabel,
+        closingCtaHref: input.closingCtaHref,
       },
     },
   );

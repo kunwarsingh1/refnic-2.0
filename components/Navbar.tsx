@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { CaretDown } from "./ui/primitives";
-import { BookOpen, Globe, BarChart3, TrendingUp, MapPin, ArrowUpRight, Boxes, Lightbulb, Settings, Leaf, Library, Wrench, FileText, Menu, X } from "lucide-react";
+import { BookOpen, Globe, BarChart3, TrendingUp, MapPin, ArrowUpRight, Boxes, Lightbulb, Settings, Leaf, Library, Wrench, FileText, Menu, X, Mail, Shield } from "lucide-react";
 import styles from "./aboutDropdown.module.css";
 import productStyles from "./products.module.css";
 import techStyles from "./technologies.module.css";
@@ -36,7 +36,12 @@ const leftLinks = [
 const rightLinks = [
   { label: "About Us", caret: true },
   { label: "Newsletters", caret: false },
-  { label: "Contact", caret: false },
+  { label: "Contact", caret: true },
+];
+
+const contactMenu: { label: string; subtitle: string; href: string; icon: typeof Mail }[] = [
+  { label: "Contact Us", subtitle: "Get in touch with our team.", href: "/contact", icon: Mail },
+  { label: "Career", subtitle: "Explore opportunities with us.", href: "/career", icon: Shield },
 ];
 
 const PANEL_W = 1515;
@@ -66,6 +71,7 @@ export default function Navbar({
   const about = useHoverDropdown();
   const products = useHoverDropdown();
   const tech = useHoverDropdown();
+  const contact = useHoverDropdown();
   const pathname = usePathname();
   const [navScale, setNavScale] = useState(1);
   const [productsScale, setProductsScale] = useState(1);
@@ -501,10 +507,58 @@ export default function Navbar({
                 </div>
                 )}
               </div>
+            ) : l.label === "Contact" ? (
+              <div key={l.label} onMouseEnter={contact.openNow} onMouseLeave={contact.closeLater}>
+                <a href="#" className="flex items-center gap-1.5 hover:text-gray-500 transition-colors">
+                  {l.label}
+                  <CaretDown />
+                </a>
+                {contact.open && (
+                  <div
+                    onMouseEnter={contact.openNow}
+                    onMouseLeave={contact.closeLater}
+                    className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2"
+                    style={{ width: PANEL_W * navScale, height: 313 * navScale }}
+                  >
+                    <div style={{ transform: `scale(${navScale})`, transformOrigin: "top left" }}>
+                    <div
+                      className="flex flex-wrap content-start items-start justify-start gap-3 rounded-lg bg-white p-8 text-left shadow-[0px_55px_78px_rgba(0,0,0,0.25)]"
+                      style={{ outline: "1px solid #1B37B0", outlineOffset: "-1px", width: PANEL_W, height: 313, boxSizing: "border-box" }}
+                    >
+                      {contactMenu.map((item) => {
+                        const Icon = item.icon;
+                        return (
+                          <Link
+                            key={item.label}
+                            href={item.href}
+                            data-property-1="Default"
+                            className="flex items-start gap-[6px] rounded bg-white p-3 transition-colors hover:text-accent-blue"
+                            style={{ width: 370 }}
+                          >
+                            <Icon className="h-6 w-6 shrink-0" style={{ color: "#232F1A" }} />
+                            <div className="flex flex-1 flex-col items-start gap-1">
+                              <div
+                                className="font-medium"
+                                style={{ color: "#232F1A", fontSize: 16, lineHeight: "22.4px" }}
+                              >
+                                {item.label}
+                              </div>
+                              <div style={{ width: 316, color: "#515251", fontSize: 14, lineHeight: "19.6px" }}>
+                                {item.subtitle}
+                              </div>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                    </div>
+                  </div>
+                )}
+              </div>
             ) : (
               <a
                 key={l.label}
-                href={l.label === "Contact" ? "#contact" : l.label === "Newsletters" ? "/newsletter" : "#"}
+                href={l.label === "Newsletters" ? "/newsletter" : "#"}
                 className="flex items-center gap-1.5 hover:text-gray-500 transition-colors"
               >
                 {l.label}
@@ -628,9 +682,27 @@ export default function Navbar({
               <a href="/newsletter" className="block rounded-md px-2 py-2.5 hover:bg-gray-50">
                 Newsletters
               </a>
-              <a href="#contact" className="block rounded-md px-2 py-2.5 hover:bg-gray-50">
-                Contact
-              </a>
+              <div className="flex items-center justify-between rounded-md hover:bg-gray-50">
+                <span className="flex-1 px-2 py-2.5">Contact</span>
+                <button
+                  type="button"
+                  onClick={() => setMobileExpanded((v) => (v === "contact" ? null : "contact"))}
+                  aria-label={mobileExpanded === "contact" ? "Collapse Contact menu" : "Expand Contact menu"}
+                  aria-expanded={mobileExpanded === "contact"}
+                  className="px-3 py-2.5"
+                >
+                  <CaretDown className={`transition-transform ${mobileExpanded === "contact" ? "rotate-180" : ""}`} />
+                </button>
+              </div>
+              {mobileExpanded === "contact" && (
+                <div className="ml-2 flex flex-col gap-0.5 border-l border-gray-100 pl-3">
+                  {contactMenu.map((item) => (
+                    <Link key={item.label} href={item.href} className="rounded-md px-2 py-2 text-gray-600 hover:bg-gray-50">
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
 
             <div className="mt-2 flex flex-col gap-1 border-t border-gray-100 pt-3 text-xs text-gray-500">

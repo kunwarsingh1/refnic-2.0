@@ -25,7 +25,7 @@ export const DEFAULT_CASE_STUDY_PAGE_CONFIG: CaseStudyPageConfig = {
   ],
   galleryImageUrls: [],
   brandLine: "Refine Nicely.",
-  ctaLabel: "Get Quote",
+  ctaLabel: "contact us",
 };
 
 export async function getCaseStudyPageConfig(): Promise<CaseStudyPageConfig> {

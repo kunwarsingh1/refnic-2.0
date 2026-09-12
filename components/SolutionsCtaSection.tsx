@@ -1,7 +1,13 @@
-import { Button, CmsImagePlaceholder } from "@/components/ui/primitives";
+import { GradientCtaButton, CmsImagePlaceholder } from "@/components/ui/primitives";
 import type { SolutionsPageConfig } from "@/lib/content/solutionsPage";
 
-export default function SolutionsCtaSection({ config: c }: { config: SolutionsPageConfig }) {
+export default function SolutionsCtaSection({
+  config: c,
+  showClosingImage = true,
+}: {
+  config: SolutionsPageConfig;
+  showClosingImage?: boolean;
+}) {
   return (
     <section className="relative overflow-hidden pb-16 pt-16 md:pb-24 md:pt-24">
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
@@ -21,11 +27,17 @@ export default function SolutionsCtaSection({ config: c }: { config: SolutionsPa
           {c.closingBody}
         </p>
         <div className="mt-10 flex justify-center">
-          <Button href={c.closingCtaHref}>
+          <GradientCtaButton href={c.closingCtaHref}>
             {c.closingCtaLabel}
-          </Button>
+          </GradientCtaButton>
         </div>
       </div>
+
+      {showClosingImage && (
+        <div className="relative z-10 mx-auto mt-20 max-w-6xl px-6">
+          <CmsImagePlaceholder className="aspect-[1738/1041] w-full rounded-2xl" />
+        </div>
+      )}
     </section>
   );
 }

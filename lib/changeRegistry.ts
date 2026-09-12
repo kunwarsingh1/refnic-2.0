@@ -29,10 +29,36 @@ import {
   deleteProductCatalogItem,
   reorderProductCatalogItem,
 } from "@/lib/content/productCatalog";
+import {
+  createSolutionCatalogItem,
+  updateSolutionCatalogItem,
+  deleteSolutionCatalogItem,
+  reorderSolutionCatalogItem,
+} from "@/lib/content/solutionsCatalog";
+import {
+  createServiceCatalogItem,
+  updateServiceCatalogItem,
+  deleteServiceCatalogItem,
+  reorderServiceCatalogItem,
+} from "@/lib/content/servicesCatalog";
+import {
+  createSustainabilityCatalogItem,
+  updateSustainabilityCatalogItem,
+  deleteSustainabilityCatalogItem,
+  reorderSustainabilityCatalogItem,
+} from "@/lib/content/sustainabilityCatalog";
+import {
+  createResourceCatalogItem,
+  updateResourceCatalogItem,
+  deleteResourceCatalogItem,
+  reorderResourceCatalogItem,
+} from "@/lib/content/resourcesCatalog";
 import { STATS_KEY } from "@/lib/content/stats";
 import { FOOTER_KEY } from "@/lib/content/footer";
 import { NAVBAR_KEY } from "@/lib/content/navbar";
 import { CASE_STUDY_PAGE_KEY } from "@/lib/content/caseStudyPage";
+import { CAREER_PAGE_KEY } from "@/lib/content/careerPage";
+import { CONTACT_PAGE_KEY } from "@/lib/content/contactPage";
 import { GLOBAL_MARKET_PAGE_KEY } from "@/lib/content/globalMarketPage";
 import { INDIAN_MARKET_PAGE_KEY } from "@/lib/content/indianMarketPage";
 import { INVESTORS_PAGE_KEY } from "@/lib/content/investorsPage";
@@ -89,10 +115,32 @@ const REGISTRY: Record<string, (args: any) => Promise<void>> = {
   "productCatalog:delete": (args) => deleteProductCatalogItem(args.id),
   "productCatalog:reorder": (args) => reorderProductCatalogItem(args.id, args.direction),
 
+  "solutionsCatalog:create": (args) => createSolutionCatalogItem(args),
+  "solutionsCatalog:update": (args) => updateSolutionCatalogItem(args.id, args),
+  "solutionsCatalog:delete": (args) => deleteSolutionCatalogItem(args.id),
+  "solutionsCatalog:reorder": (args) => reorderSolutionCatalogItem(args.id, args.direction),
+
+  "servicesCatalog:create": (args) => createServiceCatalogItem(args),
+  "servicesCatalog:update": (args) => updateServiceCatalogItem(args.id, args),
+  "servicesCatalog:delete": (args) => deleteServiceCatalogItem(args.id),
+  "servicesCatalog:reorder": (args) => reorderServiceCatalogItem(args.id, args.direction),
+
+  "sustainabilityCatalog:create": (args) => createSustainabilityCatalogItem(args),
+  "sustainabilityCatalog:update": (args) => updateSustainabilityCatalogItem(args.id, args),
+  "sustainabilityCatalog:delete": (args) => deleteSustainabilityCatalogItem(args.id),
+  "sustainabilityCatalog:reorder": (args) => reorderSustainabilityCatalogItem(args.id, args.direction),
+
+  "resourcesCatalog:create": (args) => createResourceCatalogItem(args),
+  "resourcesCatalog:update": (args) => updateResourceCatalogItem(args.id, args),
+  "resourcesCatalog:delete": (args) => deleteResourceCatalogItem(args.id),
+  "resourcesCatalog:reorder": (args) => reorderResourceCatalogItem(args.id, args.direction),
+
   "stats:update": (args) => setSiteConfig(STATS_KEY, args),
   "footer:update": (args) => setSiteConfig(FOOTER_KEY, args),
   "navbar:update": (args) => setSiteConfig(NAVBAR_KEY, args),
   "caseStudyPage:update": (args) => setSiteConfig(CASE_STUDY_PAGE_KEY, args),
+  "careerPage:update": (args) => setSiteConfig(CAREER_PAGE_KEY, args),
+  "contactPage:update": (args) => setSiteConfig(CONTACT_PAGE_KEY, args),
   "globalMarketPage:update": (args) => setSiteConfig(GLOBAL_MARKET_PAGE_KEY, args),
   "indianMarketPage:update": (args) => setSiteConfig(INDIAN_MARKET_PAGE_KEY, args),
   "investorsPage:update": (args) => setSiteConfig(INVESTORS_PAGE_KEY, args),

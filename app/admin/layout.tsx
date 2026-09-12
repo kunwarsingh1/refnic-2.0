@@ -20,6 +20,10 @@ const NAV_SECTIONS: { heading: string; items: { label: string; href: string }[] 
       { label: "Newsletter Tabs", href: "/admin/newsletter-tabs" },
       { label: "Product Catalog", href: "/admin/product-catalog" },
       { label: "Product Categories", href: "/admin/product-categories" },
+      { label: "Solutions Catalog", href: "/admin/solutions-catalog" },
+      { label: "Services Catalog", href: "/admin/services-catalog" },
+      { label: "Sustainability Catalog", href: "/admin/sustainability-catalog" },
+      { label: "Resources Catalog", href: "/admin/resources-catalog" },
       { label: "Blog Posts", href: "/admin/blog" },
     ],
   },
@@ -33,7 +37,9 @@ const NAV_SECTIONS: { heading: string; items: { label: string; href: string }[] 
   {
     heading: "Pages",
     items: [
+      { label: "Career", href: "/admin/career-page" },
       { label: "Case Study", href: "/admin/case-study-page" },
+      { label: "Contact", href: "/admin/contact-page" },
       { label: "Global Market", href: "/admin/global-market-page" },
       { label: "Indian Market", href: "/admin/indian-market-page" },
       { label: "Investors", href: "/admin/investors-page" },
@@ -41,7 +47,6 @@ const NAV_SECTIONS: { heading: string; items: { label: string; href: string }[] 
       { label: "Sustainability", href: "/admin/sustainability-page" },
       { label: "Technologies", href: "/admin/technologies-page" },
       { label: "Products", href: "/admin/products-page" },
-      { label: "Solution", href: "/admin/solutions-page" },
     ],
   },
 ];

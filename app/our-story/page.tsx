@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/primitives";
-import { getOurStoryPageConfig } from "@/lib/content/ourStoryPage";
+import OurStoryHero from "@/components/OurStoryHero";
 import { ZigzagFeatureSections } from "@/components/ZigzagFeatureSections";
+import OurStoryClosingSection from "@/components/OurStoryClosingSection";
+import { getOurStoryPageConfig } from "@/lib/content/ourStoryPage";
 
 export const metadata: Metadata = {
   title: "Our Story — Refine Nicely",
@@ -17,29 +18,12 @@ export default async function OurStoryPage() {
 
   return (
     <>
-      <SiteHeader />
+      <SiteHeader bgClassName="bg-[#161518]" />
 
-      <main className="relative overflow-hidden bg-black">
-        <div className="absolute inset-0 bg-grid-dark" aria-hidden />
-        <div className="pointer-events-none absolute -right-40 top-10 h-[626px] w-[626px] rounded-full bg-[#3152df] opacity-20 blur-[360px]" aria-hidden />
-
-        <div className="relative z-10 mx-auto max-w-6xl px-6 py-20 text-center md:py-28">
-          <p className="font-display font-black text-4xl leading-tight text-white/10 md:text-6xl">{c.heroLabel}</p>
-          <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-white/70">{c.heroSubheading}</p>
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-6xl px-6 pb-20">
-          <ZigzagFeatureSections sections={c.numberedSections} />
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-6xl px-6 pb-24 text-center">
-          <p className="mx-auto max-w-3xl text-xl leading-relaxed text-white">{c.closingTagline}</p>
-          <div className="mt-8 flex justify-center">
-            <Button href="/case-study">
-              {c.ctaLabel}
-            </Button>
-          </div>
-        </div>
+      <main className="bg-[#161518]">
+        <OurStoryHero heading={c.heroLabel} body={c.heroSubheading} />
+        <ZigzagFeatureSections sections={c.numberedSections} bodyPlacement="opposite" />
+        <OurStoryClosingSection tagline={c.closingTagline} ctaLabel={c.ctaLabel} />
       </main>
 
       <Footer />

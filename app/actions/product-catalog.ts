@@ -1,12 +1,36 @@
 "use server";
 
 import { isAdmin, getAdminEmail } from "@/lib/admin-auth";
-import { getProductCatalogItemById } from "@/lib/content/productCatalog";
+import { getProductCatalogItemById, type ProductCatalogItemInput } from "@/lib/content/productCatalog";
 import { submitChange } from "@/lib/pendingChanges";
 import { revalidatePath } from "next/cache";
 import type { Block } from "@/lib/content/blog";
+import type { NarrativeLayout, NarrativeSection } from "@/lib/content/solutionsPage";
 
-function parseInput(formData: FormData) {
+function parseNarrativeSections(formData: FormData): NarrativeSection[] {
+  const headings = formData.getAll("narrativeHeading").map(String);
+  const bodies = formData.getAll("narrativeBody").map(String);
+  const layouts = formData.getAll("narrativeLayout").map(String);
+  const imageUrls = formData.getAll("narrativeImageUrl").map(String);
+  return headings
+    .map((heading, i) => ({
+      heading,
+      body: bodies[i] ?? "",
+      layout: (layouts[i] as NarrativeLayout) ?? "banner",
+      imageUrl: imageUrls[i] || undefined,
+    }))
+    .filter((s) => s.heading.trim() !== "" || s.body.trim() !== "");
+}
+
+function parseMaterials(formData: FormData): { title: string; body: string }[] {
+  const titles = formData.getAll("materialTitle").map(String);
+  const bodies = formData.getAll("materialBody").map(String);
+  return titles
+    .map((title, i) => ({ title, body: bodies[i] ?? "" }))
+    .filter((m) => m.title.trim() !== "");
+}
+
+function parseInput(formData: FormData): ProductCatalogItemInput {
   let content: Block[] = [];
   try {
     const raw = String(formData.get("content") ?? "[]");
@@ -22,6 +46,20 @@ function parseInput(formData: FormData) {
     excerpt: String(formData.get("excerpt") ?? ""),
     imageUrl: String(formData.get("imageUrl") ?? "") || undefined,
     content,
+    heroCtaLabel: String(formData.get("heroCtaLabel") ?? ""),
+    heroCtaHref: String(formData.get("heroCtaHref") ?? ""),
+    narrativeSections: parseNarrativeSections(formData),
+    materialsHeading: String(formData.get("materialsHeading") ?? ""),
+    materials: parseMaterials(formData),
+    pdfUrl: String(formData.get("pdfUrl") ?? "") || undefined,
+    pdfCaption: String(formData.get("pdfCaption") ?? ""),
+    contentType: (String(formData.get("contentType") ?? "pdf") as "pdf" | "image" | "text"),
+    showcaseImageUrl: String(formData.get("showcaseImageUrl") ?? "") || undefined,
+    showcaseText: String(formData.get("showcaseText") ?? ""),
+    closingHeading: String(formData.get("closingHeading") ?? ""),
+    closingTagline: String(formData.get("closingTagline") ?? ""),
+    closingCtaLabel: String(formData.get("closingCtaLabel") ?? ""),
+    closingCtaHref: String(formData.get("closingCtaHref") ?? ""),
   };
 }
 

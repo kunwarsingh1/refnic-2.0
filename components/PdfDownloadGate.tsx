@@ -57,15 +57,19 @@ export function PdfDownloadGate({
   postSlug,
   url,
   label,
+  variant = "default",
 }: {
   postSlug: string;
   url: string;
   label?: string;
+  /** "default" renders the small inline button; "showcase" renders the large blue two-layer button used by ContentShowcase. */
+  variant?: "default" | "showcase";
 }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [directError, setDirectError] = useState<string | null>(null);
 
   const unlocked = useSyncExternalStore(
     subscribe,
@@ -99,21 +103,37 @@ export function PdfDownloadGate({
     }
   }
 
+  async function handleDirectDownload() {
+    setDirectError(null);
+    try {
+      await triggerDownload(url, downloadFileName(postSlug, label));
+    } catch {
+      setDirectError("Download failed. The file may have moved.");
+    }
+  }
+
   const buttonText = label ? `Download ${label}` : "Download PDF";
+
+  const trigger = (onClick: () => void) =>
+    variant === "showcase" ? (
+      <button type="button" onClick={onClick} className="inline-flex rounded-lg bg-[#1B37B0]">
+        <span className="inline-flex items-center gap-[11.51px] rounded-[6.91px] bg-[#3152DF] px-[27.63px] py-[18.42px] text-[18.42px] font-bold leading-[20.72px] text-[#F4F4F4]">
+          {buttonText}
+        </span>
+      </button>
+    ) : (
+      <button type="button" onClick={onClick} className={btnClass}>
+        <Download className="h-4 w-4" />
+        {buttonText}
+      </button>
+    );
 
   return (
     <>
-      {unlocked ? (
-        <button type="button" onClick={() => triggerDownload(url, downloadFileName(postSlug, label))} className={btnClass}>
-          <Download className="h-4 w-4" />
-          {buttonText}
-        </button>
-      ) : (
-        <button type="button" onClick={openDialog} className={btnClass}>
-          <Download className="h-4 w-4" />
-          {buttonText}
-        </button>
-      )}
+      <div className={variant === "showcase" ? "flex flex-col items-center gap-2" : "inline-flex flex-col items-start gap-1"}>
+        {unlocked ? trigger(handleDirectDownload) : trigger(openDialog)}
+        {directError && <p className="text-sm text-red-400">{directError}</p>}
+      </div>
 
       <dialog
         ref={dialogRef}

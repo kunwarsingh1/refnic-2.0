@@ -20,7 +20,7 @@ export default function ProductsDirectoryCta() {
 
         <div className="mt-10 flex justify-center">
           <Link
-            href="/#contact"
+            href="/contact"
             className="inline-flex rounded-md bg-accent-blue px-7 py-4 text-sm font-bold text-white transition-colors hover:bg-accent-blue-dark"
           >
             Start Your Project

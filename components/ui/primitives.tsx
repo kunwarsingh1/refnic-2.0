@@ -37,6 +37,40 @@ export function Button({
   );
 }
 
+/** Two-layer blue CTA button (#1B37B0 outer / #3152DF inner) used on the Contact page. */
+export function GradientCtaButton({
+  children,
+  href,
+  type = "button",
+  disabled,
+  className = "",
+}: {
+  children: ReactNode;
+  href?: string;
+  type?: "button" | "submit";
+  disabled?: boolean;
+  className?: string;
+}) {
+  const inner = (
+    <span className="inline-flex items-center gap-[11.51px] rounded-[6.91px] bg-[#3152DF] px-[27.63px] py-[18.42px] text-[18.42px] font-bold leading-[20.72px] text-[#F4F4F4]">
+      {children}
+    </span>
+  );
+  const outerClass = `inline-flex rounded-lg bg-[#1B37B0] ${className}`;
+  if (href) {
+    return (
+      <Link href={href} className={outerClass}>
+        {inner}
+      </Link>
+    );
+  }
+  return (
+    <button type={type} disabled={disabled} className={`${outerClass} disabled:opacity-50`}>
+      {inner}
+    </button>
+  );
+}
+
 /** Grayscale render/photo placeholder (no real image assets in the file). */
 export function ImagePlaceholder({
   className = "",

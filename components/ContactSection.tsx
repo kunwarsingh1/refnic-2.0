@@ -1,43 +1,5 @@
-"use client";
-
-import { useState, type FormEvent } from "react";
-import { submitEnquiry } from "@/app/actions/contact";
-
-const subjects = [
-  "General Inquiry",
-  "Custom Equipment",
-  "Project Consultation",
-  "Metal Refining",
-  "Recycling Plant",
-  "Process Engineering",
-];
-
-function Field({
-  label,
-  name,
-  placeholder,
-  type = "text",
-  defaultValue,
-}: {
-  label: string;
-  name: string;
-  placeholder?: string;
-  type?: string;
-  defaultValue?: string;
-}) {
-  return (
-    <label className="block">
-      <span className="text-sm font-semibold text-white">{label}</span>
-      <input
-        name={name}
-        type={type}
-        placeholder={placeholder}
-        defaultValue={defaultValue}
-        className="mt-2 w-full border-b border-white/25 bg-transparent pb-2 text-sm text-white placeholder:text-white/40 outline-none focus:border-accent-blue transition-colors"
-      />
-    </label>
-  );
-}
+import { GradientCtaButton } from "@/components/ui/primitives";
+import { getFooterConfig } from "@/lib/content/footer";
 
 function EnvelopeIcon({ className = "" }: { className?: string }) {
   return (
@@ -69,34 +31,8 @@ function LocationIcon({ className = "" }: { className?: string }) {
   );
 }
 
-export default function ContactSection() {
-  const [subject, setSubject] = useState(subjects[0]);
-  const [submitting, setSubmitting] = useState(false);
-  const [result, setResult] = useState<{ ok: boolean; error?: string } | null>(null);
-
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setResult(null);
-
-    const form = e.currentTarget;
-    const data = new FormData(form);
-    const res = await submitEnquiry({
-      firstName: String(data.get("firstName") ?? ""),
-      lastName: String(data.get("lastName") ?? ""),
-      email: String(data.get("email") ?? ""),
-      phone: String(data.get("phone") ?? ""),
-      subject,
-      message: String(data.get("message") ?? ""),
-    });
-
-    setSubmitting(false);
-    setResult(res);
-    if (res.ok) {
-      form.reset();
-      setSubject(subjects[0]);
-    }
-  };
+export default async function ContactSection() {
+  const { contactEmail, contactPhone, contactAddress } = await getFooterConfig();
 
   return (
     <section id="contact" className="relative overflow-hidden bg-black">
@@ -153,123 +89,64 @@ export default function ContactSection() {
         </div>
       </div>
 
-      {/* BOTTOM AREA (contact form) */}
+      {/* BOTTOM AREA (contact info + link to the full Contact Us page/form) */}
       <div className="relative mx-auto max-w-5xl px-6 pb-24 pt-10">
         <div
           className="p-px"
           style={{ backgroundImage: "linear-gradient(to top right, #1f1313, #737373, #191717)" }}
         >
           <div className="bg-black/80 px-8 py-6 backdrop-blur-sm md:px-12">
-            <div className="grid gap-12 md:grid-cols-2">
-          <div>
-            <h2 className="font-sans font-bold text-3xl text-white md:text-4xl">
-              Contact Information
-            </h2>
+            <div className="grid gap-12 md:grid-cols-2 md:items-center">
+              <div>
+                <h2 className="font-sans font-bold text-3xl text-white md:text-4xl">
+                  Contact Information
+                </h2>
 
-            <div className="mt-8 flex flex-col gap-6 text-sm">
-              <div className="flex items-start gap-3">
-                <EnvelopeIcon className="mt-0.5 h-5 w-5 text-accent-blue" />
-                <div>
-                  <p className="font-bold text-white">Email</p>
-                  <a
-                    href="mailto:something@gmail.com"
-                    className="mt-1 block text-white/60 transition-colors hover:text-white"
-                  >
-                    something@gmail.com
-                  </a>
+                <div className="mt-8 flex flex-col gap-6 text-sm">
+                  <div className="flex items-start gap-3">
+                    <EnvelopeIcon className="mt-0.5 h-5 w-5 text-accent-blue" />
+                    <div>
+                      <p className="font-bold text-white">Email</p>
+                      <a
+                        href={`mailto:${contactEmail}`}
+                        className="mt-1 block text-white/60 transition-colors hover:text-white"
+                      >
+                        {contactEmail}
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <PhoneIcon className="mt-0.5 h-5 w-5 text-accent-blue" />
+                    <div>
+                      <p className="font-bold text-white">Phone</p>
+                      <a
+                        href={`tel:${contactPhone.replace(/\s+/g, "")}`}
+                        className="mt-1 block text-white/60 transition-colors hover:text-white"
+                      >
+                        {contactPhone}
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <LocationIcon className="mt-0.5 h-5 w-5 text-accent-blue" />
+                    <div>
+                      <p className="font-bold text-white">Address</p>
+                      <p className="mt-1 leading-relaxed text-white/60">{contactAddress}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3">
-                <PhoneIcon className="mt-0.5 h-5 w-5 text-accent-blue" />
-                <div>
-                  <p className="font-bold text-white">Phone</p>
-                  <a
-                    href="tel:+919999999999"
-                    className="mt-1 block text-white/60 transition-colors hover:text-white"
-                  >
-                    +91 9999999999
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <LocationIcon className="mt-0.5 h-5 w-5 text-accent-blue" />
-                <div>
-                  <p className="font-bold text-white">Address</p>
-                  <p className="mt-1 leading-relaxed text-white/60">
-                    08 Triveni Tower 3rd Floor, Central Avenue, GandhiPutla,
-                    Itwari, Nagpur 440002, India.
-                  </p>
-                </div>
+              <div className="flex flex-col items-start gap-4">
+                <p className="text-sm leading-relaxed text-white/60">
+                  Have a project in mind? Send us the details on our Contact Us page and our team will get
+                  back to you.
+                </p>
+                <GradientCtaButton href="/contact#contact-form">Go to Contact Us</GradientCtaButton>
               </div>
             </div>
-          </div>
-
-            <form
-              className="flex flex-col gap-6"
-              onSubmit={onSubmit}
-            >
-            <div className="grid gap-6 sm:grid-cols-2">
-              <Field label="First Name" name="firstName" />
-              <Field label="Last Name" name="lastName" />
-            </div>
-
-            <div className="grid gap-6 sm:grid-cols-2">
-              <Field label="Email" name="email" type="email" />
-              <Field label="Phone Number" name="phone" defaultValue="+91" />
-            </div>
-
-            <div>
-              <span className="text-sm font-semibold text-white">
-                Select Subject?
-              </span>
-              <div className="mt-3 grid grid-cols-2 gap-x-6 gap-y-3 text-sm sm:grid-cols-3">
-                {subjects.map((s) => (
-                  <label
-                    key={s}
-                    className="flex cursor-pointer items-center gap-2 text-white/80"
-                  >
-                    <input
-                      type="radio"
-                      name="subject"
-                      checked={subject === s}
-                      onChange={() => setSubject(s)}
-                      className="accent-accent-blue"
-                    />
-                    {s}
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            <label className="block">
-              <span className="text-sm font-semibold text-white">Message</span>
-              <textarea
-                name="message"
-                placeholder="Write your message.."
-                rows={3}
-                className="mt-2 w-full resize-none border-b border-white/25 bg-transparent pb-2 text-sm text-white placeholder:text-white/40 outline-none focus:border-accent-blue transition-colors"
-              />
-            </label>
-
-            {result && (
-              <p className={`text-sm ${result.ok ? "text-green-400" : "text-red-400"}`}>
-                {result.ok
-                  ? "Thanks — your enquiry has been sent. We'll be in touch soon."
-                  : result.error}
-              </p>
-            )}
-
-            <button
-              type="submit"
-              disabled={submitting}
-              className="self-end bg-accent-blue px-6 py-4 text-sm font-bold text-white transition-colors hover:bg-accent-blue-dark disabled:opacity-50"
-            >
-              {submitting ? "Submitting…" : "Submit Enquiry"}
-            </button>
-            </form>
-          </div>
           </div>
         </div>
       </div>

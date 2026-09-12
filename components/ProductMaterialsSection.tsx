@@ -1,0 +1,41 @@
+import CareerDecorativeRing from "@/components/CareerDecorativeRing";
+import type { ProductRecoveredMaterial } from "@/lib/content/productCatalog";
+
+export default function ProductMaterialsSection({
+  heading,
+  materials,
+}: {
+  heading: string;
+  materials: ProductRecoveredMaterial[];
+}) {
+  if (materials.length === 0) return null;
+
+  return (
+    <section className="relative overflow-hidden bg-[#0D0C0D] py-16 md:py-24">
+      <div className="absolute inset-0 bg-grid-dark" aria-hidden />
+      <div className="relative z-10 mx-auto max-w-6xl px-6">
+        {heading && (
+          <h2 className="text-center font-display text-3xl font-bold uppercase leading-tight text-[#EBEBEB] md:text-[64px]">
+            {heading}
+          </h2>
+        )}
+
+        <div className="mt-12 grid gap-8 md:grid-cols-3">
+          {materials.map((m) => (
+            <div key={m.title} className="relative">
+              <div
+                className="pointer-events-none absolute inset-0 border-2 border-white bg-white/[0.03] opacity-[0.61] backdrop-blur-[68.9px]"
+                aria-hidden
+              />
+              <div className="relative flex flex-col gap-6 p-8">
+                <h3 className="font-display text-3xl font-bold leading-tight text-[#EBEBEB]">{m.title}</h3>
+                <CareerDecorativeRing className="h-28 w-28 opacity-40" />
+                <p className="text-[21.64px] leading-[32.46px] text-white">{m.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

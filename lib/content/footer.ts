@@ -27,32 +27,36 @@ export const DEFAULT_FOOTER_CONFIG: FooterConfig = {
   linkColumns: [
     {
       title: "Solutions",
-      links: ["Recycling Plants", "Metal Recovery", "Turnkey Projects", "Equipment Supply", "Process Engineering"].map(
-        (label) => ({ label, href: "#" }),
-      ),
+      links: ["Recycling Plants", "Metal Recovery", "Turnkey Projects", "Process Engineering"].map((label) => ({
+        label,
+        href: "/solutions",
+      })).concat([{ label: "Equipment Supply", href: "/products" }]),
     },
     {
       title: "Services",
-      links: [
-        "Feasibility Study",
-        "Engineering & Design",
-        "Plant Commissioning",
-        "SOP & Training",
-        "After-Sales Support",
-      ].map((label) => ({ label, href: "#" })),
+      links: ["Feasibility Study", "Engineering & Design", "Plant Commissioning", "After-Sales Support"]
+        .map((label) => ({ label, href: "/services" }))
+        .concat([{ label: "SOP & Training", href: "/services/sop-training" }]),
     },
     {
       title: "Industries",
-      links: ["Battery Recycling", "E-Waste Recycling", "Metal & Mining", "Chemical Industry", "Circular Economy"].map(
-        (label) => ({ label, href: "#" }),
-      ),
+      links: [
+        { label: "Battery Recycling", href: "/products" },
+        { label: "E-Waste Recycling", href: "/products" },
+        { label: "Metal & Mining", href: "/solutions" },
+        { label: "Chemical Industry", href: "/solutions" },
+        { label: "Circular Economy", href: "/sustainability/circular-economy" },
+      ],
     },
     {
       title: "Company",
-      links: ["About Us", "Our Technology", "Projects", "Careers", "News & Insights"].map((label) => ({
-        label,
-        href: "#",
-      })),
+      links: [
+        { label: "About Us", href: "/our-story" },
+        { label: "Our Technology", href: "/technologies" },
+        { label: "Projects", href: "/case-study" },
+        { label: "Careers", href: "/career" },
+        { label: "News & Insights", href: "/newsletter" },
+      ],
     },
   ],
   social: { linkedin: "#", youtube: "#", email: "mailto:info@refnic.com" },

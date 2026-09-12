@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/primitives";
+import IndianMarketHero from "@/components/IndianMarketHero";
+import IndianMarketNarrativeSection from "@/components/IndianMarketNarrativeSection";
+import IndianMarketDriversSection from "@/components/IndianMarketDriversSection";
+import StatCardsSection from "@/components/StatCardsSection";
+import GlobalMarketAdvantageSection from "@/components/GlobalMarketAdvantageSection";
+import GlobalMarketVisionSection from "@/components/GlobalMarketVisionSection";
+import GlobalMarketFinalCta from "@/components/GlobalMarketFinalCta";
 import { getGlobalMarketPageConfig } from "@/lib/content/globalMarketPage";
 
 export const metadata: Metadata = {
@@ -11,92 +17,48 @@ export const metadata: Metadata = {
 
 export const revalidate = 60;
 
-function splitClosingBody(body: string): [string, string] {
-  const idx = body.indexOf(",");
+function splitAtMarker(body: string, marker: string): [string, string] {
+  const idx = body.indexOf(marker);
   if (idx === -1) return [body, ""];
-  return [body.slice(0, idx).trim(), body.slice(idx + 1).trim()];
+  return [body.slice(0, idx).trim(), body.slice(idx).trim()];
 }
 
 export default async function GlobalMarketPage() {
   const c = await getGlobalMarketPageConfig();
-  const [closingBodyLeft, closingBodyRight] = splitClosingBody(c.closingBody);
+  const [globalShift, whyItMattersLegacy, builtInIndia, heroSection] = c.narrativeSections;
+  const [whyItMattersBody, visionBody] = splitAtMarker(
+    heroSection?.body ?? "",
+    "As industries around the world",
+  );
 
   return (
     <>
-      <SiteHeader />
+      <SiteHeader bgClassName="bg-[#161518]" />
 
-      <main className="relative overflow-hidden bg-black">
-        <div className="absolute inset-0 bg-grid-dark" aria-hidden />
-        <div className="pointer-events-none absolute -left-40 top-10 h-[626px] w-[626px] rounded-full bg-[#3152df] opacity-20 blur-[360px]" aria-hidden />
+      <main className="bg-[#161518]">
+        <IndianMarketHero heading={heroSection?.heading ?? ""} body={whyItMattersLegacy?.body ?? ""} />
 
-        <div className="relative z-10 mx-auto max-w-6xl px-6 py-20 md:py-28">
-          <p className="font-display font-black text-4xl leading-tight text-white md:text-6xl">{c.heroHeading}</p>
+        {globalShift && (
+          <IndianMarketNarrativeSection heading={globalShift.heading} body={globalShift.body} align="right" />
+        )}
 
-          <div className="mt-14 grid gap-8 md:grid-cols-3">
-            {c.heroBadges.map((badge, i) => (
-              <div key={badge}>
-                <span className="rounded-full bg-accent-blue px-4 py-1.5 text-xs font-bold text-white">{badge}</span>
-                <p className="mt-4 leading-relaxed text-white/60">{c.heroParagraphs[i]}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <IndianMarketDriversSection heading="Global Market Drivers" badges={c.heroBadges} paragraphs={c.heroParagraphs} />
 
-        <div className="relative z-10 mx-auto max-w-6xl px-6 pb-20">
-          <div className="space-y-16">
-            {c.narrativeSections.map((s) => (
-              <div key={s.heading} className="max-w-3xl">
-                <p className="font-display font-black text-2xl text-white md:text-3xl">{s.heading}</p>
-                {s.body.split("\n\n").map((para, i) => (
-                  <p key={i} className="mt-4 leading-relaxed text-white/60">
-                    {para}
-                  </p>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
+        <StatCardsSection heading="Markets We Enable" stats={c.marketCards} ringSide="left" />
 
-        <div className="relative z-10 mx-auto max-w-6xl px-6 pb-20">
-          <p className="font-display font-black text-3xl text-white md:text-5xl">Markets We Enable</p>
-          <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3">
-            {c.marketCards.map((card) => (
-              <div key={card} className="rounded-xl border border-white/10 bg-white/[0.03] px-5 py-6">
-                <p className="font-sans font-bold text-white">{card}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        {whyItMattersLegacy && (
+          <IndianMarketNarrativeSection heading={whyItMattersLegacy.heading} body={whyItMattersBody} align="right" />
+        )}
 
-        <div className="relative z-10 mx-auto max-w-6xl px-6 pb-20">
-          <p className="font-display font-black text-3xl text-white md:text-5xl">Our Competitive Advantage</p>
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {c.advantageCards.map((card) => (
-              <div key={card.title} className="rounded-xl border border-white/10 bg-white/[0.03] p-6">
-                <p className="font-sans font-bold text-lg text-white">{card.title}</p>
-                <p className="mt-2 leading-relaxed text-white/60">{card.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        {builtInIndia && (
+          <IndianMarketNarrativeSection heading={builtInIndia.heading} body={builtInIndia.body} align="left" />
+        )}
 
-        <div className="relative z-10 mx-auto max-w-6xl px-6 pb-24 text-center">
-          <p className="text-xs font-bold uppercase tracking-wide text-accent-blue">{c.closingLabel}</p>
-          <p className="mt-3 font-display font-black text-3xl text-white md:text-5xl">{c.closingHeading}</p>
-          <div className="mx-auto mt-4 max-w-2xl">
-            <p className="text-left text-sm leading-relaxed text-white/60">{closingBodyLeft}</p>
-            {closingBodyRight && (
-              <p className="mt-3 text-right text-lg leading-relaxed text-white">
-                {closingBodyRight}
-              </p>
-            )}
-          </div>
-          <div className="mt-8 flex justify-center">
-            <Button href="/technologies">
-              {c.ctaLabel}
-            </Button>
-          </div>
-        </div>
+        <GlobalMarketAdvantageSection heading="Our Competitive Advantage" cards={c.advantageCards} />
+
+        <GlobalMarketVisionSection label={c.closingLabel} body={visionBody} />
+
+        <GlobalMarketFinalCta heading={c.closingHeading} body={c.closingBody} ctaLabel={c.ctaLabel} />
       </main>
 
       <Footer />
