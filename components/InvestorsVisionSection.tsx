@@ -21,7 +21,7 @@ export default function InvestorsVisionSection({
           className="pointer-events-none select-none bg-clip-text text-center font-display text-[80px] font-bold leading-none text-transparent md:text-[206.86px]"
           style={{
             backgroundImage:
-              "linear-gradient(180deg, #F8F8F8 0%, #9a9a9a 20%, #4a4a4a 40%, #232323 50%, #4a4a4a 60%, #9a9a9a 80%, #F8F8F8 100%)",
+              "linear-gradient(180deg, #F8F8F8 0%, #d8d8d8 35%, #bdbdbd 50%, #d8d8d8 65%, #F8F8F8 100%)",
           }}
         >
           {label}

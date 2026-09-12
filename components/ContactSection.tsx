@@ -1,5 +1,6 @@
-import { GradientCtaButton } from "@/components/ui/primitives";
 import { getFooterConfig } from "@/lib/content/footer";
+import { getContactPageConfig } from "@/lib/content/contactPage";
+import HomeContactFormFields from "@/components/HomeContactFormFields";
 
 function EnvelopeIcon({ className = "" }: { className?: string }) {
   return (
@@ -32,11 +33,18 @@ function LocationIcon({ className = "" }: { className?: string }) {
 }
 
 export default async function ContactSection() {
-  const { contactEmail, contactPhone, contactAddress } = await getFooterConfig();
+  const [{ contactEmail, contactPhone, contactAddress }, { subjects }] = await Promise.all([
+    getFooterConfig(),
+    getContactPageConfig(),
+  ]);
 
   return (
     <section id="contact" className="relative overflow-hidden bg-black">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
+      <div
+        className="pointer-events-none absolute left-1/2 top-[6%] -z-0 h-[60%] w-[70%] max-w-2xl -translate-x-1/2 rounded-full bg-accent-blue/40 blur-3xl md:w-[50%]"
+        aria-hidden
+      />
 
       {/* TOP AREA */}
       <div className="relative mx-auto max-w-6xl px-6 pt-0 pb-10">
@@ -47,10 +55,6 @@ export default async function ContactSection() {
           </p>
 
           <div className="relative w-[62%]">
-            <div
-              className="absolute left-1/2 top-1/2 -z-0 h-[85%] w-[85%] -translate-x-1/2 translate-y-[calc(-50%+8rem)] rounded-full bg-accent-blue/40 blur-3xl"
-              aria-hidden
-            />
             <img
               src="/footer image plant.png"
               alt="Refnic industrial plant"
@@ -71,10 +75,6 @@ export default async function ContactSection() {
             facilities
           </p>
           <div className="relative">
-            <div
-              className="absolute left-1/2 top-1/2 -z-0 h-[75%] w-[75%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-blue/40 blur-3xl"
-              aria-hidden
-            />
             <img
               src="/footer image plant.png"
               alt="Refnic industrial plant"
@@ -91,12 +91,13 @@ export default async function ContactSection() {
 
       {/* BOTTOM AREA (contact info + link to the full Contact Us page/form) */}
       <div className="relative mx-auto max-w-5xl px-6 pb-24 pt-10">
-        <div
-          className="p-px"
-          style={{ backgroundImage: "linear-gradient(to top right, #1f1313, #737373, #191717)" }}
-        >
-          <div className="bg-black/80 px-8 py-6 backdrop-blur-sm md:px-12">
-            <div className="grid gap-12 md:grid-cols-2 md:items-center">
+        <div className="relative">
+          <div
+            className="pointer-events-none absolute inset-0 border-2 border-white bg-white/[0.03] opacity-[0.61] backdrop-blur-[68.9px]"
+            aria-hidden
+          />
+          <div className="relative px-8 py-6 md:px-12 md:py-14">
+            <div className="grid gap-12 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
               <div>
                 <h2 className="font-sans font-bold text-3xl text-white md:text-4xl">
                   Contact Information
@@ -139,13 +140,7 @@ export default async function ContactSection() {
                 </div>
               </div>
 
-              <div className="flex flex-col items-start gap-4">
-                <p className="text-sm leading-relaxed text-white/60">
-                  Have a project in mind? Send us the details on our Contact Us page and our team will get
-                  back to you.
-                </p>
-                <GradientCtaButton href="/contact#contact-form">Go to Contact Us</GradientCtaButton>
-              </div>
+              <HomeContactFormFields subjects={subjects} />
             </div>
           </div>
         </div>
