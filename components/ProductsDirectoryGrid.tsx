@@ -82,7 +82,7 @@ export default function ProductsDirectoryGrid({
                       }`}
                     >
                       <h2
-                        className={`font-sans font-bold text-2xl leading-tight text-[#EBEBEB] md:max-w-[431px] md:text-5xl md:leading-[64px] ${
+                        className={`font-sans font-bold text-2xl leading-tight text-[#EBEBEB] md:max-w-[431px] md:text-5xl ${
                           category.invertLayout ? "md:text-right" : ""
                         }`}
                       >

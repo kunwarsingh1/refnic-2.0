@@ -7,7 +7,7 @@ export default function ProductsDirectoryCta() {
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <h2 className="mx-auto max-w-2xl font-sans font-bold text-3xl leading-tight text-[#EBEBEB] md:text-5xl md:leading-[64px]">
+        <h2 className="mx-auto max-w-2xl font-sans font-bold text-3xl leading-tight text-[#EBEBEB] md:text-5xl">
           Ready to Build Your Next Plant?
         </h2>
 

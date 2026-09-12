@@ -94,7 +94,7 @@ export function BlogPostView({ post }: BlogPostViewProps) {
   return (
     <article>
       <div className="mx-auto max-w-2xl">
-        <h1 className="text-3xl font-semibold tracking-tight text-white">{post.title}</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-white">{post.title}</h1>
         <p className="mt-2 text-sm text-white/40">{formatDate(post.createdAt)}</p>
         {post.coverImageUrl && (
           // eslint-disable-next-line @next/next/no-img-element
