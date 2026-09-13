@@ -28,10 +28,10 @@ export default function ProductMaterialsSection({
                 className="pointer-events-none absolute inset-0 border border-transparent bg-white/[0.03]"
                 aria-hidden
               />
-              <div className="relative flex flex-col gap-6 p-8">
+              <div className="relative flex flex-col p-5">
                 <h3 className="font-display text-lg font-bold leading-tight text-[#EBEBEB] md:text-xl">{m.title}</h3>
-                <CmsImagePlaceholder className="h-28 w-28 rounded-xl" />
-                <p className="text-[21.64px] leading-[32.46px] text-white">{m.body}</p>
+                <CmsImagePlaceholder className="mt-4 aspect-[4/3] w-full rounded-xl" />
+                <p className="mt-2 text-[21.64px] leading-[32.46px] text-white">{m.body}</p>
               </div>
             </div>
           ))}
