@@ -6,11 +6,11 @@ export default function Hero() {
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative mx-auto max-w-[90rem]">
-        <img
-          src="/white_stone.png"
-          alt=""
-          className="absolute left-0 top-1/2 z-20 w-[clamp(9rem,32vw,24rem)] origin-top-left -translate-x-[10%] -translate-y-[70%] rotate-[14deg] object-contain md:origin-center md:rotate-[0deg]"
-        />
+     <img
+  src="/white_stone.png"
+  alt=""
+  className="absolute left-0 top-1/2 z-20 w-[clamp(9rem,32vw,24rem)] -translate-y-[70%] rotate-[-15deg] object-contain drop-shadow-md origin-[15%_85%] md:origin-center md:rotate-0 md:drop-shadow-none"
+/>
         <img
           src="/blur_stone.png"
           alt=""

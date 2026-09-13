@@ -1,4 +1,10 @@
+"use client";
+
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Pillar } from "@/lib/content/pillars";
+
+const ROTATE_MS = 3500;
+const TRANSITION_MS = 700;
 
 export default function PillarsSection({
   pillars,
@@ -9,6 +15,55 @@ export default function PillarsSection({
   desktopVideoUrl: string;
   mobileVideoUrl?: string;
 }) {
+  const N = pillars.length;
+  // three copies back-to-back so the track can keep sliding left and loop seamlessly
+  const track = useMemo(() => [...pillars, ...pillars, ...pillars], [pillars]);
+
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [step, setStep] = useState(0);
+  const [position, setPosition] = useState(N);
+  const [animate, setAnimate] = useState(false);
+
+  useLayoutEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    const measure = () => {
+      if (el.children.length < 2) return;
+      const a = el.children[0] as HTMLElement;
+      const b = el.children[1] as HTMLElement;
+      setStep(b.offsetLeft - a.offsetLeft);
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setAnimate(true);
+      setPosition((p) => p + 1);
+    }, ROTATE_MS);
+    return () => clearInterval(id);
+  }, []);
+
+  // once we've slid a full loop ahead, snap back by one loop with no transition
+  // so the slide can continue indefinitely without ever reaching the end of the track
+  useEffect(() => {
+    if (position < N * 2) return;
+    const t = setTimeout(() => {
+      setAnimate(false);
+      setPosition((p) => p - N);
+    }, TRANSITION_MS);
+    return () => clearTimeout(t);
+  }, [position, N]);
+
+  useEffect(() => {
+    if (animate) return;
+    const id = requestAnimationFrame(() => requestAnimationFrame(() => setAnimate(true)));
+    return () => cancelAnimationFrame(id);
+  }, [animate]);
+
   return (
     <section className="relative flex flex-col justify-center overflow-hidden bg-black py-8 md:py-10">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
@@ -52,22 +107,39 @@ export default function PillarsSection({
       </div>
 
       <div className="relative mx-auto max-w-6xl px-6 pb-14 pt-14 md:pb-20 md:pt-20">
-        <div className="grid gap-6 md:grid-cols-3">
-          {pillars.map((p) => (
-            <div
-              key={p.id}
-              className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 transition-all duration-300 hover:border-accent-blue/60 hover:bg-navy-800 hover:shadow-[0_0_60px_-15px_rgba(46,75,224,0.55)] hover:scale-[1.03] md:p-10"
-            >
-              <h3 className="font-sans font-bold text-3xl leading-tight text-white md:text-4xl">
-                {p.title.map((line) => (
-                  <span key={line} className="block">
-                    {line}
-                  </span>
-                ))}
-              </h3>
-              <p className="mt-5 leading-relaxed text-white/55">{p.body}</p>
-            </div>
-          ))}
+        <div className="overflow-hidden px-[15%] md:overflow-visible md:px-0">
+          <div
+            ref={trackRef}
+            className="flex gap-4 md:!transform-none md:grid md:grid-cols-3 md:gap-6"
+            style={{
+              transform: `translateX(-${position * step}px)`,
+              transition: animate ? `transform ${TRANSITION_MS}ms ease` : "none",
+            }}
+          >
+            {track.map((p, i) => (
+              <div
+                key={i}
+                className="relative w-full shrink-0 transition-all duration-300 hover:scale-[1.03] md:w-auto"
+              >
+                <div
+                  className="pointer-events-none absolute inset-0 border border-white/20 bg-white/[0.03] md:border-transparent md:[border-image:linear-gradient(to_top_right,#1f1313,#737373,#191717)_1]"
+                  aria-hidden
+                />
+                <div className="relative p-8 text-left md:p-10">
+                  <h3 className="font-sans font-bold text-3xl leading-tight text-white md:text-4xl">
+                    {p.title.map((line) => (
+                      <span key={line} className="block">
+                        {line}
+                      </span>
+                    ))}
+                  </h3>
+                  <p className="mt-5 max-w-[190px] text-[12px] font-normal leading-[16.57px] text-white md:max-w-none md:text-base md:leading-relaxed md:text-white/55">
+                    {p.body}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
