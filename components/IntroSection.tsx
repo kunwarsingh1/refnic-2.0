@@ -109,7 +109,7 @@ export default function IntroSection({ cards }: { cards: IntroCard[] }) {
                       <img
                         src={c.imageUrl}
                         alt={c.title}
-                        className={`relative w-full object-contain shadow-[0px_2px_14px_rgba(0,0,0,0.5)] transition-all duration-700 md:shadow-none md:[filter:drop-shadow(0_0_60px_rgba(46,75,224,0.85))] ${emphasized ? "h-[22rem] md:h-60" : "h-28 md:h-40"}`}
+                        className={`relative w-full object-contain shadow-[0px_2px_14px_rgba(0,0,0,0.5)] transition-all duration-700 md:shadow-none md:[filter:drop-shadow(0_0_60px_rgba(46,75,224,0.85))] ${emphasized ? "h-auto max-h-[22rem] md:h-60" : "h-28 md:h-40"}`}
                       />
                     </div>
                   )}
