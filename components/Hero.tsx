@@ -29,20 +29,20 @@ export default function Hero() {
         />
         
 
-        <div className="relative z-10 rounded-b-[2.5rem] bg-white px-6 py-16 text-center md:px-14 md:py-24">
+        <div className="relative z-10 mx-6 rounded-b-[21px] bg-white px-6 py-16 text-center md:mx-0 md:rounded-b-[2.5rem] md:px-14 md:py-24">
           <h1 className="group relative font-display font-bold leading-[0.95] tracking-[-0.015em] text-black">
-            <span className="block text-[clamp(2.75rem,12vw,10rem)] transition-all duration-500 ease-out group-hover:translate-y-1/2 group-hover:opacity-0">
+            <span className="block text-[clamp(2.75rem,20vw,10rem)] transition-all duration-500 ease-out group-hover:translate-y-1/2 group-hover:opacity-0 md:text-[clamp(2.75rem,12vw,10rem)]">
               REFINE
             </span>
-            <span className="block text-[clamp(2.75rem,12vw,10rem)] transition-all duration-500 ease-out group-hover:-translate-y-1/2 group-hover:opacity-0">
+            <span className="block text-[clamp(2.75rem,20vw,10rem)] transition-all duration-500 ease-out group-hover:-translate-y-1/2 group-hover:opacity-0 md:text-[clamp(2.75rem,12vw,10rem)]">
               NICELY
             </span>
-            <span className="pointer-events-none absolute inset-0 flex scale-90 items-center justify-center text-[clamp(2.75rem,12vw,10rem)] opacity-0 transition-all duration-500 ease-out group-hover:scale-100 group-hover:opacity-100">
+            <span className="pointer-events-none absolute inset-0 flex scale-90 items-center justify-center text-[clamp(2.75rem,20vw,10rem)] opacity-0 transition-all duration-500 ease-out group-hover:scale-100 group-hover:opacity-100 md:text-[clamp(2.75rem,12vw,10rem)]">
               REFNIC
             </span>
           </h1>
 
-          <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-gray-500 md:text-lg">
+          <p className="mx-auto mt-8 max-w-xl text-sm leading-relaxed text-gray-500 md:text-lg">
             Engineering the technologies that transform industrial waste into
             critical materials powering a cleaner, circular future through
             indigenous innovation.
