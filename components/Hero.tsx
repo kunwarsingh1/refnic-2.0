@@ -42,7 +42,7 @@ export default function Hero() {
   className="absolute right-0 bottom-[10%] z-20 w-[clamp(11rem,42vw,15rem)] translate-x-[40%] rotate-[15deg] object-contain origin-[85%_15%] md:right-0 md:bottom-0 md:w-[clamp(10rem,30vw,23rem)] md:translate-x-[20%] md:translate-y-[28%] md:rotate-0"
 />
 
-        <div className="relative z-10 flex flex-1 flex-col items-center justify-center rounded-b-[32px] bg-white px-6 py-24 text-center md:block md:rounded-b-[2.5rem] md:px-14 md:py-24">
+        <div className="relative z-10 mx-4 flex flex-1 flex-col items-center justify-center rounded-b-[32px] bg-white px-6 py-24 text-center md:mx-0 md:block md:rounded-b-[2.5rem] md:px-14 md:py-24">
           <h1 className="group relative font-display font-bold leading-[0.95] tracking-[-0.015em] text-black">
             <span className="block text-[clamp(2.75rem,20vw,10rem)] transition-all duration-500 ease-out group-hover:translate-y-1/2 group-hover:opacity-0 md:text-[clamp(2.75rem,12vw,10rem)]">
               REFINE
