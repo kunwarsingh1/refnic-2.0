@@ -635,7 +635,7 @@ export default function Navbar({
                   ].map(({ key, headerIndex, mechanicalHeaderIndex, mechanicalIndexes, chemicalHeaderIndex, chemicalIndexes }) =>
                     productsMenu[headerIndex] ? (
                       <div key={key}>
-                        <p className="px-2 text-xs font-bold uppercase tracking-wide text-gray-400">
+                        <p className="px-2 text-xs font-bold uppercase tracking-wide text-black">
                           {productsMenu[headerIndex].label}
                         </p>
                         <div className="mt-1 flex flex-col gap-1">
@@ -649,7 +649,7 @@ export default function Navbar({
                                   type="button"
                                   onClick={() => setMobileSubExpanded((v) => (v === subKey ? null : subKey))}
                                   aria-expanded={mobileSubExpanded === subKey}
-                                  className="flex w-full items-center justify-between rounded-md px-2 py-1.5 text-xs font-semibold text-gray-700 hover:bg-gray-50"
+                                  className="flex w-full items-center justify-between rounded-md px-2 py-1.5 text-xs font-semibold text-black hover:bg-gray-50"
                                 >
                                   {productsMenu[subHeaderIndex].label}
                                   <CaretDown
@@ -663,7 +663,7 @@ export default function Navbar({
                                         <Link
                                           key={i}
                                           href={productsMenu[i].href}
-                                          className="rounded-md px-2 py-2 text-gray-600 hover:bg-gray-50"
+                                          className="rounded-md px-2 py-2 text-black hover:bg-gray-50"
                                         >
                                           {productsMenu[i].label}
                                         </Link>
@@ -684,7 +684,7 @@ export default function Navbar({
                         type="button"
                         onClick={() => setMobileSubExpanded((v) => (v === "services" ? null : "services"))}
                         aria-expanded={mobileSubExpanded === "services"}
-                        className="flex w-full items-center justify-between rounded-md px-2 py-1.5 text-xs font-bold uppercase tracking-wide text-gray-400 hover:bg-gray-50"
+                        className="flex w-full items-center justify-between rounded-md px-2 py-1.5 text-xs font-bold uppercase tracking-wide text-black hover:bg-gray-50"
                       >
                         {productsMenu[2].label}
                         <CaretDown
@@ -698,7 +698,7 @@ export default function Navbar({
                               <Link
                                 key={i}
                                 href={productsMenu[i].href}
-                                className="rounded-md px-2 py-2 text-gray-600 hover:bg-gray-50"
+                                className="rounded-md px-2 py-2 text-black hover:bg-gray-50"
                               >
                                 {productsMenu[i].label}
                               </Link>
@@ -740,7 +740,7 @@ export default function Navbar({
                           type="button"
                           onClick={() => setMobileSubExpanded((v) => (v === subKey ? null : subKey))}
                           aria-expanded={mobileSubExpanded === subKey}
-                          className="flex w-full items-center justify-between rounded-md px-2 py-1.5 text-xs font-bold uppercase tracking-wide text-gray-400 hover:bg-gray-50"
+                          className="flex w-full items-center justify-between rounded-md px-2 py-1.5 text-xs font-bold uppercase tracking-wide text-black hover:bg-gray-50"
                         >
                           {technologiesMenu[headerIndex].label}
                           <CaretDown
@@ -754,7 +754,7 @@ export default function Navbar({
                                 <Link
                                   key={i}
                                   href={technologiesMenu[i].href}
-                                  className="rounded-md px-2 py-2 text-gray-600 hover:bg-gray-50"
+                                  className="rounded-md px-2 py-2 text-black hover:bg-gray-50"
                                 >
                                   {technologiesMenu[i].label}
                                 </Link>
@@ -768,7 +768,7 @@ export default function Navbar({
                   {technologiesMenu[15] && (
                     <Link
                       href={technologiesMenu[15].href}
-                      className="rounded-md px-2 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-50"
+                      className="rounded-md px-2 py-2 text-sm font-semibold text-black hover:bg-gray-50"
                     >
                       {technologiesMenu[15].label}
                     </Link>
@@ -782,7 +782,7 @@ export default function Navbar({
                 type="button"
                 onClick={() => setMobileExpanded((v) => (v === "about" ? null : "about"))}
                 aria-expanded={mobileExpanded === "about"}
-                className="flex w-full items-center justify-between rounded-md px-2 py-2.5 text-xs font-bold uppercase tracking-wide text-gray-400 hover:bg-gray-50"
+                className="flex w-full items-center justify-between rounded-md px-2 py-2.5 text-xs font-bold uppercase tracking-wide text-black hover:bg-gray-50"
               >
                 About Us
                 <CaretDown className={`transition-transform ${mobileExpanded === "about" ? "rotate-180" : ""}`} />
@@ -817,7 +817,7 @@ export default function Navbar({
               {mobileExpanded === "contact" && (
                 <div className="ml-2 flex flex-col gap-0.5 border-l border-gray-100 pl-3">
                   {contactMenu.map((item) => (
-                    <Link key={item.label} href={item.href} className="rounded-md px-2 py-2 text-gray-600 hover:bg-gray-50">
+                    <Link key={item.label} href={item.href} className="rounded-md px-2 py-2 text-black hover:bg-gray-50">
                       {item.label}
                     </Link>
                   ))}
@@ -825,7 +825,7 @@ export default function Navbar({
               )}
             </div>
 
-            <div className="mt-2 flex flex-col gap-1 border-t border-gray-100 pt-3 text-xs text-gray-500">
+            <div className="mt-2 flex flex-col gap-1 border-t border-gray-100 pt-3 text-xs text-black">
               <a href={`mailto:${contactEmail}`} className="px-2 py-1 hover:underline">
                 {contactEmail}
               </a>
