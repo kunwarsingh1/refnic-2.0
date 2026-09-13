@@ -391,8 +391,8 @@ export default function Navbar({
                         </Link>
                         <div className={techStyles.trchnologiesChild} />
                         <div className={techStyles.trchnologiesItem} />
-                        <div className={techStyles.trchnologiesInner} />
-                        <div className={techStyles.ellipseDiv} />
+                        <ChevronRight className={`${techStyles.trchnologiesInner} ${techStyles.bulletChevron}`} />
+                        <ChevronRight className={`${techStyles.ellipseDiv} ${techStyles.bulletChevron}`} />
                         <ChevronRight className={`${techStyles.trchnologiesChild2} ${techStyles.bulletChevron}`} />
                         <ChevronRight className={`${techStyles.trchnologiesChild3} ${techStyles.bulletChevron}`} />
                         <ChevronRight className={`${techStyles.trchnologiesChild4} ${techStyles.bulletChevron}`} />
