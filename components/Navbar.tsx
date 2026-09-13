@@ -98,7 +98,7 @@ export default function Navbar({
 
   return (
     <>
-    <div className="relative flex items-center gap-4 py-3 pl-6 pr-3 text-sm md:px-6">
+    <div className="relative flex items-center gap-4 py-1.5 pl-6 pr-1 text-sm md:py-3 md:px-6">
       <div className="flex flex-1 items-center justify-between gap-4">
         <a href={`mailto:${contactEmail}`} className="hidden lg:block hover:underline">
           {contactEmail}
@@ -583,7 +583,7 @@ export default function Navbar({
           }
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
-          className="flex items-center justify-center p-1.5 text-black lg:hidden"
+          className="flex items-center justify-center p-1 text-black lg:hidden"
         >
           {mobileOpen ? <X className="size-6" /> : <Menu className="size-6" />}
         </button>
