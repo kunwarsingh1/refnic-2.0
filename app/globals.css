@@ -127,3 +127,11 @@ textarea:-webkit-autofill:focus {
 .animate-text-shine {
   animation: text-shine 5s ease-in-out infinite;
 }
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

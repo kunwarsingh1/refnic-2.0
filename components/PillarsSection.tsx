@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { Pillar } from "@/lib/content/pillars";
 
-const ROTATE_MS = 3500;
-const TRANSITION_MS = 700;
+const ROTATE_MS = 4000;
 
 export default function PillarsSection({
   pillars,
@@ -16,62 +15,65 @@ export default function PillarsSection({
   mobileVideoUrl?: string;
 }) {
   const N = pillars.length;
-  // three copies back-to-back so the track can keep sliding left and loop seamlessly
-  const track = useMemo(() => [...pillars, ...pillars, ...pillars], [pillars]);
 
-  const containerRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [step, setStep] = useState(0);
-  const [centerOffset, setCenterOffset] = useState(0);
-  const [position, setPosition] = useState(N);
-  const [animate, setAnimate] = useState(false);
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const isUserScrolling = useRef(false);
+  const resumeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  useLayoutEffect(() => {
-    const el = trackRef.current;
-    const container = containerRef.current;
-    if (!el || !container) return;
-    const measure = () => {
-      if (el.children.length < 2) return;
-      const a = el.children[0] as HTMLElement;
-      const b = el.children[1] as HTMLElement;
-      setStep(b.offsetLeft - a.offsetLeft);
-      // center the active (narrower-than-container) card so its peek is symmetric
-      setCenterOffset((container.clientWidth - a.offsetWidth) / 2);
-    };
-    measure();
-    const observer = new ResizeObserver(measure);
-    observer.observe(el);
-    observer.observe(container);
-    return () => observer.disconnect();
+  const scrollToIndex = useCallback((index: number, smooth = true) => {
+    const scroller = scrollerRef.current;
+    const card = cardRefs.current[index];
+    if (!scroller || !card) return;
+    const left = card.offsetLeft - (scroller.clientWidth - card.clientWidth) / 2;
+    scroller.scrollTo({ left, behavior: smooth ? "smooth" : "auto" });
   }, []);
 
   useEffect(() => {
     const id = setInterval(() => {
-      setAnimate(true);
-      setPosition((p) => p + 1);
+      if (isUserScrolling.current) return;
+      setActiveIndex((prev) => {
+        const next = (prev + 1) % N;
+        scrollToIndex(next);
+        return next;
+      });
     }, ROTATE_MS);
     return () => clearInterval(id);
+  }, [N, scrollToIndex]);
+
+  useEffect(() => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+
+    const handleScroll = () => {
+      isUserScrolling.current = true;
+      if (resumeTimeout.current) clearTimeout(resumeTimeout.current);
+      resumeTimeout.current = setTimeout(() => {
+        isUserScrolling.current = false;
+      }, ROTATE_MS);
+
+      const center = scroller.scrollLeft + scroller.clientWidth / 2;
+      let closest = 0;
+      let closestDist = Infinity;
+      cardRefs.current.forEach((card, i) => {
+        if (!card) return;
+        const cardCenter = card.offsetLeft + card.clientWidth / 2;
+        const dist = Math.abs(cardCenter - center);
+        if (dist < closestDist) {
+          closestDist = dist;
+          closest = i;
+        }
+      });
+      setActiveIndex(closest);
+    };
+
+    scroller.addEventListener("scroll", handleScroll, { passive: true });
+    return () => scroller.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // once we've slid a full loop ahead, snap back by one loop with no transition
-  // so the slide can continue indefinitely without ever reaching the end of the track
-  useEffect(() => {
-    if (position < N * 2) return;
-    const t = setTimeout(() => {
-      setAnimate(false);
-      setPosition((p) => p - N);
-    }, TRANSITION_MS);
-    return () => clearTimeout(t);
-  }, [position, N]);
-
-  useEffect(() => {
-    if (animate) return;
-    const id = requestAnimationFrame(() => requestAnimationFrame(() => setAnimate(true)));
-    return () => cancelAnimationFrame(id);
-  }, [animate]);
-
   return (
-    <section className="relative flex flex-col justify-center overflow-hidden bg-black py-8 md:py-10">
+    <section className="relative w-full flex flex-col justify-center overflow-hidden bg-black py-8 md:py-10">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative mx-auto max-w-6xl px-6 pt-2 md:pt-4">
@@ -112,40 +114,85 @@ export default function PillarsSection({
         </div>
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-6 pb-14 pt-14 md:pb-20 md:pt-20">
-        <div ref={containerRef} className="overflow-hidden md:overflow-visible">
+      <div className="relative mx-auto w-full max-w-6xl px-6 pb-14 pt-14 md:pb-20 md:pt-20">
+        {/* Mobile: contained swipeable snap carousel — no negative margins, can't overflow the page */}
+        <div className="w-full min-w-0 md:hidden">
           <div
-            ref={trackRef}
-            className="flex gap-4 md:!transform-none md:grid md:grid-cols-3 md:gap-6"
-            style={{
-              transform: `translateX(${centerOffset - position * step}px)`,
-              transition: animate ? `transform ${TRANSITION_MS}ms ease` : "none",
-            }}
+            ref={scrollerRef}
+            className="hide-scrollbar flex w-full min-w-0 snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth"
+            style={{ scrollPaddingLeft: "8%", scrollPaddingRight: "8%" }}
           >
-            {track.map((p, i) => (
+            {pillars.map((p, i) => (
               <div
-                key={i}
-                className="relative w-[50%] shrink-0 transition-all duration-300 hover:scale-[1.03] md:w-auto"
+                key={p.title.join("-")}
+                ref={(el) => {
+                  cardRefs.current[i] = el;
+                }}
+                className="relative w-[85%] shrink-0 snap-center first:ml-[8%] last:mr-[8%]"
               >
                 <div
-                  className="pointer-events-none absolute inset-0 border border-white/20 bg-white/[0.03] md:border-transparent md:[border-image:linear-gradient(to_top_right,#1f1313,#737373,#191717)_1]"
+                  className="pointer-events-none absolute inset-0 border border-white/20 bg-white/[0.03]"
                   aria-hidden
                 />
-                <div className="relative p-8 text-left md:p-10">
-                  <h3 className="font-sans font-bold text-3xl leading-tight text-white md:text-4xl">
+                <div className="relative p-8 text-left">
+                  <h3 className="font-sans text-3xl font-bold leading-tight text-white">
                     {p.title.map((line) => (
                       <span key={line} className="block">
                         {line}
                       </span>
                     ))}
                   </h3>
-                  <p className="mt-5 max-w-[190px] text-[12px] font-normal leading-[16.57px] text-white md:max-w-none md:text-base md:leading-relaxed md:text-white/55">
+                  <p className="mt-5 max-w-[190px] text-[12px] font-normal leading-[16.57px] text-white">
                     {p.body}
                   </p>
                 </div>
               </div>
             ))}
           </div>
+
+          <div className="mt-6 flex justify-center gap-2">
+            {pillars.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                aria-label={`Go to slide ${i + 1}`}
+                onClick={() => {
+                  setActiveIndex(i);
+                  scrollToIndex(i);
+                }}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  activeIndex === i ? "w-6 bg-white" : "w-1.5 bg-white/30"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop: static grid, unchanged */}
+        <div className="hidden md:grid md:grid-cols-3 md:gap-6">
+          {pillars.map((p) => (
+            <div
+              key={p.title.join("-")}
+              className="relative transition-all duration-300 hover:scale-[1.03]"
+            >
+              <div
+                className="pointer-events-none absolute inset-0 border border-transparent [border-image:linear-gradient(to_top_right,#1f1313,#737373,#191717)_1]"
+                aria-hidden
+              />
+              <div className="relative p-10 text-left">
+                <h3 className="font-sans text-4xl font-bold leading-tight text-white">
+                  {p.title.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </h3>
+                <p className="mt-5 text-base font-normal leading-relaxed text-white/55">
+                  {p.body}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
