@@ -102,14 +102,14 @@ export default function IntroSection({ cards }: { cards: IntroCard[] }) {
                     <div className="relative flex w-full items-center justify-center">
                       {emphasized && (
                         <div
-                          className="pointer-events-none absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3152DF] opacity-50 blur-[90px] md:hidden"
+                          className="pointer-events-none absolute left-1/2 top-1/2 h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3152DF] opacity-50 blur-[100px] md:hidden"
                           aria-hidden
                         />
                       )}
                       <img
                         src={c.imageUrl}
                         alt={c.title}
-                        className={`relative w-full object-contain shadow-[0px_2px_14px_rgba(0,0,0,0.5)] transition-all duration-700 md:shadow-none md:[filter:drop-shadow(0_0_60px_rgba(46,75,224,0.85))] ${emphasized ? "h-64 md:h-60" : "h-28 md:h-40"}`}
+                        className={`relative w-full object-contain shadow-[0px_2px_14px_rgba(0,0,0,0.5)] transition-all duration-700 md:shadow-none md:[filter:drop-shadow(0_0_60px_rgba(46,75,224,0.85))] ${emphasized ? "h-[22rem] md:h-60" : "h-28 md:h-40"}`}
                       />
                     </div>
                   )}
