@@ -1,4 +1,5 @@
-import { CmsImagePlaceholder, GradientCtaButton } from "@/components/ui/primitives";
+import Link from "next/link";
+import { CmsImagePlaceholder } from "@/components/ui/primitives";
 
 export type SolutionItem = { title: string; description: string; href?: string; imageUrl?: string };
 
@@ -66,7 +67,12 @@ export default function SolutionsCategorySection({
 
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-white/55">{item.description}</p>
                 <div className="mt-6">
-                  <GradientCtaButton href={item.href ?? "/products"}>View</GradientCtaButton>
+                  <Link
+                    href={item.href ?? "/products"}
+                    className="inline-flex rounded-md bg-accent-blue px-7 py-3 text-sm font-bold text-white transition-colors hover:bg-accent-blue-dark"
+                  >
+                    View
+                  </Link>
                 </div>
               </div>
             </div>

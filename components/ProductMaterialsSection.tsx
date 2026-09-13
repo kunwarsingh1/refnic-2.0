@@ -30,7 +30,13 @@ export default function ProductMaterialsSection({
               />
               <div className="relative flex flex-col p-5">
                 <h3 className="font-display text-lg font-bold leading-tight text-[#EBEBEB] md:text-xl">{m.title}</h3>
-                <CmsImagePlaceholder className="mt-4 aspect-[4/3] w-full rounded-xl" />
+                <div className="relative mt-4">
+                  <div
+                    className="pointer-events-none absolute left-1/2 top-1/2 h-[160px] w-[160px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3152DF] opacity-30 blur-[70px]"
+                    aria-hidden
+                  />
+                  <CmsImagePlaceholder className="relative aspect-[4/3] w-full rounded-xl" />
+                </div>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-white/55">{m.body}</p>
               </div>
             </div>

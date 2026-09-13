@@ -41,7 +41,7 @@ export default function ContentShowcase({
           {type === "image" &&
             (imageUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={imageUrl} alt="" className="max-h-[70vh] w-full rounded-lg object-cover" />
+              <img src={imageUrl} alt="" className="max-h-[70vh] w-full rounded-lg object-contain" />
             ) : (
               <CmsImagePlaceholder className="h-[50vh] w-full rounded-lg" />
             ))}

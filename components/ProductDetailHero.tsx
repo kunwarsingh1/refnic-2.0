@@ -30,11 +30,15 @@ export default function ProductDetailHero({
           {title}
         </h1>
 
-        <div className="mx-auto mt-6 flex justify-center">
+        <div className="relative mx-auto mt-6 flex justify-center">
+          <div
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3152DF] opacity-40 blur-[110px] md:h-[400px] md:w-[400px]"
+            aria-hidden
+          />
           {imageUrl ? (
-            <img src={imageUrl} alt={title} className="aspect-[4/3] w-80 object-contain opacity-90 md:w-[560px]" />
+            <img src={imageUrl} alt={title} className="relative aspect-[4/3] w-80 object-contain opacity-90 md:w-[560px]" />
           ) : (
-            <CmsImagePlaceholder className="aspect-[4/3] w-80 md:w-[560px]" />
+            <CmsImagePlaceholder className="relative aspect-[4/3] w-80 md:w-[560px]" />
           )}
         </div>
 

@@ -15,11 +15,15 @@ export default function ProductNarrativeSections({ sections }: { sections: Narra
 
             <div className="relative z-10 mx-auto max-w-5xl px-6">
               <div className={`flex flex-col gap-10 md:flex-row md:items-center ${isRight ? "" : "md:flex-row-reverse"}`}>
-                <div className="flex flex-1 justify-center">
+                <div className="relative flex flex-1 justify-center">
+                  <div
+                    className="pointer-events-none absolute left-1/2 top-1/2 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3152DF] opacity-30 blur-[110px] md:h-[380px] md:w-[380px]"
+                    aria-hidden
+                  />
                   {s.imageUrl ? (
-                    <img src={s.imageUrl} alt="" className="aspect-[495/488] w-64 object-contain opacity-40 md:w-[400px]" />
+                    <img src={s.imageUrl} alt="" className="relative aspect-[495/488] w-64 object-contain opacity-40 md:w-[400px]" />
                   ) : (
-                    <CmsImagePlaceholder className="aspect-[495/488] w-64 md:w-[400px]" />
+                    <CmsImagePlaceholder className="relative aspect-[495/488] w-64 md:w-[400px]" />
                   )}
                 </div>
 

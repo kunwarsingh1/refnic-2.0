@@ -25,12 +25,18 @@ export default function ProductClosingSection({
           <h2 className="font-display text-2xl font-bold uppercase leading-tight text-[#EBEBEB] md:text-5xl">
             {heading}
           </h2>
-          {imageUrl ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={imageUrl} alt="" className="mx-auto mt-10 aspect-square w-56 rounded-2xl object-cover md:w-72" />
-          ) : (
-            <CmsImagePlaceholder className="mx-auto mt-10 aspect-square w-56 rounded-2xl md:w-72" />
-          )}
+          <div className="relative mx-auto mt-10 flex justify-center">
+            <div
+              className="pointer-events-none absolute left-1/2 top-1/2 h-[240px] w-[240px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3152DF] opacity-30 blur-[100px] md:h-[340px] md:w-[340px]"
+              aria-hidden
+            />
+            {imageUrl ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={imageUrl} alt="" className="relative aspect-[3/2] w-72 rounded-2xl object-cover md:w-[420px]" />
+            ) : (
+              <CmsImagePlaceholder className="relative aspect-[3/2] w-72 rounded-2xl md:w-[420px]" />
+            )}
+          </div>
         </div>
       )}
 

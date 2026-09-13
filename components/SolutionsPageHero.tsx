@@ -14,7 +14,11 @@ export default function SolutionsPageHero() {
 
       <div className="relative z-10 mx-auto w-full px-6 text-center">
         <h1 className="font-display text-[clamp(1.71875rem,7.5vw,6.25rem)] font-bold leading-[1.02] text-[#F8F8F8]">
-          Complete Engineering From Design to Commissioning.
+          Complete Engineering
+          <br />
+          From Design to
+          <br />
+          Commissioning.
         </h1>
         <p className="mx-auto mt-8 max-w-xl text-[21.64px] leading-[32.46px] text-white">
           Integrated mechanical and chemical engineering solutions tailored for industrial-scale resource
