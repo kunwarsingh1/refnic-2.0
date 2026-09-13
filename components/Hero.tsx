@@ -9,7 +9,7 @@ export default function Hero() {
         <img
           src="/white_stone.png"
           alt=""
-          className="absolute left-0 top-1/2 z-20 w-[clamp(9rem,32vw,24rem)] -translate-x-[10%] -translate-y-[70%] rotate-[0deg] object-contain"
+          className="absolute left-0 top-1/2 z-20 w-[clamp(9rem,32vw,24rem)] origin-top-left -translate-x-[10%] -translate-y-[70%] rotate-[14deg] object-contain md:origin-center md:rotate-[0deg]"
         />
         <img
           src="/blur_stone.png"
@@ -19,7 +19,7 @@ export default function Hero() {
         <img
           src="/blue_blur.png"
           alt=""
-          className="absolute bottom-0 left-0 z-20 w-[clamp(8rem,19vw,14rem)] -translate-x-[35%] object-contain"
+          className="absolute bottom-0 left-0 z-20 w-[clamp(8rem,19vw,14rem)] origin-top-left -translate-x-[35%] rotate-[-19deg] object-contain blur-[0.71px] md:origin-center md:rotate-0 md:blur-none"
         />
         <img
           src="/blue_stone.png"
@@ -29,7 +29,7 @@ export default function Hero() {
         />
         
 
-        <div className="relative z-10 mx-6 rounded-b-[21px] bg-white px-6 py-16 text-center md:mx-0 md:rounded-b-[2.5rem] md:px-14 md:py-24">
+        <div className="relative z-10 mx-4 rounded-[32px] bg-white px-6 py-16 text-center md:mx-0 md:rounded-t-none md:rounded-b-[2.5rem] md:px-14 md:py-24">
           <h1 className="group relative font-display font-bold leading-[0.95] tracking-[-0.015em] text-black">
             <span className="block text-[clamp(2.75rem,20vw,10rem)] transition-all duration-500 ease-out group-hover:translate-y-1/2 group-hover:opacity-0 md:text-[clamp(2.75rem,12vw,10rem)]">
               REFINE
