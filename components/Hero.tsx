@@ -6,28 +6,41 @@ export default function Hero() {
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative mx-auto max-w-[90rem]">
-     <img
-  src="/white_stone.png"
-  alt=""
-  className="absolute left-0 top-1/2 z-20 w-[clamp(9rem,32vw,24rem)] -translate-y-[70%] rotate-[-15deg] object-contain drop-shadow-md origin-[15%_85%] md:origin-center md:rotate-0 md:drop-shadow-none"
-/>
+        {/* top-left dark rock */}
+        <img
+          src="/white_stone.png"
+          alt=""
+          className="absolute left-0 top-[10%] z-20 w-[clamp(9rem,38vw,13rem)] -translate-x-[-25%] rotate-[-43deg] object-contain drop-shadow-md origin-[15%_85%] md:left-0 md:top-1/2 md:w-[clamp(9rem,32vw,24rem)] md:origin-center md:-translate-x-0 md:-translate-y-[70%] md:rotate-0 md:drop-shadow-none"
+        />
+        {/* top-right silver/blue crystal (mobile: sharp white stone, desktop: original blurred crystal) */}
+        <img
+          src="/white_stone.png"
+          alt=""
+          className="absolute right-0 top-[10%] z-20 w-[clamp(9rem,38vw,13rem)] translate-x-[-25%] rotate-[43deg] object-contain drop-shadow-md origin-[85%_85%] md:hidden"
+        />
         <img
           src="/blur_stone.png"
           alt=""
-          className="absolute right-0 top-1/2 z-20 w-[clamp(8rem,24vw,18rem)] translate-x-[30%] -translate-y-[90%] rotate-[150deg] -scale-x-100 object-contain"
+          className="absolute right-0 top-1/2 z-20 hidden w-[clamp(8rem,24vw,18rem)] origin-center translate-x-[30%] -translate-y-[90%] object-contain md:block"
+        />
+        {/* bottom-left blue crystal (mobile: sharp blue stone, desktop: original blurred crystal) */}
+        <img
+          src="/blue_stone.png"
+          alt=""
+          className="absolute left-0 bottom-[0%] z-20 w-[clamp(10rem,40vw,14rem)] -translate-x-[25%] rotate-[5deg] object-contain drop-shadow-md origin-[15%_15%] md:hidden"
         />
         <img
           src="/blue_blur.png"
           alt=""
-          className="absolute bottom-0 left-0 z-20 w-[clamp(8rem,19vw,14rem)] origin-top-left -translate-x-[35%] rotate-[-19deg] object-contain blur-[0.71px] md:origin-center md:rotate-0 md:blur-none"
+          className="absolute left-0 bottom-0 z-20 hidden w-[clamp(8rem,19vw,14rem)] origin-center -translate-x-[35%] object-contain md:block"
         />
+        {/* bottom-right dark rock */}
         <img
           src="/blue_stone.png"
           alt=""
           style={{ filter: "drop-shadow(0 0 45px rgba(46, 75, 224, 0.85))" }}
-          className="absolute bottom-0 right-0 z-20 w-[clamp(10rem,30vw,23rem)] translate-x-[20%] translate-y-[28%] object-contain"
+          className="absolute right-0 bottom-[10%] z-20 w-[clamp(9rem,34vw,12rem)] translate-x-[-25%] object-contain md:right-0 md:bottom-0 md:w-[clamp(10rem,30vw,23rem)] md:translate-x-[20%] md:translate-y-[28%]"
         />
-        
 
         <div className="relative z-10 mx-4 rounded-[32px] bg-white px-6 py-16 text-center md:mx-0 md:rounded-t-none md:rounded-b-[2.5rem] md:px-14 md:py-24">
           <h1 className="group relative font-display font-bold leading-[0.95] tracking-[-0.015em] text-black">
