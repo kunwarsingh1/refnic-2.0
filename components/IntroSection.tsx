@@ -58,7 +58,7 @@ export default function IntroSection({ cards }: { cards: IntroCard[] }) {
   const middleIndex = position + 1;
 
   return (
-    <section className="relative overflow-hidden bg-black py-10 md:py-12">
+    <section className="relative overflow-hidden bg-black py-6 md:py-12">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
@@ -78,8 +78,8 @@ export default function IntroSection({ cards }: { cards: IntroCard[] }) {
         </div>
       </div>
 
-      <div className="relative z-10 mt-24 px-6 md:px-16">
-        <div className="overflow-hidden px-[11%] sm:px-0">
+      <div className="relative z-10 mt-10 px-0 md:mt-24 md:px-16">
+        <div className="overflow-hidden px-0">
           <div
             ref={trackRef}
             className="flex items-center gap-6 md:gap-8"
@@ -94,17 +94,24 @@ export default function IntroSection({ cards }: { cards: IntroCard[] }) {
                 <div
                   key={i}
                   style={{ perspective: "1000px" }}
-                  className={`flex w-full shrink-0 flex-col items-center border border-white/10 p-6 text-center transition-all duration-700 sm:w-[calc((100%-1.5rem)/2)] md:w-[calc((100%-4rem)/3)]`}
+                  className={`flex w-full shrink-0 flex-col items-center border border-white/10 px-0 py-4 text-center transition-all duration-700 sm:w-[calc((100%-1.5rem)/2)] md:w-[calc((100%-4rem)/3)] md:p-6`}
                 >
                   {c.imageUrl && (
-                    <img
-                      src={c.imageUrl}
-                      alt={c.title}
-                      className={`w-full object-contain transition-all duration-700 ${emphasized ? "h-42 md:h-60" : "h-28 md:h-40"}`}
-                      style={{ filter: "drop-shadow(0 0 60px rgba(46, 75, 224, 0.85))" }}
-                    />
+                    <div className="relative flex w-full items-center justify-center">
+                      {emphasized && (
+                        <div
+                          className="pointer-events-none absolute left-1/2 top-1/2 h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3152DF] opacity-40 blur-[80px] md:hidden"
+                          aria-hidden
+                        />
+                      )}
+                      <img
+                        src={c.imageUrl}
+                        alt={c.title}
+                        className={`relative w-full object-contain shadow-[0px_2px_14px_rgba(0,0,0,0.5)] transition-all duration-700 md:shadow-none md:[filter:drop-shadow(0_0_60px_rgba(46,75,224,0.85))] ${emphasized ? "h-42 md:h-60" : "h-28 md:h-40"}`}
+                      />
+                    </div>
                   )}
-                  <p className={`mt-6 font-sans text-white transition-all duration-700 ${emphasized ? "text-2xl font-bold md:text-3xl" : "text-lg font-medium text-white/80"}`}>
+                  <p className={`mt-3 px-4 font-sans text-white transition-all duration-700 md:mt-6 md:px-0 ${emphasized ? "text-2xl font-bold md:text-3xl" : "text-lg font-medium text-white/80"}`}>
                     {c.title}
                   </p>
                 </div>
