@@ -18,7 +18,7 @@ function ProductCard({ item }: { item: ProductCatalogItem }) {
 
         {item.imageUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={item.imageUrl} alt={item.title} className="mt-4 aspect-[4/3] w-full rounded-xl object-cover" />
+          <img src={item.imageUrl} alt={item.title} className="mt-4 aspect-[4/3] w-full rounded-xl object-contain" />
         ) : (
           <CmsImagePlaceholder className="mt-4 aspect-[4/3] w-full rounded-xl" />
         )}
@@ -59,7 +59,7 @@ export default function ProductsDirectoryGrid({
   return (
     <section className="relative overflow-hidden bg-black pb-20 md:pb-28">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className="relative mx-auto max-w-6xl px-6">
         {categories.map((category) => {
           const categoryItems = items.filter((item) => item.category === category.name);
           if (categoryItems.length === 0) return null;
