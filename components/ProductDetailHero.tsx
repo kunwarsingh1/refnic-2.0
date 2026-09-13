@@ -26,14 +26,11 @@ export default function ProductDetailHero({
         aria-hidden
       />
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <p
-          aria-hidden
-          className="pointer-events-none select-none font-display text-[80px] font-bold leading-none text-[#F8F8F8]/10 md:text-[165px]"
-        >
-          Products
-        </p>
+        <h1 className="font-display text-2xl font-bold uppercase leading-tight text-[#EBEBEB] md:text-[51.64px]">
+          {title}
+        </h1>
 
-        <div className="mx-auto mt-4 flex justify-center">
+        <div className="mx-auto mt-10 flex justify-center">
           {imageUrl ? (
             <img src={imageUrl} alt={title} className="aspect-[495/488] w-64 object-contain opacity-90 md:w-[400px]" />
           ) : (
@@ -41,9 +38,6 @@ export default function ProductDetailHero({
           )}
         </div>
 
-        <h1 className="mt-10 font-display text-2xl font-bold uppercase leading-tight text-[#EBEBEB] md:text-[51.64px]">
-          {title}
-        </h1>
         <p className="mx-auto mt-8 max-w-3xl whitespace-pre-line text-[18px] leading-[26px] text-white md:text-[21px] md:leading-[26.19px]">
           {body}
         </p>
