@@ -19,23 +19,29 @@ export default function PillarsSection({
   // three copies back-to-back so the track can keep sliding left and loop seamlessly
   const track = useMemo(() => [...pillars, ...pillars, ...pillars], [pillars]);
 
+  const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const [step, setStep] = useState(0);
+  const [centerOffset, setCenterOffset] = useState(0);
   const [position, setPosition] = useState(N);
   const [animate, setAnimate] = useState(false);
 
   useLayoutEffect(() => {
     const el = trackRef.current;
-    if (!el) return;
+    const container = containerRef.current;
+    if (!el || !container) return;
     const measure = () => {
       if (el.children.length < 2) return;
       const a = el.children[0] as HTMLElement;
       const b = el.children[1] as HTMLElement;
       setStep(b.offsetLeft - a.offsetLeft);
+      // center the active (narrower-than-container) card so its peek is symmetric
+      setCenterOffset((container.clientWidth - a.offsetWidth) / 2);
     };
     measure();
     const observer = new ResizeObserver(measure);
     observer.observe(el);
+    observer.observe(container);
     return () => observer.disconnect();
   }, []);
 
@@ -107,19 +113,19 @@ export default function PillarsSection({
       </div>
 
       <div className="relative mx-auto max-w-6xl px-6 pb-14 pt-14 md:pb-20 md:pt-20">
-        <div className="overflow-hidden px-[15%] md:overflow-visible md:px-0">
+        <div ref={containerRef} className="overflow-hidden md:overflow-visible">
           <div
             ref={trackRef}
             className="flex gap-4 md:!transform-none md:grid md:grid-cols-3 md:gap-6"
             style={{
-              transform: `translateX(-${position * step}px)`,
+              transform: `translateX(${centerOffset - position * step}px)`,
               transition: animate ? `transform ${TRANSITION_MS}ms ease` : "none",
             }}
           >
             {track.map((p, i) => (
               <div
                 key={i}
-                className="relative w-full shrink-0 transition-all duration-300 hover:scale-[1.03] md:w-auto"
+                className="relative w-[78%] shrink-0 transition-all duration-300 hover:scale-[1.03] md:w-auto"
               >
                 <div
                   className="pointer-events-none absolute inset-0 border border-white/20 bg-white/[0.03] md:border-transparent md:[border-image:linear-gradient(to_top_right,#1f1313,#737373,#191717)_1]"
