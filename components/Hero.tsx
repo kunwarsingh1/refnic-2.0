@@ -5,13 +5,14 @@ export default function Hero() {
     <section className="relative flex min-h-screen flex-col overflow-hidden bg-black pb-8 md:min-h-0 md:block md:pb-10">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
+      {/* top-left dark rock — direct child of the full-width section so it touches the true screen edge on desktop, not the inner max-w-[90rem] wrapper */}
+      <img
+        src="/white_stone.png"
+        alt=""
+        className="absolute left-0 top-[10%] z-20 w-[clamp(9rem,38vw,13rem)] -translate-x-[-25%] rotate-[-43deg] object-contain drop-shadow-md origin-[15%_85%] md:left-0 md:top-1/2 md:w-[clamp(9rem,32vw,24rem)] md:origin-center md:-translate-x-0 md:-translate-y-[70%] md:rotate-0 md:drop-shadow-none"
+      />
+
       <div className="relative mx-auto flex w-full flex-1 flex-col md:block md:max-w-[90rem]">
-        {/* top-left dark rock */}
-        <img
-          src="/white_stone.png"
-          alt=""
-          className="absolute left-0 top-[10%] z-20 w-[clamp(9rem,38vw,13rem)] -translate-x-[-25%] rotate-[-43deg] object-contain drop-shadow-md origin-[15%_85%] md:left-0 md:top-1/2 md:w-[clamp(9rem,32vw,24rem)] md:origin-center md:-translate-x-0 md:-translate-y-[70%] md:rotate-0 md:drop-shadow-none"
-        />
         {/* top-right silver/blue crystal (mobile: sharp white stone, desktop: original blurred crystal) */}
         <img
           src="/white_stone.png"
