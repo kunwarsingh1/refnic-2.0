@@ -426,8 +426,13 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                     <p className="
                       mt-2
                       max-w-xl
-                      leading-snug
-                      text-gray-600
+                      text-[12px]
+                      font-normal
+                      leading-[16.60px]
+                      text-[#151515]
+                      md:text-base
+                      md:leading-snug
+                      md:text-gray-600
                     ">
                       {cs.body}
                     </p>
