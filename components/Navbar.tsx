@@ -730,28 +730,38 @@ export default function Navbar({
               {mobileExpanded === "technologies" && (
                 <div className="ml-2 flex flex-col gap-3 border-l border-gray-100 pl-3">
                   {[
-                    { headerIndex: 0, itemIndexes: [3, 6, 9, 11, 13, 14] },
-                    { headerIndex: 1, itemIndexes: [4, 7, 10, 12] },
-                    { headerIndex: 2, itemIndexes: [5, 8] },
-                  ].map(({ headerIndex, itemIndexes }) =>
+                    { subKey: "tech-sustainability", headerIndex: 0, itemIndexes: [3, 6, 9, 11, 13, 14] },
+                    { subKey: "tech-resources", headerIndex: 1, itemIndexes: [4, 7, 10, 12] },
+                    { subKey: "tech-digitaltools", headerIndex: 2, itemIndexes: [5, 8] },
+                  ].map(({ subKey, headerIndex, itemIndexes }) =>
                     technologiesMenu[headerIndex] ? (
-                      <div key={headerIndex}>
-                        <p className="px-2 text-xs font-bold uppercase tracking-wide text-gray-400">
+                      <div key={subKey}>
+                        <button
+                          type="button"
+                          onClick={() => setMobileSubExpanded((v) => (v === subKey ? null : subKey))}
+                          aria-expanded={mobileSubExpanded === subKey}
+                          className="flex w-full items-center justify-between rounded-md px-2 py-1.5 text-xs font-bold uppercase tracking-wide text-gray-400 hover:bg-gray-50"
+                        >
                           {technologiesMenu[headerIndex].label}
-                        </p>
-                        <div className="mt-1 flex flex-col gap-0.5">
-                          {itemIndexes.map((i) =>
-                            technologiesMenu[i] ? (
-                              <Link
-                                key={i}
-                                href={technologiesMenu[i].href}
-                                className="rounded-md px-2 py-2 text-gray-600 hover:bg-gray-50"
-                              >
-                                {technologiesMenu[i].label}
-                              </Link>
-                            ) : null
-                          )}
-                        </div>
+                          <CaretDown
+                            className={`size-3 transition-transform ${mobileSubExpanded === subKey ? "rotate-180" : ""}`}
+                          />
+                        </button>
+                        {mobileSubExpanded === subKey && (
+                          <div className="mt-1 flex flex-col gap-0.5">
+                            {itemIndexes.map((i) =>
+                              technologiesMenu[i] ? (
+                                <Link
+                                  key={i}
+                                  href={technologiesMenu[i].href}
+                                  className="rounded-md px-2 py-2 text-gray-600 hover:bg-gray-50"
+                                >
+                                  {technologiesMenu[i].label}
+                                </Link>
+                              ) : null
+                            )}
+                          </div>
+                        )}
                       </div>
                     ) : null
                   )}
