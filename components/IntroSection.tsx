@@ -113,7 +113,7 @@ export default function IntroSection({ cards }: { cards: IntroCard[] }) {
         </div>
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className="relative mx-auto hidden max-w-7xl px-6 md:block">
         <div className="relative mt-20 flex justify-center">
           <div className="pointer-events-none absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3152df] opacity-40 blur-[100px]" aria-hidden />
           <Button href="/products">View Products</Button>
