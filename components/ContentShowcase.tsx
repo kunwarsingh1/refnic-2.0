@@ -51,7 +51,7 @@ export default function ContentShowcase({
           )}
 
           {caption && (
-            <p className="mx-auto mt-10 max-w-2xl text-center text-[21.64px] leading-[32.46px] text-[#151417]">
+            <p className="mx-auto mt-4 max-w-2xl text-center text-[21.64px] leading-[32.46px] text-[#151417]">
               {caption}
             </p>
           )}
