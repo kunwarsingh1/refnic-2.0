@@ -80,8 +80,8 @@ export default function IntroSection({ cards }: { cards: IntroCard[] }) {
         </div>
       </div>
 
-      <div className="relative z-10 mt-10 px-0 md:mt-24 md:px-16">
-        <div className="h-[34rem] overflow-hidden px-0 md:h-auto">
+      <div className="relative z-10 mt-6 px-0 md:mt-24 md:px-16">
+        <div className="h-[19rem] overflow-hidden px-0 md:h-auto">
           <div
             ref={trackRef}
             className="flex h-full items-center gap-0 md:h-auto md:gap-8"
@@ -113,7 +113,7 @@ export default function IntroSection({ cards }: { cards: IntroCard[] }) {
                       <img
                         src={c.imageUrl}
                         alt={c.title}
-                        className={`relative w-full object-contain shadow-[0px_2px_14px_rgba(0,0,0,0.5)] transition-all duration-700 md:shadow-none md:[filter:drop-shadow(0_0_60px_rgba(46,75,224,0.85))] ${emphasized ? "h-auto max-h-[28rem] md:h-60" : "h-40 md:h-40"}`}
+                        className={`relative w-full object-contain shadow-[0px_2px_14px_rgba(0,0,0,0.5)] transition-all duration-700 md:shadow-none md:[filter:drop-shadow(0_0_60px_rgba(46,75,224,0.85))] ${emphasized ? "h-auto max-h-[13rem] md:h-60" : "h-40 md:h-40"}`}
                       />
                     </div>
                   )}
