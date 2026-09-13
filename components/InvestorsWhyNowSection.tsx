@@ -18,7 +18,7 @@ export default function InvestorsWhyNowSection({ heading, reasons }: { heading: 
                 className="pointer-events-none absolute inset-0 border border-transparent bg-white/[0.03]"
                 aria-hidden
               />
-              <div className="relative flex h-full flex-col gap-6 p-8">
+              <div className="relative flex h-full flex-col gap-6 p-5">
                 <CmsImagePlaceholder className="h-20 w-20 rounded-xl" />
                 <p className="text-[26px] leading-[1.15] text-[#EBEBEB]">{reason}</p>
               </div>

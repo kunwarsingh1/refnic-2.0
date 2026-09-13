@@ -19,21 +19,17 @@ export default function MaterialRecoverySection({ config: c }: { config: Product
             <div
               key={i}
               style={{ borderImage: "linear-gradient(to top right, #1f1313, #737373, #191717) 1" }}
-              className="border border-transparent bg-white/[0.03] p-8 md:p-12"
+              className="flex flex-col border border-transparent bg-white/[0.03] p-5"
             >
-              <h3 className="font-display text-2xl font-bold leading-tight text-[#EBEBEB] md:text-3xl">
+              <h3 className="font-display font-bold text-lg leading-tight text-[#EBEBEB] md:text-xl">
                 {card.title}
               </h3>
               {card.imageUrl ? (
-                <img
-                  src={card.imageUrl}
-                  alt=""
-                  className="mt-10 aspect-square w-full max-w-[280px] rounded-md object-cover md:mt-12"
-                />
+                <img src={card.imageUrl} alt="" className="mt-4 aspect-[4/3] w-full rounded-xl object-cover" />
               ) : (
-                <CmsImagePlaceholder className="mt-10 aspect-square w-full max-w-[280px] rounded-md md:mt-12" />
+                <CmsImagePlaceholder className="mt-4 aspect-[4/3] w-full rounded-xl" />
               )}
-              <p className="mt-10 text-sm leading-relaxed text-white/70 md:mt-12 md:text-base">{card.description}</p>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-white/55">{card.description}</p>
             </div>
           ))}
         </div>

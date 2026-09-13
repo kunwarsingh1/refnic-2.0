@@ -19,7 +19,7 @@ export default function IndianMarketIndustriesSection({
                 className="pointer-events-none absolute inset-0 border border-transparent bg-white/[0.03]"
                 aria-hidden
               />
-              <div className="relative flex min-h-[132px] items-center justify-center p-6 text-center">
+              <div className="relative flex min-h-[132px] items-center justify-center p-5 text-center">
                 <p className="font-display text-lg font-bold leading-tight text-[#EBEBEB] md:text-xl">{ind}</p>
               </div>
             </div>

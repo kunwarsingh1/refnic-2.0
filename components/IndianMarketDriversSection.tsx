@@ -23,7 +23,7 @@ export default function IndianMarketDriversSection({
                 className="pointer-events-none absolute inset-0 border border-transparent bg-white/[0.03]"
                 aria-hidden
               />
-              <div className="relative flex h-full flex-col gap-4 p-8">
+              <div className="relative flex h-full flex-col gap-4 p-5">
                 <h3 className="font-display text-lg font-bold leading-tight text-[#EBEBEB] md:text-xl">{badge}</h3>
                 <p className="text-[21.64px] leading-[32.46px] text-white">{paragraphs[i]}</p>
               </div>

@@ -25,7 +25,7 @@ export default function GlobalMarketAdvantageSection({
                 className="pointer-events-none absolute inset-0 border border-transparent bg-white/[0.03]"
                 aria-hidden
               />
-              <div className="relative grid grid-cols-1 items-center gap-6 p-8 text-center md:grid-cols-[1fr_auto_1fr] md:gap-8 md:p-10 md:text-left">
+              <div className="relative grid grid-cols-1 items-center gap-6 p-5 text-center md:grid-cols-[1fr_auto_1fr] md:gap-8 md:text-left">
                 <p className="font-display text-lg font-bold leading-tight text-[#EBEBEB] md:text-xl">{card.title}</p>
                 <CmsImagePlaceholder className="mx-auto h-32 w-32 shrink-0 md:h-40 md:w-40" />
                 <p className="text-[21.64px] leading-[32.46px] text-white md:text-right">{card.body}</p>
