@@ -55,7 +55,7 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="mx-auto mt-10 max-w-xl text-sm leading-relaxed text-gray-500 md:mt-8 md:text-lg">
+          <p className="mx-auto mt-10 max-w-[220px] text-sm font-normal leading-[18px] text-gray-500 md:mt-8 md:max-w-xl md:text-lg md:leading-relaxed">
             Engineering the technologies that transform industrial waste into
             critical materials powering a cleaner, circular future through
             indigenous innovation.
