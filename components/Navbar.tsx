@@ -440,7 +440,7 @@ export default function Navbar({
           <img src="/logo_blue.png" alt="Refnic Logo" className="h-18 w-auto" />
         </Link>
 
-      <div className="flex flex-1 items-center justify-between gap-4">
+      <div className="flex flex-1 items-center justify-end gap-4 lg:justify-between">
         <nav className="hidden lg:flex items-center gap-6">
           {rightLinks.map((l) =>
             l.label === "About Us" ? (
