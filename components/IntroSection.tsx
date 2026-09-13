@@ -99,17 +99,21 @@ export default function IntroSection({ cards }: { cards: IntroCard[] }) {
                   className={`flex w-full shrink-0 flex-col items-center border border-white/10 px-0 py-4 text-center transition-all duration-700 sm:w-[calc((100%-1.5rem)/2)] md:w-[calc((100%-4rem)/3)] md:p-6`}
                 >
                   {c.imageUrl && (
-                    <div className="relative flex w-full items-center justify-center">
-                      {emphasized && (
-                        <div
-                          className="pointer-events-none absolute left-1/2 top-1/2 h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3152DF] opacity-50 blur-[100px] md:hidden"
-                          aria-hidden
-                        />
-                      )}
+                    <div
+                      className={`relative flex items-center justify-center transition-all duration-700 ${
+                        emphasized ? "w-4/5" : "w-full"
+                      }`}
+                    >
+                      <div
+                        className={`pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3152DF] opacity-50 blur-[100px] transition-all duration-700 md:hidden ${
+                          emphasized ? "h-[420px] w-[420px]" : "h-[260px] w-[260px]"
+                        }`}
+                        aria-hidden
+                      />
                       <img
                         src={c.imageUrl}
                         alt={c.title}
-                        className={`relative w-full object-contain shadow-[0px_2px_14px_rgba(0,0,0,0.5)] transition-all duration-700 md:shadow-none md:[filter:drop-shadow(0_0_60px_rgba(46,75,224,0.85))] ${emphasized ? "h-auto max-h-[22rem] md:h-60" : "h-28 md:h-40"}`}
+                        className={`relative w-full object-contain shadow-[0px_2px_14px_rgba(0,0,0,0.5)] transition-all duration-700 md:shadow-none md:[filter:drop-shadow(0_0_60px_rgba(46,75,224,0.85))] ${emphasized ? "h-auto max-h-[28rem] md:h-60" : "h-40 md:h-40"}`}
                       />
                     </div>
                   )}
