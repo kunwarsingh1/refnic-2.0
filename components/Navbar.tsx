@@ -612,40 +612,92 @@ export default function Navbar({
                 </button>
               </div>
               {mobileExpanded === "products" && (
-                <div className="ml-2 flex flex-col gap-3 border-l border-gray-100 pl-3">
-                  {productsMenu[0] && (
-                    <div>
-                      <p className="px-2 text-xs font-bold uppercase tracking-wide text-gray-400">
-                        {productsMenu[0].label}
-                      </p>
-                      <div className="mt-1 flex flex-col gap-0.5">
-                        {productsMenu.slice(3).map((item, i) => (
-                          <Link
-                            key={i}
-                            href={item.href}
-                            className="rounded-md px-2 py-2 text-gray-600 hover:bg-gray-50"
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
+                <div className="ml-2 flex flex-col gap-4 border-l border-gray-100 pl-3">
+                  {[
+                    {
+                      headerIndex: 0,
+                      mechanicalHeaderIndex: 3,
+                      mechanicalIndexes: [5, 7, 9, 17, 27, 31, 35],
+                      chemicalHeaderIndex: 42,
+                      chemicalIndexes: [6, 8, 10, 18, 28, 32, 36, 39],
+                    },
+                    {
+                      headerIndex: 1,
+                      mechanicalHeaderIndex: 4,
+                      mechanicalIndexes: [11, 19, 29, 33, 37, 40],
+                      chemicalHeaderIndex: 43,
+                      chemicalIndexes: [12, 20, 30, 34, 38, 41],
+                    },
+                  ].map(({ headerIndex, mechanicalHeaderIndex, mechanicalIndexes, chemicalHeaderIndex, chemicalIndexes }) =>
+                    productsMenu[headerIndex] ? (
+                      <div key={headerIndex}>
+                        <p className="px-2 text-xs font-bold uppercase tracking-wide text-gray-400">
+                          {productsMenu[headerIndex].label}
+                        </p>
+                        <div className="mt-1 flex flex-col gap-3">
+                          {productsMenu[mechanicalHeaderIndex] && (
+                            <div>
+                              <p className="px-2 text-xs font-semibold text-gray-700">
+                                {productsMenu[mechanicalHeaderIndex].label}
+                              </p>
+                              <div className="mt-0.5 flex flex-col gap-0.5">
+                                {mechanicalIndexes.map((i) =>
+                                  productsMenu[i] ? (
+                                    <Link
+                                      key={i}
+                                      href={productsMenu[i].href}
+                                      className="rounded-md px-2 py-2 text-gray-600 hover:bg-gray-50"
+                                    >
+                                      {productsMenu[i].label}
+                                    </Link>
+                                  ) : null
+                                )}
+                              </div>
+                            </div>
+                          )}
+                          {productsMenu[chemicalHeaderIndex] && (
+                            <div>
+                              <p className="px-2 text-xs font-semibold text-gray-700">
+                                {productsMenu[chemicalHeaderIndex].label}
+                              </p>
+                              <div className="mt-0.5 flex flex-col gap-0.5">
+                                {chemicalIndexes.map((i) =>
+                                  productsMenu[i] ? (
+                                    <Link
+                                      key={i}
+                                      href={productsMenu[i].href}
+                                      className="rounded-md px-2 py-2 text-gray-600 hover:bg-gray-50"
+                                    >
+                                      {productsMenu[i].label}
+                                    </Link>
+                                  ) : null
+                                )}
+                              </div>
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  )}
-                  {productsMenu[1] && (
-                    <Link
-                      href={productsMenu[1].href}
-                      className="rounded-md px-2 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-50"
-                    >
-                      {productsMenu[1].label}
-                    </Link>
+                    ) : null
                   )}
                   {productsMenu[2] && (
-                    <Link
-                      href={productsMenu[2].href}
-                      className="rounded-md px-2 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-50"
-                    >
-                      {productsMenu[2].label}
-                    </Link>
+                    <div>
+                      <p className="px-2 text-xs font-bold uppercase tracking-wide text-gray-400">
+                        {productsMenu[2].label}
+                      </p>
+                      <div className="mt-1 flex flex-col gap-0.5">
+                        {[13, 21, 14, 22, 15, 23, 16, 24, 25, 26].map((i) =>
+                          productsMenu[i] ? (
+                            <Link
+                              key={i}
+                              href={productsMenu[i].href}
+                              className="rounded-md px-2 py-2 text-gray-600 hover:bg-gray-50"
+                            >
+                              {productsMenu[i].label}
+                            </Link>
+                          ) : null
+                        )}
+                      </div>
+                    </div>
                   )}
                 </div>
               )}

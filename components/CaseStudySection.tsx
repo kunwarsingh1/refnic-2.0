@@ -81,7 +81,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
       <section className="relative overflow-hidden bg-black pt-[80px] pb-12 md:pt-[204px] md:pb-16">
         <div className="absolute inset-0 bg-grid-dark" aria-hidden />
         <div className="relative z-10 mx-auto w-[90%] px-6">
-          <div className="rounded-t-[2.5rem] bg-white px-6 py-14 text-center text-gray-400 md:px-12">
+          <div className="rounded-[2.5rem] bg-white px-6 py-14 text-center text-gray-400 md:px-12">
             No case studies yet.
           </div>
         </div>
@@ -125,7 +125,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
 
       <div className="relative z-10 mx-auto w-[90%] px-6">
         
-        <div className="rounded-t-[2.5rem] bg-white px-6 pt-10 pb-14 md:px-12 md:pt-14 md:pb-20">
+        <div className="rounded-[2.5rem] bg-white px-6 pt-10 pb-14 md:px-12 md:pt-14 md:pb-20">
 
           {/* ========================================
               SECTION HEADER
