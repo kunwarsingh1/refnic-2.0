@@ -33,7 +33,7 @@ export default function CareerPageOpenPositions({
 
                 <CmsImagePlaceholder className="mt-4 aspect-[4/3] w-full rounded-xl" />
 
-                <p className="mt-2 flex-1 text-[21.64px] leading-[32.46px] text-white">{p.body}</p>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-white/55">{p.body}</p>
                 <div className="mt-6">
                   <GradientCtaButton href="/contact">{applyLabel}</GradientCtaButton>
                 </div>

@@ -23,7 +23,7 @@ function ProductCard({ item }: { item: ProductCatalogItem }) {
           <CmsImagePlaceholder className="mt-4 aspect-[4/3] w-full rounded-xl" />
         )}
 
-        <p className="mt-2 flex-1 text-sm font-normal leading-relaxed text-white md:text-[21.64px] md:leading-[32.46px]">
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-white/55">
           {item.excerpt}
         </p>
 
