@@ -15,7 +15,7 @@ export default function PillarsSection({
 
       <div className="relative mx-auto max-w-6xl px-6 pt-2 md:pt-4">
         <div className="mx-auto mb-14 max-w-2xl text-center">
-          <h2 className="font-sans font-bold text-3xl text-white md:text-5xl">
+          <h2 className="font-sans text-[18px] font-bold leading-[18px] text-[#EBEBEB] md:text-5xl md:leading-tight md:text-white">
             Designed for Industrial Excellence
           </h2>
           <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-white md:text-[21.64px] md:leading-[32.46px]">
