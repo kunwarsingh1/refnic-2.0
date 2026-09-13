@@ -111,7 +111,7 @@ export default function ProductsDirectoryGrid({
                 );
               })()}
 
-              <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-3">
+              <div className="mt-10 grid gap-8 md:grid-cols-3">
                 {categoryItems.map((item) => (
                   <ProductCard key={item.id} item={item} />
                 ))}
