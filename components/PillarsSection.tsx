@@ -89,7 +89,7 @@ export default function PillarsSection({
         </div>
       </div>
 
-      <div className="relative mx-auto w-full max-w-[90rem] px-6 py-8 md:py-10">
+      <div className="relative mx-auto w-full max-w-[90rem] px-6 py-3 md:py-10">
         <div className="pointer-events-none absolute -bottom-10 left-0 h-[300px] w-[300px] rounded-full bg-[#3152df] opacity-30 blur-[120px] md:h-[420px] md:w-[420px] md:blur-[160px]" aria-hidden />
         <div className="pointer-events-none absolute -bottom-10 right-0 h-[300px] w-[300px] rounded-full bg-[#3152df] opacity-30 blur-[120px] md:h-[420px] md:w-[420px] md:blur-[160px]" aria-hidden />
         <div className="relative aspect-[1376/768] w-full overflow-hidden rounded-3xl bg-black">
@@ -114,7 +114,7 @@ export default function PillarsSection({
         </div>
       </div>
 
-      <div className="relative mx-auto w-full max-w-6xl px-6 pb-14 pt-14 md:pb-20 md:pt-20">
+      <div className="relative mx-auto w-full max-w-6xl px-6 pb-14 pt-4 md:pb-20 md:pt-20">
         {/* Mobile: contained swipeable snap carousel — no negative margins, can't overflow the page */}
         <div className="w-full min-w-0 md:hidden">
           <div

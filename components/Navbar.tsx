@@ -78,10 +78,12 @@ export default function Navbar({
   const [techScale, setTechScale] = useState(1);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [mobileSubExpanded, setMobileSubExpanded] = useState<string | null>(null);
 
   useEffect(() => {
     setMobileOpen(false);
     setMobileExpanded(null);
+    setMobileSubExpanded(null);
   }, [pathname]);
 
   useEffect(() => {
@@ -98,7 +100,7 @@ export default function Navbar({
 
   return (
     <>
-    <div className="relative flex items-center gap-4 py-0 pl-6 pr-1 text-sm md:py-3 md:px-6">
+    <div className="relative flex items-center gap-4 py-0.5 pl-6 pr-1 text-sm md:py-3 md:px-6">
       <div className="flex flex-1 items-center justify-between gap-4">
         <a href={`mailto:${contactEmail}`} className="hidden lg:block hover:underline">
           {contactEmail}
@@ -437,7 +439,7 @@ export default function Navbar({
           className="shrink-0 font-display font-bold text-2xl tracking-tight text-black"
           aria-label="Refnic"
         >
-          <img src="/logo_blue.png" alt="Refnic Logo" className="h-9 w-auto md:h-18" />
+          <img src="/logo_blue.png" alt="Refnic Logo" className="h-10 w-auto md:h-18" />
         </Link>
 
       <div className="flex flex-1 items-center justify-end gap-4 lg:justify-between">
@@ -583,9 +585,9 @@ export default function Navbar({
           }
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
-          className="flex items-center justify-center p-0.5 text-black lg:hidden"
+          className="flex items-center justify-center p-1 text-black lg:hidden"
         >
-          {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+          {mobileOpen ? <X className="size-[22px]" /> : <Menu className="size-[22px]" />}
         </button>
       </div>
 
@@ -615,6 +617,7 @@ export default function Navbar({
                 <div className="ml-2 flex flex-col gap-4 border-l border-gray-100 pl-3">
                   {[
                     {
+                      key: "products",
                       headerIndex: 0,
                       mechanicalHeaderIndex: 3,
                       mechanicalIndexes: [5, 7, 9, 17, 27, 31, 35],
@@ -622,58 +625,54 @@ export default function Navbar({
                       chemicalIndexes: [6, 8, 10, 18, 28, 32, 36, 39],
                     },
                     {
+                      key: "solution",
                       headerIndex: 1,
                       mechanicalHeaderIndex: 4,
                       mechanicalIndexes: [11, 19, 29, 33, 37, 40],
                       chemicalHeaderIndex: 43,
                       chemicalIndexes: [12, 20, 30, 34, 38, 41],
                     },
-                  ].map(({ headerIndex, mechanicalHeaderIndex, mechanicalIndexes, chemicalHeaderIndex, chemicalIndexes }) =>
+                  ].map(({ key, headerIndex, mechanicalHeaderIndex, mechanicalIndexes, chemicalHeaderIndex, chemicalIndexes }) =>
                     productsMenu[headerIndex] ? (
-                      <div key={headerIndex}>
+                      <div key={key}>
                         <p className="px-2 text-xs font-bold uppercase tracking-wide text-gray-400">
                           {productsMenu[headerIndex].label}
                         </p>
-                        <div className="mt-1 flex flex-col gap-3">
-                          {productsMenu[mechanicalHeaderIndex] && (
-                            <div>
-                              <p className="px-2 text-xs font-semibold text-gray-700">
-                                {productsMenu[mechanicalHeaderIndex].label}
-                              </p>
-                              <div className="mt-0.5 flex flex-col gap-0.5">
-                                {mechanicalIndexes.map((i) =>
-                                  productsMenu[i] ? (
-                                    <Link
-                                      key={i}
-                                      href={productsMenu[i].href}
-                                      className="rounded-md px-2 py-2 text-gray-600 hover:bg-gray-50"
-                                    >
-                                      {productsMenu[i].label}
-                                    </Link>
-                                  ) : null
+                        <div className="mt-1 flex flex-col gap-1">
+                          {[
+                            { subKey: `${key}-mechanical`, subHeaderIndex: mechanicalHeaderIndex, indexes: mechanicalIndexes },
+                            { subKey: `${key}-chemical`, subHeaderIndex: chemicalHeaderIndex, indexes: chemicalIndexes },
+                          ].map(({ subKey, subHeaderIndex, indexes }) =>
+                            productsMenu[subHeaderIndex] ? (
+                              <div key={subKey}>
+                                <button
+                                  type="button"
+                                  onClick={() => setMobileSubExpanded((v) => (v === subKey ? null : subKey))}
+                                  aria-expanded={mobileSubExpanded === subKey}
+                                  className="flex w-full items-center justify-between rounded-md px-2 py-1.5 text-xs font-semibold text-gray-700 hover:bg-gray-50"
+                                >
+                                  {productsMenu[subHeaderIndex].label}
+                                  <CaretDown
+                                    className={`size-3 transition-transform ${mobileSubExpanded === subKey ? "rotate-180" : ""}`}
+                                  />
+                                </button>
+                                {mobileSubExpanded === subKey && (
+                                  <div className="ml-2 mt-0.5 flex flex-col gap-0.5 border-l border-gray-100 pl-2">
+                                    {indexes.map((i) =>
+                                      productsMenu[i] ? (
+                                        <Link
+                                          key={i}
+                                          href={productsMenu[i].href}
+                                          className="rounded-md px-2 py-2 text-gray-600 hover:bg-gray-50"
+                                        >
+                                          {productsMenu[i].label}
+                                        </Link>
+                                      ) : null
+                                    )}
+                                  </div>
                                 )}
                               </div>
-                            </div>
-                          )}
-                          {productsMenu[chemicalHeaderIndex] && (
-                            <div>
-                              <p className="px-2 text-xs font-semibold text-gray-700">
-                                {productsMenu[chemicalHeaderIndex].label}
-                              </p>
-                              <div className="mt-0.5 flex flex-col gap-0.5">
-                                {chemicalIndexes.map((i) =>
-                                  productsMenu[i] ? (
-                                    <Link
-                                      key={i}
-                                      href={productsMenu[i].href}
-                                      className="rounded-md px-2 py-2 text-gray-600 hover:bg-gray-50"
-                                    >
-                                      {productsMenu[i].label}
-                                    </Link>
-                                  ) : null
-                                )}
-                              </div>
-                            </div>
+                            ) : null
                           )}
                         </div>
                       </div>

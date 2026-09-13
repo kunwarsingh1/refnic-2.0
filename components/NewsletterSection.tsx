@@ -32,7 +32,7 @@ export default function NewsletterSection({ posts }: { posts: NewsletterPost[] }
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-black pt-12 md:pt-16 pb-0">
+    <section className="relative overflow-hidden bg-black pb-12 pt-12 md:pb-0 md:pt-16">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative mx-auto max-w-6xl px-6">
