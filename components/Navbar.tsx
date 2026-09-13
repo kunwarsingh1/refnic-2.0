@@ -588,10 +588,9 @@ export default function Navbar({
           {mobileOpen ? <X className="size-6" /> : <Menu className="size-6" />}
         </button>
       </div>
-      </div>
 
       {mobileOpen && (
-        <div className="border-t border-gray-100 px-6 py-4 lg:hidden">
+        <div className="absolute inset-x-0 top-full z-50 max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-gray-100 bg-white px-6 py-4 shadow-lg lg:hidden">
           <nav className="flex flex-col gap-1 text-sm">
             <Link href="/" className="rounded-md px-2 py-2.5 hover:bg-gray-50">
               Home
@@ -716,6 +715,7 @@ export default function Navbar({
           </nav>
         </div>
       )}
+      </div>
     </>
   );
 }
