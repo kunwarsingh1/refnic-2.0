@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { CaretDown } from "./ui/primitives";
-import { BookOpen, Globe, BarChart3, TrendingUp, MapPin, ArrowUpRight, Boxes, Lightbulb, Settings, Leaf, Library, Wrench, FileText, Menu, X, Mail, Shield } from "lucide-react";
+import { BookOpen, Globe, BarChart3, TrendingUp, MapPin, ArrowUpRight, Boxes, Lightbulb, Settings, Leaf, Library, Wrench, FileText, Menu, X, Mail, Shield, ChevronRight } from "lucide-react";
 import styles from "./aboutDropdown.module.css";
 import productStyles from "./products.module.css";
 import techStyles from "./technologies.module.css";
@@ -393,16 +393,16 @@ export default function Navbar({
                         <div className={techStyles.trchnologiesItem} />
                         <div className={techStyles.trchnologiesInner} />
                         <div className={techStyles.ellipseDiv} />
-                        <div className={techStyles.trchnologiesChild2} />
-                        <div className={techStyles.trchnologiesChild3} />
-                        <div className={techStyles.trchnologiesChild4} />
-                        <div className={techStyles.trchnologiesChild5} />
-                        <div className={techStyles.trchnologiesChild6} />
-                        <div className={techStyles.trchnologiesChild7} />
-                        <div className={techStyles.trchnologiesChild8} />
-                        <div className={techStyles.trchnologiesChild9} />
-                        <div className={techStyles.trchnologiesChild10} />
-                        <div className={techStyles.trchnologiesChild11} />
+                        <ChevronRight className={`${techStyles.trchnologiesChild2} ${techStyles.bulletChevron}`} />
+                        <ChevronRight className={`${techStyles.trchnologiesChild3} ${techStyles.bulletChevron}`} />
+                        <ChevronRight className={`${techStyles.trchnologiesChild4} ${techStyles.bulletChevron}`} />
+                        <ChevronRight className={`${techStyles.trchnologiesChild5} ${techStyles.bulletChevron}`} />
+                        <ChevronRight className={`${techStyles.trchnologiesChild6} ${techStyles.bulletChevron}`} />
+                        <ChevronRight className={`${techStyles.trchnologiesChild7} ${techStyles.bulletChevron}`} />
+                        <ChevronRight className={`${techStyles.trchnologiesChild8} ${techStyles.bulletChevron}`} />
+                        <ChevronRight className={`${techStyles.trchnologiesChild9} ${techStyles.bulletChevron}`} />
+                        <ChevronRight className={`${techStyles.trchnologiesChild10} ${techStyles.bulletChevron}`} />
+                        <ChevronRight className={`${techStyles.trchnologiesChild11} ${techStyles.bulletChevron}`} />
                         <Link href={technologiesMenu[15].href} className={techStyles.navContentList4}>
                            <FileText className={techStyles.chartpolarIcon4} />
                           <div className={techStyles.frameDiv}>
