@@ -30,15 +30,15 @@ export default function ProductDetailHero({
           {title}
         </h1>
 
-        <div className="mx-auto mt-10 flex justify-center">
+        <div className="mx-auto mt-6 flex justify-center">
           {imageUrl ? (
-            <img src={imageUrl} alt={title} className="aspect-[495/488] w-64 object-contain opacity-90 md:w-[400px]" />
+            <img src={imageUrl} alt={title} className="aspect-[4/3] w-80 object-contain opacity-90 md:w-[560px]" />
           ) : (
-            <CmsImagePlaceholder className="aspect-[495/488] w-64 md:w-[400px]" />
+            <CmsImagePlaceholder className="aspect-[4/3] w-80 md:w-[560px]" />
           )}
         </div>
 
-        <p className="mx-auto mt-8 max-w-3xl whitespace-pre-line text-[18px] leading-[26px] text-white md:text-[21px] md:leading-[26.19px]">
+        <p className="mx-auto mt-6 max-w-3xl whitespace-pre-line text-[18px] leading-[26px] text-white md:text-[21px] md:leading-[26.19px]">
           {body}
         </p>
 
