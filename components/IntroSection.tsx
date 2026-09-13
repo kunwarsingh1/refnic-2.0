@@ -18,16 +18,18 @@ export default function IntroSection({ cards }: { cards: IntroCard[] }) {
   const [animate, setAnimate] = useState(false);
 
   useLayoutEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
     const measure = () => {
-      const el = trackRef.current;
-      if (!el || el.children.length < 2) return;
+      if (el.children.length < 2) return;
       const a = el.children[0] as HTMLElement;
       const b = el.children[1] as HTMLElement;
       setStep(b.offsetLeft - a.offsetLeft);
     };
     measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
+    const observer = new ResizeObserver(measure);
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -82,7 +84,7 @@ export default function IntroSection({ cards }: { cards: IntroCard[] }) {
         <div className="overflow-hidden px-0">
           <div
             ref={trackRef}
-            className="flex items-center gap-6 md:gap-8"
+            className="flex items-center gap-0 md:gap-8"
             style={{
               transform: `translateX(-${position * step}px)`,
               transition: animate ? `transform ${TRANSITION_MS}ms ease` : "none",
@@ -100,14 +102,14 @@ export default function IntroSection({ cards }: { cards: IntroCard[] }) {
                     <div className="relative flex w-full items-center justify-center">
                       {emphasized && (
                         <div
-                          className="pointer-events-none absolute left-1/2 top-1/2 h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3152DF] opacity-40 blur-[80px] md:hidden"
+                          className="pointer-events-none absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3152DF] opacity-50 blur-[90px] md:hidden"
                           aria-hidden
                         />
                       )}
                       <img
                         src={c.imageUrl}
                         alt={c.title}
-                        className={`relative w-full object-contain shadow-[0px_2px_14px_rgba(0,0,0,0.5)] transition-all duration-700 md:shadow-none md:[filter:drop-shadow(0_0_60px_rgba(46,75,224,0.85))] ${emphasized ? "h-42 md:h-60" : "h-28 md:h-40"}`}
+                        className={`relative w-full object-contain shadow-[0px_2px_14px_rgba(0,0,0,0.5)] transition-all duration-700 md:shadow-none md:[filter:drop-shadow(0_0_60px_rgba(46,75,224,0.85))] ${emphasized ? "h-64 md:h-60" : "h-28 md:h-40"}`}
                       />
                     </div>
                   )}
