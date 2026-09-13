@@ -2,10 +2,10 @@ import { Button } from "./ui/primitives";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-black pb-8 md:pb-10">
+    <section className="relative flex min-h-screen flex-col overflow-hidden bg-black pb-8 md:min-h-0 md:block md:pb-10">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
-      <div className="relative mx-auto max-w-[90rem]">
+      <div className="relative mx-auto flex w-full flex-1 flex-col md:block md:max-w-[90rem]">
         {/* top-left dark rock */}
         <img
           src="/white_stone.png"
@@ -42,7 +42,7 @@ export default function Hero() {
   className="absolute right-0 bottom-[10%] z-20 w-[clamp(11rem,42vw,15rem)] translate-x-[40%] rotate-[15deg] object-contain origin-[85%_15%] md:right-0 md:bottom-0 md:w-[clamp(10rem,30vw,23rem)] md:translate-x-[20%] md:translate-y-[28%] md:rotate-0"
 />
 
-        <div className="relative z-10 mx-4 rounded-[32px] bg-white px-6 py-16 text-center md:mx-0 md:rounded-t-none md:rounded-b-[2.5rem] md:px-14 md:py-24">
+        <div className="relative z-10 mx-4 flex flex-1 flex-col items-center justify-center rounded-[32px] bg-white px-6 py-24 text-center md:mx-0 md:block md:rounded-t-none md:rounded-b-[2.5rem] md:px-14 md:py-24">
           <h1 className="group relative font-display font-bold leading-[0.95] tracking-[-0.015em] text-black">
             <span className="block text-[clamp(2.75rem,20vw,10rem)] transition-all duration-500 ease-out group-hover:translate-y-1/2 group-hover:opacity-0 md:text-[clamp(2.75rem,12vw,10rem)]">
               REFINE
@@ -55,13 +55,13 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="mx-auto mt-8 max-w-xl text-sm leading-relaxed text-gray-500 md:text-lg">
+          <p className="mx-auto mt-10 max-w-xl text-sm leading-relaxed text-gray-500 md:mt-8 md:text-lg">
             Engineering the technologies that transform industrial waste into
             critical materials powering a cleaner, circular future through
             indigenous innovation.
           </p>
 
-          <div className="mt-10 flex justify-center">
+          <div className="mt-14 flex justify-center md:mt-10">
             <Button href="/products">Explore Our Solution</Button>
           </div>
         </div>
