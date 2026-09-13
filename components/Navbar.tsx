@@ -594,13 +594,13 @@ export default function Navbar({
       {mobileOpen && (
         <div className="absolute inset-x-0 top-full z-50 max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-gray-100 bg-white px-6 py-4 shadow-lg lg:hidden">
           <nav className="flex flex-col gap-1 text-sm">
-            <Link href="/" className="rounded-md px-2 py-2.5 hover:bg-gray-50">
+            <Link href="/" className="rounded-md px-2 py-2.5 font-semibold hover:bg-gray-50">
               Home
             </Link>
 
             <div>
               <div className="flex items-center justify-between rounded-md hover:bg-gray-50">
-                <Link href="/products" className="flex-1 px-2 py-2.5">
+                <Link href="/products" className="flex-1 px-2 py-2.5 font-semibold">
                   Products
                 </Link>
                 <button
@@ -649,7 +649,7 @@ export default function Navbar({
                                   type="button"
                                   onClick={() => setMobileSubExpanded((v) => (v === subKey ? null : subKey))}
                                   aria-expanded={mobileSubExpanded === subKey}
-                                  className="flex w-full items-center justify-between rounded-md px-2 py-1.5 text-xs font-semibold text-black hover:bg-gray-50"
+                                  className="flex w-full items-center justify-between rounded-md px-2 py-1.5 text-xs font-bold uppercase tracking-wide text-black hover:bg-gray-50"
                                 >
                                   {productsMenu[subHeaderIndex].label}
                                   <CaretDown
@@ -714,7 +714,7 @@ export default function Navbar({
 
             <div>
               <div className="flex items-center justify-between rounded-md hover:bg-gray-50">
-                <Link href="/technologies" className="flex-1 px-2 py-2.5">
+                <Link href="/technologies" className="flex-1 px-2 py-2.5 font-semibold">
                   Technologies
                 </Link>
                 <button
@@ -768,7 +768,7 @@ export default function Navbar({
                   {technologiesMenu[15] && (
                     <Link
                       href={technologiesMenu[15].href}
-                      className="rounded-md px-2 py-2 text-sm font-semibold text-black hover:bg-gray-50"
+                      className="rounded-md px-2 py-1.5 text-xs font-bold uppercase tracking-wide text-black hover:bg-gray-50"
                     >
                       {technologiesMenu[15].label}
                     </Link>
@@ -782,7 +782,7 @@ export default function Navbar({
                 type="button"
                 onClick={() => setMobileExpanded((v) => (v === "about" ? null : "about"))}
                 aria-expanded={mobileExpanded === "about"}
-                className="flex w-full items-center justify-between rounded-md px-2 py-2.5 text-xs font-bold uppercase tracking-wide text-black hover:bg-gray-50"
+                className="flex w-full items-center justify-between rounded-md px-2 py-2.5 text-sm font-semibold text-black hover:bg-gray-50"
               >
                 About Us
                 <CaretDown className={`transition-transform ${mobileExpanded === "about" ? "rotate-180" : ""}`} />
@@ -799,11 +799,11 @@ export default function Navbar({
             </div>
 
             <div className="mt-2 border-t border-gray-100 pt-2">
-              <a href="/newsletter" className="block rounded-md px-2 py-2.5 hover:bg-gray-50">
+              <a href="/newsletter" className="block rounded-md px-2 py-2.5 font-semibold hover:bg-gray-50">
                 Newsletters
               </a>
               <div className="flex items-center justify-between rounded-md hover:bg-gray-50">
-                <span className="flex-1 px-2 py-2.5">Contact</span>
+                <span className="flex-1 px-2 py-2.5 font-semibold">Contact</span>
                 <button
                   type="button"
                   onClick={() => setMobileExpanded((v) => (v === "contact" ? null : "contact"))}
@@ -825,7 +825,7 @@ export default function Navbar({
               )}
             </div>
 
-            <div className="mt-2 flex flex-col gap-1 border-t border-gray-100 pt-3 text-xs text-black">
+            <div className="mt-2 flex flex-col gap-1 border-t border-gray-100 pt-3 text-sm text-black">
               <a href={`mailto:${contactEmail}`} className="px-2 py-1 hover:underline">
                 {contactEmail}
               </a>
