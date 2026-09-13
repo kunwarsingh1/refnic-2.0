@@ -10,7 +10,7 @@ export default function CaseStudyDetailHero() {
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
         <p
           aria-hidden
-          className="pointer-events-none select-none font-display text-[clamp(2.75rem,12vw,10rem)] font-bold leading-[1.02] text-[#F8F8F8]/10"
+          className="pointer-events-none select-none font-display text-[clamp(2.0625rem,9vw,7.5rem)] font-bold leading-[1.02] text-[#F8F8F8]/10"
         >
           Case
           <br />
