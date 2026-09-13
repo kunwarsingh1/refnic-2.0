@@ -1007,3 +1007,10 @@
   	height: 9px;
   	flex-shrink: 0;
 }
+.bulletChevron {
+  	background-color: transparent !important;
+  	border-radius: 0 !important;
+  	width: 12px !important;
+  	height: 12px !important;
+  	color: #232f1a;
+}
