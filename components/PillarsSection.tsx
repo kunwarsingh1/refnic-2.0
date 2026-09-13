@@ -125,7 +125,7 @@ export default function PillarsSection({
             {track.map((p, i) => (
               <div
                 key={i}
-                className="relative w-[58%] shrink-0 transition-all duration-300 hover:scale-[1.03] md:w-auto"
+                className="relative w-[50%] shrink-0 transition-all duration-300 hover:scale-[1.03] md:w-auto"
               >
                 <div
                   className="pointer-events-none absolute inset-0 border border-white/20 bg-white/[0.03] md:border-transparent md:[border-image:linear-gradient(to_top_right,#1f1313,#737373,#191717)_1]"
