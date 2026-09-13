@@ -13,17 +13,15 @@ function ToolCard({ item }: { item: Tool }) {
       <span className="absolute right-0 top-0 rounded-bl-sm bg-[#3152DF] px-3 py-1.5 text-sm font-bold leading-[30.69px] text-white">
         Active soon
       </span>
-      <div className="relative flex h-full flex-col p-10">
+      <div className="relative flex h-full flex-col p-5">
         <h3 className="min-h-12 font-display text-lg font-bold leading-tight text-[#EBEBEB] md:min-h-16 md:text-xl">
           {item.title}
         </h3>
 
-        <div className="my-10 flex justify-center">
-          <CmsImagePlaceholder className="h-40 w-40" />
-        </div>
+        <CmsImagePlaceholder className="mt-4 aspect-[4/3] w-full rounded-xl" />
 
-        <p className="flex-1 text-[21.64px] leading-[32.46px] text-white">{item.description}</p>
-        <div className="mt-8">
+        <p className="mt-2 flex-1 text-[21.64px] leading-[32.46px] text-white">{item.description}</p>
+        <div className="mt-6">
           <GradientCtaButton href="/technologies">View</GradientCtaButton>
         </div>
       </div>

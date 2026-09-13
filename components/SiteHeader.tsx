@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import StickyNavShell from "@/components/StickyNavShell";
 import { getNavbarConfig } from "@/lib/content/navbar";
 
 export default async function SiteHeader({
@@ -6,7 +7,7 @@ export default async function SiteHeader({
   bgClassName = "bg-black",
   showTopGlow = false,
 }: {
-  roundedBottom?: boolean;
+  roundedBottom?: boolean | "onScroll";
   bgClassName?: string;
   showTopGlow?: boolean;
 }) {
@@ -20,8 +21,8 @@ export default async function SiteHeader({
           aria-hidden
         />
       )}
-      <header className="mt-4 md:mt-6">
-        <div className={`mx-auto max-w-[90rem] bg-white ${roundedBottom ? "rounded-b-2xl" : ""}`}>
+      <header>
+        <StickyNavShell roundedBottom={roundedBottom}>
           <Navbar
             contactEmail={config.contactEmail}
             contactPhone={config.contactPhone}
@@ -31,7 +32,7 @@ export default async function SiteHeader({
             technologiesImageUrl={config.technologiesImageUrl}
             aboutImageUrl={config.aboutImageUrl}
           />
-        </div>
+        </StickyNavShell>
       </header>
     </div>
   );

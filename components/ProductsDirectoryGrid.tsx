@@ -11,25 +11,23 @@ function ProductCard({ item }: { item: ProductCatalogItem }) {
         className="pointer-events-none absolute inset-0 border border-transparent bg-white/[0.03]"
         aria-hidden
       />
-      <div className="relative flex h-full flex-col p-10">
+      <div className="relative flex h-full flex-col p-5">
         <h3 className="font-sans font-bold text-lg leading-snug text-[#EBEBEB] md:text-xl">
           {item.title}
         </h3>
 
-        <div className="my-10 flex justify-center">
-          {item.imageUrl ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={item.imageUrl} alt={item.title} className="h-40 w-40 object-cover" />
-          ) : (
-            <CmsImagePlaceholder className="h-40 w-40" />
-          )}
-        </div>
+        {item.imageUrl ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={item.imageUrl} alt={item.title} className="mt-4 aspect-[4/3] w-full rounded-xl object-cover" />
+        ) : (
+          <CmsImagePlaceholder className="mt-4 aspect-[4/3] w-full rounded-xl" />
+        )}
 
-        <p className="flex-1 text-sm font-normal leading-relaxed text-white md:text-[21.64px] md:leading-[32.46px]">
+        <p className="mt-2 flex-1 text-sm font-normal leading-relaxed text-white md:text-[21.64px] md:leading-[32.46px]">
           {item.excerpt}
         </p>
 
-        <div className="mt-10">
+        <div className="mt-6">
           <Link
             href={`/products/${item.slug}`}
             className="inline-flex rounded-md bg-accent-blue px-7 py-3 text-sm font-bold text-white transition-colors hover:bg-accent-blue-dark"

@@ -48,10 +48,11 @@ export default async function Home() {
 
   return (
     <div className="home">
-      <SiteHeader roundedBottom={false} showTopGlow />
+      <SiteHeader roundedBottom="onScroll" showTopGlow />
       <div className="bg-black">
         <Hero />
       </div>
+      <div id="hero-end-sentinel" aria-hidden />
       <main className="relative bg-black bg-grid-dark">
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
           <div className="absolute left-[26%] top-[9%] h-[900px] w-[896px] rounded-full bg-[#3152df] opacity-30 blur-[430px]" />
