@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
-  Button,
   CmsImagePlaceholder,
 } from "./ui/primitives";
 import type { TouchEvent as ReactTouchEvent } from "react";
@@ -439,12 +439,12 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
                   </div>
 
                   <div className="mt-3 lg:absolute lg:bottom-8 lg:left-12">
-                    <Button
+                    <Link
                       href="/case-study"
-                      className="rounded-lg"
+                      className="inline-flex items-center gap-1.5 rounded-lg bg-accent-blue px-4 py-2 text-xs font-bold leading-none text-white transition-colors hover:bg-accent-blue-dark md:gap-2 md:px-7 md:py-[16px] md:text-[16px]"
                     >
                       View Case Study
-                    </Button>
+                    </Link>
                   </div>
 
                 </div>
