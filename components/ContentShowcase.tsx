@@ -10,7 +10,7 @@ export default function ContentShowcase({
   imageUrl,
   text,
   caption,
-  sectionBg = "#161518",
+  sectionBg = "#000000",
 }: {
   slug?: string;
   contentType?: ShowcaseContentType;

@@ -1,22 +1,23 @@
-import { GradientCtaButton } from "@/components/ui/primitives";
-import CareerDecorativeRing from "@/components/CareerDecorativeRing";
+import { CmsImagePlaceholder, GradientCtaButton } from "@/components/ui/primitives";
 
 export default function ProductClosingSection({
   heading,
   tagline,
   ctaLabel,
   ctaHref,
+  imageUrl,
 }: {
   heading?: string;
   tagline?: string;
   ctaLabel?: string;
   ctaHref?: string;
+  imageUrl?: string;
 }) {
   const hasHeadingSection = Boolean(heading);
   if (!heading && !tagline && !ctaLabel) return null;
 
   return (
-    <section className="relative overflow-hidden bg-[#0D0C0D] pb-16 pt-16 md:pb-24 md:pt-24">
+    <section className="relative overflow-hidden bg-black pb-16 pt-16 md:pb-24 md:pt-24">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       {hasHeadingSection && (
@@ -24,7 +25,12 @@ export default function ProductClosingSection({
           <h2 className="font-display text-2xl font-bold uppercase leading-tight text-[#EBEBEB] md:text-5xl">
             {heading}
           </h2>
-          <CareerDecorativeRing className="mx-auto mt-10 h-56 w-56 opacity-40 md:h-72 md:w-72" />
+          {imageUrl ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={imageUrl} alt="" className="mx-auto mt-10 aspect-square w-56 rounded-2xl object-cover md:w-72" />
+          ) : (
+            <CmsImagePlaceholder className="mx-auto mt-10 aspect-square w-56 rounded-2xl md:w-72" />
+          )}
         </div>
       )}
 

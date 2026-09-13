@@ -198,6 +198,7 @@ export function ProductCatalogItemForm({
               className={inputClass}
             />
           </div>
+          <ImageUploadField name="closingImageUrl" label="Closing image" defaultValue={item?.closingImageUrl} />
         </div>
       </div>
 

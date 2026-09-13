@@ -14,7 +14,7 @@ export default function ProductDetailHero({
   ctaHref?: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-[#0D0C0D] pb-16 pt-24 md:pb-20 md:pt-28">
+    <section className="relative overflow-hidden bg-black pb-16 pt-24 md:pb-20 md:pt-28">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-[70%] opacity-[0.78]"

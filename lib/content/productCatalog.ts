@@ -30,6 +30,7 @@ type ProductCatalogItemDoc = {
   closingTagline?: string;
   closingCtaLabel?: string;
   closingCtaHref?: string;
+  closingImageUrl?: string;
 };
 
 export type ProductCatalogItem = {
@@ -55,6 +56,7 @@ export type ProductCatalogItem = {
   closingTagline: string;
   closingCtaLabel: string;
   closingCtaHref: string;
+  closingImageUrl?: string;
 };
 
 async function getCollection(): Promise<Collection<ProductCatalogItemDoc>> {
@@ -86,6 +88,7 @@ function toItem(doc: ProductCatalogItemDoc): ProductCatalogItem {
     closingTagline: doc.closingTagline ?? "",
     closingCtaLabel: doc.closingCtaLabel ?? "",
     closingCtaHref: doc.closingCtaHref ?? "/contact",
+    closingImageUrl: doc.closingImageUrl,
   };
 }
 
@@ -164,6 +167,7 @@ export type ProductCatalogItemInput = {
   closingTagline?: string;
   closingCtaLabel?: string;
   closingCtaHref?: string;
+  closingImageUrl?: string;
 };
 
 export async function createProductCatalogItem(input: ProductCatalogItemInput): Promise<void> {
@@ -193,6 +197,7 @@ export async function createProductCatalogItem(input: ProductCatalogItemInput): 
     closingTagline: input.closingTagline,
     closingCtaLabel: input.closingCtaLabel,
     closingCtaHref: input.closingCtaHref,
+    closingImageUrl: input.closingImageUrl || undefined,
   });
 }
 
@@ -226,6 +231,7 @@ export async function updateProductCatalogItem(id: string, input: ProductCatalog
         closingTagline: input.closingTagline,
         closingCtaLabel: input.closingCtaLabel,
         closingCtaHref: input.closingCtaHref,
+        closingImageUrl: input.closingImageUrl || undefined,
       },
     },
   );

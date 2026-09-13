@@ -60,6 +60,7 @@ function parseInput(formData: FormData): ProductCatalogItemInput {
     closingTagline: String(formData.get("closingTagline") ?? ""),
     closingCtaLabel: String(formData.get("closingCtaLabel") ?? ""),
     closingCtaHref: String(formData.get("closingCtaHref") ?? ""),
+    closingImageUrl: String(formData.get("closingImageUrl") ?? "") || undefined,
   };
 }
 

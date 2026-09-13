@@ -36,9 +36,9 @@ export default async function ProductCatalogItemPage({
 
   return (
     <>
-      <SiteHeader bgClassName="bg-[#0D0C0D]" />
+      <SiteHeader />
 
-      <main className="bg-[#0D0C0D]">
+      <main className="bg-black">
         <ProductDetailHero
           title={item.title}
           body={item.excerpt}
@@ -55,13 +55,14 @@ export default async function ProductCatalogItemPage({
           imageUrl={item.showcaseImageUrl}
           text={item.showcaseText}
           caption={item.pdfCaption}
-          sectionBg="#0D0C0D"
+          sectionBg="#000000"
         />
         <ProductClosingSection
           heading={item.closingHeading}
           tagline={item.closingTagline}
           ctaLabel={item.closingCtaLabel}
           ctaHref={item.closingCtaHref}
+          imageUrl={item.closingImageUrl}
         />
       </main>
 

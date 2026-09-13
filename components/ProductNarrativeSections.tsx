@@ -1,5 +1,4 @@
 import { CmsImagePlaceholder } from "@/components/ui/primitives";
-import CareerDecorativeRing from "@/components/CareerDecorativeRing";
 import type { NarrativeSection } from "@/lib/content/solutionsPage";
 
 export default function ProductNarrativeSections({ sections }: { sections: NarrativeSection[] }) {
@@ -11,7 +10,7 @@ export default function ProductNarrativeSections({ sections }: { sections: Narra
         const isRight = i % 2 === 0;
 
         return (
-          <section key={i} className="relative overflow-hidden bg-[#0D0C0D] py-14 md:py-20">
+          <section key={i} className="relative overflow-hidden bg-black py-14 md:py-20">
             <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
             <div className="relative z-10 mx-auto max-w-5xl px-6">
@@ -20,7 +19,7 @@ export default function ProductNarrativeSections({ sections }: { sections: Narra
                   {s.imageUrl ? (
                     <img src={s.imageUrl} alt="" className="aspect-[495/488] w-64 object-contain opacity-40 md:w-[400px]" />
                   ) : (
-                    <CareerDecorativeRing className="h-56 w-56 opacity-40 md:h-72 md:w-72" />
+                    <CmsImagePlaceholder className="aspect-[495/488] w-64 md:w-[400px]" />
                   )}
                 </div>
 
