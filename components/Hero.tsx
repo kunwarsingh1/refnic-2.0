@@ -9,7 +9,7 @@ export default function Hero() {
       <img
         src="/Groupleft.png"
         alt=""
-        className="absolute left-0 top-0 z-20 h-full w-auto object-contain object-left md:hidden"
+        className="absolute left-0 top-0 z-20 h-full w-auto -translate-x-[6%] object-contain object-left md:hidden"
       />
       <img
         src="/Groupright.png"
