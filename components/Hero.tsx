@@ -16,7 +16,7 @@ export default function Hero() {
         <img
           src="/white_stone.png"
           alt=""
-          className="absolute right-0 top-[10%] z-20 w-[clamp(9rem,38vw,13rem)] translate-x-[-25%] rotate-[43deg] object-contain drop-shadow-md origin-[85%_85%] md:hidden"
+          className="absolute right-20 top-[25%] z-20 w-[clamp(9rem,38vw,13rem)] translate-x-[-25%] rotate-[150deg] object-contain drop-shadow-md origin-[85%_85%] md:hidden"
         />
         <img
           src="/blur_stone.png"
@@ -27,7 +27,7 @@ export default function Hero() {
         <img
           src="/blue_stone.png"
           alt=""
-          className="absolute left-0 bottom-[0%] z-20 w-[clamp(10rem,40vw,14rem)] -translate-x-[25%] rotate-[5deg] object-contain drop-shadow-md origin-[15%_15%] md:hidden"
+          className="absolute left-0 bottom-[-9%] z-20 w-[clamp(10rem,40vw,14rem)] -translate-x-[15%] rotate-[50deg] object-contain drop-shadow-md origin-[15%_15%] md:hidden"
         />
         <img
           src="/blue_blur.png"
@@ -36,11 +36,11 @@ export default function Hero() {
         />
         {/* bottom-right dark rock */}
         <img
-          src="/blue_stone.png"
-          alt=""
-          style={{ filter: "drop-shadow(0 0 45px rgba(46, 75, 224, 0.85))" }}
-          className="absolute right-0 bottom-[10%] z-20 w-[clamp(9rem,34vw,12rem)] translate-x-[-25%] object-contain md:right-0 md:bottom-0 md:w-[clamp(10rem,30vw,23rem)] md:translate-x-[20%] md:translate-y-[28%]"
-        />
+  src="/blue_stone.png"
+  alt=""
+  style={{ filter: "drop-shadow(0 0 45px rgba(46, 75, 224, 0.85))" }}
+  className="absolute right-0 bottom-[10%] z-20 w-[clamp(11rem,42vw,15rem)] translate-x-[40%] rotate-[15deg] object-contain origin-[85%_15%] md:right-0 md:bottom-0 md:w-[clamp(10rem,30vw,23rem)] md:translate-x-[20%] md:translate-y-[28%] md:rotate-0"
+/>
 
         <div className="relative z-10 mx-4 rounded-[32px] bg-white px-6 py-16 text-center md:mx-0 md:rounded-t-none md:rounded-b-[2.5rem] md:px-14 md:py-24">
           <h1 className="group relative font-display font-bold leading-[0.95] tracking-[-0.015em] text-black">
