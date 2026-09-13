@@ -98,7 +98,7 @@ export default function Navbar({
 
   return (
     <>
-    <div className="relative flex items-center gap-4 py-1.5 pl-6 pr-1 text-sm md:py-3 md:px-6">
+    <div className="relative flex items-center gap-4 py-0 pl-6 pr-1 text-sm md:py-3 md:px-6">
       <div className="flex flex-1 items-center justify-between gap-4">
         <a href={`mailto:${contactEmail}`} className="hidden lg:block hover:underline">
           {contactEmail}
@@ -437,7 +437,7 @@ export default function Navbar({
           className="shrink-0 font-display font-bold text-2xl tracking-tight text-black"
           aria-label="Refnic"
         >
-          <img src="/logo_blue.png" alt="Refnic Logo" className="h-18 w-auto" />
+          <img src="/logo_blue.png" alt="Refnic Logo" className="h-9 w-auto md:h-18" />
         </Link>
 
       <div className="flex flex-1 items-center justify-end gap-4 lg:justify-between">
@@ -583,9 +583,9 @@ export default function Navbar({
           }
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
-          className="flex items-center justify-center p-1 text-black lg:hidden"
+          className="flex items-center justify-center p-0.5 text-black lg:hidden"
         >
-          {mobileOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+          {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
       </div>
 
