@@ -612,16 +612,41 @@ export default function Navbar({
                 </button>
               </div>
               {mobileExpanded === "products" && (
-                <div className="ml-2 flex flex-col gap-0.5 border-l border-gray-100 pl-3">
-                  {productsMenu.map((item, i) => (
+                <div className="ml-2 flex flex-col gap-3 border-l border-gray-100 pl-3">
+                  {productsMenu[0] && (
+                    <div>
+                      <p className="px-2 text-xs font-bold uppercase tracking-wide text-gray-400">
+                        {productsMenu[0].label}
+                      </p>
+                      <div className="mt-1 flex flex-col gap-0.5">
+                        {productsMenu.slice(3).map((item, i) => (
+                          <Link
+                            key={i}
+                            href={item.href}
+                            className="rounded-md px-2 py-2 text-gray-600 hover:bg-gray-50"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {productsMenu[1] && (
                     <Link
-                      key={i}
-                      href={item.href}
-                      className="rounded-md px-2 py-2 text-gray-600 hover:bg-gray-50"
+                      href={productsMenu[1].href}
+                      className="rounded-md px-2 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-50"
                     >
-                      {item.label}
+                      {productsMenu[1].label}
                     </Link>
-                  ))}
+                  )}
+                  {productsMenu[2] && (
+                    <Link
+                      href={productsMenu[2].href}
+                      className="rounded-md px-2 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-50"
+                    >
+                      {productsMenu[2].label}
+                    </Link>
+                  )}
                 </div>
               )}
             </div>
@@ -642,16 +667,41 @@ export default function Navbar({
                 </button>
               </div>
               {mobileExpanded === "technologies" && (
-                <div className="ml-2 flex flex-col gap-0.5 border-l border-gray-100 pl-3">
-                  {technologiesMenu.map((item, i) => (
+                <div className="ml-2 flex flex-col gap-3 border-l border-gray-100 pl-3">
+                  {[
+                    { headerIndex: 0, itemIndexes: [3, 6, 9, 11, 13, 14] },
+                    { headerIndex: 1, itemIndexes: [4, 7, 10, 12] },
+                    { headerIndex: 2, itemIndexes: [5, 8] },
+                  ].map(({ headerIndex, itemIndexes }) =>
+                    technologiesMenu[headerIndex] ? (
+                      <div key={headerIndex}>
+                        <p className="px-2 text-xs font-bold uppercase tracking-wide text-gray-400">
+                          {technologiesMenu[headerIndex].label}
+                        </p>
+                        <div className="mt-1 flex flex-col gap-0.5">
+                          {itemIndexes.map((i) =>
+                            technologiesMenu[i] ? (
+                              <Link
+                                key={i}
+                                href={technologiesMenu[i].href}
+                                className="rounded-md px-2 py-2 text-gray-600 hover:bg-gray-50"
+                              >
+                                {technologiesMenu[i].label}
+                              </Link>
+                            ) : null
+                          )}
+                        </div>
+                      </div>
+                    ) : null
+                  )}
+                  {technologiesMenu[15] && (
                     <Link
-                      key={i}
-                      href={item.href}
-                      className="rounded-md px-2 py-2 text-gray-600 hover:bg-gray-50"
+                      href={technologiesMenu[15].href}
+                      className="rounded-md px-2 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-50"
                     >
-                      {item.label}
+                      {technologiesMenu[15].label}
                     </Link>
-                  ))}
+                  )}
                 </div>
               )}
             </div>
