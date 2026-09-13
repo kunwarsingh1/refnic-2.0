@@ -20,9 +20,9 @@ export default async function InvestorsPage() {
 
   return (
     <>
-      <SiteHeader bgClassName="bg-[#161518]" />
+      <SiteHeader bgClassName="bg-black" />
 
-      <main className="bg-[#161518]">
+      <main className="bg-black">
         <InvestorsHero heading={c.heroHeading} body={c.heroSubheading} />
         <ZigzagFeatureSections sections={c.numberedSections} />
         <InvestorsWhyNowSection heading={c.whyNowHeading} reasons={c.whyNowReasons} />

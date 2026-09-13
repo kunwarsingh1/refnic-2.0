@@ -25,9 +25,9 @@ export default async function ResourcesPage() {
 
   return (
     <>
-      <SiteHeader bgClassName="bg-[#161518]" />
+      <SiteHeader bgClassName="bg-black" />
 
-      <main className="bg-[#161518]">
+      <main className="bg-black">
         <ResourcesPageHero />
         {cards.length > 0 && <ResourcesGrid items={cards} />}
         <ResourcesPageClosingCta />

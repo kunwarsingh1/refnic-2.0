@@ -14,7 +14,7 @@ export default function IndianMarketNarrativeSection({
   const paragraphs = body.split("\n\n");
 
   return (
-    <section className="relative overflow-hidden bg-[#161518] py-16 md:py-24">
+    <section className="relative overflow-hidden bg-black py-16 md:py-24">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-5xl px-6">

@@ -3,7 +3,7 @@ import type { CaseStudy } from "@/lib/content/caseStudies";
 
 export default function CaseStudyListSection({ caseStudies }: { caseStudies: CaseStudy[] }) {
   return (
-    <section className="relative overflow-hidden bg-[#161518] pb-20 md:pb-28">
+    <section className="relative overflow-hidden bg-black pb-20 md:pb-28">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
       <div
         className="pointer-events-none absolute left-0 top-1/4 hidden h-[632px] w-[626px] -translate-x-1/3 rounded-full bg-[#3152DF] opacity-30 blur-[180px] md:block"

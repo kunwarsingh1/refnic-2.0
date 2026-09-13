@@ -10,7 +10,7 @@ export default function GlobalMarketFinalCta({
   ctaLabel: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-[#161518] py-16 pb-24 md:pb-32">
+    <section className="relative overflow-hidden bg-black py-16 pb-24 md:pb-32">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
         <h2 className="font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-5xl">{heading}</h2>

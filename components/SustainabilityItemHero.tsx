@@ -2,7 +2,7 @@ import { CmsImagePlaceholder } from "@/components/ui/primitives";
 
 export default function SustainabilityItemHero({ heading, body }: { heading: string; body: string }) {
   return (
-    <section className="relative overflow-hidden bg-[#161518] pb-16 pt-28 md:pb-20 md:pt-36">
+    <section className="relative overflow-hidden bg-black pb-16 pt-28 md:pb-20 md:pt-36">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-[70%] opacity-[0.78]"

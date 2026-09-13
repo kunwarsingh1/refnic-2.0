@@ -1,6 +1,6 @@
 export default function SolutionsPageHero() {
   return (
-    <section className="relative overflow-hidden bg-[#161518] pb-24 pt-28 md:pb-32 md:pt-36">
+    <section className="relative overflow-hidden bg-black pb-24 pt-28 md:pb-32 md:pt-36">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-[70%] opacity-[0.78]"

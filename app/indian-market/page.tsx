@@ -22,9 +22,9 @@ export default async function IndianMarketPage() {
 
   return (
     <>
-      <SiteHeader bgClassName="bg-[#161518]" />
+      <SiteHeader bgClassName="bg-black" />
 
-      <main className="bg-[#161518]">
+      <main className="bg-black">
         <IndianMarketHero heading={c.closingHeading} body={c.closingTagline} />
 
         {opportunity && (

@@ -10,7 +10,7 @@ export default function CareerPageClosingCta({
   ctaLabel: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-[#161518] py-24 md:py-32">
+    <section className="relative overflow-hidden bg-black py-24 md:py-32">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">

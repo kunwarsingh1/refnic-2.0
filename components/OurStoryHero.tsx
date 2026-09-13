@@ -4,7 +4,7 @@ export default function OurStoryHero({ heading, body }: { heading: string; body:
   const words = heading.trim().split(/\s+/);
 
   return (
-    <section className="relative overflow-hidden bg-[#161518] pb-16 pt-20 md:pb-24 md:pt-24">
+    <section className="relative overflow-hidden bg-black pb-16 pt-20 md:pb-24 md:pt-24">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-[70%] opacity-[0.78]"

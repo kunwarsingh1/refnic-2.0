@@ -15,7 +15,7 @@ export default function CaseStudyExploreMore({
   if (others.length === 0) return null;
 
   return (
-    <section className="relative overflow-hidden bg-[#161518] py-20 md:py-28">
+    <section className="relative overflow-hidden bg-black py-20 md:py-28">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className="flex items-center justify-between gap-4">

@@ -21,9 +21,9 @@ export default async function CaseStudyPage() {
 
   return (
     <>
-      <SiteHeader bgClassName="bg-[#161518]" />
+      <SiteHeader bgClassName="bg-black" />
 
-      <main className="bg-[#161518]">
+      <main className="bg-black">
         <CaseStudyPageHero body={config.heroHeading} />
         <CaseStudyListSection caseStudies={caseStudies} />
         <CaseStudyResultsSection heading={config.resultsHeading} highlights={config.resultHighlights} />

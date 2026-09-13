@@ -50,9 +50,9 @@ export default async function SolutionCatalogItemPage({
 
   return (
     <>
-      <SiteHeader bgClassName="bg-[#161518]" />
+      <SiteHeader bgClassName="bg-black" />
 
-      <main className="relative overflow-hidden bg-[#161518]">
+      <main className="relative overflow-hidden bg-black">
         <div className="pointer-events-none absolute inset-0 bg-grid-dark" aria-hidden />
         <SolutionsHero config={config} />
         {config.narrativeSections.length > 0 && <SolutionsNarrative config={config} />}

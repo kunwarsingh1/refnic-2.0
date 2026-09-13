@@ -4,11 +4,13 @@ import type { NumberedSection } from "@/lib/content/investorsPage";
 export function ZigzagFeatureSections({
   sections,
   bodyPlacement = "same",
+  bg = "bg-black",
 }: {
   sections: NumberedSection[];
   /** "same" keeps the body paragraph on the same side as the heading (Investors page);
    *  "opposite" moves it to the other side, leaving the ring next to the heading (Our Story page). */
   bodyPlacement?: "same" | "opposite";
+  bg?: string;
 }) {
   return (
     <>
@@ -16,7 +18,7 @@ export function ZigzagFeatureSections({
         const isRight = i % 2 === 0;
 
         return (
-          <section key={s.number} className="relative overflow-hidden bg-[#161518] py-14 md:py-24">
+          <section key={s.number} className={`relative overflow-hidden ${bg} py-14 md:py-24`}>
             <div className="absolute inset-0 bg-grid-dark" aria-hidden />
             <div
               className={`pointer-events-none absolute top-1/2 hidden h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-[#3152DF] opacity-30 blur-[180px] md:block ${

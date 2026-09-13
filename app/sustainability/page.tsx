@@ -25,9 +25,9 @@ export default async function SustainabilityPage() {
 
   return (
     <>
-      <SiteHeader bgClassName="bg-[#161518]" />
+      <SiteHeader bgClassName="bg-black" />
 
-      <main className="bg-[#161518]">
+      <main className="bg-black">
         <SustainabilityPageHero />
         {pillars.length > 0 && <SustainabilityImpactGrid items={pillars} />}
         <SolutionsPageClosingCta />

@@ -18,11 +18,11 @@ export default async function OurStoryPage() {
 
   return (
     <>
-      <SiteHeader bgClassName="bg-[#161518]" />
+      <SiteHeader />
 
-      <main className="bg-[#161518]">
+      <main className="bg-black">
         <OurStoryHero heading={c.heroLabel} body={c.heroSubheading} />
-        <ZigzagFeatureSections sections={c.numberedSections} bodyPlacement="opposite" />
+        <ZigzagFeatureSections sections={c.numberedSections} bodyPlacement="opposite" bg="bg-black" />
         <OurStoryClosingSection tagline={c.closingTagline} ctaLabel={c.ctaLabel} />
       </main>
 

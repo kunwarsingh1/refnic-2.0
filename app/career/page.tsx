@@ -21,9 +21,9 @@ export default async function CareerPage() {
 
   return (
     <>
-      <SiteHeader bgClassName="bg-[#161518]" />
+      <SiteHeader bgClassName="bg-black" />
 
-      <main className="bg-[#161518]">
+      <main className="">
         <CareerPageHero heading={c.heroHeading} subheading={c.heroSubheading} ctaLabel={c.heroCtaLabel} />
         <CareerPageMission heading={c.missionHeading} imageUrl={c.missionImageUrl} body={c.missionBody} />
         <CareerPageLookingFor heading={c.lookingForHeading} traits={c.traits} />

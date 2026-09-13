@@ -103,7 +103,7 @@ export default function ContactPageForm({
   };
 
   return (
-    <section id="contact-form" className="relative overflow-hidden bg-[#161518] py-20 md:py-28">
+    <section id="contact-form" className="relative overflow-hidden bg-black py-20 md:py-28">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">

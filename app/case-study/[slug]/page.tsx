@@ -39,9 +39,9 @@ export default async function CaseStudyDetailPage({
 
   return (
     <>
-      <SiteHeader bgClassName="bg-[#161518]" />
+      <SiteHeader bgClassName="bg-black" />
 
-      <main className="bg-[#161518]">
+      <main className="bg-black">
         <CaseStudyDetailHero />
         <CaseStudyDetailCard cs={cs} />
         <CaseStudyExploreMore others={others} prev={prev} next={next} />

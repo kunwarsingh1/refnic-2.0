@@ -22,7 +22,7 @@ export default function CareerPageLifeAtRefnic({
   photos: { caption: string }[];
 }) {
   return (
-    <section className="relative overflow-hidden bg-[#161518] py-20 md:py-28">
+    <section className="relative overflow-hidden bg-black py-20 md:py-28">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
       <div
         className="pointer-events-none absolute -left-40 top-[30%] h-[420px] w-[420px] rounded-full bg-[#3152DF] opacity-30 blur-[180px] md:h-[632px] md:w-[626px]"

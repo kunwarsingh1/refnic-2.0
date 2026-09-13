@@ -1,6 +1,6 @@
 export default function CaseStudyResultsSection({ heading, highlights }: { heading: string; highlights: string[] }) {
   return (
-    <section className="relative overflow-hidden bg-[#161518] py-20 md:py-32">
+    <section className="relative overflow-hidden bg-black py-20 md:py-32">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
       <div
         className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3152DF] opacity-30 blur-[180px]"

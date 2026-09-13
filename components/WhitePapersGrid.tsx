@@ -31,7 +31,7 @@ const PAPER_2: Paper = { title: "Paper 2", description: "Lorem ipsum" };
 
 export default function WhitePapersGrid() {
   return (
-    <section className="relative overflow-hidden bg-[#161518] pb-20 md:pb-28">
+    <section className="relative overflow-hidden bg-black pb-20 md:pb-28">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-4xl px-6">

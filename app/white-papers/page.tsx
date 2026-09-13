@@ -14,9 +14,9 @@ export const metadata: Metadata = {
 export default function WhitePapersPage() {
   return (
     <>
-      <SiteHeader bgClassName="bg-[#161518]" />
+      <SiteHeader bgClassName="bg-black" />
 
-      <main className="bg-[#161518]">
+      <main className="bg-black">
         <WhitePapersPageHero />
         <WhitePapersGrid />
         <WhitePapersPageClosingCta />

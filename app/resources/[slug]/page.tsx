@@ -34,9 +34,9 @@ export default async function ResourceCatalogItemPage({
 
   return (
     <>
-      <SiteHeader bgClassName="bg-[#161518]" />
+      <SiteHeader bgClassName="bg-black" />
 
-      <main className="bg-[#161518]">
+      <main className="bg-black">
         <ResourceItemHero heading={item.title} body={item.heroBody} />
         <ContentShowcase
           slug={item.slug}

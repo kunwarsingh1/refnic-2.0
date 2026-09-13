@@ -33,9 +33,9 @@ export default async function GlobalMarketPage() {
 
   return (
     <>
-      <SiteHeader bgClassName="bg-[#161518]" />
+      <SiteHeader bgClassName="bg-black" />
 
-      <main className="bg-[#161518]">
+      <main className="bg-black">
         <IndianMarketHero heading={heroSection?.heading ?? ""} body={whyItMattersLegacy?.body ?? ""} />
 
         {globalShift && (
