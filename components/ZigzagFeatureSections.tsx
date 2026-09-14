@@ -61,15 +61,21 @@ export function ZigzagFeatureSections({
                     <h2 className="mt-2 font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-5xl md:leading-tight">
                       {s.heading}
                     </h2>
-                    <div className={`mt-24 flex md:mt-44 ${isRight ? "justify-end" : "justify-start"}`}>
+                    <div className={`relative mt-24 flex md:mt-44 ${isRight ? "justify-end" : "justify-start"}`}>
+                      <div
+                        className={`pointer-events-none absolute top-1/2 h-[260px] w-[260px] -translate-y-1/2 rounded-full bg-[#3152DF] opacity-40 blur-[90px] md:hidden ${
+                          isRight ? "right-0" : "left-0"
+                        }`}
+                        aria-hidden
+                      />
                       {s.imageUrl ? (
                         <img
                           src={s.imageUrl}
                           alt={s.heading}
-                          className="aspect-square w-48 rounded-2xl object-cover md:w-[294px] md:object-contain"
+                          className="relative aspect-square w-48 rounded-2xl object-cover md:w-[294px] md:object-contain"
                         />
                       ) : (
-                        <CmsImagePlaceholder className="aspect-square w-48 rounded-2xl md:w-[294px]" />
+                        <CmsImagePlaceholder className="relative aspect-square w-48 rounded-2xl md:w-[294px]" />
                       )}
                     </div>
                   </div>
