@@ -18,10 +18,10 @@ export default function SolutionsCtaSection({
           <img
             src={c.closingImageUrl}
             alt=""
-            className="mx-auto mt-8 aspect-[495/488] w-48 rounded-2xl object-contain md:w-72"
+            className="mx-auto mt-8 aspect-[495/488] w-60 rounded-2xl object-contain md:w-96"
           />
         ) : (
-          <CmsImagePlaceholder className="mx-auto mt-8 aspect-[495/488] w-48 rounded-2xl md:w-72" />
+          <CmsImagePlaceholder className="mx-auto mt-8 aspect-[495/488] w-60 rounded-2xl md:w-96" />
         )}
         <p className="mx-auto mt-8 max-w-[928px] whitespace-pre-line text-center text-base font-normal leading-relaxed text-[#F8F8F8] md:text-[21.64px] md:leading-[32.46px]">
           {c.closingBody}
