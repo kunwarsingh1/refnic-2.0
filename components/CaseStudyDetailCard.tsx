@@ -89,40 +89,56 @@ export default function CaseStudyDetailCard({ cs }: { cs: CaseStudy }) {
         </div>
 
         {(cs.overviewSubheading || cs.overviewBody) && (
-          <div className="mt-16">
-            <h2 className="font-display text-3xl font-bold leading-tight text-[#050505] md:text-5xl">
-              Project Overview
-            </h2>
-            <div className="mt-8 flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-10">
+          <div className="mt-16 flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-10">
+            <div className="md:max-w-[220px]">
+              <h2
+                className="w-full break-words text-[#050505]"
+                style={{
+                  fontFamily: "Plus Jakarta Sans",
+                  fontWeight: 700,
+                  fontSize: "40px",
+                  lineHeight: "40px",
+                }}
+              >
+                Project Overview
+              </h2>
               {cs.overviewSubheading && (
-                <p className="max-w-sm font-display text-2xl font-light leading-tight text-[#050505] md:text-3xl">
+                <p className="mt-4 font-display text-2xl font-light leading-tight text-[#050505] md:text-3xl">
                   {cs.overviewSubheading}
                 </p>
               )}
-              {cs.overviewBody && (
-                <p className="max-w-xl whitespace-pre-line text-[21.64px] leading-[32.46px] text-[#050505] md:ml-auto">
-                  {cs.overviewBody}
-                </p>
-              )}
             </div>
+            {cs.overviewBody && (
+              <p className="max-w-xl whitespace-pre-line text-[21.64px] leading-[32.46px] text-[#050505] md:ml-auto">
+                {cs.overviewBody}
+              </p>
+            )}
           </div>
         )}
 
         {(cs.challengeSubheading || cs.challengeBody) && (
-          <div className="mt-16">
-            <h2 className="font-display text-3xl font-bold leading-tight text-[#050505] md:text-5xl">
-              The Challenge
-            </h2>
-            <div className="mt-8 flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-10">
+          <div className="mt-16 flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-10">
+            <div className="md:max-w-[220px]">
+              <h2
+                className="w-full break-words text-[#050505]"
+                style={{
+                  fontFamily: "Plus Jakarta Sans",
+                  fontWeight: 700,
+                  fontSize: "40px",
+                  lineHeight: "40px",
+                }}
+              >
+                The Challenge
+              </h2>
               {cs.challengeSubheading && (
-                <p className="max-w-sm font-display text-2xl font-light leading-tight text-[#050505] md:text-3xl">
+                <p className="mt-4 font-display text-2xl font-light leading-tight text-[#050505] md:text-3xl">
                   {cs.challengeSubheading}
                 </p>
               )}
-              {cs.challengeBody && (
-                <p className="max-w-xl text-[21.64px] leading-[32.46px] text-[#050505] md:ml-auto">{cs.challengeBody}</p>
-              )}
             </div>
+            {cs.challengeBody && (
+              <p className="max-w-xl text-[21.64px] leading-[32.46px] text-[#050505] md:ml-auto">{cs.challengeBody}</p>
+            )}
           </div>
         )}
 
