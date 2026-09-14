@@ -19,6 +19,12 @@ export type SolutionsPageConfig = {
   heroCtaLabel: string;
   heroCtaHref: string;
   narrativeSections: NarrativeSection[];
+  mechanicalHeading: string;
+  mechanicalTagline: string;
+  mechanicalImageUrl?: string;
+  chemicalHeading: string;
+  chemicalTagline: string;
+  chemicalImageUrl?: string;
   closingHeading: string;
   closingBody: string;
   closingImageUrl?: string;
@@ -65,6 +71,10 @@ export const DEFAULT_SOLUTIONS_PAGE_CONFIG: SolutionsPageConfig = {
         "Waste Becomes a Resource\n\nThe outcome of lithium-ion battery recycling is the recovery of material value from products that have completed their useful life. Depending on the battery chemistry and recycling route, recovered streams can contain valuable materials such as lithium, nickel, cobalt, manganese, copper and aluminium. These recovered materials can then move into appropriate downstream refining, processing or material-production pathways. This creates a connection between end-of-life batteries and future material demand, helping keep valuable resources within the wider industrial cycle. The ultimate objective is to move from discarded battery → recovered material → future resource, creating a more circular approach to the materials used in lithium-ion batteries.",
     },
   ],
+  mechanicalHeading: "Mechanical Solutions",
+  mechanicalTagline: "These are complete engineering systems.",
+  chemicalHeading: "Chemical Solution",
+  chemicalTagline: "These are complete process solutions.",
   closingHeading: "Ready to Build Your Next Plant?",
   closingBody:
     "From concept to commissioning, Refnic delivers complete engineering solutions tailored to your process, capacity, and business goals.",

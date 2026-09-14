@@ -24,6 +24,7 @@ const SECTIONS = [
   { label: "Indian Market Page", href: "/admin/indian-market-page" },
   { label: "Investors Page", href: "/admin/investors-page" },
   { label: "Our Story Page", href: "/admin/our-story-page" },
+  { label: "Solutions Page", href: "/admin/solutions-page" },
   { label: "Sustainability Page", href: "/admin/sustainability-page" },
   { label: "Technologies Page", href: "/admin/technologies-page" },
   { label: "Products Page", href: "/admin/products-page" },

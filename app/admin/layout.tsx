@@ -44,6 +44,7 @@ const NAV_SECTIONS: { heading: string; items: { label: string; href: string }[] 
       { label: "Indian Market", href: "/admin/indian-market-page" },
       { label: "Investors", href: "/admin/investors-page" },
       { label: "Our Story", href: "/admin/our-story-page" },
+      { label: "Solutions", href: "/admin/solutions-page" },
       { label: "Sustainability", href: "/admin/sustainability-page" },
       { label: "Technologies", href: "/admin/technologies-page" },
       { label: "Products", href: "/admin/products-page" },

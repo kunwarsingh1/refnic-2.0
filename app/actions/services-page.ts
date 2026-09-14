@@ -11,6 +11,9 @@ export async function updateServicesPageConfigAction(formData: FormData): Promis
   const args: ServicesPageConfig = {
     heroHeading: String(formData.get("heroHeading") ?? ""),
     heroBody: String(formData.get("heroBody") ?? ""),
+    categoryHeading: String(formData.get("categoryHeading") ?? ""),
+    categoryTagline: String(formData.get("categoryTagline") ?? ""),
+    categoryImageUrl: String(formData.get("categoryImageUrl") ?? "") || undefined,
     closingHeading: String(formData.get("closingHeading") ?? ""),
     closingBody: String(formData.get("closingBody") ?? ""),
     closingImageUrl: String(formData.get("closingImageUrl") ?? "") || undefined,

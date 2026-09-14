@@ -32,9 +32,9 @@ export default async function AdminSolutionsPagePage() {
           </div>
           <div>
             <label htmlFor="heroHeading" className={labelClass}>
-              Heading
+              Heading (each line breaks to a new line on the page)
             </label>
-            <input id="heroHeading" name="heroHeading" type="text" defaultValue={c.heroHeading} className={inputClass} />
+            <textarea id="heroHeading" name="heroHeading" rows={3} defaultValue={c.heroHeading} className={inputClass} />
           </div>
           <div>
             <label htmlFor="heroBody" className={labelClass}>
@@ -74,6 +74,64 @@ export default async function AdminSolutionsPagePage() {
         <div className="space-y-5 border-t border-white/10 pt-8">
           <p className="text-xs font-bold uppercase tracking-wide text-white/40">Narrative sections</p>
           <NarrativeSectionsField label="Sections" defaultItems={c.narrativeSections} />
+        </div>
+
+        <div className="space-y-5 border-t border-white/10 pt-8">
+          <p className="text-xs font-bold uppercase tracking-wide text-white/40">Mechanical Solutions section</p>
+          <div>
+            <label htmlFor="mechanicalHeading" className={labelClass}>
+              Heading
+            </label>
+            <input
+              id="mechanicalHeading"
+              name="mechanicalHeading"
+              type="text"
+              defaultValue={c.mechanicalHeading}
+              className={inputClass}
+            />
+          </div>
+          <div>
+            <label htmlFor="mechanicalTagline" className={labelClass}>
+              Tagline
+            </label>
+            <textarea
+              id="mechanicalTagline"
+              name="mechanicalTagline"
+              rows={2}
+              defaultValue={c.mechanicalTagline}
+              className={inputClass}
+            />
+          </div>
+          <ImageUploadField name="mechanicalImageUrl" label="Section image" defaultValue={c.mechanicalImageUrl} />
+        </div>
+
+        <div className="space-y-5 border-t border-white/10 pt-8">
+          <p className="text-xs font-bold uppercase tracking-wide text-white/40">Chemical Solution section</p>
+          <div>
+            <label htmlFor="chemicalHeading" className={labelClass}>
+              Heading
+            </label>
+            <input
+              id="chemicalHeading"
+              name="chemicalHeading"
+              type="text"
+              defaultValue={c.chemicalHeading}
+              className={inputClass}
+            />
+          </div>
+          <div>
+            <label htmlFor="chemicalTagline" className={labelClass}>
+              Tagline
+            </label>
+            <textarea
+              id="chemicalTagline"
+              name="chemicalTagline"
+              rows={2}
+              defaultValue={c.chemicalTagline}
+              className={inputClass}
+            />
+          </div>
+          <ImageUploadField name="chemicalImageUrl" label="Section image" defaultValue={c.chemicalImageUrl} />
         </div>
 
         <div className="space-y-5 border-t border-white/10 pt-8">

@@ -34,16 +34,18 @@ export default async function SolutionsPage() {
         <SolutionsPageHero heading={c.heroHeading} body={c.heroBody} />
         {mechanicalItems.length > 0 && (
           <SolutionsCategorySection
-            heading="Mechanical Solutions"
-            tagline="These are complete engineering systems."
+            heading={c.mechanicalHeading}
+            tagline={c.mechanicalTagline}
+            imageUrl={c.mechanicalImageUrl}
             align="left"
             items={mechanicalItems}
           />
         )}
         {chemicalItems.length > 0 && (
           <SolutionsCategorySection
-            heading="Chemical Solution"
-            tagline="These are complete process solutions."
+            heading={c.chemicalHeading}
+            tagline={c.chemicalTagline}
+            imageUrl={c.chemicalImageUrl}
             align="right"
             items={chemicalItems}
           />

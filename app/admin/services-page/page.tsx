@@ -29,6 +29,35 @@ export default async function AdminServicesPagePage() {
         </div>
 
         <div className="space-y-5 border-t border-white/10 pt-8">
+          <p className="text-xs font-bold uppercase tracking-wide text-white/40">Project Services section</p>
+          <div>
+            <label htmlFor="categoryHeading" className={labelClass}>
+              Heading (each line breaks to a new line on the page)
+            </label>
+            <textarea
+              id="categoryHeading"
+              name="categoryHeading"
+              rows={2}
+              defaultValue={c.categoryHeading}
+              className={inputClass}
+            />
+          </div>
+          <div>
+            <label htmlFor="categoryTagline" className={labelClass}>
+              Tagline (each line breaks to a new line on the page)
+            </label>
+            <textarea
+              id="categoryTagline"
+              name="categoryTagline"
+              rows={3}
+              defaultValue={c.categoryTagline}
+              className={inputClass}
+            />
+          </div>
+          <ImageUploadField name="categoryImageUrl" label="Section image" defaultValue={c.categoryImageUrl} />
+        </div>
+
+        <div className="space-y-5 border-t border-white/10 pt-8">
           <p className="text-xs font-bold uppercase tracking-wide text-white/40">Closing CTA</p>
           <div>
             <label htmlFor="closingHeading" className={labelClass}>

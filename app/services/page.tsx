@@ -32,8 +32,9 @@ export default async function ServicesPage() {
         <ServicesPageHero heading={c.heroHeading} body={c.heroBody} />
         {projectServices.length > 0 && (
           <SolutionsCategorySection
-            heading={"Project\nServices"}
-            tagline={"Integrated technical, operational, and business\nsupport for every project\nphase."}
+            heading={c.categoryHeading}
+            tagline={c.categoryTagline}
+            imageUrl={c.categoryImageUrl}
             align="left"
             taglineMaxWidth="600px"
             items={projectServices}
