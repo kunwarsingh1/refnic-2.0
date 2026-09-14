@@ -1,45 +1,56 @@
-import { GradientCtaButton, CmsImagePlaceholder } from "@/components/ui/primitives";
+import {
+  GradientCtaButton,
+  CmsImagePlaceholder,
+} from "@/components/ui/primitives";
 import type { SolutionsPageConfig } from "@/lib/content/solutionsPage";
 
-export default function SolutionsHero({ config: c }: { config: SolutionsPageConfig }) {
+export default function SolutionsHero({
+  config: c,
+}: {
+  config: SolutionsPageConfig;
+}) {
   return (
-    <section className="relative overflow-hidden pt-14 pb-20 md:pt-20 md:pb-28">
+    <section className="relative overflow-hidden pt-4 pb-12 md:pt-6 md:pb-16">
+      {/* Top gradient */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-[70%] opacity-[0.78]"
-        style={{ background: "linear-gradient(180deg, black 0%, rgba(0,0,0,0) 100%)" }}
+        style={{
+          background:
+            "linear-gradient(180deg, black 0%, rgba(0,0,0,0) 100%)",
+        }}
         aria-hidden
       />
-      <div className="pointer-events-none absolute left-1/2 top-16 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3152df] opacity-40 blur-[220px] md:top-[122px]" aria-hidden />
 
-      <p
-        className="pointer-events-none absolute inset-x-0 top-8 select-none whitespace-nowrap text-center font-display font-bold leading-none text-[#F8F8F8]/10 text-[clamp(2.5rem,18vw,165px)] md:top-10"
+      {/* Blue glow */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-10 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3152df] opacity-40 blur-[220px] md:top-[80px]"
         aria-hidden
-      >
-        {c.heroWatermark}
-      </p>
+      />
 
-      <div className="relative z-10 mx-auto mt-30 max-w-5xl px-6 text-center">
-       
-
-        <h1 className="whitespace-pre-line font-display font-bold text-4xl leading-tight text-[#EBEBEB] md:text-5xl md:leading-none">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
+        {/* Heading */}
+        <h1 className="whitespace-pre-line font-display text-[40px] font-bold leading-tight text-[#EBEBEB]">
           {c.heroHeading}
         </h1>
 
-         {c.heroImageUrl ? (
+        {/* Hero Image */}
+        {c.heroImageUrl ? (
           <img
             src={c.heroImageUrl}
             alt=""
-            className="relative z-10 mx-auto mb-6 aspect-[495/488] w-52 rounded-2xl object-contain md:w-80"
+            className="relative z-10 mx-auto mt-0 mb-0 aspect-[495/488] w-[312px] object-contain md:w-[480px]"
           />
         ) : (
-          <CmsImagePlaceholder className="relative z-10 mx-auto mb-6 aspect-[495/488] w-52 rounded-2xl md:w-80" />
+          <CmsImagePlaceholder className="relative z-10 mx-auto mt-0 mb-0 aspect-[495/488] w-[312px] md:w-[480px]" />
         )}
 
-        <p className="mx-auto mt-6 max-w-[979px] whitespace-pre-line text-center text-base font-normal leading-relaxed text-white md:text-[21.64px] md:leading-[32.46px]">
+        {/* Description */}
+        <p className="mx-auto mt-0 max-w-[979px] whitespace-pre-line text-center text-[18px] font-normal leading-relaxed text-white">
           {c.heroBody}
         </p>
 
-        <div className="mt-8 flex justify-center">
+        {/* CTA */}
+        <div className="mt-6 flex justify-center">
           <GradientCtaButton href={c.heroCtaHref}>
             {c.heroCtaLabel}
           </GradientCtaButton>
