@@ -29,7 +29,7 @@ export default function SolutionsNarrative({ config: c }: { config: SolutionsPag
                 <div key={i}>
                   <h2
                     style={{ color }}
-                    className={`font-display font-bold text-3xl leading-tight md:text-5xl ${headingWidthClass}`}
+                    className={`whitespace-pre-line font-display font-bold text-3xl leading-tight md:text-5xl ${headingWidthClass}`}
                   >
                     {section.heading}
                   </h2>
@@ -48,7 +48,7 @@ export default function SolutionsNarrative({ config: c }: { config: SolutionsPag
                 <div key={i}>
                   <h2
                     style={{ color }}
-                    className={`font-display font-bold text-3xl leading-tight md:text-5xl ${headingWidthClass}`}
+                    className={`whitespace-pre-line font-display font-bold text-3xl leading-tight md:text-5xl ${headingWidthClass}`}
                   >
                     {section.heading}
                   </h2>
@@ -63,7 +63,7 @@ export default function SolutionsNarrative({ config: c }: { config: SolutionsPag
                       <img
                         src={section.imageUrl}
                         alt=""
-                        className="aspect-[627/549] w-full shrink-0 rounded-[23px] object-cover md:w-[560px]"
+                        className="aspect-[627/549] w-full shrink-0 rounded-[23px] object-contain md:w-[560px]"
                       />
                     ) : (
                       <CmsImagePlaceholder className="aspect-[627/549] w-full shrink-0 rounded-[23px] md:w-[560px]" />
@@ -77,7 +77,7 @@ export default function SolutionsNarrative({ config: c }: { config: SolutionsPag
               <div key={i}>
                 <h2
                   style={{ color }}
-                  className={`font-display font-bold text-3xl leading-tight md:text-5xl ${headingWidthClass}`}
+                  className={`whitespace-pre-line font-display font-bold text-3xl leading-tight md:text-5xl ${headingWidthClass}`}
                 >
                   {section.heading}
                 </h2>
@@ -85,7 +85,7 @@ export default function SolutionsNarrative({ config: c }: { config: SolutionsPag
                   <img
                     src={section.imageUrl}
                     alt=""
-                    className="mt-10 aspect-[1435/506] w-full rounded-[23px] object-cover"
+                    className="mt-10 aspect-[1435/506] w-full rounded-[23px] object-contain"
                   />
                 ) : (
                   <CmsImagePlaceholder className="mt-10 aspect-[1435/506] w-full rounded-[23px]" />

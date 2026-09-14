@@ -23,17 +23,17 @@ export default function SolutionsHero({ config: c }: { config: SolutionsPageConf
           <img
             src={c.heroImageUrl}
             alt=""
-            className="relative z-10 mx-auto mb-6 aspect-[495/488] w-40 rounded-2xl object-cover md:w-60"
+            className="relative z-10 mx-auto mb-6 aspect-[495/488] w-40 rounded-2xl object-contain md:w-60"
           />
         ) : (
           <CmsImagePlaceholder className="relative z-10 mx-auto mb-6 aspect-[495/488] w-40 rounded-2xl md:w-60" />
         )}
 
-        <h1 className="font-display font-bold text-4xl leading-tight text-[#EBEBEB] md:text-5xl md:leading-none">
+        <h1 className="whitespace-pre-line font-display font-bold text-4xl leading-tight text-[#EBEBEB] md:text-5xl md:leading-none">
           {c.heroHeading}
         </h1>
 
-        <p className="mx-auto mt-6 max-w-[979px] text-center text-base font-normal leading-relaxed text-white md:text-[21.64px] md:leading-[32.46px]">
+        <p className="mx-auto mt-6 max-w-[979px] whitespace-pre-line text-center text-base font-normal leading-relaxed text-white md:text-[21.64px] md:leading-[32.46px]">
           {c.heroBody}
         </p>
 
