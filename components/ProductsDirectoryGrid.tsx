@@ -102,10 +102,10 @@ export default function ProductsDirectoryGrid({
                         <img
                           src={category.imageUrl}
                           alt=""
-                          className="h-72 w-full self-stretch object-contain md:w-[45%]"
+                          className="h-72 w-full self-stretch object-contain md:h-auto md:w-[45%]"
                         />
                       ) : (
-                        <CmsImagePlaceholder className="h-72 w-full self-stretch md:w-[45%]" />
+                        <CmsImagePlaceholder className="h-72 w-full self-stretch md:h-auto md:w-[45%]" />
                       ))}
                   </div>
                 );
