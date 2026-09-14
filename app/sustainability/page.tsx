@@ -38,6 +38,8 @@ export default async function SustainabilityPage() {
           imageUrl={c.closingImageUrl}
           ctaLabel={c.closingCtaLabel}
           ctaHref={c.closingCtaHref}
+          imageClassName="mx-auto mt-3 aspect-square w-[500px] rounded-2xl object-contain md:w-[624px]"
+          bodyClassName="mx-auto mt-3 max-w-2xl text-[20px] leading-[32.46px] text-white"
         />
       </main>
 

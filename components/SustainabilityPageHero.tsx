@@ -10,7 +10,7 @@ export default function SustainabilityPageHero({
   imageUrl?: string;
 } = {}) {
   return (
-    <section className="relative overflow-hidden bg-black pb-24 pt-28 md:pb-32 md:pt-36">
+    <section className="relative overflow-hidden bg-black pb-8 pt-28 md:pb-10 md:pt-36">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-[70%] opacity-[0.78]"
@@ -23,15 +23,19 @@ export default function SustainabilityPageHero({
       />
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <h1 className="font-display text-[clamp(2.0625rem,9vw,7.5rem)] font-bold leading-[1.02] text-[#F8F8F8]">
+        <h1 className="whitespace-pre-line font-display text-[clamp(2.0625rem,9vw,7.5rem)] font-bold leading-[1.02] text-[#F8F8F8]">
           {heading}
         </h1>
-        <p className="mx-auto mt-8 max-w-xl text-[21.64px] leading-[32.46px] text-white">{body}</p>
+        <p className="mx-auto mt-8 max-w-xl whitespace-pre-line text-[21.64px] leading-[32.46px] text-white">{body}</p>
         {imageUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={imageUrl} alt="" className="mx-auto mt-10 aspect-square w-48 rounded-2xl object-contain md:w-72" />
+          <img
+            src={imageUrl}
+            alt=""
+            className="mx-auto mt-3 aspect-square w-[375px] rounded-2xl object-contain md:w-[561px]"
+          />
         ) : (
-          <CmsImagePlaceholder className="mx-auto mt-10 aspect-square w-48 rounded-2xl md:w-72" />
+          <CmsImagePlaceholder className="mx-auto mt-3 aspect-square w-[375px] rounded-2xl md:w-[561px]" />
         )}
       </div>
     </section>
