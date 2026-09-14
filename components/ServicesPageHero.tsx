@@ -1,4 +1,10 @@
-export default function ServicesPageHero() {
+export default function ServicesPageHero({
+  heading = "Engineering Beyond Equipment.",
+  body = "From concept development to long-term operational support, Refnic delivers the expertise that powers successful industrial projects.",
+}: {
+  heading?: string;
+  body?: string;
+} = {}) {
   return (
     <section className="relative overflow-hidden bg-black pb-24 pt-28 md:pb-32 md:pt-36">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
@@ -14,12 +20,9 @@ export default function ServicesPageHero() {
 
       <div className="relative z-10 mx-auto w-full px-6 text-center">
         <h1 className="font-display text-[clamp(1.71875rem,7.5vw,6.25rem)] font-bold leading-[1.02] text-[#F8F8F8]">
-          Engineering Beyond Equipment.
+          {heading}
         </h1>
-        <p className="mx-auto mt-8 max-w-[750px] text-[21.64px] leading-[32.46px] text-white">
-          From concept development to long-term operational support, Refnic delivers the expertise that
-          powers successful industrial projects.
-        </p>
+        <p className="mx-auto mt-8 max-w-[750px] text-[21.64px] leading-[32.46px] text-white">{body}</p>
       </div>
     </section>
   );

@@ -47,6 +47,11 @@ const NAV_SECTIONS: { heading: string; items: { label: string; href: string }[] 
       { label: "Sustainability", href: "/admin/sustainability-page" },
       { label: "Technologies", href: "/admin/technologies-page" },
       { label: "Products", href: "/admin/products-page" },
+      { label: "Products Directory", href: "/admin/products-directory-page" },
+      { label: "Services", href: "/admin/services-page" },
+      { label: "Resources", href: "/admin/resources-page" },
+      { label: "Digital Tools", href: "/admin/digital-tools-page" },
+      { label: "White Papers", href: "/admin/white-papers-page" },
     ],
   },
 ];

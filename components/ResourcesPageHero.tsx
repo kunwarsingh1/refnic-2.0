@@ -1,4 +1,10 @@
-export default function ResourcesPageHero() {
+export default function ResourcesPageHero({
+  heading = "Resources",
+  body = "Technical knowledge, product information, and practical resources to support your refining and recycling projects.",
+}: {
+  heading?: string;
+  body?: string;
+} = {}) {
   return (
     <section className="relative overflow-hidden bg-black pb-24 pt-28 md:pb-32 md:pt-36">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
@@ -14,12 +20,9 @@ export default function ResourcesPageHero() {
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
         <h1 className="font-display text-[clamp(2.0625rem,9vw,7.5rem)] font-bold leading-[1.02] text-[#F8F8F8]">
-          Resources
+          {heading}
         </h1>
-        <p className="mx-auto mt-8 max-w-xl text-[21.64px] leading-[32.46px] text-white">
-          Technical knowledge, product information, and practical resources to support your refining and
-          recycling projects.
-        </p>
+        <p className="mx-auto mt-8 max-w-xl text-[21.64px] leading-[32.46px] text-white">{body}</p>
       </div>
     </section>
   );

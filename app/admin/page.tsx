@@ -27,6 +27,11 @@ const SECTIONS = [
   { label: "Sustainability Page", href: "/admin/sustainability-page" },
   { label: "Technologies Page", href: "/admin/technologies-page" },
   { label: "Products Page", href: "/admin/products-page" },
+  { label: "Products Directory Page", href: "/admin/products-directory-page" },
+  { label: "Services Page", href: "/admin/services-page" },
+  { label: "Resources Page", href: "/admin/resources-page" },
+  { label: "Digital Tools Page", href: "/admin/digital-tools-page" },
+  { label: "White Papers Page", href: "/admin/white-papers-page" },
 ];
 
 export default function AdminIndexPage() {

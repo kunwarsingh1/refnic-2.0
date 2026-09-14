@@ -5,6 +5,7 @@ import ResourcesPageHero from "@/components/ResourcesPageHero";
 import ResourcesGrid, { type ResourceGridItem } from "@/components/ResourcesGrid";
 import ResourcesPageClosingCta from "@/components/ResourcesPageClosingCta";
 import { getResourceCatalogItems } from "@/lib/content/resourcesCatalog";
+import { getResourcesPageConfig } from "@/lib/content/resourcesPage";
 
 export const revalidate = 60;
 
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
 
 export default async function ResourcesPage() {
   const items = await getResourceCatalogItems();
+  const c = await getResourcesPageConfig();
   const cards: ResourceGridItem[] = items.map((r) => ({
     title: r.title,
     description: r.excerpt,
@@ -28,9 +30,15 @@ export default async function ResourcesPage() {
       <SiteHeader bgClassName="bg-black" />
 
       <main className="bg-black">
-        <ResourcesPageHero />
+        <ResourcesPageHero heading={c.heroHeading} body={c.heroBody} />
         {cards.length > 0 && <ResourcesGrid items={cards} />}
-        <ResourcesPageClosingCta />
+        <ResourcesPageClosingCta
+          heading={c.closingHeading}
+          body={c.closingBody}
+          imageUrl={c.closingImageUrl}
+          ctaLabel={c.closingCtaLabel}
+          ctaHref={c.closingCtaHref}
+        />
       </main>
 
       <Footer />

@@ -33,7 +33,12 @@ export type ContentType =
   | "productsPage"
   | "solutionsPage"
   | "sustainabilityPage"
-  | "technologiesPage";
+  | "technologiesPage"
+  | "servicesPage"
+  | "resourcesPage"
+  | "digitalToolsPage"
+  | "whitePapersPage"
+  | "productsDirectoryPage";
 
 export type Operation = "create" | "update" | "delete" | "reorder";
 

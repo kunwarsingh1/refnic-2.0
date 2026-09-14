@@ -6,6 +6,7 @@ import ProductsDirectoryGrid from "@/components/ProductsDirectoryGrid";
 import ProductsDirectoryCta from "@/components/ProductsDirectoryCta";
 import { getProductCategories } from "@/lib/content/productCategories";
 import { getProductCatalogItems } from "@/lib/content/productCatalog";
+import { getProductsDirectoryPageConfig } from "@/lib/content/productsDirectoryPage";
 
 export const metadata: Metadata = {
   title: "Products — Refine Nicely",
@@ -15,16 +16,26 @@ export const metadata: Metadata = {
 export const revalidate = 60;
 
 export default async function ProductsDirectoryPage() {
-  const [categories, items] = await Promise.all([getProductCategories(), getProductCatalogItems()]);
+  const [categories, items, c] = await Promise.all([
+    getProductCategories(),
+    getProductCatalogItems(),
+    getProductsDirectoryPageConfig(),
+  ]);
 
   return (
     <>
       <SiteHeader />
 
       <main className="bg-black">
-        <ProductsDirectoryHero />
+        <ProductsDirectoryHero body={c.heroBody} />
         <ProductsDirectoryGrid categories={categories} items={items} />
-        <ProductsDirectoryCta />
+        <ProductsDirectoryCta
+          heading={c.closingHeading}
+          body={c.closingBody}
+          imageUrl={c.closingImageUrl}
+          ctaLabel={c.closingCtaLabel}
+          ctaHref={c.closingCtaHref}
+        />
       </main>
 
       <Footer />

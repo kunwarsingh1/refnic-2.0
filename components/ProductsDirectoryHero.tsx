@@ -1,4 +1,8 @@
-export default function ProductsDirectoryHero() {
+export default function ProductsDirectoryHero({
+  body = "Every machine, system, and service we design and manufacture — grouped by category. Explore the full range that goes into a Refnic plant.",
+}: {
+  body?: string;
+} = {}) {
   return (
     <section className="relative overflow-hidden bg-black pt-20 pb-16 md:pt-28 md:pb-20">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
@@ -18,8 +22,7 @@ export default function ProductsDirectoryHero() {
           In-House.
         </h1>
         <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white md:text-[21.64px] md:leading-[32.46px]">
-          Every machine, system, and service we design and manufacture — grouped by category.
-          Explore the full range that goes into a Refnic plant.
+          {body}
         </p>
       </div>
     </section>

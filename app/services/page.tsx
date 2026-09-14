@@ -5,6 +5,7 @@ import ServicesPageHero from "@/components/ServicesPageHero";
 import SolutionsCategorySection, { type SolutionItem } from "@/components/SolutionsCategorySection";
 import ServicesPageClosingCta from "@/components/ServicesPageClosingCta";
 import { getServiceCatalogItems } from "@/lib/content/servicesCatalog";
+import { getServicesPageConfig } from "@/lib/content/servicesPage";
 
 export const revalidate = 60;
 
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
 
 export default async function ServicesPage() {
   const items = await getServiceCatalogItems();
+  const c = await getServicesPageConfig();
   const projectServices: SolutionItem[] = items.map((s) => ({
     title: s.title,
     description: s.excerpt,
@@ -27,7 +29,7 @@ export default async function ServicesPage() {
       <SiteHeader bgClassName="bg-black" />
 
       <main className="bg-black">
-        <ServicesPageHero />
+        <ServicesPageHero heading={c.heroHeading} body={c.heroBody} />
         {projectServices.length > 0 && (
           <SolutionsCategorySection
             heading={"Project\nServices"}
@@ -37,7 +39,13 @@ export default async function ServicesPage() {
             items={projectServices}
           />
         )}
-        <ServicesPageClosingCta />
+        <ServicesPageClosingCta
+          heading={c.closingHeading}
+          body={c.closingBody}
+          imageUrl={c.closingImageUrl}
+          ctaLabel={c.closingCtaLabel}
+          ctaHref={c.closingCtaHref}
+        />
       </main>
 
       <Footer />
