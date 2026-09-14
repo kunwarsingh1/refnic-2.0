@@ -10,7 +10,7 @@ export default function MaterialRecoverySection({ config: c }: { config: Product
       <div className="pointer-events-none absolute -left-40 bottom-0 h-[697px] w-[697px] rounded-full bg-[#3152df] opacity-20 blur-[360px]" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-[90rem] px-6 md:px-16">
-        <h2 className="text-center font-display font-bold text-3xl leading-tight text-[#EBEBEB] md:text-5xl md:leading-none">
+        <h2 className="text-center font-display font-bold text-3xl leading-tight text-[#EBEBEB] md:text-5xl">
           {c.materialRecoveryHeading}
         </h2>
 
