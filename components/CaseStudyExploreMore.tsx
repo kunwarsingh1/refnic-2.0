@@ -22,7 +22,12 @@ export default function CaseStudyExploreMore({
           <h2 className="font-display text-[40px] font-bold leading-[40px] text-[#EBEBEB]">
             Explore more
           </h2>
-          <GradientCtaButton href="/case-study">View All</GradientCtaButton>
+          <GradientCtaButton
+            href="/case-study"
+            innerClassName="inline-flex items-center gap-[7px] rounded-[6.91px] bg-[#3152DF] px-[16.75px] py-[11.17px] text-[11.17px] font-bold leading-[12.56px] text-[#F4F4F4]"
+          >
+            View All
+          </GradientCtaButton>
         </div>
 
         <div className="relative mt-12 flex flex-col gap-8">

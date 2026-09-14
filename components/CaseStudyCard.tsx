@@ -27,7 +27,12 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
               <span className="size-[27px] rounded-full bg-[#97F88C]" aria-hidden />
             </span>
           )}
-          <GradientCtaButton href={`/case-study/${cs.slug}`}>View Case Study</GradientCtaButton>
+          <GradientCtaButton
+            href={`/case-study/${cs.slug}`}
+            innerClassName="inline-flex items-center gap-[7px] rounded-[6.91px] bg-[#3152DF] px-[16.75px] py-[11.17px] text-[11.17px] font-bold leading-[12.56px] text-[#F4F4F4]"
+          >
+            View Case Study
+          </GradientCtaButton>
         </div>
       </div>
     </div>

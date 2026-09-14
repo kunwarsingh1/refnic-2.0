@@ -44,18 +44,16 @@ export function GradientCtaButton({
   type = "button",
   disabled,
   className = "",
+  innerClassName = "inline-flex items-center gap-[11.51px] rounded-[6.91px] bg-[#3152DF] px-[27.63px] py-[18.42px] text-[18.42px] font-bold leading-[20.72px] text-[#F4F4F4]",
 }: {
   children: ReactNode;
   href?: string;
   type?: "button" | "submit";
   disabled?: boolean;
   className?: string;
+  innerClassName?: string;
 }) {
-  const inner = (
-    <span className="inline-flex items-center gap-[11.51px] rounded-[6.91px] bg-[#3152DF] px-[27.63px] py-[18.42px] text-[18.42px] font-bold leading-[20.72px] text-[#F4F4F4]">
-      {children}
-    </span>
-  );
+  const inner = <span className={innerClassName}>{children}</span>;
   const outerClass = `inline-flex rounded-lg bg-[#1B37B0] ${className}`;
   if (href) {
     return (
