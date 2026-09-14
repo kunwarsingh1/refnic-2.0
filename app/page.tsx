@@ -96,7 +96,7 @@ export default async function Home() {
             subtitle="Integrated mechanical and chemical engineering solutions tailored for industrial-scale resource recovery."
             cards={allSolutions.slice(0, 3)}
             variant="solutions"
-            exploreHref="/products"
+            exploreHref="/solutions"
           />
         </section>
         <section className="flex flex-col justify-center md:min-h-screen">
@@ -105,6 +105,7 @@ export default async function Home() {
             subtitle="From concept development to long-term operational support, Refnic delivers the expertise that powers successful industrial projects."
             cards={services}
             variant="services"
+            exploreHref="/services"
           />
         </section>
         <section className="flex flex-col justify-center md:min-h-screen">
