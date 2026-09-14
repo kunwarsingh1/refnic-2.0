@@ -49,7 +49,7 @@ export const DEFAULT_INDIAN_MARKET_PAGE_CONFIG: IndianMarketPageConfig = {
       body: "India is entering a defining phase of industrial growth. Rapid electrification, expanding manufacturing, increasing consumption, and stronger environmental regulations are driving unprecedented demand for recycling and metal refining infrastructure.\n\nFrom lithium-ion batteries and e-waste to industrial residues and critical metals, the need for efficient resource recovery has never been greater.\n\nRefnic is building the engineering foundation to support this transformation.",
     },
     {
-      heading: "Why Indigenous Technology Matters",
+      heading: "Why Indigenous\nTechnology Matters",
       body: "Rather than depending on imported systems, India requires technologies designed around local feedstocks, operating conditions, regulations, and economics.\n\nRefnic develops indigenous engineering solutions that reduce import dependency while improving accessibility, reliability, and long-term technical support for Indian industries.",
     },
     {

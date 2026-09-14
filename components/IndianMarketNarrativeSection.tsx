@@ -30,7 +30,9 @@ export default function IndianMarketNarrativeSection({
             )}
           </div>
           <div className={textRight ? "text-center md:text-right" : "text-center md:text-left"}>
-            <h2 className="font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-5xl">{heading}</h2>
+            <h2 className="whitespace-pre-line font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-5xl">
+              {heading}
+            </h2>
             <div className="mt-6 space-y-4">
               {paragraphs.map((p, i) => (
                 <p key={i} className="text-[20px] leading-[32.46px] text-white">
