@@ -5,10 +5,6 @@ import { getInvestorsPageConfig, type InvestorsPageConfig } from "@/lib/content/
 import { submitChange } from "@/lib/pendingChanges";
 import { revalidatePath } from "next/cache";
 
-function nonEmpty(values: FormDataEntryValue[]): string[] {
-  return values.map(String).filter((s) => s.trim() !== "");
-}
-
 export async function updateInvestorsPageConfigAction(formData: FormData): Promise<void> {
   if (!(await isAdmin())) return;
 
@@ -29,7 +25,14 @@ export async function updateInvestorsPageConfigAction(formData: FormData): Promi
       }))
       .filter((s) => s.heading.trim() !== ""),
     whyNowHeading: String(formData.get("whyNowHeading") ?? ""),
-    whyNowReasons: nonEmpty(formData.getAll("whyNowReason")),
+    whyNowReasons: formData
+      .getAll("whyNowReasonText")
+      .map(String)
+      .map((text, i) => ({
+        text,
+        imageUrl: String(formData.getAll("whyNowReasonImageUrl")[i] ?? "") || undefined,
+      }))
+      .filter((r) => r.text.trim() !== ""),
     visionLabel: String(formData.get("visionLabel") ?? ""),
     visionHeading: String(formData.get("visionHeading") ?? ""),
     visionBody: String(formData.get("visionBody") ?? ""),

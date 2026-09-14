@@ -4,12 +4,14 @@ export const INVESTORS_PAGE_KEY = "investorsPage";
 
 export type NumberedSection = { number: string; heading: string; body: string; imageUrl?: string };
 
+export type WhyNowReason = { text: string; imageUrl?: string };
+
 export type InvestorsPageConfig = {
   heroHeading: string;
   heroSubheading: string;
   numberedSections: NumberedSection[];
   whyNowHeading: string;
-  whyNowReasons: string[];
+  whyNowReasons: WhyNowReason[];
   visionLabel: string;
   visionHeading: string;
   visionBody: string;
@@ -55,12 +57,12 @@ export const DEFAULT_INVESTORS_PAGE_CONFIG: InvestorsPageConfig = {
   ],
   whyNowHeading: "Why Now?",
   whyNowReasons: [
-    "Governments are prioritizing critical mineral security.",
-    "Manufacturers are investing in circular supply chains.",
-    "Industries need integrated engineering partners not fragmented vendors.",
-    "Refnic is positioned at the intersection of these long-term trends.",
-    "Battery and electronic waste volumes are growing rapidly.",
-    "Manufacturers are investing in circular supply chains.",
+    { text: "Governments are prioritizing critical mineral security." },
+    { text: "Manufacturers are investing in circular supply chains." },
+    { text: "Industries need integrated engineering partners not fragmented vendors." },
+    { text: "Refnic is positioned at the intersection of these long-term trends." },
+    { text: "Battery and electronic waste volumes are growing rapidly." },
+    { text: "Manufacturers are investing in circular supply chains." },
   ],
   visionLabel: "VISION",
   visionHeading: "Building the World's Most Trusted Engineering Company for Resource Recovery.",

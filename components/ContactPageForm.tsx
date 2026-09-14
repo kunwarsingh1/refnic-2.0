@@ -66,12 +66,14 @@ export default function ContactPageForm({
   phone = "+91 9999999999",
   address,
   contactInfoHeading,
+  imageUrl,
   subjects,
 }: {
   email?: string;
   phone?: string;
   address: string;
   contactInfoHeading: string;
+  imageUrl?: string;
   subjects: string[];
 }) {
   const [subject, setSubject] = useState(subjects[0]);
@@ -108,7 +110,16 @@ export default function ContactPageForm({
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className="relative">
-          <CmsImagePlaceholder className="pointer-events-none absolute -top-16 left-8 hidden h-44 w-56 rounded-lg md:block" />
+          {imageUrl ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={imageUrl}
+              alt=""
+              className="pointer-events-none absolute -top-24 -left-6 hidden h-[300px] w-[360px] rounded-lg object-cover md:block"
+            />
+          ) : (
+            <CmsImagePlaceholder className="pointer-events-none absolute -top-24 -left-6 hidden h-[300px] w-[360px] rounded-lg md:block" />
+          )}
 
           <div
             className="pointer-events-none absolute inset-0 border-2 bg-white/[0.03] opacity-[0.61] backdrop-blur-[68.9px]"
@@ -118,7 +129,9 @@ export default function ContactPageForm({
 
           <div className="relative grid gap-12 p-8 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:p-14">
             <div>
-              <h2 className="font-sans text-2xl font-bold leading-tight text-white md:text-3xl">{contactInfoHeading}</h2>
+              <h2 className="whitespace-pre-line font-sans text-2xl font-bold leading-tight text-white md:text-3xl">
+                {contactInfoHeading}
+              </h2>
 
               <div className="mt-10 flex flex-col gap-6">
                 <div className="flex items-start gap-3">
@@ -133,7 +146,7 @@ export default function ContactPageForm({
 
                 <div className="flex items-start gap-3">
                   <LocationIcon className="mt-1 h-6 w-6 shrink-0 text-white" />
-                  <p className="max-w-xs text-[15.3px] font-semibold leading-relaxed text-white">
+                  <p className="max-w-xs whitespace-pre-line text-[15.3px] font-semibold leading-relaxed text-white">
                     {address}
                   </p>
                 </div>
