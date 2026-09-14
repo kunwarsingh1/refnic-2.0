@@ -10,7 +10,7 @@ export default function ServicesPageClosingCta() {
           From Planning to Performance.
         </h2>
 
-        <CmsImagePlaceholder className="mx-auto mt-8 aspect-[495/488] w-48 rounded-2xl md:w-72" />
+        <CmsImagePlaceholder className="mx-auto mt-8 aspect-square w-64 rounded-2xl md:w-80" />
 
         <p className="mx-auto mt-8 max-w-2xl text-[20px] leading-[32.46px] text-white">
           Whether you&apos;re building a new recycling facility, upgrading an existing plant, or optimizing
