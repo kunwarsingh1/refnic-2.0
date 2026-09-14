@@ -20,7 +20,7 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
           <CmsImagePlaceholder className="h-32 w-32 shrink-0 md:h-full md:w-auto md:aspect-[753/326]" />
         </div>
 
-        <div className="flex flex-col items-center justify-center gap-4 md:items-end">
+        <div className="flex flex-col items-center justify-center gap-4 md:items-end md:justify-end">
           {cs.status && (
             <span className="inline-flex items-center gap-2 text-[21.64px] leading-[32.46px] text-white">
               {cs.status}
