@@ -1,4 +1,10 @@
-export default function SolutionsPageHero() {
+export default function SolutionsPageHero({
+  heading,
+  body,
+}: {
+  heading?: string;
+  body?: string;
+} = {}) {
   return (
     <section className="relative overflow-hidden bg-black pb-24 pt-28 md:pb-32 md:pt-36">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
@@ -14,15 +20,25 @@ export default function SolutionsPageHero() {
 
       <div className="relative z-10 mx-auto w-full px-6 text-center">
         <h1 className="font-display text-[clamp(1.71875rem,7.5vw,6.25rem)] font-bold leading-[1.02] text-[#F8F8F8]">
-          Complete Engineering
-          <br />
-          From Design to
-          <br />
-          Commissioning.
+          {heading ? (
+            heading.split("\n").map((line, i) => (
+              <span key={i}>
+                {i > 0 && <br />}
+                {line}
+              </span>
+            ))
+          ) : (
+            <>
+              Complete Engineering
+              <br />
+              From Design to
+              <br />
+              Commissioning.
+            </>
+          )}
         </h1>
         <p className="mx-auto mt-8 max-w-xl text-[21.64px] leading-[32.46px] text-white">
-          Integrated mechanical and chemical engineering solutions tailored for industrial-scale resource
-          recovery.
+          {body ?? "Integrated mechanical and chemical engineering solutions tailored for industrial-scale resource recovery."}
         </p>
       </div>
     </section>

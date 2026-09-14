@@ -30,6 +30,7 @@ export async function updateSustainabilityPageConfigAction(formData: FormData): 
     heroLabel: String(formData.get("heroLabel") ?? ""),
     heroHeading: String(formData.get("heroHeading") ?? ""),
     heroBody: String(formData.get("heroBody") ?? ""),
+    heroImageUrl: String(formData.get("heroImageUrl") ?? "") || undefined,
     heroCtaLabel: String(formData.get("heroCtaLabel") ?? ""),
     impactCards: parseCards(formData, "impactTitle", "impactBody", "impactCta"),
     impactSectionHeading: String(formData.get("impactSectionHeading") ?? ""),
@@ -37,8 +38,11 @@ export async function updateSustainabilityPageConfigAction(formData: FormData): 
     approachHeading: String(formData.get("approachHeading") ?? ""),
     approachBody: String(formData.get("approachBody") ?? ""),
     approachCards: parseCards(formData, "approachTitle", "approachBody2", "approachCta"),
+    closingHeading: String(formData.get("closingHeading") ?? ""),
     closingBody: String(formData.get("closingBody") ?? ""),
+    closingImageUrl: String(formData.get("closingImageUrl") ?? "") || undefined,
     closingCtaLabel: String(formData.get("closingCtaLabel") ?? ""),
+    closingCtaHref: String(formData.get("closingCtaHref") ?? ""),
   };
 
   const previous = await getSustainabilityPageConfig();

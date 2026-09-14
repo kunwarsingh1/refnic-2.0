@@ -28,9 +28,9 @@ export type SolutionsPageConfig = {
 
 export const DEFAULT_SOLUTIONS_PAGE_CONFIG: SolutionsPageConfig = {
   heroWatermark: "Solution",
-  heroHeading: "LITHIUM-ION BATTERY RECYCLING",
+  heroHeading: "Complete Engineering\nFrom Design to\nCommissioning.",
   heroBody:
-    "The rapid growth of lithium-ion batteries is creating a growing stream of end-of-life batteries containing valuable materials that cannot simply be discarded. Recycling provides a pathway to recover these resources, reduce waste and support a more circular battery value chain.",
+    "Integrated mechanical and chemical engineering solutions tailored for industrial-scale resource recovery.",
   heroCtaLabel: "Explore Battery Recycling →",
   heroCtaHref: "/#contact",
   narrativeSections: [
@@ -65,11 +65,11 @@ export const DEFAULT_SOLUTIONS_PAGE_CONFIG: SolutionsPageConfig = {
         "Waste Becomes a Resource\n\nThe outcome of lithium-ion battery recycling is the recovery of material value from products that have completed their useful life. Depending on the battery chemistry and recycling route, recovered streams can contain valuable materials such as lithium, nickel, cobalt, manganese, copper and aluminium. These recovered materials can then move into appropriate downstream refining, processing or material-production pathways. This creates a connection between end-of-life batteries and future material demand, helping keep valuable resources within the wider industrial cycle. The ultimate objective is to move from discarded battery → recovered material → future resource, creating a more circular approach to the materials used in lithium-ion batteries.",
     },
   ],
-  closingHeading: "WHAT HAPPENS TO A BATTERY AFTER ITS FIRST LIFE?",
+  closingHeading: "Ready to Build Your Next Plant?",
   closingBody:
-    "A battery reaching the end of its useful life does not have to mean the end of its material value. Refnic provides lithium-ion battery recycling solutions designed to create a controlled pathway from end-of-life batteries to recoverable resources.",
-  closingCtaLabel: "Lithium-ion Battery Recycling Plant →",
-  closingCtaHref: "/products",
+    "From concept to commissioning, Refnic delivers complete engineering solutions tailored to your process, capacity, and business goals.",
+  closingCtaLabel: "Start Your Project",
+  closingCtaHref: "/contact",
 };
 
 export async function getSolutionsPageConfig(): Promise<SolutionsPageConfig> {

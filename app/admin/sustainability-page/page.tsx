@@ -2,6 +2,7 @@ import { getSustainabilityPageConfig } from "@/lib/content/sustainabilityPage";
 import { updateSustainabilityPageConfigAction } from "@/app/actions/sustainability-page";
 import { StringListField } from "@/components/admin/StringListField";
 import { TitleBodyCtaListField } from "@/components/admin/TitleBodyCtaListField";
+import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import { buttonClass, inputClass, labelClass } from "@/components/admin/formStyles";
 
 export default async function AdminSustainabilityPagePage() {
@@ -30,6 +31,7 @@ export default async function AdminSustainabilityPagePage() {
           </label>
           <textarea id="heroBody" name="heroBody" rows={3} defaultValue={c.heroBody} className={inputClass} />
         </div>
+        <ImageUploadField name="heroImageUrl" label="Hero image" defaultValue={c.heroImageUrl} />
         <div>
           <label htmlFor="heroCtaLabel" className={labelClass}>
             Hero CTA label
@@ -92,22 +94,49 @@ export default async function AdminSustainabilityPagePage() {
         />
 
         <div>
+          <label htmlFor="closingHeading" className={labelClass}>
+            Closing heading
+          </label>
+          <input
+            id="closingHeading"
+            name="closingHeading"
+            type="text"
+            defaultValue={c.closingHeading}
+            className={inputClass}
+          />
+        </div>
+        <div>
           <label htmlFor="closingBody" className={labelClass}>
             Closing body
           </label>
           <textarea id="closingBody" name="closingBody" rows={2} defaultValue={c.closingBody} className={inputClass} />
         </div>
-        <div>
-          <label htmlFor="closingCtaLabel" className={labelClass}>
-            Closing CTA label
-          </label>
-          <input
-            id="closingCtaLabel"
-            name="closingCtaLabel"
-            type="text"
-            defaultValue={c.closingCtaLabel}
-            className={inputClass}
-          />
+        <ImageUploadField name="closingImageUrl" label="Closing image" defaultValue={c.closingImageUrl} />
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div>
+            <label htmlFor="closingCtaLabel" className={labelClass}>
+              Closing CTA label
+            </label>
+            <input
+              id="closingCtaLabel"
+              name="closingCtaLabel"
+              type="text"
+              defaultValue={c.closingCtaLabel}
+              className={inputClass}
+            />
+          </div>
+          <div>
+            <label htmlFor="closingCtaHref" className={labelClass}>
+              Closing CTA link
+            </label>
+            <input
+              id="closingCtaHref"
+              name="closingCtaHref"
+              type="text"
+              defaultValue={c.closingCtaHref}
+              className={inputClass}
+            />
+          </div>
         </div>
 
         <button type="submit" className={buttonClass}>

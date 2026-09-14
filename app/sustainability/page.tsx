@@ -5,6 +5,7 @@ import SustainabilityPageHero from "@/components/SustainabilityPageHero";
 import SustainabilityImpactGrid, { type SustainabilityPillarItem } from "@/components/SustainabilityImpactGrid";
 import SolutionsPageClosingCta from "@/components/SolutionsPageClosingCta";
 import { getSustainabilityCatalogItems } from "@/lib/content/sustainabilityCatalog";
+import { getSustainabilityPageConfig } from "@/lib/content/sustainabilityPage";
 
 export const revalidate = 60;
 
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
 
 export default async function SustainabilityPage() {
   const items = await getSustainabilityCatalogItems();
+  const c = await getSustainabilityPageConfig();
   const pillars: SustainabilityPillarItem[] = items.map((s) => ({
     title: s.title,
     description: s.excerpt,
@@ -28,9 +30,15 @@ export default async function SustainabilityPage() {
       <SiteHeader bgClassName="bg-black" />
 
       <main className="bg-black">
-        <SustainabilityPageHero />
+        <SustainabilityPageHero heading={c.heroHeading} body={c.heroBody} imageUrl={c.heroImageUrl} />
         {pillars.length > 0 && <SustainabilityImpactGrid items={pillars} />}
-        <SolutionsPageClosingCta />
+        <SolutionsPageClosingCta
+          heading={c.closingHeading}
+          body={c.closingBody}
+          imageUrl={c.closingImageUrl}
+          ctaLabel={c.closingCtaLabel}
+          ctaHref={c.closingCtaHref}
+        />
       </main>
 
       <Footer />

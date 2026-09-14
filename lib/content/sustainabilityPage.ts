@@ -8,6 +8,7 @@ export type SustainabilityPageConfig = {
   heroLabel: string;
   heroHeading: string;
   heroBody: string;
+  heroImageUrl?: string;
   heroCtaLabel: string;
   impactCards: ImpactCard[];
   impactSectionHeading: string;
@@ -15,15 +16,18 @@ export type SustainabilityPageConfig = {
   approachHeading: string;
   approachBody: string;
   approachCards: ImpactCard[];
+  closingHeading: string;
   closingBody: string;
+  closingImageUrl?: string;
   closingCtaLabel: string;
+  closingCtaHref: string;
 };
 
 export const DEFAULT_SUSTAINABILITY_PAGE_CONFIG: SustainabilityPageConfig = {
   heroLabel: "Waste to Resource",
-  heroHeading: "Turning Waste Into Measurable Impact",
+  heroHeading: "Sustainability",
   heroBody:
-    "Refnic enables industries to recover valuable materials from end-of-life batteries, e-waste and other complex waste streams — reducing waste, conserving resources and building the infrastructure for a more circular economy.",
+    "We develop refining and recycling technologies that recover valuable metals, reduce resource consumption, and transform industrial waste into useful resources.",
   heroCtaLabel: "Explore Our Impact",
   impactCards: [
     {
@@ -64,9 +68,11 @@ export const DEFAULT_SUSTAINABILITY_PAGE_CONFIG: SustainabilityPageConfig = {
       ctaLabel: "Apply",
     },
   ],
+  closingHeading: "Ready to Turn Waste Into Value?",
   closingBody:
-    "If you're passionate about solving industrial challenges and building technologies that matter, we'd love to hear from you.",
-  closingCtaLabel: "View Open Positions",
+    "Partner with Refnic to recover valuable materials from your waste streams and build a more circular, resource-efficient operation.",
+  closingCtaLabel: "Get in Touch",
+  closingCtaHref: "/contact",
 };
 
 export async function getSustainabilityPageConfig(): Promise<SustainabilityPageConfig> {

@@ -5,6 +5,7 @@ import SolutionsPageHero from "@/components/SolutionsPageHero";
 import SolutionsCategorySection from "@/components/SolutionsCategorySection";
 import SolutionsPageClosingCta from "@/components/SolutionsPageClosingCta";
 import { getSolutionCatalogItems } from "@/lib/content/solutionsCatalog";
+import { getSolutionsPageConfig } from "@/lib/content/solutionsPage";
 
 export const metadata: Metadata = {
   title: "Solution — Refine Nicely",
@@ -15,6 +16,7 @@ export const revalidate = 60;
 
 export default async function SolutionsPage() {
   const items = await getSolutionCatalogItems();
+  const c = await getSolutionsPageConfig();
   const toCard = (item: (typeof items)[number]) => ({
     title: item.title,
     description: item.excerpt,
@@ -29,7 +31,7 @@ export default async function SolutionsPage() {
       <SiteHeader bgClassName="bg-black" />
 
       <main className="bg-black">
-        <SolutionsPageHero />
+        <SolutionsPageHero heading={c.heroHeading} body={c.heroBody} />
         {mechanicalItems.length > 0 && (
           <SolutionsCategorySection
             heading="Mechanical Solutions"
@@ -46,7 +48,13 @@ export default async function SolutionsPage() {
             items={chemicalItems}
           />
         )}
-        <SolutionsPageClosingCta />
+        <SolutionsPageClosingCta
+          heading={c.closingHeading}
+          body={c.closingBody}
+          imageUrl={c.closingImageUrl}
+          ctaLabel={c.closingCtaLabel}
+          ctaHref={c.closingCtaHref}
+        />
       </main>
 
       <Footer />
