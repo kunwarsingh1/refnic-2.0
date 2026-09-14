@@ -21,6 +21,11 @@ type SolutionCatalogItemDoc = {
   closingImageUrl?: string;
   closingCtaLabel: string;
   closingCtaHref: string;
+  pdfUrl?: string;
+  pdfCaption?: string;
+  contentType?: "pdf" | "image" | "text";
+  showcaseImageUrl?: string;
+  showcaseText?: string;
   order: number;
 };
 
@@ -41,6 +46,11 @@ export type SolutionCatalogItem = {
   closingImageUrl?: string;
   closingCtaLabel: string;
   closingCtaHref: string;
+  pdfUrl?: string;
+  pdfCaption?: string;
+  contentType?: "pdf" | "image" | "text";
+  showcaseImageUrl?: string;
+  showcaseText?: string;
   order: number;
 };
 
@@ -59,6 +69,11 @@ export type SolutionCatalogItemInput = {
   closingImageUrl?: string;
   closingCtaLabel: string;
   closingCtaHref: string;
+  pdfUrl?: string;
+  pdfCaption?: string;
+  contentType?: "pdf" | "image" | "text";
+  showcaseImageUrl?: string;
+  showcaseText?: string;
 };
 
 async function getCollection(): Promise<Collection<SolutionCatalogItemDoc>> {
@@ -84,6 +99,11 @@ function toItem(doc: SolutionCatalogItemDoc): SolutionCatalogItem {
     closingImageUrl: doc.closingImageUrl,
     closingCtaLabel: doc.closingCtaLabel,
     closingCtaHref: doc.closingCtaHref,
+    pdfUrl: doc.pdfUrl,
+    pdfCaption: doc.pdfCaption,
+    contentType: doc.contentType,
+    showcaseImageUrl: doc.showcaseImageUrl,
+    showcaseText: doc.showcaseText,
     order: doc.order ?? 0,
   };
 }

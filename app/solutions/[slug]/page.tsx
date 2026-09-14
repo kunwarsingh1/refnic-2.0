@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import SolutionsHero from "@/components/SolutionsHero";
 import SolutionsNarrative from "@/components/SolutionsNarrative";
 import SolutionsCtaSection from "@/components/SolutionsCtaSection";
+import ContentShowcase from "@/components/ContentShowcase";
 import { getSolutionCatalogItemBySlug } from "@/lib/content/solutionsCatalog";
 import type { SolutionsPageConfig } from "@/lib/content/solutionsPage";
 
@@ -60,6 +61,15 @@ export default async function SolutionCatalogItemPage({
         <div className="pointer-events-none absolute inset-0 bg-grid-dark" aria-hidden />
         <SolutionsHero config={config} />
         {config.narrativeSections.length > 0 && <SolutionsNarrative config={config} />}
+        <ContentShowcase
+          slug={item.slug}
+          contentType={item.contentType}
+          pdfUrl={item.pdfUrl}
+          imageUrl={item.showcaseImageUrl}
+          text={item.showcaseText}
+          caption={item.pdfCaption}
+          sectionBg="#000000"
+        />
         <SolutionsCtaSection config={config} showClosingImage={false} />
       </main>
 

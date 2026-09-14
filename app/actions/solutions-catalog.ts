@@ -37,6 +37,11 @@ function parseInput(formData: FormData): SolutionCatalogItemInput {
     closingImageUrl: String(formData.get("closingImageUrl") ?? "") || undefined,
     closingCtaLabel: String(formData.get("closingCtaLabel") ?? ""),
     closingCtaHref: String(formData.get("closingCtaHref") ?? ""),
+    pdfUrl: String(formData.get("pdfUrl") ?? "") || undefined,
+    pdfCaption: String(formData.get("pdfCaption") ?? ""),
+    contentType: String(formData.get("contentType") ?? "pdf") as "pdf" | "image" | "text",
+    showcaseImageUrl: String(formData.get("showcaseImageUrl") ?? "") || undefined,
+    showcaseText: String(formData.get("showcaseText") ?? ""),
   };
 }
 
