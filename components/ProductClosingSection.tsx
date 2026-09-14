@@ -22,7 +22,7 @@ export default function ProductClosingSection({
 
       {hasHeadingSection && (
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-          <h2 className="font-display text-2xl font-bold uppercase leading-tight text-[#EBEBEB] md:text-5xl">
+          <h2 className="whitespace-pre-line font-display text-[40px] font-normal uppercase leading-tight text-[#EBEBEB]">
             {heading}
           </h2>
           <div className="relative mx-auto mt-10 flex justify-center">
@@ -32,7 +32,7 @@ export default function ProductClosingSection({
             />
             {imageUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={imageUrl} alt="" className="relative aspect-[3/2] w-72 rounded-2xl object-cover md:w-[420px]" />
+              <img src={imageUrl} alt="" className="relative aspect-[3/2] w-72 rounded-2xl object-contain md:w-[420px]" />
             ) : (
               <CmsImagePlaceholder className="relative aspect-[3/2] w-72 rounded-2xl md:w-[420px]" />
             )}
@@ -42,7 +42,7 @@ export default function ProductClosingSection({
 
       {(tagline || ctaLabel) && (
         <div className="relative z-10 mx-auto mt-10 max-w-3xl px-6 text-center">
-          {tagline && <p className="text-[21.64px] leading-[32.46px] text-white">{tagline}</p>}
+          {tagline && <p className="whitespace-pre-line text-[21.64px] leading-[32.46px] text-white">{tagline}</p>}
           {ctaLabel && (
             <div className="mt-8 flex justify-center">
               <GradientCtaButton href={ctaHref ?? "/contact"}>{ctaLabel}</GradientCtaButton>

@@ -21,7 +21,7 @@ export default function ProductNarrativeSections({ sections }: { sections: Narra
                     aria-hidden
                   />
                   {s.imageUrl ? (
-                    <img src={s.imageUrl} alt="" className="relative aspect-[495/488] w-64 object-contain opacity-40 md:w-[400px]" />
+                    <img src={s.imageUrl} alt="" className="relative aspect-[495/488] w-64 object-contain md:w-[400px]" />
                   ) : (
                     <CmsImagePlaceholder className="relative aspect-[495/488] w-64 md:w-[400px]" />
                   )}
@@ -29,7 +29,7 @@ export default function ProductNarrativeSections({ sections }: { sections: Narra
 
                 <div className={`flex-1 ${isRight ? "md:text-left" : "md:text-right"}`}>
                   {s.heading && (
-                    <h2 className="font-display text-2xl font-bold leading-tight text-[#EBEBEB] md:text-3xl">
+                    <h2 className="font-display text-[40px] font-normal leading-tight text-[#EBEBEB]">
                       {s.heading}
                     </h2>
                   )}

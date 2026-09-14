@@ -26,7 +26,7 @@ export default function ProductDetailHero({
         aria-hidden
       />
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <h1 className="font-display text-2xl font-bold uppercase leading-tight text-[#EBEBEB] md:text-[51.64px]">
+        <h1 className="whitespace-pre-line font-display text-[40px] font-normal uppercase leading-tight text-[#EBEBEB]">
           {title}
         </h1>
 
@@ -36,7 +36,7 @@ export default function ProductDetailHero({
             aria-hidden
           />
           {imageUrl ? (
-            <img src={imageUrl} alt={title} className="relative aspect-[4/3] w-80 object-contain opacity-90 md:w-[560px]" />
+            <img src={imageUrl} alt={title} className="relative aspect-[4/3] w-80 object-contain md:w-[560px]" />
           ) : (
             <CmsImagePlaceholder className="relative aspect-[4/3] w-80 md:w-[560px]" />
           )}
