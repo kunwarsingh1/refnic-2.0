@@ -80,7 +80,7 @@ export default function PillarsSection({
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <h2 className="font-sans text-[18px] font-bold leading-[18px] text-[#EBEBEB] md:text-5xl md:leading-tight md:text-white">
             Designed for
-            <br className="md:hidden" /> Industrial Excellence
+            <br /> Industrial Excellence
           </h2>
           <p className="mx-auto mt-4 max-w-[260px] text-sm font-extralight leading-[18px] text-white md:max-w-md md:font-normal md:text-[21.64px] md:leading-[32.46px]">
             Precision engineering, intelligent process design, and indigenous
