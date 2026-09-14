@@ -23,33 +23,60 @@ export default function CaseStudyDetailCard({ cs }: { cs: CaseStudy }) {
   return (
     <div className="relative z-10 mx-auto max-w-6xl px-6">
       <div className="rounded-2xl bg-[#F8F8F8] px-6 py-10 text-[#050505] md:px-14 md:py-16">
-        {cs.status && (
-          <span className="inline-flex items-center gap-2 text-[21.64px] leading-[32.46px] text-[#07070C]">
-            {cs.status}
-            <span className="size-[27px] rounded-full bg-[#97F88C]" aria-hidden />
-          </span>
-        )}
+        <div className="flex items-start justify-between">
+          {cs.status && (
+            <span className="inline-flex items-center gap-2 text-[21.64px] leading-[32.46px] text-[#07070C]">
+              {cs.status}
+              <span className="size-[27px] rounded-full bg-[#97F88C]" aria-hidden />
+            </span>
+          )}
 
-        <h1 className="mt-8 max-w-xl font-display text-4xl font-bold leading-tight text-[#07070C] md:text-5xl">
+          {cs.city && <LocationPinIcon className="h-8 w-8 shrink-0" />}
+        </div>
+
+        <h1
+          className="mt-8 w-full max-w-xl break-words text-[#07070C]"
+          style={{
+            fontFamily: "Plus Jakarta Sans",
+            fontWeight: 700,
+            fontSize: "40px",
+            lineHeight: "40px",
+          }}
+        >
           {cs.label}
         </h1>
 
         <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-          <p className="max-w-2xl text-[21.64px] leading-[32.46px] text-[#030303]">{cs.body}</p>
+          <p
+            className="max-w-2xl break-words text-[#030303]"
+            style={{
+              fontFamily: "Plus Jakarta Sans",
+              fontWeight: 400,
+              fontSize: "18px",
+              lineHeight: "32.46px",
+            }}
+          >
+            {cs.body}
+          </p>
 
           {cs.city && (
-            <div className="flex flex-col items-center gap-1 md:ml-auto">
-              <LocationPinIcon className="h-8 w-8 shrink-0" />
-              <p className="text-center font-display text-lg font-bold leading-tight text-[#3152DF]">
-                {cs.city}
-                {cs.country && (
-                  <>
-                    <br />
-                    {cs.country}
-                  </>
-                )}
-              </p>
-            </div>
+            <p
+              className="break-words text-right text-[#3152DF] md:ml-auto"
+              style={{
+                fontFamily: "Plus Jakarta Sans",
+                fontWeight: 700,
+                fontSize: "36px",
+                lineHeight: "36px",
+              }}
+            >
+              {cs.city}
+              {cs.country && (
+                <>
+                  <br />
+                  {cs.country}
+                </>
+              )}
+            </p>
           )}
         </div>
 
