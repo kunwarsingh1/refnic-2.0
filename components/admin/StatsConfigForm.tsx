@@ -21,7 +21,7 @@ export function StatsConfigForm({
         <div className="space-y-3">
           {rows.map((row, i) => (
             <div key={i} className="flex items-start gap-2 rounded-md border border-white/10 p-3">
-              <div className="flex-1 space-y-2">
+              <div className="min-w-0 flex-1 space-y-2">
                 <input
                   name="statValue"
                   type="text"

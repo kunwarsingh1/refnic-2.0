@@ -9,8 +9,8 @@ function LinkRows({ links, labelName, hrefName }: { links: { label: string; href
     <div className="space-y-2">
       {links.map((link, i) => (
         <div key={i} className="flex gap-2">
-          <input name={labelName} type="text" defaultValue={link.label} placeholder="Label" className={`${inputClass} flex-[2]`} />
-          <input name={hrefName} type="text" defaultValue={link.href} placeholder="URL" className={`${inputClass} flex-1`} />
+          <input name={labelName} type="text" defaultValue={link.label} placeholder="Label" className={`${inputClass} min-w-0 flex-[2]`} />
+          <input name={hrefName} type="text" defaultValue={link.href} placeholder="URL" className={`${inputClass} min-w-0 flex-1`} />
         </div>
       ))}
     </div>

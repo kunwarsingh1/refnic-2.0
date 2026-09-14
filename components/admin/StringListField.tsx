@@ -24,7 +24,7 @@ export function StringListField({
               name={name}
               type="text"
               defaultValue={item}
-              className={`${inputClass} flex-1`}
+              className={`${inputClass} min-w-0 flex-1`}
             />
             <button
               type="button"

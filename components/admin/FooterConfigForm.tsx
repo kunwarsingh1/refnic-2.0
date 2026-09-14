@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { LineBreakField } from "@/components/admin/LineBreakField";
 import { buttonClass, inputClass, labelClass } from "@/components/admin/formStyles";
 import type { FooterConfig, FooterLink } from "@/lib/content/footer";
 
@@ -24,14 +25,14 @@ function LinkListEditor({
             type="text"
             placeholder="Label"
             defaultValue={link.label}
-            className={`${inputClass} flex-1`}
+            className={`${inputClass} min-w-0 flex-1`}
           />
           <input
             name={hrefName}
             type="text"
             placeholder="URL"
             defaultValue={link.href}
-            className={`${inputClass} flex-1`}
+            className={`${inputClass} min-w-0 flex-1`}
           />
           <button
             type="button"
@@ -86,12 +87,7 @@ export function FooterConfigForm({
         </div>
       </div>
 
-      <div>
-        <label htmlFor="tagline" className={labelClass}>
-          Tagline
-        </label>
-        <textarea id="tagline" name="tagline" rows={3} defaultValue={config.tagline} className={inputClass} />
-      </div>
+      <LineBreakField name="tagline" label="Tagline" defaultValue={config.tagline} rows={3} />
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <div>
@@ -172,18 +168,7 @@ export function FooterConfigForm({
         </div>
       </div>
 
-      <div>
-        <label htmlFor="contactAddress" className={labelClass}>
-          Contact address
-        </label>
-        <textarea
-          id="contactAddress"
-          name="contactAddress"
-          rows={2}
-          defaultValue={config.contactAddress}
-          className={inputClass}
-        />
-      </div>
+      <LineBreakField name="contactAddress" label="Contact address" defaultValue={config.contactAddress} />
 
       <div className="space-y-6">
         <p className={labelClass}>Link columns</p>

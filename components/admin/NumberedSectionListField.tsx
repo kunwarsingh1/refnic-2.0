@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { inputClass } from "@/components/admin/formStyles";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
+import { LineBreakButton } from "@/components/admin/LineBreakField";
 
 export function NumberedSectionListField({
   defaultItems,
@@ -12,6 +13,12 @@ export function NumberedSectionListField({
   const [items, setItems] = useState(
     defaultItems.length > 0 ? defaultItems : [{ number: "01", heading: "", body: "", imageUrl: "" }],
   );
+  const bodyRefs = useRef<Array<React.RefObject<HTMLTextAreaElement | null>>>([]);
+
+  function refFor(i: number) {
+    if (!bodyRefs.current[i]) bodyRefs.current[i] = { current: null };
+    return bodyRefs.current[i];
+  }
 
   return (
     <div>
@@ -24,18 +31,28 @@ export function NumberedSectionListField({
                 name="sectionNumber"
                 type="text"
                 defaultValue={item.number}
-                className={`${inputClass} w-20`}
+                className={`${inputClass} !w-20`}
                 placeholder="01"
               />
               <input
                 name="sectionHeading"
                 type="text"
                 defaultValue={item.heading}
-                className={`${inputClass} flex-1`}
+                className={`${inputClass} min-w-0 flex-1`}
                 placeholder="Heading"
               />
             </div>
-            <textarea name="sectionBody" rows={3} defaultValue={item.body} className={inputClass} placeholder="Body" />
+            <div className="mb-1 flex justify-end">
+              <LineBreakButton textareaRef={refFor(i)} />
+            </div>
+            <textarea
+              ref={refFor(i)}
+              name="sectionBody"
+              rows={3}
+              defaultValue={item.body}
+              className={inputClass}
+              placeholder="Body"
+            />
             <div className="mt-2">
               <ImageUploadField name="sectionImageUrl" label="Image (optional)" defaultValue={item.imageUrl} />
             </div>
