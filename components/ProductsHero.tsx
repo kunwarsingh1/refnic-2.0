@@ -25,7 +25,7 @@ export default function ProductsHero({ config: c }: { config: ProductsPageConfig
           <CmsImagePlaceholder className="relative z-10 mx-auto mb-6 h-24 w-24 rounded-xl md:h-32 md:w-32" />
         )}
 
-        <h1 className="font-display font-bold text-4xl leading-tight text-[#EBEBEB] md:text-5xl md:leading-none">
+        <h1 className="whitespace-pre-line font-display font-bold text-4xl leading-tight text-[#EBEBEB] md:text-5xl md:leading-none">
           {c.heroHeading}
         </h1>
 
@@ -49,7 +49,7 @@ export default function ProductsHero({ config: c }: { config: ProductsPageConfig
             <CmsImagePlaceholder className="relative h-32 w-32 rounded-xl" />
           )}
         </div>
-        <p className="max-w-lg text-right text-base leading-relaxed text-white md:text-[21.64px] md:leading-[32.46px]">
+        <p className="max-w-lg whitespace-pre-line text-right text-[18px] font-light leading-relaxed text-white">
           {c.crushingBlurb}
         </p>
       </div>
