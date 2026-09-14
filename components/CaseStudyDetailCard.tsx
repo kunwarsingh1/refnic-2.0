@@ -1,27 +1,46 @@
 import { CmsImagePlaceholder } from "@/components/ui/primitives";
 import type { CaseStudy } from "@/lib/content/caseStudies";
 
+function LocationPinIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden>
+      <defs>
+        <linearGradient id="case-study-pin" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#EA7754" />
+          <stop offset="100%" stopColor="#E24544" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.53 6.24 11.6 6.5 11.85a1.4 1.4 0 0 0 2 0c.26-.25 6.5-6.32 6.5-11.85C19.5 5.36 16.14 2 12 2Z"
+        fill="url(#case-study-pin)"
+      />
+      <circle cx="12" cy="9.5" r="2.75" fill="#fff" />
+    </svg>
+  );
+}
+
 export default function CaseStudyDetailCard({ cs }: { cs: CaseStudy }) {
   return (
     <div className="relative z-10 mx-auto max-w-6xl px-6">
       <div className="rounded-2xl bg-[#F8F8F8] px-6 py-10 text-[#050505] md:px-14 md:py-16">
-        <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-          {cs.status && (
-            <span className="inline-flex items-center gap-2 text-[21.64px] leading-[32.46px] text-[#07070C]">
-              {cs.status}
-              <span className="size-[27px] rounded-full bg-[#97F88C]" aria-hidden />
-            </span>
-          )}
+        {cs.status && (
+          <span className="inline-flex items-center gap-2 text-[21.64px] leading-[32.46px] text-[#07070C]">
+            {cs.status}
+            <span className="size-[27px] rounded-full bg-[#97F88C]" aria-hidden />
+          </span>
+        )}
+
+        <h1 className="mt-8 max-w-xl font-display text-4xl font-bold leading-tight text-[#07070C] md:text-5xl">
+          {cs.label}
+        </h1>
+
+        <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+          <p className="max-w-2xl text-[21.64px] leading-[32.46px] text-[#030303]">{cs.body}</p>
 
           {cs.city && (
-            <div className="flex items-center gap-3 md:ml-auto">
-              {cs.country && (
-                <span className="flex h-14 w-9 overflow-hidden rounded" aria-hidden>
-                  <span className="h-full w-1/2 bg-[#EA7754]" />
-                  <span className="h-full w-1/2 bg-[#E24544]" />
-                </span>
-              )}
-              <p className="text-right font-display text-3xl font-bold leading-tight text-[#3152DF] md:text-3xl">
+            <div className="flex flex-col items-center gap-1 md:ml-auto">
+              <LocationPinIcon className="h-8 w-8 shrink-0" />
+              <p className="text-center font-display text-lg font-bold leading-tight text-[#3152DF]">
                 {cs.city}
                 {cs.country && (
                   <>
@@ -33,11 +52,6 @@ export default function CaseStudyDetailCard({ cs }: { cs: CaseStudy }) {
             </div>
           )}
         </div>
-
-        <h1 className="mt-8 max-w-xl font-display text-4xl font-bold leading-tight text-[#07070C] md:text-5xl">
-          {cs.label}
-        </h1>
-        <p className="mt-6 max-w-2xl text-[21.64px] leading-[32.46px] text-[#030303]">{cs.body}</p>
 
         <div className="mt-12">
           {cs.imageUrl ? (
