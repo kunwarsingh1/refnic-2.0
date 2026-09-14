@@ -5,7 +5,7 @@ import type { NarrativeSection } from "@/lib/content/solutionsPage";
 
 const COLLECTION = "productCatalogItems";
 
-export type ProductRecoveredMaterial = { title: string; body: string };
+export type ProductRecoveredMaterial = { title: string; body: string; imageUrl?: string };
 
 type ProductCatalogItemDoc = {
   _id: ObjectId;

@@ -22,11 +22,12 @@ function parseNarrativeSections(formData: FormData): NarrativeSection[] {
     .filter((s) => s.heading.trim() !== "" || s.body.trim() !== "");
 }
 
-function parseMaterials(formData: FormData): { title: string; body: string }[] {
+function parseMaterials(formData: FormData): { title: string; body: string; imageUrl?: string }[] {
   const titles = formData.getAll("materialTitle").map(String);
   const bodies = formData.getAll("materialBody").map(String);
+  const imageUrls = formData.getAll("materialImageUrl").map(String);
   return titles
-    .map((title, i) => ({ title, body: bodies[i] ?? "" }))
+    .map((title, i) => ({ title, body: bodies[i] ?? "", imageUrl: imageUrls[i] || undefined }))
     .filter((m) => m.title.trim() !== "");
 }
 

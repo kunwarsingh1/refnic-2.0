@@ -132,6 +132,8 @@ export function ProductCatalogItemForm({
             headingLabel="Material title (e.g. Copper)"
             bodyLabel="Description"
             defaultItems={item?.materials ?? []}
+            imageName="materialImageUrl"
+            imageLabel="Material image"
           />
         </div>
       </div>

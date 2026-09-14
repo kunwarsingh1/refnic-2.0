@@ -35,7 +35,12 @@ export default function ProductMaterialsSection({
                     className="pointer-events-none absolute left-1/2 top-1/2 h-[160px] w-[160px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3152DF] opacity-30 blur-[70px]"
                     aria-hidden
                   />
-                  <CmsImagePlaceholder className="relative aspect-[4/3] w-full rounded-xl" />
+                  {m.imageUrl ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={m.imageUrl} alt="" className="relative aspect-[4/3] w-full rounded-xl object-cover" />
+                  ) : (
+                    <CmsImagePlaceholder className="relative aspect-[4/3] w-full rounded-xl" />
+                  )}
                 </div>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-white/55">{m.body}</p>
               </div>
