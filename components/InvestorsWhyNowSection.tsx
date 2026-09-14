@@ -13,13 +13,16 @@ export default function InvestorsWhyNowSection({
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
-        <h2 className="whitespace-pre-line text-center font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-5xl">
+        <h2 className="whitespace-pre-line text-center font-display text-[40px] font-normal leading-tight text-[#EBEBEB]">
           {heading}
         </h2>
 
         <div className="mt-14 grid gap-8 md:grid-cols-3">
           {reasons.map((reason, i) => (
-            <div key={i} className="relative">
+            <div
+              key={i}
+              className="relative transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_8px_rgba(49,82,223,0.45)]"
+            >
               <div
                 style={{ borderImage: "linear-gradient(to top right, #1f1313, #737373, #191717) 1" }}
                 className="pointer-events-none absolute inset-0 border border-transparent bg-white/[0.03]"
@@ -32,7 +35,7 @@ export default function InvestorsWhyNowSection({
                 ) : (
                   <CmsImagePlaceholder className="mx-auto h-[220px] w-[220px] rounded-xl" />
                 )}
-                <p className="text-[21.64px] leading-[32.46px] text-[#EBEBEB]">{reason.text}</p>
+                <p className="text-[18px] font-light leading-relaxed text-[#EBEBEB]">{reason.text}</p>
               </div>
             </div>
           ))}
