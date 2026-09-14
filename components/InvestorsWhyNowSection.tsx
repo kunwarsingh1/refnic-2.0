@@ -25,14 +25,14 @@ export default function InvestorsWhyNowSection({
                 className="pointer-events-none absolute inset-0 border border-transparent bg-white/[0.03]"
                 aria-hidden
               />
-              <div className="relative flex h-full flex-col gap-6 p-5">
+              <div className="relative flex h-full flex-col gap-6 px-5 pb-5 pt-10">
                 {reason.imageUrl ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={reason.imageUrl} alt="" className="mx-auto h-32 w-32 rounded-xl object-contain" />
+                  <img src={reason.imageUrl} alt="" className="mx-auto h-[220px] w-[220px] rounded-xl object-contain" />
                 ) : (
-                  <CmsImagePlaceholder className="mx-auto h-32 w-32 rounded-xl" />
+                  <CmsImagePlaceholder className="mx-auto h-[220px] w-[220px] rounded-xl" />
                 )}
-                <p className="text-[26px] leading-[1.15] text-[#EBEBEB]">{reason.text}</p>
+                <p className="text-[21.64px] leading-[32.46px] text-[#EBEBEB]">{reason.text}</p>
               </div>
             </div>
           ))}
