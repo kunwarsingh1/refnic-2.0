@@ -22,37 +22,34 @@ export default function CaseStudyExploreMore({
           <h2 className="font-display text-[40px] font-bold leading-[40px] text-[#EBEBEB]">
             Explore more
           </h2>
-          <div className="flex items-center gap-4">
-            <GradientCtaButton href="/case-study">View All</GradientCtaButton>
-            <div className="hidden items-center gap-3 md:flex">
-              <Link
-                href={prev ? `/case-study/${prev.slug}` : "#"}
-                aria-label="Previous case study"
-                aria-disabled={!prev}
-                className={`flex size-[92px] items-center justify-center rounded-full border border-[#F9FAFB] text-[#F9FAFB] transition-opacity ${
-                  prev ? "hover:opacity-70" : "pointer-events-none opacity-30"
-                }`}
-              >
-                <ArrowLeftIcon className="size-5" />
-              </Link>
-              <Link
-                href={next ? `/case-study/${next.slug}` : "#"}
-                aria-label="Next case study"
-                aria-disabled={!next}
-                className={`flex size-[92px] items-center justify-center rounded-full border border-[#F9FAFB] text-[#F9FAFB] transition-opacity ${
-                  next ? "hover:opacity-70" : "pointer-events-none opacity-30"
-                }`}
-              >
-                <ArrowRightIcon className="size-5" />
-              </Link>
-            </div>
-          </div>
+          <GradientCtaButton href="/case-study">View All</GradientCtaButton>
         </div>
 
-        <div className="mt-12 flex flex-col gap-8">
+        <div className="relative mt-12 flex flex-col gap-8">
           {others.map((cs) => (
             <CaseStudyCard key={cs.id} cs={cs} />
           ))}
+
+          <Link
+            href={prev ? `/case-study/${prev.slug}` : "#"}
+            aria-label="Previous case study"
+            aria-disabled={!prev}
+            className={`absolute left-0 top-1/2 hidden size-[92px] -translate-x-[calc(100%+16px)] -translate-y-1/2 items-center justify-center rounded-full border border-[#F9FAFB] text-[#F9FAFB] transition-opacity md:flex ${
+              prev ? "hover:opacity-70" : "pointer-events-none opacity-30"
+            }`}
+          >
+            <ArrowLeftIcon className="size-5" />
+          </Link>
+          <Link
+            href={next ? `/case-study/${next.slug}` : "#"}
+            aria-label="Next case study"
+            aria-disabled={!next}
+            className={`absolute right-0 top-1/2 hidden size-[92px] translate-x-[calc(100%+16px)] -translate-y-1/2 items-center justify-center rounded-full border border-[#F9FAFB] text-[#F9FAFB] transition-opacity md:flex ${
+              next ? "hover:opacity-70" : "pointer-events-none opacity-30"
+            }`}
+          >
+            <ArrowRightIcon className="size-5" />
+          </Link>
         </div>
       </div>
     </section>
