@@ -25,6 +25,7 @@ export async function updateOurStoryPageConfigAction(formData: FormData): Promis
       }))
       .filter((s) => s.heading.trim() !== ""),
     closingTagline: String(formData.get("closingTagline") ?? ""),
+    closingImageUrl: String(formData.get("closingImageUrl") ?? "") || undefined,
     ctaLabel: String(formData.get("ctaLabel") ?? ""),
   };
 

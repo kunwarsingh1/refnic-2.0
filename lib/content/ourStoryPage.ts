@@ -8,6 +8,7 @@ export type OurStoryPageConfig = {
   heroSubheading: string;
   numberedSections: NumberedSection[];
   closingTagline: string;
+  closingImageUrl?: string;
   ctaLabel: string;
 };
 

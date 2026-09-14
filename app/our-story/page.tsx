@@ -23,7 +23,7 @@ export default async function OurStoryPage() {
       <main className="bg-black">
         <OurStoryHero heading={c.heroLabel} body={c.heroSubheading} />
         <ZigzagFeatureSections sections={c.numberedSections} bodyPlacement="opposite" bg="bg-black" />
-        <OurStoryClosingSection tagline={c.closingTagline} ctaLabel={c.ctaLabel} />
+        <OurStoryClosingSection tagline={c.closingTagline} ctaLabel={c.ctaLabel} imageUrl={c.closingImageUrl} />
       </main>
 
       <Footer />

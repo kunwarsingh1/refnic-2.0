@@ -1,6 +1,7 @@
 import { getOurStoryPageConfig } from "@/lib/content/ourStoryPage";
 import { updateOurStoryPageConfigAction } from "@/app/actions/our-story-page";
 import { NumberedSectionListField } from "@/components/admin/NumberedSectionListField";
+import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import { buttonClass, inputClass, labelClass } from "@/components/admin/formStyles";
 
 export default async function AdminOurStoryPagePage() {
@@ -44,6 +45,8 @@ export default async function AdminOurStoryPagePage() {
             className={inputClass}
           />
         </div>
+        <ImageUploadField name="closingImageUrl" label="Closing image" defaultValue={c.closingImageUrl} />
+
         <div>
           <label htmlFor="ctaLabel" className={labelClass}>
             CTA button label
