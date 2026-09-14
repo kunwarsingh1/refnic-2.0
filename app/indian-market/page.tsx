@@ -28,7 +28,12 @@ export default async function IndianMarketPage() {
         <IndianMarketHero heading={c.closingHeading} body={c.closingTagline} />
 
         {opportunity && (
-          <IndianMarketNarrativeSection heading={opportunity.heading} body={opportunity.body} align="right" />
+          <IndianMarketNarrativeSection
+            heading={opportunity.heading}
+            body={opportunity.body}
+            align="right"
+            imageUrl={opportunity.imageUrl}
+          />
         )}
 
         <IndianMarketDriversSection
@@ -40,7 +45,12 @@ export default async function IndianMarketPage() {
         <IndianMarketChallengeSection subheading={c.heroHeading} stats={c.statHighlights} />
 
         {indigenousTech && (
-          <IndianMarketNarrativeSection heading={indigenousTech.heading} body={indigenousTech.body} align="right" />
+          <IndianMarketNarrativeSection
+            heading={indigenousTech.heading}
+            body={indigenousTech.body}
+            align="right"
+            imageUrl={indigenousTech.imageUrl}
+          />
         )}
 
         <IndianMarketIndustriesSection heading={c.industriesHeading} industries={c.industries} />

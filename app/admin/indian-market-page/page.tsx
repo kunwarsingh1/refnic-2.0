@@ -71,6 +71,8 @@ export default async function AdminIndianMarketPagePage() {
           headingName="sectionHeading"
           bodyName="sectionBody"
           defaultItems={c.narrativeSections}
+          imageName="sectionImageUrl"
+          imageLabel="Section image"
         />
 
         <div>

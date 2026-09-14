@@ -14,6 +14,7 @@ export async function updateIndianMarketPageConfigAction(formData: FormData): Pr
 
   const sectionHeadings = formData.getAll("sectionHeading").map(String);
   const sectionBodies = formData.getAll("sectionBody").map(String);
+  const sectionImageUrls = formData.getAll("sectionImageUrl").map(String);
 
   const args: IndianMarketPageConfig = {
     heroHeading: String(formData.get("heroHeading") ?? ""),
@@ -25,7 +26,7 @@ export async function updateIndianMarketPageConfigAction(formData: FormData): Pr
     industriesHeading: String(formData.get("industriesHeading") ?? ""),
     industries: nonEmpty(formData.getAll("industry")),
     narrativeSections: sectionHeadings
-      .map((heading, i) => ({ heading, body: sectionBodies[i] ?? "" }))
+      .map((heading, i) => ({ heading, body: sectionBodies[i] ?? "", imageUrl: sectionImageUrls[i] || undefined }))
       .filter((s) => s.heading.trim() !== ""),
     closingTagline: String(formData.get("closingTagline") ?? ""),
     closingHeading: String(formData.get("closingHeading") ?? ""),
