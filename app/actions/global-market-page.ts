@@ -14,19 +14,21 @@ export async function updateGlobalMarketPageConfigAction(formData: FormData): Pr
 
   const sectionHeadings = formData.getAll("sectionHeading").map(String);
   const sectionBodies = formData.getAll("sectionBody").map(String);
+  const sectionImageUrls = formData.getAll("sectionImageUrl").map(String);
   const advTitles = formData.getAll("advTitle").map(String);
   const advBodies = formData.getAll("advBody").map(String);
+  const advImageUrls = formData.getAll("advImageUrl").map(String);
 
   const args: GlobalMarketPageConfig = {
     heroBadges: nonEmpty(formData.getAll("heroBadge")),
     heroHeading: String(formData.get("heroHeading") ?? ""),
     heroParagraphs: formData.getAll("heroParagraph").map(String),
     narrativeSections: sectionHeadings
-      .map((heading, i) => ({ heading, body: sectionBodies[i] ?? "" }))
+      .map((heading, i) => ({ heading, body: sectionBodies[i] ?? "", imageUrl: sectionImageUrls[i] || undefined }))
       .filter((s) => s.heading.trim() !== ""),
     marketCards: nonEmpty(formData.getAll("marketCard")),
     advantageCards: advTitles
-      .map((title, i) => ({ title, body: advBodies[i] ?? "" }))
+      .map((title, i) => ({ title, body: advBodies[i] ?? "", imageUrl: advImageUrls[i] || undefined }))
       .filter((c) => c.title.trim() !== ""),
     closingLabel: String(formData.get("closingLabel") ?? ""),
     closingHeading: String(formData.get("closingHeading") ?? ""),

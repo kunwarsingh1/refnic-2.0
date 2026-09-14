@@ -4,10 +4,12 @@ export default function IndianMarketNarrativeSection({
   heading,
   body,
   align,
+  imageUrl,
 }: {
   heading: string;
   body: string;
   align: "left" | "right";
+  imageUrl?: string;
 }) {
   const imageFirst = align === "right";
   const textRight = align === "right";
@@ -20,7 +22,12 @@ export default function IndianMarketNarrativeSection({
       <div className="relative z-10 mx-auto max-w-5xl px-6">
         <div className={`flex flex-col gap-10 md:flex-row md:items-center ${imageFirst ? "" : "md:flex-row-reverse"}`}>
           <div className="flex justify-center md:shrink-0">
-            <CmsImagePlaceholder className="h-40 w-40 rounded-2xl md:h-48 md:w-48" />
+            {imageUrl ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={imageUrl} alt="" className="h-40 w-40 rounded-2xl object-cover md:h-48 md:w-48" />
+            ) : (
+              <CmsImagePlaceholder className="h-40 w-40 rounded-2xl md:h-48 md:w-48" />
+            )}
           </div>
           <div className={textRight ? "text-center md:text-right" : "text-center md:text-left"}>
             <h2 className="font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-5xl">{heading}</h2>

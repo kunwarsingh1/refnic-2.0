@@ -2,8 +2,8 @@ import { getSiteConfig } from "@/lib/content/siteConfig";
 
 export const GLOBAL_MARKET_PAGE_KEY = "globalMarketPage";
 
-export type NarrativeSection = { heading: string; body: string };
-export type FeatureCard = { title: string; body: string };
+export type NarrativeSection = { heading: string; body: string; imageUrl?: string };
+export type FeatureCard = { title: string; body: string; imageUrl?: string };
 
 export type GlobalMarketPageConfig = {
   heroBadges: string[];

@@ -31,6 +31,8 @@ export default async function AdminGlobalMarketPagePage() {
           headingName="sectionHeading"
           bodyName="sectionBody"
           defaultItems={c.narrativeSections}
+          imageName="sectionImageUrl"
+          imageLabel="Section image"
         />
 
         <StringListField name="marketCard" label="Market cards" defaultItems={c.marketCards} />
@@ -41,6 +43,8 @@ export default async function AdminGlobalMarketPagePage() {
           bodyName="advBody"
           defaultItems={c.advantageCards}
           headingLabel="Title"
+          imageName="advImageUrl"
+          imageLabel="Card image"
         />
 
         <div>

@@ -39,7 +39,12 @@ export default async function GlobalMarketPage() {
         <IndianMarketHero heading={heroSection?.heading ?? ""} body={whyItMattersLegacy?.body ?? ""} />
 
         {globalShift && (
-          <IndianMarketNarrativeSection heading={globalShift.heading} body={globalShift.body} align="right" />
+          <IndianMarketNarrativeSection
+            heading={globalShift.heading}
+            body={globalShift.body}
+            align="right"
+            imageUrl={globalShift.imageUrl}
+          />
         )}
 
         <IndianMarketDriversSection heading="Global Market Drivers" badges={c.heroBadges} paragraphs={c.heroParagraphs} />
@@ -47,11 +52,21 @@ export default async function GlobalMarketPage() {
         <StatCardsSection heading="Markets We Enable" stats={c.marketCards} ringSide="none" />
 
         {whyItMattersLegacy && (
-          <IndianMarketNarrativeSection heading={whyItMattersLegacy.heading} body={whyItMattersBody} align="right" />
+          <IndianMarketNarrativeSection
+            heading={whyItMattersLegacy.heading}
+            body={whyItMattersBody}
+            align="right"
+            imageUrl={whyItMattersLegacy.imageUrl}
+          />
         )}
 
         {builtInIndia && (
-          <IndianMarketNarrativeSection heading={builtInIndia.heading} body={builtInIndia.body} align="left" />
+          <IndianMarketNarrativeSection
+            heading={builtInIndia.heading}
+            body={builtInIndia.body}
+            align="left"
+            imageUrl={builtInIndia.imageUrl}
+          />
         )}
 
         <GlobalMarketAdvantageSection heading="Our Competitive Advantage" cards={c.advantageCards} />

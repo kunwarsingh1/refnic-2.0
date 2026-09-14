@@ -1,6 +1,6 @@
 import { CmsImagePlaceholder } from "@/components/ui/primitives";
 
-type AdvantageCard = { title: string; body: string };
+type AdvantageCard = { title: string; body: string; imageUrl?: string };
 
 export default function GlobalMarketAdvantageSection({
   heading,
@@ -27,7 +27,12 @@ export default function GlobalMarketAdvantageSection({
               />
               <div className="relative grid grid-cols-1 items-center gap-6 p-5 text-center md:grid-cols-[1fr_auto_1fr] md:gap-8 md:text-left">
                 <p className="font-display text-lg font-bold leading-tight text-[#EBEBEB] md:text-xl">{card.title}</p>
-                <CmsImagePlaceholder className="mx-auto h-32 w-32 shrink-0 md:h-40 md:w-40" />
+                {card.imageUrl ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={card.imageUrl} alt="" className="mx-auto h-32 w-32 shrink-0 rounded-xl object-cover md:h-40 md:w-40" />
+                ) : (
+                  <CmsImagePlaceholder className="mx-auto h-32 w-32 shrink-0 md:h-40 md:w-40" />
+                )}
                 <p className="text-[21.64px] leading-[32.46px] text-white md:text-right">{card.body}</p>
               </div>
             </div>

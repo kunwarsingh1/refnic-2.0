@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { inputClass } from "@/components/admin/formStyles";
+import { ImageUploadField } from "@/components/admin/ImageUploadField";
 
 export function HeadingBodyListField({
   label,
@@ -10,16 +11,21 @@ export function HeadingBodyListField({
   defaultItems,
   headingLabel = "Heading",
   bodyLabel = "Body",
+  imageName,
+  imageLabel = "Image (optional)",
 }: {
   label: string;
   headingName: string;
   bodyName: string;
-  defaultItems: { heading?: string; title?: string; body: string }[];
+  defaultItems: { heading?: string; title?: string; body: string; imageUrl?: string }[];
   headingLabel?: string;
   bodyLabel?: string;
+  /** When provided, each item also gets an image upload field posted under this form field name. */
+  imageName?: string;
+  imageLabel?: string;
 }) {
   const [items, setItems] = useState(
-    defaultItems.length > 0 ? defaultItems : [{ heading: "", body: "" }],
+    defaultItems.length > 0 ? defaultItems : [{ heading: "", body: "", imageUrl: "" }],
   );
 
   return (
@@ -37,6 +43,11 @@ export function HeadingBodyListField({
             />
             <label className="mb-1 block text-xs text-white/50">{bodyLabel}</label>
             <textarea name={bodyName} rows={3} defaultValue={item.body} className={inputClass} />
+            {imageName && (
+              <div className="mt-2">
+                <ImageUploadField name={imageName} label={imageLabel} defaultValue={item.imageUrl} />
+              </div>
+            )}
             <button
               type="button"
               onClick={() => setItems((cur) => cur.filter((_, idx) => idx !== i))}
@@ -49,7 +60,7 @@ export function HeadingBodyListField({
       </div>
       <button
         type="button"
-        onClick={() => setItems((cur) => [...cur, { heading: "", body: "" }])}
+        onClick={() => setItems((cur) => [...cur, { heading: "", body: "", imageUrl: "" }])}
         className="mt-2 text-sm font-medium text-accent-blue hover:underline"
       >
         + Add
