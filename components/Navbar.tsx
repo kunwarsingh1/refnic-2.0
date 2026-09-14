@@ -321,10 +321,10 @@ export default function Navbar({
                 onMouseEnter={tech.openNow}
                 onMouseLeave={tech.closeLater}
               >
-                <Link href="/technologies" className="flex items-center gap-1.5 hover:text-gray-500 transition-colors">
+                <span className="flex cursor-default items-center gap-1.5 transition-colors">
                   {l.label}
                   <CaretDown />
-                </Link>
+                </span>
                 {tech.open && (
                   <div
                     onMouseEnter={tech.openNow}
@@ -714,9 +714,7 @@ export default function Navbar({
 
             <div>
               <div className="flex items-center justify-between rounded-md hover:bg-gray-50">
-                <Link href="/technologies" className="flex-1 px-2 py-2.5 font-semibold">
-                  Technologies
-                </Link>
+                <span className="flex-1 px-2 py-2.5 font-semibold">Technologies</span>
                 <button
                   type="button"
                   onClick={() => setMobileExpanded((v) => (v === "technologies" ? null : "technologies"))}
