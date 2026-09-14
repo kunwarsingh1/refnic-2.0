@@ -66,10 +66,10 @@ export function ZigzagFeatureSections({
                         <img
                           src={s.imageUrl}
                           alt={s.heading}
-                          className="aspect-square w-32 rounded-2xl object-cover md:w-40"
+                          className="aspect-square w-32 rounded-2xl object-cover md:w-64 md:object-contain"
                         />
                       ) : (
-                        <CmsImagePlaceholder className="aspect-square w-32 rounded-2xl md:w-40" />
+                        <CmsImagePlaceholder className="aspect-square w-32 rounded-2xl md:w-64" />
                       )}
                     </div>
                   </div>
