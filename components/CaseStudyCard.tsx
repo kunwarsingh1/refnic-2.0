@@ -10,10 +10,12 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
         aria-hidden
       />
       <div className="relative grid grid-cols-1 items-center gap-6 p-5 text-center md:h-full md:grid-cols-[1fr_auto_1fr] md:items-stretch md:gap-4 md:text-left">
-        <div className="min-w-0 md:flex md:flex-col md:justify-center">
-          <p className="font-display text-[36px] font-bold leading-[36px] text-[#EBEBEB]">{cs.city.toUpperCase()}</p>
-          <p className="mt-2 text-[21.64px] leading-[32.46px] text-white">{cs.label}</p>
-          {cs.subtitle && <p className="mt-1 text-[21.64px] leading-[32.46px] text-white">{cs.subtitle}</p>}
+        <div className="min-w-0 md:flex md:flex-col md:justify-start">
+          <p className="w-full font-display text-[21.83px] font-bold leading-[21.83px] text-[#EBEBEB]">
+            {cs.city.toUpperCase()}
+          </p>
+          <p className="mt-2 w-full text-[13.12px] leading-[19.68px] text-white">{cs.label}</p>
+          {cs.subtitle && <p className="mt-1 w-full text-[13.12px] leading-[19.68px] text-white">{cs.subtitle}</p>}
         </div>
 
         <div className="flex items-center justify-center">
