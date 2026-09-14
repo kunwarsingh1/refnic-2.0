@@ -103,13 +103,13 @@ export default function CaseStudyDetailCard({ cs }: { cs: CaseStudy }) {
                 Project Overview
               </h2>
               {cs.overviewSubheading && (
-                <p className="mt-4 font-display text-2xl font-light leading-tight text-[#050505] md:text-3xl">
+                <p className="mt-4 font-display text-[28px] font-light leading-[31.64px] text-[#050505]">
                   {cs.overviewSubheading}
                 </p>
               )}
             </div>
             {cs.overviewBody && (
-              <p className="max-w-xl whitespace-pre-line text-[21.64px] leading-[32.46px] text-[#050505] md:ml-auto">
+              <p className="max-w-xl whitespace-pre-line text-[18px] leading-[32.46px] text-[#050505] md:ml-auto">
                 {cs.overviewBody}
               </p>
             )}
@@ -131,13 +131,13 @@ export default function CaseStudyDetailCard({ cs }: { cs: CaseStudy }) {
                 The Challenge
               </h2>
               {cs.challengeSubheading && (
-                <p className="mt-4 font-display text-2xl font-light leading-tight text-[#050505] md:text-3xl">
+                <p className="mt-4 font-display text-[28px] font-light leading-[31.64px] text-[#050505]">
                   {cs.challengeSubheading}
                 </p>
               )}
             </div>
             {cs.challengeBody && (
-              <p className="max-w-xl text-[21.64px] leading-[32.46px] text-[#050505] md:ml-auto">{cs.challengeBody}</p>
+              <p className="max-w-xl text-[18px] leading-[32.46px] text-[#050505] md:ml-auto">{cs.challengeBody}</p>
             )}
           </div>
         )}
@@ -152,31 +152,39 @@ export default function CaseStudyDetailCard({ cs }: { cs: CaseStudy }) {
 
         {(cs.approachSubheading || cs.approachBody) && (
           <div className="mt-16">
-            <h2 className="font-display text-3xl font-bold leading-tight text-[#050505] md:text-5xl">
+            <h2
+              className="w-full break-words text-[#050505]"
+              style={{
+                fontFamily: "Plus Jakarta Sans",
+                fontWeight: 700,
+                fontSize: "40px",
+                lineHeight: "40px",
+              }}
+            >
               Our Approach
             </h2>
             <div className="mt-8 flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-10">
               {cs.approachSubheading && (
-                <p className="max-w-sm font-display text-2xl font-light leading-tight text-[#050505] md:text-3xl">
+                <p className="max-w-sm font-display text-[28px] font-light leading-[31.64px] text-[#050505]">
                   {cs.approachSubheading}
                 </p>
               )}
               {cs.approachBody && (
-                <p className="max-w-xl text-[21.64px] leading-[32.46px] text-[#050505] md:ml-auto">{cs.approachBody}</p>
+                <p className="max-w-xl text-[18px] leading-[32.46px] text-[#050505] md:ml-auto">{cs.approachBody}</p>
               )}
             </div>
 
             {cs.approachSecondaryHeading && (
-              <p className="mt-12 text-right font-display text-2xl font-light leading-tight text-[#050505] md:text-3xl">
+              <p className="mt-12 text-right font-display text-[36px] font-light leading-[40.68px] text-[#050505]">
                 {cs.approachSecondaryHeading}
               </p>
             )}
 
             {(cs.approachIntro || cs.approachBullets.length > 0) && (
               <div className="mt-8 max-w-3xl">
-                {cs.approachIntro && <p className="text-[21.64px] leading-[32.46px] text-[#050505]">{cs.approachIntro}</p>}
+                {cs.approachIntro && <p className="text-[18px] leading-[32.46px] text-[#050505]">{cs.approachIntro}</p>}
                 {cs.approachBullets.length > 0 && (
-                  <ul className="mt-2 text-[21.64px] leading-[32.46px] text-[#050505]">
+                  <ul className="mt-2 text-[18px] leading-[32.46px] text-[#050505]">
                     {cs.approachBullets.map((b) => (
                       <li key={b}>{b}</li>
                     ))}
