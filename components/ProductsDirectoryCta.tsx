@@ -11,7 +11,7 @@ export default function ProductsDirectoryCta() {
           Ready to Build Your Next Plant?
         </h2>
 
-        <CmsImagePlaceholder className="mx-auto mt-8 h-56 w-56 md:h-64 md:w-64" />
+        <CmsImagePlaceholder className="mx-auto mt-8 aspect-square w-64 rounded-2xl md:w-80" />
 
         <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-white md:text-[20px] md:leading-[32.46px]">
           From concept to commissioning, Refnic delivers complete engineering solutions tailored

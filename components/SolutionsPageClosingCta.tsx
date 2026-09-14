@@ -10,7 +10,7 @@ export default function SolutionsPageClosingCta() {
           Ready to Build Your Next Plant?
         </h2>
 
-        <CmsImagePlaceholder className="mx-auto mt-8 aspect-square w-72 rounded-2xl md:w-[26rem]" />
+        <CmsImagePlaceholder className="mx-auto mt-8 aspect-square w-64 rounded-2xl md:w-80" />
 
         <p className="mx-auto mt-8 max-w-2xl text-[20px] leading-[32.46px] text-white">
           From concept to commissioning, Refnic delivers complete engineering solutions tailored to your
