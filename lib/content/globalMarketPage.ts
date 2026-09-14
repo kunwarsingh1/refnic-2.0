@@ -71,7 +71,7 @@ export const DEFAULT_GLOBAL_MARKET_PAGE_CONFIG: GlobalMarketPageConfig = {
     },
   ],
   closingLabel: "Global Vision",
-  closingHeading: "Engineering Tomorrow's Resource Recovery",
+  closingHeading: "Engineering Tomorrow's\nResource Recovery",
   closingBody:
     "Whether enabling new recycling ventures or modernizing existing facilities, Refnic delivers the technology, engineering, and execution required to build the next generation of resource recovery infrastructure.",
   ctaLabel: "Explore Our Technologies →",
