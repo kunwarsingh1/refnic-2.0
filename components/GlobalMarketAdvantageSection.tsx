@@ -29,7 +29,7 @@ export default function GlobalMarketAdvantageSection({
                 <p className="font-display text-lg font-bold leading-tight text-[#EBEBEB] md:text-xl">{card.title}</p>
                 {card.imageUrl ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={card.imageUrl} alt="" className="mx-auto h-32 w-32 shrink-0 rounded-xl object-cover md:h-40 md:w-40" />
+                  <img src={card.imageUrl} alt="" className="mx-auto h-32 w-32 shrink-0 rounded-xl object-contain md:h-40 md:w-40" />
                 ) : (
                   <CmsImagePlaceholder className="mx-auto h-32 w-32 shrink-0 md:h-40 md:w-40" />
                 )}

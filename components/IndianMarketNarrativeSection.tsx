@@ -24,7 +24,7 @@ export default function IndianMarketNarrativeSection({
           <div className="flex justify-center md:shrink-0">
             {imageUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={imageUrl} alt="" className="h-40 w-40 rounded-2xl object-cover md:h-48 md:w-48" />
+              <img src={imageUrl} alt="" className="h-40 w-40 rounded-2xl object-contain md:h-48 md:w-48" />
             ) : (
               <CmsImagePlaceholder className="h-40 w-40 rounded-2xl md:h-48 md:w-48" />
             )}
