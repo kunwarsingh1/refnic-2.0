@@ -23,7 +23,7 @@ export default function SustainabilityPageHero({
       />
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <h1 className="whitespace-pre-line font-display text-[120px] font-bold leading-tight text-[#F8F8F8]">
+        <h1 className="whitespace-pre-line font-display text-[clamp(2.0625rem,9vw,7.5rem)] font-bold leading-tight text-[#F8F8F8]">
           {heading}
         </h1>
         <p className="mx-auto mt-8 max-w-2xl whitespace-pre-line text-[18px] font-light leading-relaxed text-white">{body}</p>
@@ -32,11 +32,11 @@ export default function SustainabilityPageHero({
           <img
             src={imageUrl}
             alt=""
-  className="mx-auto mt-0 block h-auto w-[375px]
-rounded-2xl object-contain md:w-[561px]"          />
+            className="mx-auto mt-0 block h-auto w-full max-w-[375px] rounded-2xl object-contain md:w-[561px] md:max-w-none"
+          />
         ) : (
-<CmsImagePlaceholder className="mx-auto mt-0 aspe
-ct-square w-[375px] rounded-2xl md:w-[561px]" />        )}
+          <CmsImagePlaceholder className="mx-auto mt-0 aspect-square w-full max-w-[375px] rounded-2xl md:w-[561px] md:max-w-none" />
+        )}
       </div>
     </section>
   );

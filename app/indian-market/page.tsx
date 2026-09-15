@@ -28,7 +28,7 @@ export default async function IndianMarketPage() {
         <IndianMarketHero
           heading={c.closingHeading}
           body={c.closingTagline}
-          headingClassName="whitespace-pre-line font-display text-[120px] font-bold leading-[1.02] text-[#F8F8F8]"
+          headingClassName="whitespace-pre-line font-display text-[clamp(2.0625rem,9vw,7.5rem)] font-bold leading-[1.02] text-[#F8F8F8]"
         />
 
         {opportunity && (
