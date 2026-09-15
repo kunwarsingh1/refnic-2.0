@@ -23,10 +23,12 @@ export default function WhitePapersPageHero({
       />
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-        <h1 className="font-display text-[clamp(2.0625rem,9vw,7.5rem)] font-bold leading-[1.02] text-[#F8F8F8]">
+        <h1 className="whitespace-pre-line font-display text-[clamp(2.0625rem,9vw,7.5rem)] font-bold leading-[1.02] text-[#F8F8F8]">
           {heading}
         </h1>
-        <p className="mx-auto mt-8 max-w-[800px] text-[21.64px] leading-[32.46px] text-white">{body}</p>
+        <p className="mx-auto mt-8 max-w-[800px] whitespace-pre-line text-[18px] font-light leading-[32.46px] text-white">
+          {body}
+        </p>
         {imageUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img src={imageUrl} alt="" className="mx-auto mt-10 aspect-square w-48 rounded-2xl object-contain md:w-72" />
