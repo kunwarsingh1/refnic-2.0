@@ -10,10 +10,10 @@ export default function IndianMarketChallengeSection({
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
-        <h2 className="font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-5xl">
+        <h2 className="font-display text-[40px] font-normal leading-tight text-[#EBEBEB]">
           India&apos;s Resource Challenge
         </h2>
-        <p className="mt-10 font-display text-2xl font-medium leading-tight text-[#EBEBEB] md:text-3xl">
+        <p className="mt-10 whitespace-pre-line font-display text-[18px] font-light leading-relaxed text-[#EBEBEB]">
           {subheading}
         </p>
 

@@ -33,6 +33,9 @@ export default async function IndianMarketPage() {
             body={opportunity.body}
             align="right"
             imageUrl={opportunity.imageUrl}
+            imageClassName="h-56 w-80 rounded-2xl object-contain md:h-72 md:w-[26rem]"
+            placeholderClassName="h-56 w-80 rounded-2xl md:h-72 md:w-[26rem]"
+            headingClassName="whitespace-pre-line font-display text-[40px] font-normal leading-tight text-[#EBEBEB]"
           />
         )}
 
@@ -50,6 +53,9 @@ export default async function IndianMarketPage() {
             body={indigenousTech.body}
             align="right"
             imageUrl={indigenousTech.imageUrl}
+            imageClassName="h-56 w-80 rounded-2xl object-contain md:h-72 md:w-[26rem]"
+            placeholderClassName="h-56 w-80 rounded-2xl md:h-72 md:w-[26rem]"
+            headingClassName="whitespace-pre-line font-display text-[40px] font-normal leading-tight text-[#EBEBEB]"
           />
         )}
 

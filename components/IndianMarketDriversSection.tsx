@@ -11,7 +11,7 @@ export default function IndianMarketDriversSection({
     <section className="relative overflow-hidden bg-black py-16 md:py-24">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
       <div className="relative z-10 mx-auto max-w-6xl px-6">
-        <h2 className="text-center font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-5xl">
+        <h2 className="whitespace-pre-line text-center font-display text-[40px] font-normal leading-tight text-[#EBEBEB]">
           {heading}
         </h2>
 
@@ -23,9 +23,9 @@ export default function IndianMarketDriversSection({
                 className="pointer-events-none absolute inset-0 border border-transparent bg-white/[0.03]"
                 aria-hidden
               />
-              <div className="relative flex h-full flex-col gap-4 p-5">
-                <h3 className="font-display text-lg font-bold leading-tight text-[#EBEBEB] md:text-xl">{badge}</h3>
-                <p className="text-[21.64px] leading-[32.46px] text-white">{paragraphs[i]}</p>
+              <div className="relative flex h-full flex-col gap-25 p-5">
+                <h3 className="font-display text-[40px] font-normal leading-tight text-[#EBEBEB]">{badge}</h3>
+                <p className="text-[18px] font-light  leading-relaxed text-white">{paragraphs[i]}</p>
               </div>
             </div>
           ))}

@@ -5,11 +5,17 @@ export default function IndianMarketNarrativeSection({
   body,
   align,
   imageUrl,
+  imageClassName = "h-56 w-56 rounded-2xl object-contain md:h-72 md:w-72",
+  placeholderClassName,
+  headingClassName = "whitespace-pre-line font-display text-[40px] font-bold leading-tight text-[#EBEBEB]",
 }: {
   heading: string;
   body: string;
   align: "left" | "right";
   imageUrl?: string;
+  imageClassName?: string;
+  placeholderClassName?: string;
+  headingClassName?: string;
 }) {
   const imageFirst = align === "right";
   const textRight = align === "right";
@@ -24,18 +30,16 @@ export default function IndianMarketNarrativeSection({
           <div className="flex justify-center md:shrink-0">
             {imageUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={imageUrl} alt="" className="h-40 w-40 rounded-2xl object-contain md:h-48 md:w-48" />
+              <img src={imageUrl} alt="" className={imageClassName} />
             ) : (
-              <CmsImagePlaceholder className="h-40 w-40 rounded-2xl md:h-48 md:w-48" />
+              <CmsImagePlaceholder className={placeholderClassName ?? imageClassName} />
             )}
           </div>
           <div className={textRight ? "text-center md:text-right" : "text-center md:text-left"}>
-            <h2 className="whitespace-pre-line font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-5xl">
-              {heading}
-            </h2>
+            <h2 className={headingClassName}>{heading}</h2>
             <div className="mt-6 space-y-4">
               {paragraphs.map((p, i) => (
-                <p key={i} className="text-[20px] leading-[32.46px] text-white">
+                <p key={i} className="text-[18px] font-light leading-relaxed text-white">
                   {p}
                 </p>
               ))}
