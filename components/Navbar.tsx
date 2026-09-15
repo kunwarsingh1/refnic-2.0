@@ -635,9 +635,12 @@ export default function Navbar({
                   ].map(({ key, headerIndex, mechanicalHeaderIndex, mechanicalIndexes, chemicalHeaderIndex, chemicalIndexes }) =>
                     productsMenu[headerIndex] ? (
                       <div key={key}>
-                        <p className="px-2 text-xs font-bold uppercase tracking-wide text-black">
+                        <Link
+                          href={productsMenu[headerIndex].href}
+                          className="block rounded-md px-2 py-1 text-xs font-bold uppercase tracking-wide text-black hover:bg-gray-50"
+                        >
                           {productsMenu[headerIndex].label}
-                        </p>
+                        </Link>
                         <div className="mt-1 flex flex-col gap-1">
                           {[
                             { subKey: `${key}-mechanical`, subHeaderIndex: mechanicalHeaderIndex, indexes: mechanicalIndexes },
@@ -680,17 +683,25 @@ export default function Navbar({
                   )}
                   {productsMenu[2] && (
                     <div>
-                      <button
-                        type="button"
-                        onClick={() => setMobileSubExpanded((v) => (v === "services" ? null : "services"))}
-                        aria-expanded={mobileSubExpanded === "services"}
-                        className="flex w-full items-center justify-between rounded-md px-2 py-1.5 text-xs font-bold uppercase tracking-wide text-black hover:bg-gray-50"
-                      >
-                        {productsMenu[2].label}
-                        <CaretDown
-                          className={`size-3 transition-transform ${mobileSubExpanded === "services" ? "rotate-180" : ""}`}
-                        />
-                      </button>
+                      <div className="flex items-center justify-between rounded-md hover:bg-gray-50">
+                        <Link
+                          href={productsMenu[2].href}
+                          className="flex-1 px-2 py-1.5 text-xs font-bold uppercase tracking-wide text-black"
+                        >
+                          {productsMenu[2].label}
+                        </Link>
+                        <button
+                          type="button"
+                          onClick={() => setMobileSubExpanded((v) => (v === "services" ? null : "services"))}
+                          aria-label={mobileSubExpanded === "services" ? "Collapse Services menu" : "Expand Services menu"}
+                          aria-expanded={mobileSubExpanded === "services"}
+                          className="px-2 py-1.5"
+                        >
+                          <CaretDown
+                            className={`size-3 transition-transform ${mobileSubExpanded === "services" ? "rotate-180" : ""}`}
+                          />
+                        </button>
+                      </div>
                       {mobileSubExpanded === "services" && (
                         <div className="mt-1 flex flex-col gap-0.5">
                           {[13, 21, 14, 22, 15, 23, 16, 24, 25, 26].map((i) =>
@@ -734,17 +745,25 @@ export default function Navbar({
                   ].map(({ subKey, headerIndex, itemIndexes }) =>
                     technologiesMenu[headerIndex] ? (
                       <div key={subKey}>
-                        <button
-                          type="button"
-                          onClick={() => setMobileSubExpanded((v) => (v === subKey ? null : subKey))}
-                          aria-expanded={mobileSubExpanded === subKey}
-                          className="flex w-full items-center justify-between rounded-md px-2 py-1.5 text-xs font-bold uppercase tracking-wide text-black hover:bg-gray-50"
-                        >
-                          {technologiesMenu[headerIndex].label}
-                          <CaretDown
-                            className={`size-3 transition-transform ${mobileSubExpanded === subKey ? "rotate-180" : ""}`}
-                          />
-                        </button>
+                        <div className="flex items-center justify-between rounded-md hover:bg-gray-50">
+                          <Link
+                            href={technologiesMenu[headerIndex].href}
+                            className="flex-1 px-2 py-1.5 text-xs font-bold uppercase tracking-wide text-black"
+                          >
+                            {technologiesMenu[headerIndex].label}
+                          </Link>
+                          <button
+                            type="button"
+                            onClick={() => setMobileSubExpanded((v) => (v === subKey ? null : subKey))}
+                            aria-label={mobileSubExpanded === subKey ? `Collapse ${technologiesMenu[headerIndex].label} menu` : `Expand ${technologiesMenu[headerIndex].label} menu`}
+                            aria-expanded={mobileSubExpanded === subKey}
+                            className="px-2 py-1.5"
+                          >
+                            <CaretDown
+                              className={`size-3 transition-transform ${mobileSubExpanded === subKey ? "rotate-180" : ""}`}
+                            />
+                          </button>
+                        </div>
                         {mobileSubExpanded === subKey && (
                           <div className="mt-1 flex flex-col gap-0.5">
                             {itemIndexes.map((i) =>
