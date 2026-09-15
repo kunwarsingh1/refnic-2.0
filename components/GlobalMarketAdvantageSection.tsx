@@ -25,7 +25,7 @@ export default function GlobalMarketAdvantageSection({
                 className="pointer-events-none absolute inset-0 border border-transparent bg-white/[0.03]"
                 aria-hidden
               />
-              <div className="relative grid grid-cols-1 items-center gap-6 p-5 text-center md:grid-cols-[1fr_auto_1fr] md:items-stretch md:gap-8 md:text-left">
+              <div className="relative grid grid-cols-1 items-center gap-6 p-5 text-center md:grid-cols-[1fr_auto_1fr] md:min-h-[420px] md:items-stretch md:gap-8 md:p-10 md:text-left">
                 <p className="whitespace-pre-line font-display text-lg font-bold leading-tight text-[#EBEBEB] md:self-start md:text-xl">
                   {card.title}
                 </p>
