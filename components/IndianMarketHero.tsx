@@ -1,4 +1,12 @@
-export default function IndianMarketHero({ heading, body }: { heading: string; body: string }) {
+export default function IndianMarketHero({
+  heading,
+  body,
+  headingClassName = "whitespace-pre-line font-display text-[40px] font-normal leading-[1.02] text-[#F8F8F8]",
+}: {
+  heading: string;
+  body: string;
+  headingClassName?: string;
+}) {
   return (
     <section className="relative overflow-hidden bg-black pb-24 pt-28 md:pb-32 md:pt-36">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
@@ -13,9 +21,7 @@ export default function IndianMarketHero({ heading, body }: { heading: string; b
       />
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <h1 className="whitespace-pre-line font-display text-[40px] font-normal leading-[1.02] text-[#F8F8F8]">
-          {heading}
-        </h1>
+        <h1 className={headingClassName}>{heading}</h1>
         <p className="mx-auto mt-8 max-w-xl whitespace-pre-line text-[18px] font-light leading-relaxed text-white">
           {body}
         </p>
