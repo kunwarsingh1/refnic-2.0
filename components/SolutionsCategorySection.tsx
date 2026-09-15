@@ -10,6 +10,8 @@ export default function SolutionsCategorySection({
   imageUrl,
   items,
   taglineMaxWidth = "320px",
+  headingClassName = "whitespace-pre-line font-display text-3xl md:text-5xl font-bold leading-tight text-[#EBEBEB]",
+  taglineClassName = "mt-4 whitespace-pre-line text-[21.64px] leading-[32.46px] text-white",
 }: {
   heading: string;
   tagline: string;
@@ -17,6 +19,8 @@ export default function SolutionsCategorySection({
   imageUrl?: string;
   items: SolutionItem[];
   taglineMaxWidth?: string;
+  headingClassName?: string;
+  taglineClassName?: string;
 }) {
   const textAlign = align === "right" ? "text-right" : "text-left";
   const imageFirst = align === "right";
@@ -28,12 +32,10 @@ export default function SolutionsCategorySection({
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className={`flex flex-col gap-8 md:items-center md:justify-between md:gap-10 ${imageFirst ? "md:flex-row-reverse" : "md:flex-row"}`}>
           <div className={textAlign}>
-            <h2 className="whitespace-pre-line font-display text-3xl md:text-5xl font-bold leading-tight text-[#EBEBEB]">
-              {heading}
-            </h2>
+            <h2 className={headingClassName}>{heading}</h2>
             <p
               style={{ maxWidth: taglineMaxWidth }}
-              className={`mt-4 whitespace-pre-line text-[21.64px] leading-[32.46px] text-white ${align === "right" ? "ml-auto" : ""}`}
+              className={`${taglineClassName} ${align === "right" ? "ml-auto" : ""}`}
             >
               {tagline}
             </p>

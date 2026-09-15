@@ -19,10 +19,12 @@ export default function ServicesPageHero({
       />
 
       <div className="relative z-10 mx-auto w-full px-6 text-center">
-        <h1 className="font-display text-[clamp(1.71875rem,7.5vw,6.25rem)] font-bold leading-[1.02] text-[#F8F8F8]">
+        <h1 className="whitespace-pre-line font-display text-[40px] font-normal leading-[1.02] text-[#F8F8F8]">
           {heading}
         </h1>
-        <p className="mx-auto mt-8 max-w-[750px] text-[21.64px] leading-[32.46px] text-white">{body}</p>
+        <p className="mx-auto mt-8 max-w-[750px] whitespace-pre-line text-[18px] font-light leading-[32.46px] text-white">
+          {body}
+        </p>
       </div>
     </section>
   );

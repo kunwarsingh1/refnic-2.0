@@ -38,6 +38,8 @@ export default async function ServicesPage() {
             align="left"
             taglineMaxWidth="600px"
             items={projectServices}
+            headingClassName="whitespace-pre-line font-display text-[40px] font-normal leading-tight text-[#EBEBEB]"
+            taglineClassName="mt-4 whitespace-pre-line text-[18px] font-light leading-[32.46px] text-white"
           />
         )}
         <ServicesPageClosingCta
