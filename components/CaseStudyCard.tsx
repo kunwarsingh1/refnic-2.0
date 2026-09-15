@@ -11,11 +11,11 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
       />
       <div className="relative grid grid-cols-1 items-center gap-6 p-5 text-center md:h-full md:grid-cols-[1fr_auto_1fr] md:items-stretch md:gap-4 md:text-left">
         <div className="min-w-0 md:flex md:flex-col md:justify-start">
-          <p className="w-full font-display text-[21.83px] font-bold leading-[21.83px] text-[#EBEBEB]">
+          <p className="w-full font-display text-[40px] font-normal leading-tight text-[#EBEBEB]">
             {cs.city.toUpperCase()}
           </p>
-          <p className="mt-2 w-full text-[13.12px] leading-[19.68px] text-white">{cs.label}</p>
-          {cs.subtitle && <p className="mt-1 w-full text-[13.12px] leading-[19.68px] text-white">{cs.subtitle}</p>}
+          <p className="mt-2 w-full text-[18px] font-light leading-relaxed text-white">{cs.label}</p>
+          {cs.subtitle && <p className="mt-1 w-full text-[18px] font-light leading-relaxed text-white">{cs.subtitle}</p>}
         </div>
 
         <div className="min-w-0 overflow-hidden flex items-center justify-center md:max-w-[600px]">
