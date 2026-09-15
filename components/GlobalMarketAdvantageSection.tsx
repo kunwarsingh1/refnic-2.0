@@ -25,7 +25,7 @@ export default function GlobalMarketAdvantageSection({
                 className="pointer-events-none absolute inset-0 border border-transparent bg-white/[0.03]"
                 aria-hidden
               />
-              <div className="relative grid grid-cols-1 items-center gap-6 p-5 text-center md:grid-cols-[1fr_auto_1fr] md:min-h-[420px] md:items-stretch md:gap-8 md:p-10 md:text-left">
+              <div className="relative grid grid-cols-1 items-center gap-6 p-5 text-center md:grid-cols-[1fr_auto_1fr] md:min-h-[320px] md:items-stretch md:gap-8 md:p-10 md:text-left">
                 <p className="whitespace-pre-line font-display text-lg font-bold leading-tight text-[#EBEBEB] md:self-start md:text-xl">
                   {card.title}
                 </p>
@@ -34,12 +34,12 @@ export default function GlobalMarketAdvantageSection({
                   <img
                     src={card.imageUrl}
                     alt=""
-                    className="mx-auto h-40 w-56 shrink-0 rounded-xl object-contain md:h-56 md:w-72 md:self-center"
+                    className="mx-auto h-48 w-64 shrink-0 rounded-xl object-contain md:h-64 md:w-80 md:self-center"
                   />
                 ) : (
-                  <CmsImagePlaceholder className="mx-auto h-40 w-56 shrink-0 md:h-56 md:w-72 md:self-center" />
+                  <CmsImagePlaceholder className="mx-auto h-48 w-64 shrink-0 md:h-64 md:w-80 md:self-center" />
                 )}
-                <p className="whitespace-pre-line text-[18px] font-light leading-[32.46px] text-white md:self-end md:text-right">
+                <p className="whitespace-pre-line text-sm font-light leading-relaxed text-white md:self-end md:text-right">
                   {card.body}
                 </p>
               </div>
