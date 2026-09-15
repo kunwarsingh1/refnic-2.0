@@ -34,10 +34,10 @@ export default function GlobalMarketAdvantageSection({
                   <img
                     src={card.imageUrl}
                     alt=""
-                    className="mx-auto h-32 w-32 shrink-0 rounded-xl object-contain md:h-40 md:w-40 md:self-center"
+                    className="mx-auto h-40 w-56 shrink-0 rounded-xl object-contain md:h-56 md:w-72 md:self-center"
                   />
                 ) : (
-                  <CmsImagePlaceholder className="mx-auto h-32 w-32 shrink-0 md:h-40 md:w-40 md:self-center" />
+                  <CmsImagePlaceholder className="mx-auto h-40 w-56 shrink-0 md:h-56 md:w-72 md:self-center" />
                 )}
                 <p className="whitespace-pre-line text-[18px] font-light leading-[32.46px] text-white md:self-end md:text-right">
                   {card.body}
