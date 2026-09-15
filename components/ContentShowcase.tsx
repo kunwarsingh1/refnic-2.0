@@ -1,5 +1,6 @@
 import { CmsImagePlaceholder } from "@/components/ui/primitives";
 import { PdfDownloadGate } from "@/components/PdfDownloadGate";
+import { PdfEmbed } from "@/components/admin/PdfEmbed";
 
 export type ShowcaseContentType = "pdf" | "image" | "text";
 
@@ -29,9 +30,15 @@ export default function ContentShowcase({
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
       <div className="relative z-10 mx-auto max-w-[1400px] px-6">
         <div className="relative overflow-hidden rounded-xl bg-[#F8F8F8] p-8 md:p-16">
+          {caption && (
+            <p className="mx-auto mb-6 max-w-2xl text-center text-[21.64px] leading-[32.46px] text-[#151417]">
+              {caption}
+            </p>
+          )}
+
           {type === "pdf" &&
             (pdfUrl ? (
-              <iframe src={pdfUrl} title="Document preview" className="h-[70vh] w-full rounded-lg border-0" />
+              <PdfEmbed url={pdfUrl} light />
             ) : (
               <div className="flex h-[50vh] w-full items-center justify-center rounded-lg bg-[#D9D9D9]">
                 <span className="font-display text-6xl font-bold text-[#060606]">PDF</span>
@@ -50,10 +57,8 @@ export default function ContentShowcase({
             <p className="whitespace-pre-line text-[21.64px] leading-[32.46px] text-[#151417]">{text}</p>
           )}
 
-          {caption && (
-            <p className="mx-auto mt-4 max-w-2xl text-center text-[21.64px] leading-[32.46px] text-[#151417]">
-              {caption}
-            </p>
+          {type !== "text" && text && (
+            <p className="mt-6 whitespace-pre-line text-[21.64px] leading-[32.46px] text-[#151417]">{text}</p>
           )}
 
           {type === "pdf" && pdfUrl && (

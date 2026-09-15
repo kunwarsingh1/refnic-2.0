@@ -10,7 +10,7 @@ export function ShowcaseContentFields({
   showcaseImageUrl,
   showcaseText,
   caption,
-  captionLabel = "Caption (shown below the content)",
+  captionLabel = "Topic (shown above the content)",
 }: {
   contentType?: "pdf" | "image" | "text";
   pdfUrl?: string;
@@ -31,19 +31,20 @@ export function ShowcaseContentFields({
           <option value="text">Text</option>
         </select>
         <p className="mt-1 text-xs text-white/40">
-          This box isn&apos;t PDF-only — choose which field below is actually shown.
+          Choose whether the PDF or the Image is the main content shown. The Text field below always
+          displays as well, underneath whichever one you pick.
         </p>
       </div>
 
-      <PdfUploadField name="pdfUrl" label="PDF (used when content type = PDF)" defaultValue={pdfUrl} />
+      <PdfUploadField name="pdfUrl" label="PDF (main content when content type = PDF)" defaultValue={pdfUrl} />
       <ImageUploadField
         name="showcaseImageUrl"
-        label="Image (used when content type = Image)"
+        label="Image (main content when content type = Image)"
         defaultValue={showcaseImageUrl}
       />
       <div>
         <label htmlFor="showcaseText" className={labelClass}>
-          Text (used when content type = Text)
+          Text (always shown below the PDF/Image; main content when content type = Text)
         </label>
         <textarea id="showcaseText" name="showcaseText" rows={5} defaultValue={showcaseText} className={inputClass} />
       </div>
