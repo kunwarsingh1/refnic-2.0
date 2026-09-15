@@ -25,7 +25,11 @@ export default async function IndianMarketPage() {
       <SiteHeader bgClassName="bg-black" />
 
       <main className="bg-black">
-        <IndianMarketHero heading={c.closingHeading} body={c.closingTagline} />
+        <IndianMarketHero
+          heading={c.closingHeading}
+          body={c.closingTagline}
+          headingClassName="whitespace-pre-line font-display text-[120px] font-bold leading-[1.02] text-[#F8F8F8]"
+        />
 
         {opportunity && (
           <IndianMarketNarrativeSection
