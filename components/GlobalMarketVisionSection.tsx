@@ -7,8 +7,10 @@ export default function GlobalMarketVisionSection({ label, body }: { label: stri
         aria-hidden
       />
       <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
-        <h2 className="font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-5xl">{label}</h2>
-        <p className="mx-auto mt-8 max-w-xl text-[20px] leading-[32.46px] text-white">{body}</p>
+        <h2 className="whitespace-pre-line font-display text-[40px] font-normal leading-tight text-[#EBEBEB]">
+          {label}
+        </h2>
+        <p className="mx-auto mt-8 max-w-xl whitespace-pre-line text-[18px] font-light leading-relaxed text-white">{body}</p>
       </div>
     </section>
   );

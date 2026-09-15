@@ -13,7 +13,7 @@ export default function GlobalMarketAdvantageSection({
     <section className="relative overflow-hidden bg-black py-16 md:py-24">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
       <div className="relative z-10 mx-auto max-w-6xl px-6">
-        <h2 className="text-center font-display text-3xl font-bold leading-tight text-[#EBEBEB] md:text-5xl">
+        <h2 className="text-center font-display text-[40px] font-normal leading-tight text-[#EBEBEB]">
           {heading}
         </h2>
 
