@@ -39,7 +39,7 @@ export default function GlobalMarketAdvantageSection({
                 ) : (
                   <CmsImagePlaceholder className="mx-auto h-32 w-32 shrink-0 md:h-40 md:w-40 md:self-center" />
                 )}
-                <p className="whitespace-pre-line text-[21.64px] leading-[32.46px] text-white md:self-end md:text-right">
+                <p className="whitespace-pre-line text-[18px] font-light leading-[32.46px] text-white md:self-end md:text-right">
                   {card.body}
                 </p>
               </div>
