@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { inputClass } from "@/components/admin/formStyles";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
+import { LineBreakButton } from "@/components/admin/LineBreakField";
 import type { NarrativeLayout, NarrativeSection } from "@/lib/content/solutionsPage";
 
 const EMPTY: NarrativeSection = { heading: "", body: "", layout: "banner", imageUrl: "" };
@@ -10,6 +11,13 @@ const LAYOUTS: NarrativeLayout[] = ["banner", "side-right", "plain"];
 
 export function NarrativeSectionsField({ label, defaultItems }: { label: string; defaultItems: NarrativeSection[] }) {
   const [items, setItems] = useState(defaultItems.length > 0 ? defaultItems : [EMPTY]);
+  const headingRefs = useRef<Array<React.RefObject<HTMLTextAreaElement | null>>>([]);
+  const bodyRefs = useRef<Array<React.RefObject<HTMLTextAreaElement | null>>>([]);
+
+  function refFor(store: React.MutableRefObject<Array<React.RefObject<HTMLTextAreaElement | null>>>, i: number) {
+    if (!store.current[i]) store.current[i] = { current: null };
+    return store.current[i];
+  }
 
   return (
     <div>
@@ -17,9 +25,14 @@ export function NarrativeSectionsField({ label, defaultItems }: { label: string;
       <div className="space-y-4">
         {items.map((item, i) => (
           <div key={i} className="rounded-md border border-white/10 p-3">
-            <input
+            <div className="mb-1 flex items-center justify-between gap-3">
+              <span className="text-xs text-white/40">Heading (e.g. The Problem)</span>
+              <LineBreakButton textareaRef={refFor(headingRefs, i)} />
+            </div>
+            <textarea
+              ref={refFor(headingRefs, i)}
               name="narrativeHeading"
-              type="text"
+              rows={2}
               defaultValue={item.heading}
               placeholder="Heading (e.g. The Problem)"
               className={`${inputClass} mb-2`}
@@ -31,7 +44,12 @@ export function NarrativeSectionsField({ label, defaultItems }: { label: string;
                 </option>
               ))}
             </select>
+            <div className="mb-1 flex items-center justify-between gap-3">
+              <span className="text-xs text-white/40">Body</span>
+              <LineBreakButton textareaRef={refFor(bodyRefs, i)} />
+            </div>
             <textarea
+              ref={refFor(bodyRefs, i)}
               name="narrativeBody"
               rows={4}
               defaultValue={item.body}

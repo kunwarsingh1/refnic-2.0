@@ -10,7 +10,7 @@ export default function CareerPageLookingFor({
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <h2 className="font-display text-3xl md:text-5xl font-bold leading-tight text-[#EBEBEB]">
+        <h2 className="whitespace-pre-line font-display text-3xl md:text-5xl font-bold leading-tight text-[#EBEBEB]">
           {heading}
         </h2>
 
@@ -26,9 +26,9 @@ export default function CareerPageLookingFor({
               {t.title.trim() || t.body.trim() ? (
                 <div className="-mt-8">
                   {t.title.trim() && (
-                    <p className="font-display text-xl font-bold text-[#EBEBEB]">{t.title}</p>
+                    <p className="whitespace-pre-line font-display text-xl font-bold text-[#EBEBEB]">{t.title}</p>
                   )}
-                  {t.body.trim() && <p className="mt-2 text-white/80">{t.body}</p>}
+                  {t.body.trim() && <p className="mt-2 whitespace-pre-line text-white/80">{t.body}</p>}
                 </div>
               ) : (
                 <div className="-mt-8 rounded-lg border border-dashed border-white/20 px-4 py-3 text-sm italic text-white/40">

@@ -2,6 +2,7 @@ import { getOurStoryPageConfig } from "@/lib/content/ourStoryPage";
 import { updateOurStoryPageConfigAction } from "@/app/actions/our-story-page";
 import { NumberedSectionListField } from "@/components/admin/NumberedSectionListField";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
+import { LineBreakField } from "@/components/admin/LineBreakField";
 import { buttonClass, inputClass, labelClass } from "@/components/admin/formStyles";
 
 export default async function AdminOurStoryPagePage() {
@@ -14,37 +15,15 @@ export default async function AdminOurStoryPagePage() {
       <form action={updateOurStoryPageConfigAction} className="mt-6 max-w-xl space-y-8">
         <div>
           <label htmlFor="heroLabel" className={labelClass}>
-            Hero label
+            Hero label (each word wraps to its own line automatically)
           </label>
           <input id="heroLabel" name="heroLabel" type="text" defaultValue={c.heroLabel} className={inputClass} />
         </div>
-        <div>
-          <label htmlFor="heroSubheading" className={labelClass}>
-            Hero subheading
-          </label>
-          <input
-            id="heroSubheading"
-            name="heroSubheading"
-            type="text"
-            defaultValue={c.heroSubheading}
-            className={inputClass}
-          />
-        </div>
+        <LineBreakField name="heroSubheading" label="Hero subheading" defaultValue={c.heroSubheading} />
 
         <NumberedSectionListField defaultItems={c.numberedSections} />
 
-        <div>
-          <label htmlFor="closingTagline" className={labelClass}>
-            Closing tagline
-          </label>
-          <textarea
-            id="closingTagline"
-            name="closingTagline"
-            rows={3}
-            defaultValue={c.closingTagline}
-            className={inputClass}
-          />
-        </div>
+        <LineBreakField name="closingTagline" label="Closing tagline" defaultValue={c.closingTagline} rows={3} />
         <ImageUploadField name="closingImageUrl" label="Closing image" defaultValue={c.closingImageUrl} />
 
         <div>

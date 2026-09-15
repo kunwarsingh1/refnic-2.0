@@ -6,7 +6,9 @@ export default function InvestorsPageClosingCta({ heading, ctaLabel }: { heading
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-2xl px-6 text-center">
-        <h2 className="font-display text-2xl font-bold leading-tight text-[#EBEBEB] md:text-3xl">{heading}</h2>
+        <h2 className="whitespace-pre-line font-display text-[40px] font-normal leading-tight text-[#EBEBEB]">
+          {heading}
+        </h2>
         <div className="mt-8 flex justify-center">
           <GradientCtaButton href="/contact">{ctaLabel}</GradientCtaButton>
         </div>

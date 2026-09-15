@@ -142,7 +142,7 @@ export default function PillarsSection({
                       </span>
                     ))}
                   </h3>
-                  <p className="mt-5 max-w-[190px] text-[12px] font-normal leading-[16.57px] text-white">
+                  <p className="mt-5 max-w-[190px] whitespace-pre-line text-[12px] font-normal leading-[16.57px] text-white">
                     {p.body}
                   </p>
                 </div>
@@ -187,7 +187,7 @@ export default function PillarsSection({
                     </span>
                   ))}
                 </h3>
-                <p className="mt-5 text-base font-normal leading-relaxed text-white/55">
+                <p className="mt-5 whitespace-pre-line text-base font-normal leading-relaxed text-white/55">
                   {p.body}
                 </p>
               </div>

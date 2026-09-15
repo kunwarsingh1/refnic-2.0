@@ -16,6 +16,7 @@ export async function updateContactPageConfigAction(formData: FormData): Promise
     heroHeading: String(formData.get("heroHeading") ?? ""),
     heroSubheading: String(formData.get("heroSubheading") ?? ""),
     contactInfoHeading: String(formData.get("contactInfoHeading") ?? ""),
+    formImageUrl: String(formData.get("formImageUrl") ?? "") || undefined,
     subjects: nonEmpty(formData.getAll("subject")),
     closingHeading: String(formData.get("closingHeading") ?? ""),
     closingImageUrl: String(formData.get("closingImageUrl") ?? "") || undefined,

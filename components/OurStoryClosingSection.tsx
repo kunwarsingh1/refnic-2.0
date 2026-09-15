@@ -24,7 +24,9 @@ export default function OurStoryClosingSection({
         ) : (
           <CmsImagePlaceholder className="mx-auto mb-8 aspect-square w-48 rounded-2xl md:w-72" />
         )}
-        <p className="font-display text-2xl font-bold leading-[1.4] text-white md:text-3xl">{tagline}</p>
+        <p className="whitespace-pre-line font-display text-2xl font-bold leading-[1.4] text-white md:text-3xl">
+          {tagline}
+        </p>
         <div className="mt-10 flex justify-center">
           <GradientCtaButton href="/case-study">{ctaLabel}</GradientCtaButton>
         </div>

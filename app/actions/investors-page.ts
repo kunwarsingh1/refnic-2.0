@@ -34,6 +34,7 @@ export async function updateInvestorsPageConfigAction(formData: FormData): Promi
       }))
       .filter((r) => r.text.trim() !== ""),
     visionLabel: String(formData.get("visionLabel") ?? ""),
+    visionImageUrl: String(formData.get("visionImageUrl") ?? "") || undefined,
     visionHeading: String(formData.get("visionHeading") ?? ""),
     visionBody: String(formData.get("visionBody") ?? ""),
     closingHeading: String(formData.get("closingHeading") ?? ""),

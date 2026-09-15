@@ -71,8 +71,8 @@ export default function NewsletterSection({ posts }: { posts: NewsletterPost[] }
               <span className="text-xs text-gray-500">
                 {post.category}
               </span>
-              <h3 className="mt-2 font-sans font-bold text-lg text-black">{post.title}</h3>
-              <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-gray-600">
+              <h3 className="mt-2 whitespace-pre-line font-sans font-bold text-lg text-black">{post.title}</h3>
+              <p className="mt-2 line-clamp-3 whitespace-pre-line text-sm leading-relaxed text-gray-600">
                 {post.excerpt}
               </p>
               <div className="mt-5 flex items-center gap-3">

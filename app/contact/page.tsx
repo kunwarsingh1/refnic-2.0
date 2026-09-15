@@ -28,6 +28,7 @@ export default async function ContactPage() {
           phone={footer.contactPhone}
           address={footer.contactAddress}
           contactInfoHeading={c.contactInfoHeading}
+          imageUrl={c.formImageUrl}
           subjects={c.subjects}
         />
         <ContactPageClosingCta

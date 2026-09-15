@@ -2,6 +2,7 @@ import { getCaseStudyPageConfig } from "@/lib/content/caseStudyPage";
 import { updateCaseStudyPageConfigAction } from "@/app/actions/case-study-page";
 import { StringListField } from "@/components/admin/StringListField";
 import { ImageGalleryField } from "@/components/admin/ImageGalleryField";
+import { LineBreakField } from "@/components/admin/LineBreakField";
 import { buttonClass, inputClass, labelClass } from "@/components/admin/formStyles";
 
 export default async function AdminCaseStudyPagePage() {
@@ -19,16 +20,11 @@ export default async function AdminCaseStudyPagePage() {
       </p>
 
       <form action={updateCaseStudyPageConfigAction} className="mt-6 max-w-xl space-y-6">
-        <div>
-          <label htmlFor="heroHeading" className={labelClass}>
-            Hero heading
-          </label>
-          <textarea id="heroHeading" name="heroHeading" rows={3} defaultValue={config.heroHeading} className={inputClass} />
-        </div>
+        <LineBreakField name="heroHeading" label="Hero heading" defaultValue={config.heroHeading} rows={3} />
 
         <div>
           <label htmlFor="resultsHeading" className={labelClass}>
-            Results heading
+            Results heading (large decorative watermark text — keep to one line)
           </label>
           <input
             id="resultsHeading"

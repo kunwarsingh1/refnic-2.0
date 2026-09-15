@@ -2,6 +2,7 @@ import { getContactPageConfig } from "@/lib/content/contactPage";
 import { updateContactPageConfigAction } from "@/app/actions/contact-page";
 import { StringListField } from "@/components/admin/StringListField";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
+import { LineBreakField } from "@/components/admin/LineBreakField";
 import { buttonClass, inputClass, labelClass } from "@/components/admin/formStyles";
 
 export default async function AdminContactPagePage() {
@@ -15,76 +16,28 @@ export default async function AdminContactPagePage() {
       </p>
 
       <form action={updateContactPageConfigAction} className="mt-6 max-w-xl space-y-8">
-        <div>
-          <label htmlFor="heroHeading" className={labelClass}>
-            Hero heading
-          </label>
-          <textarea id="heroHeading" name="heroHeading" rows={2} defaultValue={c.heroHeading} className={inputClass} />
-        </div>
-        <div>
-          <label htmlFor="heroSubheading" className={labelClass}>
-            Hero subheading
-          </label>
-          <textarea
-            id="heroSubheading"
-            name="heroSubheading"
-            rows={3}
-            defaultValue={c.heroSubheading}
-            className={inputClass}
-          />
-        </div>
+        <LineBreakField name="heroHeading" label="Hero heading" defaultValue={c.heroHeading} />
+        <LineBreakField name="heroSubheading" label="Hero subheading" defaultValue={c.heroSubheading} rows={3} />
 
-        <div>
-          <label htmlFor="contactInfoHeading" className={labelClass}>
-            Contact info heading
-          </label>
-          <input
-            id="contactInfoHeading"
-            name="contactInfoHeading"
-            type="text"
-            defaultValue={c.contactInfoHeading}
-            className={inputClass}
-          />
-        </div>
+        <LineBreakField name="contactInfoHeading" label="Contact info heading" defaultValue={c.contactInfoHeading} />
+
+        <ImageUploadField
+          name="formImageUrl"
+          label="Decorative image behind the contact form (optional — shows a placeholder until set)"
+          defaultValue={c.formImageUrl}
+        />
 
         <StringListField name="subject" label="Enquiry subjects" defaultItems={c.subjects} />
 
-        <div>
-          <label htmlFor="closingHeading" className={labelClass}>
-            Closing heading
-          </label>
-          <input
-            id="closingHeading"
-            name="closingHeading"
-            type="text"
-            defaultValue={c.closingHeading}
-            className={inputClass}
-          />
-        </div>
+        <LineBreakField name="closingHeading" label="Closing heading" defaultValue={c.closingHeading} />
         <ImageUploadField
           name="closingImageUrl"
           label="Closing section image (optional — shows a placeholder until set)"
           defaultValue={c.closingImageUrl}
         />
 
-        <div>
-          <label htmlFor="closingTagline" className={labelClass}>
-            Closing tagline
-          </label>
-          <input
-            id="closingTagline"
-            name="closingTagline"
-            type="text"
-            defaultValue={c.closingTagline}
-            className={inputClass}
-          />
-        </div>
-        <div>
-          <label htmlFor="closingBody" className={labelClass}>
-            Closing body
-          </label>
-          <textarea id="closingBody" name="closingBody" rows={3} defaultValue={c.closingBody} className={inputClass} />
-        </div>
+        <LineBreakField name="closingTagline" label="Closing tagline" defaultValue={c.closingTagline} />
+        <LineBreakField name="closingBody" label="Closing body" defaultValue={c.closingBody} rows={3} />
         <div>
           <label htmlFor="closingCtaLabel" className={labelClass}>
             Closing button label

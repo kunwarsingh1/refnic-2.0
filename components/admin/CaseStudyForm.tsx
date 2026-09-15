@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import { ModelUploadField } from "@/components/admin/ModelUploadField";
 import { StringListField } from "@/components/admin/StringListField";
+import { LineBreakField } from "@/components/admin/LineBreakField";
 import { buttonClass, inputClass, labelClass, secondaryButtonClass } from "@/components/admin/formStyles";
 import type { CaseStudy } from "@/lib/content/caseStudies";
 
@@ -38,19 +39,15 @@ export function CaseStudyForm({
         <input id="country" name="country" type="text" defaultValue={caseStudy?.country} className={inputClass} />
       </div>
 
-      <div>
-        <label htmlFor="label" className={labelClass}>
-          Label / Title
-        </label>
-        <input id="label" name="label" type="text" required defaultValue={caseStudy?.label} className={inputClass} />
-      </div>
+      <LineBreakField name="label" label="Label / Title" defaultValue={caseStudy?.label} required />
 
-      <div>
-        <label htmlFor="body" className={labelClass}>
-          Body <span className="text-white/40">(intro paragraph on the detail page)</span>
-        </label>
-        <textarea id="body" name="body" required rows={4} defaultValue={caseStudy?.body} className={inputClass} />
-      </div>
+      <LineBreakField
+        name="body"
+        label="Body (intro paragraph on the detail page)"
+        defaultValue={caseStudy?.body}
+        rows={4}
+        required
+      />
 
       <div>
         <label htmlFor="subtitle" className={labelClass}>
@@ -73,123 +70,40 @@ export function CaseStudyForm({
       <div className="border-t border-white/10 pt-5">
         <p className="mb-3 text-sm font-semibold text-white">Detail page — project overview</p>
         <div className="space-y-5">
-          <div>
-            <label htmlFor="overviewSubheading" className={labelClass}>
-              Overview subheading
-            </label>
-            <input
-              id="overviewSubheading"
-              name="overviewSubheading"
-              type="text"
-              defaultValue={caseStudy?.overviewSubheading}
-              className={inputClass}
-            />
-          </div>
-          <div>
-            <label htmlFor="overviewBody" className={labelClass}>
-              Overview body
-            </label>
-            <textarea
-              id="overviewBody"
-              name="overviewBody"
-              rows={4}
-              defaultValue={caseStudy?.overviewBody}
-              className={inputClass}
-            />
-          </div>
+          <LineBreakField name="overviewSubheading" label="Overview subheading" defaultValue={caseStudy?.overviewSubheading} />
+          <LineBreakField name="overviewBody" label="Overview body" defaultValue={caseStudy?.overviewBody} rows={4} />
         </div>
       </div>
 
       <div className="border-t border-white/10 pt-5">
         <p className="mb-3 text-sm font-semibold text-white">Detail page — the challenge</p>
         <div className="space-y-5">
-          <div>
-            <label htmlFor="challengeSubheading" className={labelClass}>
-              Challenge subheading
-            </label>
-            <input
-              id="challengeSubheading"
-              name="challengeSubheading"
-              type="text"
-              defaultValue={caseStudy?.challengeSubheading}
-              className={inputClass}
-            />
-          </div>
-          <div>
-            <label htmlFor="challengeBody" className={labelClass}>
-              Challenge body
-            </label>
-            <textarea
-              id="challengeBody"
-              name="challengeBody"
-              rows={4}
-              defaultValue={caseStudy?.challengeBody}
-              className={inputClass}
-            />
-          </div>
+          <LineBreakField name="challengeSubheading" label="Challenge subheading" defaultValue={caseStudy?.challengeSubheading} />
+          <LineBreakField name="challengeBody" label="Challenge body" defaultValue={caseStudy?.challengeBody} rows={4} />
         </div>
       </div>
 
       <div className="border-t border-white/10 pt-5">
         <p className="mb-3 text-sm font-semibold text-white">Detail page — our approach</p>
         <div className="space-y-5">
-          <div>
-            <label htmlFor="approachSubheading" className={labelClass}>
-              Approach subheading
-            </label>
-            <input
-              id="approachSubheading"
-              name="approachSubheading"
-              type="text"
-              defaultValue={caseStudy?.approachSubheading}
-              className={inputClass}
-            />
-          </div>
-          <div>
-            <label htmlFor="approachBody" className={labelClass}>
-              Approach body
-            </label>
-            <textarea
-              id="approachBody"
-              name="approachBody"
-              rows={5}
-              defaultValue={caseStudy?.approachBody}
-              className={inputClass}
-            />
-          </div>
-          <div>
-            <label htmlFor="approachSecondaryHeading" className={labelClass}>
-              Secondary heading <span className="text-white/40">(e.g. &quot;Engineering First. Manufacturing Second.&quot;)</span>
-            </label>
-            <input
-              id="approachSecondaryHeading"
-              name="approachSecondaryHeading"
-              type="text"
-              defaultValue={caseStudy?.approachSecondaryHeading}
-              className={inputClass}
-            />
-          </div>
-          <div>
-            <label htmlFor="approachIntro" className={labelClass}>
-              Delivered-list intro line
-            </label>
-            <input
-              id="approachIntro"
-              name="approachIntro"
-              type="text"
-              defaultValue={caseStudy?.approachIntro}
-              className={inputClass}
-            />
-          </div>
+          <LineBreakField name="approachSubheading" label="Approach subheading" defaultValue={caseStudy?.approachSubheading} />
+          <LineBreakField name="approachBody" label="Approach body" defaultValue={caseStudy?.approachBody} rows={5} />
+          <LineBreakField
+            name="approachSecondaryHeading"
+            label={'Secondary heading (e.g. "Engineering First. Manufacturing Second.")'}
+            defaultValue={caseStudy?.approachSecondaryHeading}
+          />
+          <LineBreakField name="approachIntro" label="Delivered-list intro line" defaultValue={caseStudy?.approachIntro} />
           <StringListField name="approachBullet" label="What we delivered (bullets)" defaultItems={caseStudy?.approachBullets ?? []} />
         </div>
       </div>
 
       <div className="border-t border-white/10 pt-5">
-        <label htmlFor="tagline" className={labelClass}>
-          Closing tagline <span className="text-white/40">(e.g. &quot;From engineering drawings to a fully operational recycling facility.&quot;)</span>
-        </label>
-        <input id="tagline" name="tagline" type="text" defaultValue={caseStudy?.tagline} className={inputClass} />
+        <LineBreakField
+          name="tagline"
+          label={'Closing tagline (e.g. "From engineering drawings to a fully operational recycling facility.")'}
+          defaultValue={caseStudy?.tagline}
+        />
       </div>
 
       <div className="flex gap-3">

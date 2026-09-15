@@ -6,7 +6,7 @@ export default function CareerPageOpenPositions({
   applyLabel,
 }: {
   heading: string;
-  positions: { title: string; body: string }[];
+  positions: { title: string; body: string; imageUrl?: string }[];
   applyLabel: string;
 }) {
   return (
@@ -14,7 +14,7 @@ export default function CareerPageOpenPositions({
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
-        <h2 className="text-center font-display text-3xl md:text-5xl font-bold leading-tight text-[#EBEBEB]">
+        <h2 className="whitespace-pre-line text-center font-display text-3xl md:text-5xl font-bold leading-tight text-[#EBEBEB]">
           {heading}
         </h2>
 
@@ -27,13 +27,22 @@ export default function CareerPageOpenPositions({
                 aria-hidden
               />
               <div className="relative flex h-full flex-col p-5">
-                <h3 className="min-h-12 font-display text-lg font-bold leading-tight text-[#EBEBEB] md:min-h-16 md:text-xl">
+                <h3 className="min-h-12 whitespace-pre-line font-display text-lg font-bold leading-tight text-[#EBEBEB] md:min-h-16 md:text-xl">
                   {p.title}
                 </h3>
 
-                <CmsImagePlaceholder className="mt-4 aspect-[4/3] w-full rounded-xl" />
+                {p.imageUrl ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={p.imageUrl}
+                    alt=""
+                    className="mt-4 aspect-[4/3] w-full rounded-xl object-cover"
+                  />
+                ) : (
+                  <CmsImagePlaceholder className="mt-4 aspect-[4/3] w-full rounded-xl" />
+                )}
 
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-white/55">{p.body}</p>
+                <p className="mt-2 flex-1 whitespace-pre-line text-sm leading-relaxed text-white/55">{p.body}</p>
                 <div className="mt-6">
                   <GradientCtaButton href="/contact">{applyLabel}</GradientCtaButton>
                 </div>

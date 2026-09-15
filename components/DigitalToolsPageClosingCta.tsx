@@ -18,14 +18,16 @@ export default function DigitalToolsPageClosingCta({
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
-        <h2 className="font-display text-3xl md:text-5xl font-bold leading-tight text-[#EBEBEB]">{heading}</h2>
+        <h2 className="whitespace-pre-line font-display text-3xl md:text-5xl font-bold leading-tight text-[#EBEBEB]">
+          {heading}
+        </h2>
         {imageUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img src={imageUrl} alt="" className="mx-auto mt-8 aspect-square w-48 rounded-2xl object-contain md:w-72" />
         ) : (
           <CmsImagePlaceholder className="mx-auto mt-8 aspect-square w-48 rounded-2xl md:w-72" />
         )}
-        <p className="mx-auto mt-8 max-w-2xl text-[20px] leading-[32.46px] text-white">{body}</p>
+        <p className="mx-auto mt-8 max-w-2xl whitespace-pre-line text-[20px] leading-[32.46px] text-white">{body}</p>
 
         <div className="mt-10 flex justify-center">
           <GradientCtaButton href={ctaHref}>{ctaLabel}</GradientCtaButton>

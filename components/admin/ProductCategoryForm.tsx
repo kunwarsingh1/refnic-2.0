@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { buttonClass, inputClass, labelClass, secondaryButtonClass } from "@/components/admin/formStyles";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
+import { LineBreakField } from "@/components/admin/LineBreakField";
 import type { ProductCategory } from "@/lib/content/productCategories";
 
 export function ProductCategoryForm({
@@ -22,19 +23,13 @@ export function ProductCategoryForm({
       }}
       className="max-w-xl space-y-5"
     >
-      <div>
-        <label htmlFor="name" className={labelClass}>
-          Category name <span className="text-white/40">(e.g. "Mechanical Products")</span>
-        </label>
-        <input id="name" name="name" type="text" required defaultValue={category?.name} className={inputClass} />
-      </div>
+      <LineBreakField name="name" label={'Category name (e.g. "Mechanical Products")'} defaultValue={category?.name} required />
 
-      <div>
-        <label htmlFor="tagline" className={labelClass}>
-          Tagline <span className="text-white/40">(shown under the heading on the products page)</span>
-        </label>
-        <textarea id="tagline" name="tagline" rows={2} defaultValue={category?.tagline} className={inputClass} />
-      </div>
+      <LineBreakField
+        name="tagline"
+        label="Tagline (shown under the heading on the products page)"
+        defaultValue={category?.tagline}
+      />
 
       <ImageUploadField name="imageUrl" label="Category icon (optional)" defaultValue={category?.imageUrl} />
 

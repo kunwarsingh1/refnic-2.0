@@ -19,9 +19,9 @@ export default function Hero() {
 
       {/* top-left dark rock — desktop only, direct child of the full-width section so it touches the true screen edge, not the inner max-w-[90rem] wrapper */}
       <img
-        src="/white_stone.png"
+        src="/Group_22.png"
         alt=""
-        className="absolute left-0 top-1/2 z-20 hidden w-[clamp(9rem,32vw,24rem)] origin-center -translate-y-[70%] object-contain md:block"
+        className="absolute left-0 top-1/2 z-20 hidden w-[clamp(9rem,32vw,24rem)] origin-center -translate-y-[50%] object-contain md:block"
       />
 
       <div className="relative mx-auto flex w-full flex-1 flex-col md:block md:max-w-[90rem]">
@@ -32,11 +32,11 @@ export default function Hero() {
           className="absolute right-0 top-1/2 z-20 hidden w-[clamp(8rem,24vw,18rem)] origin-center translate-x-[30%] -translate-y-[90%] object-contain md:block"
         />
         {/* bottom-left blue crystal — desktop only */}
-        <img
+        {/* <img
           src="/blue_blur.png"
           alt=""
           className="absolute left-0 bottom-0 z-20 hidden w-[clamp(8rem,19vw,14rem)] origin-center -translate-x-[35%] object-contain md:block"
-        />
+        /> */}
         {/* bottom-right dark rock — desktop only */}
         <img
   src="/blue_stone.png"
@@ -65,7 +65,7 @@ export default function Hero() {
           </p>
 
           <div className="mt-14 flex justify-center md:mt-10">
-            <Button href="/products">Explore Our Solution</Button>
+            <Button href="/solutions">Explore Our Solution</Button>
           </div>
         </div>
       </div>

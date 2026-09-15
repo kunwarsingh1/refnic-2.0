@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { LineBreakField } from "@/components/admin/LineBreakField";
 import { buttonClass, inputClass, labelClass, secondaryButtonClass } from "@/components/admin/formStyles";
 import type { NewsletterTab } from "@/lib/content/newsletterTabs";
 
@@ -28,12 +29,12 @@ export function NewsletterTabForm({
         <input id="name" name="name" type="text" required defaultValue={tab?.name} className={inputClass} />
       </div>
 
-      <div>
-        <label htmlFor="tagline" className={labelClass}>
-          Tagline <span className="text-white/40">(shown next to the heading on the newsletter page)</span>
-        </label>
-        <textarea id="tagline" name="tagline" rows={3} defaultValue={tab?.tagline} className={inputClass} />
-      </div>
+      <LineBreakField
+        name="tagline"
+        label="Tagline (shown next to the heading on the newsletter page)"
+        defaultValue={tab?.tagline}
+        rows={3}
+      />
 
       <div className="flex gap-3">
         <button type="submit" className={buttonClass}>

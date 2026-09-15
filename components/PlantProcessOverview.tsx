@@ -6,10 +6,10 @@ export default function PlantProcessOverview({ config: c }: { config: ProductsPa
     <section className="relative bg-black px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto max-w-[90rem] overflow-hidden rounded-xl bg-[#F8F8F8] px-6 py-16 md:px-16 md:py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="font-display font-bold text-3xl leading-tight text-[#151417] md:text-5xl">
+          <h2 className="whitespace-pre-line font-display font-bold text-3xl leading-tight text-[#151417] md:text-5xl">
             {c.processHeading}
           </h2>
-          <p className="mt-6 text-base leading-relaxed text-[#151417] md:text-[21.64px] md:leading-[32.46px]">
+          <p className="mt-6 whitespace-pre-line text-base leading-relaxed text-[#151417] md:text-[21.64px] md:leading-[32.46px]">
             {c.processIntro}
           </p>
         </div>
@@ -42,7 +42,7 @@ export default function PlantProcessOverview({ config: c }: { config: ProductsPa
                 <p className="mt-2 text-base font-medium leading-snug text-[#151417] md:text-[21.64px] md:leading-[32.46px]">
                   {step.keyEquipment}
                 </p>
-                <p className="mt-6 text-base leading-relaxed text-[#151417] md:mt-8 md:text-[21.64px] md:leading-[32.46px]">
+                <p className="mt-6 whitespace-pre-line text-base leading-relaxed text-[#151417] md:mt-8 md:text-[21.64px] md:leading-[32.46px]">
                   {step.description}
                 </p>
               </div>

@@ -3,6 +3,7 @@ import { updateInvestorsPageConfigAction } from "@/app/actions/investors-page";
 import { NumberedSectionListField } from "@/components/admin/NumberedSectionListField";
 import { TextImageListField } from "@/components/admin/TextImageListField";
 import { LineBreakField } from "@/components/admin/LineBreakField";
+import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import { buttonClass, inputClass, labelClass } from "@/components/admin/formStyles";
 
 export default async function AdminInvestorsPagePage() {
@@ -32,6 +33,11 @@ export default async function AdminInvestorsPagePage() {
           </label>
           <input id="visionLabel" name="visionLabel" type="text" defaultValue={c.visionLabel} className={inputClass} />
         </div>
+        <ImageUploadField
+          name="visionImageUrl"
+          label="Vision section image (optional — shown between the label and the text)"
+          defaultValue={c.visionImageUrl}
+        />
         <LineBreakField name="visionHeading" label="Vision heading" defaultValue={c.visionHeading} />
         <LineBreakField name="visionBody" label="Vision body" defaultValue={c.visionBody} rows={3} />
 

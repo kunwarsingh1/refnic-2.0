@@ -77,7 +77,9 @@ export default function CardGridSection({
               }`}
             >
               {titleOnTop && (
-                <h3 className={`font-sans font-bold text-lg md:text-xl ${light ? "text-black" : "text-white"}`}>
+                <h3
+                  className={`whitespace-pre-line font-sans font-bold text-lg md:text-xl ${light ? "text-black" : "text-white"}`}
+                >
                   {c.title}
                 </h3>
               )}
@@ -100,11 +102,15 @@ export default function CardGridSection({
                 />
               )}
               {!titleOnTop && (
-                <h3 className={`mt-5 font-sans font-bold text-lg md:text-xl ${light ? "text-black" : "text-white"}`}>
+                <h3
+                  className={`mt-5 whitespace-pre-line font-sans font-bold text-lg md:text-xl ${light ? "text-black" : "text-white"}`}
+                >
                   {c.title}
                 </h3>
               )}
-              <p className={`mt-2 flex-1 text-sm leading-relaxed ${light ? "text-gray-500" : "text-white/55"}`}>
+              <p
+                className={`mt-2 flex-1 whitespace-pre-line text-sm leading-relaxed ${light ? "text-gray-500" : "text-white/55"}`}
+              >
                 {c.body}
               </p>
               <Link href="/products" className="mt-6 self-start bg-accent-blue px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-accent-blue-dark">

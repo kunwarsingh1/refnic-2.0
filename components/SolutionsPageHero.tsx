@@ -37,7 +37,7 @@ export default function SolutionsPageHero({
             </>
           )}
         </h1>
-        <p className="mx-auto mt-8 max-w-xl text-[21.64px] leading-[32.46px] text-white">
+        <p className="mx-auto mt-8 max-w-xl whitespace-pre-line text-[21.64px] leading-[32.46px] text-white">
           {body ?? "Integrated mechanical and chemical engineering solutions tailored for industrial-scale resource recovery."}
         </p>
       </div>

@@ -19,7 +19,7 @@ export default function CareerPageLifeAtRefnic({
   photos,
 }: {
   heading: string;
-  photos: { caption: string }[];
+  photos: { caption: string; imageUrl?: string }[];
 }) {
   return (
     <section className="relative overflow-hidden bg-black py-20 md:py-28">
@@ -33,7 +33,7 @@ export default function CareerPageLifeAtRefnic({
         {/* Mobile/tablet: simple stacked flow. Desktop: exact hand-placed grid. */}
         <div className="flex flex-col gap-10 lg:grid lg:grid-cols-5 lg:grid-rows-4 lg:gap-x-8 lg:gap-y-6">
           <div className="lg:col-span-2 lg:col-start-1 lg:row-span-2 lg:row-start-1 flex items-start">
-            <h2 className="text-left font-display text-3xl md:text-5xl font-bold leading-tight text-[#F8F8F8]">
+            <h2 className="whitespace-pre-line text-left font-display text-3xl md:text-5xl font-bold leading-tight text-[#F8F8F8]">
               {heading}
             </h2>
           </div>
@@ -53,11 +53,16 @@ export default function CareerPageLifeAtRefnic({
                     : undefined
                 }
               >
-                <ImagePlaceholder
-                  dark
-                  tone={i % 4}
-                  className="aspect-[3/2] w-full rounded-lg"
-                />
+                {p.imageUrl ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={p.imageUrl}
+                    alt=""
+                    className="aspect-[3/2] w-full rounded-lg object-cover"
+                  />
+                ) : (
+                  <ImagePlaceholder dark tone={i % 4} className="aspect-[3/2] w-full rounded-lg" />
+                )}
                 <p className="mt-4 text-[20px] leading-[32.46px] text-white">
                   {p.caption}
                 </p>

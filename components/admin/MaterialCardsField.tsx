@@ -1,14 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { inputClass } from "@/components/admin/formStyles";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
+import { LineBreakButton } from "@/components/admin/LineBreakField";
 import type { MaterialCard } from "@/lib/content/productsPage";
 
 const EMPTY: MaterialCard = { title: "", description: "", imageUrl: "" };
 
 export function MaterialCardsField({ label, defaultItems }: { label: string; defaultItems: MaterialCard[] }) {
   const [items, setItems] = useState(defaultItems.length > 0 ? defaultItems : [EMPTY]);
+  const descRefs = useRef<Array<React.RefObject<HTMLTextAreaElement | null>>>([]);
+
+  function refFor(i: number) {
+    if (!descRefs.current[i]) descRefs.current[i] = { current: null };
+    return descRefs.current[i];
+  }
 
   return (
     <div>
@@ -23,7 +30,11 @@ export function MaterialCardsField({ label, defaultItems }: { label: string; def
               placeholder="Title (e.g. Black Mass)"
               className={`${inputClass} mb-2`}
             />
+            <div className="mb-1 flex justify-end">
+              <LineBreakButton textareaRef={refFor(i)} />
+            </div>
             <textarea
+              ref={refFor(i)}
               name="materialCardDescription"
               rows={2}
               defaultValue={item.description}

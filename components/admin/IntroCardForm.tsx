@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
+import { LineBreakField } from "@/components/admin/LineBreakField";
 import { buttonClass, inputClass, labelClass, secondaryButtonClass } from "@/components/admin/formStyles";
 import type { IntroCard } from "@/lib/content/introCards";
 
@@ -22,12 +23,7 @@ export function IntroCardForm({
       }}
       className="max-w-xl space-y-5"
     >
-      <div>
-        <label htmlFor="title" className={labelClass}>
-          Title
-        </label>
-        <input id="title" name="title" type="text" required defaultValue={card?.title} className={inputClass} />
-      </div>
+      <LineBreakField name="title" label="Title" defaultValue={card?.title} required />
 
       <ImageUploadField name="imageUrl" label="Image" defaultValue={card?.imageUrl} />
 

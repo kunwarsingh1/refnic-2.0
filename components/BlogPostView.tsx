@@ -94,13 +94,13 @@ export function BlogPostView({ post }: BlogPostViewProps) {
   return (
     <article>
       <div className="mx-auto max-w-2xl">
-        <h1 className="text-3xl font-bold tracking-tight text-white">{post.title}</h1>
+        <h1 className="whitespace-pre-line text-3xl font-bold tracking-tight text-white">{post.title}</h1>
         <p className="mt-2 text-sm text-white/40">{formatDate(post.createdAt)}</p>
         {post.coverImageUrl && (
           // eslint-disable-next-line @next/next/no-img-element
           <img src={post.coverImageUrl} alt="" className="mt-8 mb-10 h-56 w-full rounded-lg object-cover" />
         )}
-        {post.excerpt && <p className="mt-4 text-lg text-white/60">{post.excerpt}</p>}
+        {post.excerpt && <p className="mt-4 whitespace-pre-line text-lg text-white/60">{post.excerpt}</p>}
         <div>
           {post.content.map((block) => (
             <BlockView key={block.id} block={block} postSlug={post.slug} />

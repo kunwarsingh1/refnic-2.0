@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { buttonClass, inputClass, labelClass, secondaryButtonClass } from "@/components/admin/formStyles";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import { ShowcaseContentFields } from "@/components/admin/ShowcaseContentFields";
+import { LineBreakField } from "@/components/admin/LineBreakField";
 import type { ResourceCatalogItem } from "@/lib/content/resourcesCatalog";
 
 export function ResourceCatalogItemForm({
@@ -23,30 +24,21 @@ export function ResourceCatalogItemForm({
       }}
       className="max-w-xl space-y-5"
     >
-      <div>
-        <label htmlFor="title" className={labelClass}>
-          Title
-        </label>
-        <input id="title" name="title" type="text" required defaultValue={item?.title} className={inputClass} />
-      </div>
+      <LineBreakField name="title" label="Title" defaultValue={item?.title} required />
 
-      <div>
-        <label htmlFor="excerpt" className={labelClass}>
-          Short description <span className="text-white/40">(shown on the /resources grid card)</span>
-        </label>
-        <textarea id="excerpt" name="excerpt" required rows={3} defaultValue={item?.excerpt} className={inputClass} />
-      </div>
+      <LineBreakField
+        name="excerpt"
+        label="Short description (shown on the /resources grid card)"
+        defaultValue={item?.excerpt}
+        rows={3}
+        required
+      />
 
       <ImageUploadField name="cardImageUrl" label="Card image (shown on the /resources grid card)" defaultValue={item?.cardImageUrl} />
 
       <div className="border-t border-white/10 pt-5">
         <p className="mb-3 text-sm font-semibold text-white">Detail page — hero</p>
-        <div>
-          <label htmlFor="heroBody" className={labelClass}>
-            Hero body
-          </label>
-          <textarea id="heroBody" name="heroBody" rows={3} defaultValue={item?.heroBody} className={inputClass} />
-        </div>
+        <LineBreakField name="heroBody" label="Hero body" defaultValue={item?.heroBody} rows={3} />
       </div>
 
       <div className="border-t border-white/10 pt-5">
@@ -63,30 +55,8 @@ export function ResourceCatalogItemForm({
       <div className="border-t border-white/10 pt-5">
         <p className="mb-3 text-sm font-semibold text-white">Detail page — closing</p>
         <div className="space-y-5">
-          <div>
-            <label htmlFor="closingHeading" className={labelClass}>
-              Closing heading
-            </label>
-            <input
-              id="closingHeading"
-              name="closingHeading"
-              type="text"
-              defaultValue={item?.closingHeading}
-              className={inputClass}
-            />
-          </div>
-          <div>
-            <label htmlFor="closingBody" className={labelClass}>
-              Closing body
-            </label>
-            <textarea
-              id="closingBody"
-              name="closingBody"
-              rows={3}
-              defaultValue={item?.closingBody}
-              className={inputClass}
-            />
-          </div>
+          <LineBreakField name="closingHeading" label="Closing heading" defaultValue={item?.closingHeading} />
+          <LineBreakField name="closingBody" label="Closing body" defaultValue={item?.closingBody} rows={3} />
           <div>
             <label htmlFor="closingCtaLabel" className={labelClass}>
               Closing button label

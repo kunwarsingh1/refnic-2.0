@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import { ModelUploadField } from "@/components/admin/ModelUploadField";
+import { LineBreakField } from "@/components/admin/LineBreakField";
 import { buttonClass, inputClass, labelClass, secondaryButtonClass } from "@/components/admin/formStyles";
 import type { ProcessStep } from "@/lib/content/processSteps";
 import { PROCESS_ICON_KEYS } from "@/lib/processIcons";
@@ -24,12 +25,7 @@ export function ProcessStepForm({
       }}
       className="max-w-xl space-y-5"
     >
-      <div>
-        <label htmlFor="title" className={labelClass}>
-          Title
-        </label>
-        <input id="title" name="title" type="text" required defaultValue={step.title} className={inputClass} />
-      </div>
+      <LineBreakField name="title" label="Title" defaultValue={step.title} required />
 
       <div>
         <label htmlFor="icon" className={labelClass}>
@@ -44,12 +40,11 @@ export function ProcessStepForm({
         </select>
       </div>
 
-      <div>
-        <label htmlFor="extra" className={labelClass}>
-          Extra note <span className="text-white/40">(optional — shown as a highlighted callout)</span>
-        </label>
-        <textarea id="extra" name="extra" rows={2} defaultValue={step.extra} className={inputClass} />
-      </div>
+      <LineBreakField
+        name="extra"
+        label="Extra note (optional — shown as a highlighted callout)"
+        defaultValue={step.extra}
+      />
 
       <ImageUploadField name="imageUrl" label="Image (optional)" defaultValue={step.imageUrl} />
 

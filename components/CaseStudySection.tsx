@@ -134,7 +134,7 @@ export default function CaseStudySection({ caseStudies }: { caseStudies: CaseStu
           <div className="mb-14 grid items-start gap-8 md:grid-cols-2">
 
             <h2 className="font-sans text-3xl font-bold leading-tight text-black md:text-5xl">
-              Projects That Speak for Themselves
+              Projects That Speak<br />for Themselves
             </h2>
 
             <p

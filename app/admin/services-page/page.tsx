@@ -1,6 +1,7 @@
 import { getServicesPageConfig } from "@/lib/content/servicesPage";
 import { updateServicesPageConfigAction } from "@/app/actions/services-page";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
+import { LineBreakField } from "@/components/admin/LineBreakField";
 import { buttonClass, inputClass, labelClass } from "@/components/admin/formStyles";
 
 export default async function AdminServicesPagePage() {
@@ -14,69 +15,30 @@ export default async function AdminServicesPagePage() {
       <form action={updateServicesPageConfigAction} className="mt-6 max-w-xl space-y-8">
         <div className="space-y-5">
           <p className="text-xs font-bold uppercase tracking-wide text-white/40">Hero</p>
-          <div>
-            <label htmlFor="heroHeading" className={labelClass}>
-              Heading
-            </label>
-            <input id="heroHeading" name="heroHeading" type="text" defaultValue={c.heroHeading} className={inputClass} />
-          </div>
-          <div>
-            <label htmlFor="heroBody" className={labelClass}>
-              Body
-            </label>
-            <textarea id="heroBody" name="heroBody" rows={3} defaultValue={c.heroBody} className={inputClass} />
-          </div>
+          <LineBreakField name="heroHeading" label="Heading" defaultValue={c.heroHeading} />
+          <LineBreakField name="heroBody" label="Body" defaultValue={c.heroBody} rows={3} />
         </div>
 
         <div className="space-y-5 border-t border-white/10 pt-8">
           <p className="text-xs font-bold uppercase tracking-wide text-white/40">Project Services section</p>
-          <div>
-            <label htmlFor="categoryHeading" className={labelClass}>
-              Heading (each line breaks to a new line on the page)
-            </label>
-            <textarea
-              id="categoryHeading"
-              name="categoryHeading"
-              rows={2}
-              defaultValue={c.categoryHeading}
-              className={inputClass}
-            />
-          </div>
-          <div>
-            <label htmlFor="categoryTagline" className={labelClass}>
-              Tagline (each line breaks to a new line on the page)
-            </label>
-            <textarea
-              id="categoryTagline"
-              name="categoryTagline"
-              rows={3}
-              defaultValue={c.categoryTagline}
-              className={inputClass}
-            />
-          </div>
+          <LineBreakField
+            name="categoryHeading"
+            label="Heading (each line breaks to a new line on the page)"
+            defaultValue={c.categoryHeading}
+          />
+          <LineBreakField
+            name="categoryTagline"
+            label="Tagline (each line breaks to a new line on the page)"
+            defaultValue={c.categoryTagline}
+            rows={3}
+          />
           <ImageUploadField name="categoryImageUrl" label="Section image" defaultValue={c.categoryImageUrl} />
         </div>
 
         <div className="space-y-5 border-t border-white/10 pt-8">
           <p className="text-xs font-bold uppercase tracking-wide text-white/40">Closing CTA</p>
-          <div>
-            <label htmlFor="closingHeading" className={labelClass}>
-              Heading
-            </label>
-            <input
-              id="closingHeading"
-              name="closingHeading"
-              type="text"
-              defaultValue={c.closingHeading}
-              className={inputClass}
-            />
-          </div>
-          <div>
-            <label htmlFor="closingBody" className={labelClass}>
-              Body
-            </label>
-            <textarea id="closingBody" name="closingBody" rows={3} defaultValue={c.closingBody} className={inputClass} />
-          </div>
+          <LineBreakField name="closingHeading" label="Heading" defaultValue={c.closingHeading} />
+          <LineBreakField name="closingBody" label="Body" defaultValue={c.closingBody} rows={3} />
           <ImageUploadField name="closingImageUrl" label="Closing image" defaultValue={c.closingImageUrl} />
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>

@@ -3,6 +3,7 @@ import { updateSustainabilityPageConfigAction } from "@/app/actions/sustainabili
 import { StringListField } from "@/components/admin/StringListField";
 import { TitleBodyCtaListField } from "@/components/admin/TitleBodyCtaListField";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
+import { LineBreakField } from "@/components/admin/LineBreakField";
 import { buttonClass, inputClass, labelClass } from "@/components/admin/formStyles";
 
 export default async function AdminSustainabilityPagePage() {
@@ -19,18 +20,8 @@ export default async function AdminSustainabilityPagePage() {
           </label>
           <input id="heroLabel" name="heroLabel" type="text" defaultValue={c.heroLabel} className={inputClass} />
         </div>
-        <div>
-          <label htmlFor="heroHeading" className={labelClass}>
-            Hero heading
-          </label>
-          <input id="heroHeading" name="heroHeading" type="text" defaultValue={c.heroHeading} className={inputClass} />
-        </div>
-        <div>
-          <label htmlFor="heroBody" className={labelClass}>
-            Hero body
-          </label>
-          <textarea id="heroBody" name="heroBody" rows={3} defaultValue={c.heroBody} className={inputClass} />
-        </div>
+        <LineBreakField name="heroHeading" label="Hero heading" defaultValue={c.heroHeading} />
+        <LineBreakField name="heroBody" label="Hero body" defaultValue={c.heroBody} rows={3} />
         <ImageUploadField name="heroImageUrl" label="Hero image" defaultValue={c.heroImageUrl} />
         <div>
           <label htmlFor="heroCtaLabel" className={labelClass}>
@@ -45,18 +36,7 @@ export default async function AdminSustainabilityPagePage() {
           />
         </div>
 
-        <div>
-          <label htmlFor="impactSectionHeading" className={labelClass}>
-            Impact section heading
-          </label>
-          <input
-            id="impactSectionHeading"
-            name="impactSectionHeading"
-            type="text"
-            defaultValue={c.impactSectionHeading}
-            className={inputClass}
-          />
-        </div>
+        <LineBreakField name="impactSectionHeading" label="Impact section heading" defaultValue={c.impactSectionHeading} />
         <TitleBodyCtaListField
           label="Impact cards"
           titleName="impactTitle"
@@ -67,24 +47,8 @@ export default async function AdminSustainabilityPagePage() {
 
         <StringListField name="processStep" label="Process steps" defaultItems={c.processSteps} />
 
-        <div>
-          <label htmlFor="approachHeading" className={labelClass}>
-            Approach heading
-          </label>
-          <input
-            id="approachHeading"
-            name="approachHeading"
-            type="text"
-            defaultValue={c.approachHeading}
-            className={inputClass}
-          />
-        </div>
-        <div>
-          <label htmlFor="approachBody" className={labelClass}>
-            Approach body
-          </label>
-          <textarea id="approachBody" name="approachBody" rows={3} defaultValue={c.approachBody} className={inputClass} />
-        </div>
+        <LineBreakField name="approachHeading" label="Approach heading" defaultValue={c.approachHeading} />
+        <LineBreakField name="approachBody" label="Approach body" defaultValue={c.approachBody} rows={3} />
         <TitleBodyCtaListField
           label="Approach cards"
           titleName="approachTitle"
@@ -93,24 +57,8 @@ export default async function AdminSustainabilityPagePage() {
           defaultItems={c.approachCards}
         />
 
-        <div>
-          <label htmlFor="closingHeading" className={labelClass}>
-            Closing heading
-          </label>
-          <input
-            id="closingHeading"
-            name="closingHeading"
-            type="text"
-            defaultValue={c.closingHeading}
-            className={inputClass}
-          />
-        </div>
-        <div>
-          <label htmlFor="closingBody" className={labelClass}>
-            Closing body
-          </label>
-          <textarea id="closingBody" name="closingBody" rows={2} defaultValue={c.closingBody} className={inputClass} />
-        </div>
+        <LineBreakField name="closingHeading" label="Closing heading" defaultValue={c.closingHeading} />
+        <LineBreakField name="closingBody" label="Closing body" defaultValue={c.closingBody} />
         <ImageUploadField name="closingImageUrl" label="Closing image" defaultValue={c.closingImageUrl} />
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>

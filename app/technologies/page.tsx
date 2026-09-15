@@ -26,7 +26,9 @@ export default async function TechnologiesPage() {
 
         <div className="relative z-10 mx-auto max-w-6xl px-6 py-20 md:py-28">
           <p className="text-xs font-bold uppercase tracking-wide text-accent-blue">{config.intelligenceLabel}</p>
-          <p className="mt-3 font-display font-black text-4xl leading-tight text-white md:text-6xl">{config.heading}</p>
+          <p className="mt-3 whitespace-pre-line font-display font-black text-4xl leading-tight text-white md:text-6xl">
+            {config.heading}
+          </p>
           {config.bodyParagraphs.map((p, i) => (
             <p key={i} className="mt-4 max-w-2xl leading-relaxed text-white/60">
               {p}
@@ -41,8 +43,10 @@ export default async function TechnologiesPage() {
         <div className="relative z-10 mx-auto max-w-6xl px-6 pb-24">
           <div className="flex flex-col items-center justify-between gap-8 rounded-2xl border border-white/10 bg-white/[0.03] px-8 py-12 md:flex-row md:px-16">
             <div className="flex-1">
-              <h2 className="font-sans text-2xl font-bold leading-tight text-white">{config.newsletterHeading}</h2>
-              <p className="mt-3 max-w-md leading-relaxed text-white/60">{config.newsletterBody}</p>
+              <h2 className="whitespace-pre-line font-sans text-2xl font-bold leading-tight text-white">
+                {config.newsletterHeading}
+              </h2>
+              <p className="mt-3 max-w-md whitespace-pre-line leading-relaxed text-white/60">{config.newsletterBody}</p>
               <NewsletterSignupForm ctaLabel={config.newsletterCtaLabel} />
             </div>
           </div>

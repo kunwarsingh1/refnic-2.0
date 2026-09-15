@@ -7,7 +7,7 @@ export default function ProductsCtaSection({ config: c }: { config: ProductsPage
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <h2 className="font-display font-bold text-3xl leading-tight text-[#EBEBEB] md:text-5xl">
+        <h2 className="whitespace-pre-line font-display font-bold text-3xl leading-tight text-[#EBEBEB] md:text-5xl">
           {c.ctaHeading}
         </h2>
         {c.ctaImageUrl ? (
@@ -15,7 +15,7 @@ export default function ProductsCtaSection({ config: c }: { config: ProductsPage
         ) : (
           <CmsImagePlaceholder className="mx-auto mt-8 h-24 w-24 rounded-xl md:h-28 md:w-28" />
         )}
-        <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-white md:text-[21.64px] md:leading-[32.46px]">
+        <p className="mx-auto mt-8 max-w-xl whitespace-pre-line text-[18px] font-light leading-relaxed text-white">
           {c.ctaBlurb}
         </p>
         <div className="mt-10 flex justify-center">

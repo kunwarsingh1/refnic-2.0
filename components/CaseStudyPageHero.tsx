@@ -18,7 +18,7 @@ export default function CaseStudyPageHero({ body }: { body: string }) {
           <br />
           Studies
         </h1>
-        <p className="mx-auto mt-8 max-w-2xl text-[21.64px] leading-[32.46px] text-white">{body}</p>
+        <p className="mx-auto mt-8 max-w-2xl whitespace-pre-line text-[21.64px] leading-[32.46px] text-white">{body}</p>
       </div>
     </section>
   );

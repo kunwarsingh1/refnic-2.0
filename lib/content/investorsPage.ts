@@ -13,6 +13,7 @@ export type InvestorsPageConfig = {
   whyNowHeading: string;
   whyNowReasons: WhyNowReason[];
   visionLabel: string;
+  visionImageUrl?: string;
   visionHeading: string;
   visionBody: string;
   closingHeading: string;

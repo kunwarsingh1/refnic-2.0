@@ -3,6 +3,7 @@ import { updateProductsPageConfigAction } from "@/app/actions/products-page";
 import { PlantStepsField } from "@/components/admin/PlantStepsField";
 import { MaterialCardsField } from "@/components/admin/MaterialCardsField";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
+import { LineBreakField } from "@/components/admin/LineBreakField";
 import { buttonClass, inputClass, labelClass } from "@/components/admin/formStyles";
 
 export default async function AdminProductsPagePage() {
@@ -31,18 +32,8 @@ export default async function AdminProductsPagePage() {
               className={inputClass}
             />
           </div>
-          <div>
-            <label htmlFor="heroHeading" className={labelClass}>
-              Heading
-            </label>
-            <input id="heroHeading" name="heroHeading" type="text" defaultValue={c.heroHeading} className={inputClass} />
-          </div>
-          <div>
-            <label htmlFor="heroIntro" className={labelClass}>
-              Intro copy
-            </label>
-            <textarea id="heroIntro" name="heroIntro" rows={4} defaultValue={c.heroIntro} className={inputClass} />
-          </div>
+          <LineBreakField name="heroHeading" label="Heading" defaultValue={c.heroHeading} />
+          <LineBreakField name="heroIntro" label="Intro copy" defaultValue={c.heroIntro} rows={4} />
           <ImageUploadField name="heroImageUrl" label="Hero image" defaultValue={c.heroImageUrl} />
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
@@ -70,81 +61,27 @@ export default async function AdminProductsPagePage() {
               />
             </div>
           </div>
-          <div>
-            <label htmlFor="crushingBlurb" className={labelClass}>
-              Crushing systems blurb
-            </label>
-            <textarea
-              id="crushingBlurb"
-              name="crushingBlurb"
-              rows={3}
-              defaultValue={c.crushingBlurb}
-              className={inputClass}
-            />
-          </div>
+          <LineBreakField name="crushingBlurb" label="Crushing systems blurb" defaultValue={c.crushingBlurb} rows={3} />
           <ImageUploadField name="crushingImageUrl" label="Crushing systems image" defaultValue={c.crushingImageUrl} />
         </div>
 
         <div className="space-y-5 border-t border-white/10 pt-8">
           <p className="text-xs font-bold uppercase tracking-wide text-white/40">Process & Machinery Overview</p>
-          <div>
-            <label htmlFor="processHeading" className={labelClass}>
-              Heading
-            </label>
-            <input
-              id="processHeading"
-              name="processHeading"
-              type="text"
-              defaultValue={c.processHeading}
-              className={inputClass}
-            />
-          </div>
-          <div>
-            <label htmlFor="processIntro" className={labelClass}>
-              Intro copy
-            </label>
-            <textarea
-              id="processIntro"
-              name="processIntro"
-              rows={3}
-              defaultValue={c.processIntro}
-              className={inputClass}
-            />
-          </div>
+          <LineBreakField name="processHeading" label="Heading" defaultValue={c.processHeading} />
+          <LineBreakField name="processIntro" label="Intro copy" defaultValue={c.processIntro} rows={3} />
           <PlantStepsField label="Plant process steps" defaultItems={c.plantSteps} />
         </div>
 
         <div className="space-y-5 border-t border-white/10 pt-8">
           <p className="text-xs font-bold uppercase tracking-wide text-white/40">Material Recovery</p>
-          <div>
-            <label htmlFor="materialRecoveryHeading" className={labelClass}>
-              Heading
-            </label>
-            <input
-              id="materialRecoveryHeading"
-              name="materialRecoveryHeading"
-              type="text"
-              defaultValue={c.materialRecoveryHeading}
-              className={inputClass}
-            />
-          </div>
+          <LineBreakField name="materialRecoveryHeading" label="Heading" defaultValue={c.materialRecoveryHeading} />
           <MaterialCardsField label="Recovered material cards" defaultItems={c.materialCards} />
         </div>
 
         <div className="space-y-5 border-t border-white/10 pt-8">
           <p className="text-xs font-bold uppercase tracking-wide text-white/40">Closing CTA</p>
-          <div>
-            <label htmlFor="ctaHeading" className={labelClass}>
-              Heading
-            </label>
-            <input id="ctaHeading" name="ctaHeading" type="text" defaultValue={c.ctaHeading} className={inputClass} />
-          </div>
-          <div>
-            <label htmlFor="ctaBlurb" className={labelClass}>
-              Blurb
-            </label>
-            <textarea id="ctaBlurb" name="ctaBlurb" rows={2} defaultValue={c.ctaBlurb} className={inputClass} />
-          </div>
+          <LineBreakField name="ctaHeading" label="Heading" defaultValue={c.ctaHeading} />
+          <LineBreakField name="ctaBlurb" label="Blurb" defaultValue={c.ctaBlurb} />
           <ImageUploadField name="ctaImageUrl" label="CTA image" defaultValue={c.ctaImageUrl} />
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>

@@ -2,6 +2,7 @@ import { getSolutionsPageConfig } from "@/lib/content/solutionsPage";
 import { updateSolutionsPageConfigAction } from "@/app/actions/solutions-page";
 import { NarrativeSectionsField } from "@/components/admin/NarrativeSectionsField";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
+import { LineBreakField } from "@/components/admin/LineBreakField";
 import { buttonClass, inputClass, labelClass } from "@/components/admin/formStyles";
 
 export default async function AdminSolutionsPagePage() {
@@ -30,18 +31,13 @@ export default async function AdminSolutionsPagePage() {
               className={inputClass}
             />
           </div>
-          <div>
-            <label htmlFor="heroHeading" className={labelClass}>
-              Heading (each line breaks to a new line on the page)
-            </label>
-            <textarea id="heroHeading" name="heroHeading" rows={3} defaultValue={c.heroHeading} className={inputClass} />
-          </div>
-          <div>
-            <label htmlFor="heroBody" className={labelClass}>
-              Body
-            </label>
-            <textarea id="heroBody" name="heroBody" rows={3} defaultValue={c.heroBody} className={inputClass} />
-          </div>
+          <LineBreakField
+            name="heroHeading"
+            label="Heading (each line breaks to a new line on the page)"
+            defaultValue={c.heroHeading}
+            rows={3}
+          />
+          <LineBreakField name="heroBody" label="Body" defaultValue={c.heroBody} rows={3} />
           <ImageUploadField name="heroImageUrl" label="Hero image" defaultValue={c.heroImageUrl} />
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
@@ -78,88 +74,22 @@ export default async function AdminSolutionsPagePage() {
 
         <div className="space-y-5 border-t border-white/10 pt-8">
           <p className="text-xs font-bold uppercase tracking-wide text-white/40">Mechanical Solutions section</p>
-          <div>
-            <label htmlFor="mechanicalHeading" className={labelClass}>
-              Heading
-            </label>
-            <input
-              id="mechanicalHeading"
-              name="mechanicalHeading"
-              type="text"
-              defaultValue={c.mechanicalHeading}
-              className={inputClass}
-            />
-          </div>
-          <div>
-            <label htmlFor="mechanicalTagline" className={labelClass}>
-              Tagline
-            </label>
-            <textarea
-              id="mechanicalTagline"
-              name="mechanicalTagline"
-              rows={2}
-              defaultValue={c.mechanicalTagline}
-              className={inputClass}
-            />
-          </div>
+          <LineBreakField name="mechanicalHeading" label="Heading" defaultValue={c.mechanicalHeading} />
+          <LineBreakField name="mechanicalTagline" label="Tagline" defaultValue={c.mechanicalTagline} />
           <ImageUploadField name="mechanicalImageUrl" label="Section image" defaultValue={c.mechanicalImageUrl} />
         </div>
 
         <div className="space-y-5 border-t border-white/10 pt-8">
           <p className="text-xs font-bold uppercase tracking-wide text-white/40">Chemical Solution section</p>
-          <div>
-            <label htmlFor="chemicalHeading" className={labelClass}>
-              Heading
-            </label>
-            <input
-              id="chemicalHeading"
-              name="chemicalHeading"
-              type="text"
-              defaultValue={c.chemicalHeading}
-              className={inputClass}
-            />
-          </div>
-          <div>
-            <label htmlFor="chemicalTagline" className={labelClass}>
-              Tagline
-            </label>
-            <textarea
-              id="chemicalTagline"
-              name="chemicalTagline"
-              rows={2}
-              defaultValue={c.chemicalTagline}
-              className={inputClass}
-            />
-          </div>
+          <LineBreakField name="chemicalHeading" label="Heading" defaultValue={c.chemicalHeading} />
+          <LineBreakField name="chemicalTagline" label="Tagline" defaultValue={c.chemicalTagline} />
           <ImageUploadField name="chemicalImageUrl" label="Section image" defaultValue={c.chemicalImageUrl} />
         </div>
 
         <div className="space-y-5 border-t border-white/10 pt-8">
           <p className="text-xs font-bold uppercase tracking-wide text-white/40">Closing CTA</p>
-          <div>
-            <label htmlFor="closingHeading" className={labelClass}>
-              Heading
-            </label>
-            <input
-              id="closingHeading"
-              name="closingHeading"
-              type="text"
-              defaultValue={c.closingHeading}
-              className={inputClass}
-            />
-          </div>
-          <div>
-            <label htmlFor="closingBody" className={labelClass}>
-              Body
-            </label>
-            <textarea
-              id="closingBody"
-              name="closingBody"
-              rows={3}
-              defaultValue={c.closingBody}
-              className={inputClass}
-            />
-          </div>
+          <LineBreakField name="closingHeading" label="Heading" defaultValue={c.closingHeading} />
+          <LineBreakField name="closingBody" label="Body" defaultValue={c.closingBody} rows={3} />
           <ImageUploadField name="closingImageUrl" label="Closing image" defaultValue={c.closingImageUrl} />
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>

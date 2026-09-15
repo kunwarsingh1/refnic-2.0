@@ -6,6 +6,7 @@ export type ContactPageConfig = {
   heroHeading: string;
   heroSubheading: string;
   contactInfoHeading: string;
+  formImageUrl?: string;
   subjects: string[];
   closingHeading: string;
   closingImageUrl?: string;

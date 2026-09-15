@@ -7,10 +7,13 @@ export function PdfEmbed({
   url,
   title,
   downloadButton,
+  light,
 }: {
   url: string;
   title?: string;
   downloadButton?: ReactNode;
+  /** Use dark text/borders instead of the default light-on-dark styling, for placement on a light background. */
+  light?: boolean;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(true);
@@ -81,7 +84,7 @@ export function PdfEmbed({
       {(title || downloadButton) && (
         <div className="mb-3 flex items-center justify-between gap-3">
           {title && (
-            <p className="text-sm font-medium uppercase tracking-wide text-white/40">
+            <p className={`text-sm font-medium uppercase tracking-wide ${light ? "text-black/40" : "text-white/40"}`}>
               {title}
             </p>
           )}
@@ -89,7 +92,11 @@ export function PdfEmbed({
         </div>
       )}
       {loading && (
-        <div className="flex items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] py-16 text-sm text-white/50">
+        <div
+          className={`flex items-center justify-center rounded-lg border py-16 text-sm ${
+            light ? "border-black/10 bg-black/[0.03] text-black/50" : "border-white/10 bg-white/[0.03] text-white/50"
+          }`}
+        >
           Rendering pages…
         </div>
       )}
@@ -104,7 +111,7 @@ export function PdfEmbed({
         onContextMenu={(e) => e.preventDefault()}
       />
       {pageCount !== null && (
-        <p className="mt-3 text-xs text-white/30">
+        <p className={`mt-3 text-xs ${light ? "text-black/30" : "text-white/30"}`}>
           {pageCount} page{pageCount === 1 ? "" : "s"}
         </p>
       )}

@@ -1,9 +1,13 @@
+import { CmsImagePlaceholder } from "@/components/ui/primitives";
+
 export default function InvestorsVisionSection({
   label,
+  imageUrl,
   heading,
   body,
 }: {
   label: string;
+  imageUrl?: string;
   heading: string;
   body: string;
 }) {
@@ -27,9 +31,34 @@ export default function InvestorsVisionSection({
           {label}
         </p>
 
-        <div className="mt-6 flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
-          <p className="max-w-md text-[21.64px] leading-[32.46px] text-white">{body}</p>
-          <p className="max-w-sm text-right text-[21.64px] leading-[32.46px] text-white md:ml-auto">{heading}</p>
+        <div className="relative z-10 mx-auto mt-4 flex flex-col items-center justify-center gap-8 md:mt-8 lg:min-h-[540px]">
+          {/* Heading — top right of the image on large screens, with clear space from the image */}
+          <div className="max-w-sm lg:absolute lg:right-0 lg:top-8 lg:max-w-[280px] lg:-translate-y-[40%] lg:text-right">
+            <p className="whitespace-pre-line text-center text-[18px] font-light leading-relaxed text-white lg:text-right">
+              {heading}
+            </p>
+          </div>
+
+          {/* Image — centered */}
+          <div className="flex justify-center -translate-y-[20%]">
+            {imageUrl ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={imageUrl}
+                alt=""
+                className="aspect-[3/2] w-64 rounded-2xl object-contain md:w-[420px]"
+              />
+            ) : (
+              <CmsImagePlaceholder className="aspect-[3/2] w-64 rounded-2xl md:w-[420px]" />
+            )}
+          </div>
+
+          {/* Body — bottom left of the image on large screens, with clear space from the image */}
+          <div className="max-w-md -translate-y-[40%] lg:absolute lg:bottom-0 lg:left-0 lg:max-w-[500px] lg:-translate-x-[25%]">
+            <p className="whitespace-pre-line text-center text-[18px] font-light leading-relaxed text-white lg:text-left">
+              {body}
+            </p>
+          </div>
         </div>
       </div>
     </section>

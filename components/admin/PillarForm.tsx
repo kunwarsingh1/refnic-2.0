@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { LineBreakField } from "@/components/admin/LineBreakField";
 import { buttonClass, inputClass, labelClass, secondaryButtonClass } from "@/components/admin/formStyles";
 import type { Pillar } from "@/lib/content/pillars";
 
@@ -49,12 +50,7 @@ export function PillarForm({
         />
       </div>
 
-      <div>
-        <label htmlFor="body" className={labelClass}>
-          Body
-        </label>
-        <textarea id="body" name="body" required rows={3} defaultValue={pillar?.body} className={inputClass} />
-      </div>
+      <LineBreakField name="body" label="Body" defaultValue={pillar?.body} rows={3} required />
 
       <div className="flex gap-3">
         <button type="submit" className={buttonClass}>

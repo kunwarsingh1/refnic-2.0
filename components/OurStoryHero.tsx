@@ -25,7 +25,7 @@ export default function OurStoryHero({ heading, body }: { heading: string; body:
             </Fragment>
           ))}
         </h1>
-        <p className="mx-auto mt-8 max-w-xl text-[21.64px] leading-[32.46px] text-white">{body}</p>
+        <p className="mx-auto mt-8 max-w-xl whitespace-pre-line text-[21.64px] leading-[32.46px] text-white">{body}</p>
       </div>
     </section>
   );

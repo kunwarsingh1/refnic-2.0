@@ -75,7 +75,7 @@ export const DEFAULT_SOLUTIONS_PAGE_CONFIG: SolutionsPageConfig = {
   mechanicalTagline: "These are complete engineering systems.",
   chemicalHeading: "Chemical Solution",
   chemicalTagline: "These are complete process solutions.",
-  closingHeading: "Ready to Build Your Next Plant?",
+  closingHeading: "Ready to Build Your\nNext Plant?",
   closingBody:
     "From concept to commissioning, Refnic delivers complete engineering solutions tailored to your process, capacity, and business goals.",
   closingCtaLabel: "Start Your Project",

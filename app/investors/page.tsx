@@ -26,7 +26,12 @@ export default async function InvestorsPage() {
         <InvestorsHero heading={c.heroHeading} body={c.heroSubheading} />
         <ZigzagFeatureSections sections={c.numberedSections} />
         <InvestorsWhyNowSection heading={c.whyNowHeading} reasons={c.whyNowReasons} />
-        <InvestorsVisionSection label={c.visionLabel} heading={c.visionHeading} body={c.visionBody} />
+        <InvestorsVisionSection
+          label={c.visionLabel}
+          imageUrl={c.visionImageUrl}
+          heading={c.visionHeading}
+          body={c.visionBody}
+        />
         <InvestorsPageClosingCta heading={c.closingHeading} ctaLabel={c.ctaLabel} />
       </main>
 

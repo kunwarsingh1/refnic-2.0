@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import { ModelUploadField } from "@/components/admin/ModelUploadField";
+import { LineBreakField } from "@/components/admin/LineBreakField";
 import { buttonClass, inputClass, labelClass, secondaryButtonClass } from "@/components/admin/formStyles";
 import type { Card } from "@/lib/content/cards";
 
@@ -34,19 +35,9 @@ export function CardForm({
         </select>
       </div>
 
-      <div>
-        <label htmlFor="title" className={labelClass}>
-          Title
-        </label>
-        <input id="title" name="title" type="text" required defaultValue={card?.title} className={inputClass} />
-      </div>
+      <LineBreakField name="title" label="Title" defaultValue={card?.title} required />
 
-      <div>
-        <label htmlFor="body" className={labelClass}>
-          Body
-        </label>
-        <textarea id="body" name="body" required rows={3} defaultValue={card?.body} className={inputClass} />
-      </div>
+      <LineBreakField name="body" label="Body" defaultValue={card?.body} rows={3} required />
 
       <ImageUploadField name="imageUrl" label="Image" defaultValue={card?.imageUrl} />
 

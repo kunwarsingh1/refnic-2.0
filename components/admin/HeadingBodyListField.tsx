@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { inputClass } from "@/components/admin/formStyles";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
+import { LineBreakButton } from "@/components/admin/LineBreakField";
 
 export function HeadingBodyListField({
   label,
@@ -27,6 +28,13 @@ export function HeadingBodyListField({
   const [items, setItems] = useState(
     defaultItems.length > 0 ? defaultItems : [{ heading: "", body: "", imageUrl: "" }],
   );
+  const headingRefs = useRef<Array<React.RefObject<HTMLTextAreaElement | null>>>([]);
+  const bodyRefs = useRef<Array<React.RefObject<HTMLTextAreaElement | null>>>([]);
+
+  function refFor(store: React.MutableRefObject<Array<React.RefObject<HTMLTextAreaElement | null>>>, i: number) {
+    if (!store.current[i]) store.current[i] = { current: null };
+    return store.current[i];
+  }
 
   return (
     <div>
@@ -34,15 +42,22 @@ export function HeadingBodyListField({
       <div className="space-y-4">
         {items.map((item, i) => (
           <div key={i} className="rounded-md border border-white/10 p-3">
-            <label className="mb-1 block text-xs text-white/50">{headingLabel}</label>
-            <input
+            <div className="mb-1 flex items-center justify-between gap-3">
+              <label className="block text-xs text-white/50">{headingLabel}</label>
+              <LineBreakButton textareaRef={refFor(headingRefs, i)} />
+            </div>
+            <textarea
+              ref={refFor(headingRefs, i)}
               name={headingName}
-              type="text"
+              rows={1}
               defaultValue={item.heading ?? item.title}
               className={`${inputClass} mb-2`}
             />
-            <label className="mb-1 block text-xs text-white/50">{bodyLabel}</label>
-            <textarea name={bodyName} rows={3} defaultValue={item.body} className={inputClass} />
+            <div className="mb-1 flex items-center justify-between gap-3">
+              <label className="block text-xs text-white/50">{bodyLabel}</label>
+              <LineBreakButton textareaRef={refFor(bodyRefs, i)} />
+            </div>
+            <textarea ref={refFor(bodyRefs, i)} name={bodyName} rows={3} defaultValue={item.body} className={inputClass} />
             {imageName && (
               <div className="mt-2">
                 <ImageUploadField name={imageName} label={imageLabel} defaultValue={item.imageUrl} />

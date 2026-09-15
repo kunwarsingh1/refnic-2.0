@@ -3,8 +3,8 @@ import { getSiteConfig } from "@/lib/content/siteConfig";
 export const CAREER_PAGE_KEY = "careerPage";
 
 export type CareerTrait = { title: string; body: string };
-export type CareerPosition = { title: string; body: string };
-export type CareerPhoto = { caption: string };
+export type CareerPosition = { title: string; body: string; imageUrl?: string };
+export type CareerPhoto = { caption: string; imageUrl?: string };
 
 export type CareerPageConfig = {
   heroHeading: string;

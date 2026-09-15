@@ -10,7 +10,7 @@ export default function MaterialRecoverySection({ config: c }: { config: Product
       <div className="pointer-events-none absolute -left-40 bottom-0 h-[697px] w-[697px] rounded-full bg-[#3152df] opacity-20 blur-[360px]" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-[90rem] px-6 md:px-16">
-        <h2 className="text-center font-display font-bold text-3xl leading-tight text-[#EBEBEB] md:text-5xl">
+        <h2 className="whitespace-pre-line text-center font-display font-bold text-3xl leading-tight text-[#EBEBEB] md:text-5xl">
           {c.materialRecoveryHeading}
         </h2>
 
@@ -29,7 +29,7 @@ export default function MaterialRecoverySection({ config: c }: { config: Product
               ) : (
                 <CmsImagePlaceholder className="mt-4 aspect-[4/3] w-full rounded-xl" />
               )}
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-white/55">{card.description}</p>
+              <p className="mt-2 flex-1 whitespace-pre-line text-sm leading-relaxed text-white/55">{card.description}</p>
             </div>
           ))}
         </div>

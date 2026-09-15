@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { inputClass } from "@/components/admin/formStyles";
+import { LineBreakButton } from "@/components/admin/LineBreakField";
 
 export function TitleBodyCtaListField({
   label,
@@ -19,6 +20,12 @@ export function TitleBodyCtaListField({
   const [items, setItems] = useState(
     defaultItems.length > 0 ? defaultItems : [{ title: "", body: "", ctaLabel: "" }],
   );
+  const bodyRefs = useRef<Array<React.RefObject<HTMLTextAreaElement | null>>>([]);
+
+  function refFor(i: number) {
+    if (!bodyRefs.current[i]) bodyRefs.current[i] = { current: null };
+    return bodyRefs.current[i];
+  }
 
   return (
     <div>
@@ -33,7 +40,11 @@ export function TitleBodyCtaListField({
               placeholder="Title"
               className={`${inputClass} mb-2`}
             />
+            <div className="mb-1 flex justify-end">
+              <LineBreakButton textareaRef={refFor(i)} />
+            </div>
             <textarea
+              ref={refFor(i)}
               name={bodyName}
               rows={2}
               defaultValue={item.body}

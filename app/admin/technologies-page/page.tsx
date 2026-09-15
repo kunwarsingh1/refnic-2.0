@@ -1,6 +1,7 @@
 import { getTechnologiesPageConfig } from "@/lib/content/technologiesPage";
 import { updateTechnologiesPageConfigAction } from "@/app/actions/technologies-page";
 import { StringListField } from "@/components/admin/StringListField";
+import { LineBreakField } from "@/components/admin/LineBreakField";
 import { buttonClass, inputClass, labelClass } from "@/components/admin/formStyles";
 
 export default async function AdminTechnologiesPagePage() {
@@ -30,40 +31,13 @@ export default async function AdminTechnologiesPagePage() {
             className={inputClass}
           />
         </div>
-        <div>
-          <label htmlFor="heading" className={labelClass}>
-            Heading
-          </label>
-          <input id="heading" name="heading" type="text" defaultValue={c.heading} className={inputClass} />
-        </div>
+        <LineBreakField name="heading" label="Heading" defaultValue={c.heading} />
 
         <StringListField name="bodyParagraph" label="Intro paragraphs" defaultItems={c.bodyParagraphs} />
         <StringListField name="topic" label="Filter topics" defaultItems={c.topics} />
 
-        <div>
-          <label htmlFor="newsletterHeading" className={labelClass}>
-            Newsletter block heading
-          </label>
-          <input
-            id="newsletterHeading"
-            name="newsletterHeading"
-            type="text"
-            defaultValue={c.newsletterHeading}
-            className={inputClass}
-          />
-        </div>
-        <div>
-          <label htmlFor="newsletterBody" className={labelClass}>
-            Newsletter block body
-          </label>
-          <textarea
-            id="newsletterBody"
-            name="newsletterBody"
-            rows={2}
-            defaultValue={c.newsletterBody}
-            className={inputClass}
-          />
-        </div>
+        <LineBreakField name="newsletterHeading" label="Newsletter block heading" defaultValue={c.newsletterHeading} />
+        <LineBreakField name="newsletterBody" label="Newsletter block body" defaultValue={c.newsletterBody} />
         <div>
           <label htmlFor="newsletterCtaLabel" className={labelClass}>
             Newsletter CTA label

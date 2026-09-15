@@ -71,17 +71,17 @@ export default function ProcessSection({ steps }: { steps: ProcessStep[] }) {
                     )}
                   </div>
                   <p
-                    className={`mt-3 font-sans font-bold text-2xl leading-tight text-black transition-colors duration-300 group-hover:text-[#3b4fe4] ${collidingExtra ? "md:transition-opacity md:duration-300 md:group-hover:opacity-0" : ""}`}
+                    className={`mt-3 whitespace-pre-line font-sans font-bold text-2xl leading-tight text-black transition-colors duration-300 group-hover:text-[#3b4fe4] ${collidingExtra ? "md:transition-opacity md:duration-300 md:group-hover:opacity-0" : ""}`}
                   >
                     {s.title}
                   </p>
                   {s.extra && (
                     shortExtra ? (
-                      <p className="mt-1 text-xs leading-snug text-[#3b4fe4]">
+                      <p className="mt-1 whitespace-pre-line text-xs leading-snug text-[#3b4fe4]">
                         {s.extra}
                       </p>
                     ) : (
-                      <p className="mt-2 text-sm leading-snug text-[#3b4fe4] opacity-100 md:absolute md:inset-x-8 md:top-24 md:bottom-4 md:overflow-hidden md:rounded-md md:bg-white/95 md:p-2 md:text-xs md:leading-snug md:opacity-0 md:transition-opacity md:duration-300 md:group-hover:opacity-100">
+                      <p className="mt-2 whitespace-pre-line text-sm leading-snug text-[#3b4fe4] opacity-100 md:absolute md:inset-x-8 md:top-24 md:bottom-4 md:overflow-hidden md:rounded-md md:bg-white/95 md:p-2 md:text-xs md:leading-snug md:opacity-0 md:transition-opacity md:duration-300 md:group-hover:opacity-100">
                         {s.extra}
                       </p>
                     )

@@ -80,7 +80,7 @@ export default function ProductsDirectoryGrid({
                       }`}
                     >
                       <h2
-                        className={`font-sans font-bold text-2xl leading-tight text-[#EBEBEB] md:max-w-[431px] md:text-5xl ${
+                        className={`whitespace-pre-line font-sans font-bold text-2xl leading-tight text-[#EBEBEB] md:max-w-[431px] md:text-5xl ${
                           category.invertLayout ? "md:text-right" : ""
                         }`}
                       >
@@ -88,7 +88,7 @@ export default function ProductsDirectoryGrid({
                       </h2>
                       {category.tagline && (
                         <p
-                          className={`mt-3 max-w-md text-sm font-normal leading-relaxed text-white md:max-w-[342px] md:text-[21.64px] md:leading-[32.46px] ${
+                          className={`mt-3 max-w-md whitespace-pre-line text-sm font-normal leading-relaxed text-white md:max-w-[342px] md:text-[21.64px] md:leading-[32.46px] ${
                             category.invertLayout ? "md:text-right" : ""
                           }`}
                         >

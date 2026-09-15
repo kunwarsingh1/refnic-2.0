@@ -1,6 +1,7 @@
 import { getResourcesPageConfig } from "@/lib/content/resourcesPage";
 import { updateResourcesPageConfigAction } from "@/app/actions/resources-page";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
+import { LineBreakField } from "@/components/admin/LineBreakField";
 import { buttonClass, inputClass, labelClass } from "@/components/admin/formStyles";
 
 export default async function AdminResourcesPagePage() {
@@ -14,41 +15,15 @@ export default async function AdminResourcesPagePage() {
       <form action={updateResourcesPageConfigAction} className="mt-6 max-w-xl space-y-8">
         <div className="space-y-5">
           <p className="text-xs font-bold uppercase tracking-wide text-white/40">Hero</p>
-          <div>
-            <label htmlFor="heroHeading" className={labelClass}>
-              Heading
-            </label>
-            <input id="heroHeading" name="heroHeading" type="text" defaultValue={c.heroHeading} className={inputClass} />
-          </div>
-          <div>
-            <label htmlFor="heroBody" className={labelClass}>
-              Body
-            </label>
-            <textarea id="heroBody" name="heroBody" rows={3} defaultValue={c.heroBody} className={inputClass} />
-          </div>
+          <LineBreakField name="heroHeading" label="Heading" defaultValue={c.heroHeading} />
+          <LineBreakField name="heroBody" label="Body" defaultValue={c.heroBody} rows={3} />
         </div>
 
         <div className="space-y-5 border-t border-white/10 pt-8">
           <p className="text-xs font-bold uppercase tracking-wide text-white/40">Closing CTA</p>
-          <div>
-            <label htmlFor="closingHeading" className={labelClass}>
-              Heading
-            </label>
-            <input
-              id="closingHeading"
-              name="closingHeading"
-              type="text"
-              defaultValue={c.closingHeading}
-              className={inputClass}
-            />
-          </div>
+          <LineBreakField name="closingHeading" label="Heading" defaultValue={c.closingHeading} />
           <ImageUploadField name="closingImageUrl" label="Closing image" defaultValue={c.closingImageUrl} />
-          <div>
-            <label htmlFor="closingBody" className={labelClass}>
-              Body
-            </label>
-            <textarea id="closingBody" name="closingBody" rows={3} defaultValue={c.closingBody} className={inputClass} />
-          </div>
+          <LineBreakField name="closingBody" label="Body" defaultValue={c.closingBody} rows={3} />
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <label htmlFor="closingCtaLabel" className={labelClass}>

@@ -462,10 +462,27 @@ function blockBucket(block: Block): BucketName {
   }
 }
 
+function insertBreak(
+  el: HTMLTextAreaElement | null,
+  value: string,
+  setValue: (v: string) => void,
+) {
+  if (!el) return;
+  const start = el.selectionStart ?? value.length;
+  const end = el.selectionEnd ?? value.length;
+  setValue(value.slice(0, start) + "\n" + value.slice(end));
+  requestAnimationFrame(() => {
+    el.focus();
+    el.setSelectionRange(start + 1, start + 1);
+  });
+}
+
 export function PostEditor({ initial }: { initial?: BlogPost }) {
   const router = useRouter();
   const [title, setTitle] = useState(initial?.title ?? "");
   const [excerpt, setExcerpt] = useState(initial?.excerpt ?? "");
+  const titleRef = useRef<HTMLTextAreaElement>(null);
+  const excerptRef = useRef<HTMLTextAreaElement>(null);
   const [coverImage, setCoverImage] = useState(initial?.coverImageUrl ?? "");
   const [blocks, setBlocks] = useState<Block[]>(initial?.content ?? []);
   const [uploadingKey, setUploadingKey] = useState<string | null>(null);
@@ -587,17 +604,40 @@ export function PostEditor({ initial }: { initial?: BlogPost }) {
       </p>
 
       <div className="space-y-4 rounded-lg border border-white/10 bg-white/[0.03] p-5">
-        <input
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Give your post a title…"
-          className="w-full border-0 bg-transparent text-2xl font-semibold text-white outline-none placeholder:text-white/25"
-        />
         <div className="flex flex-col gap-1">
-          <label htmlFor="excerpt" className="text-xs font-medium text-white/40">
-            Short summary (optional)
-          </label>
+          <div className="flex justify-end">
+            <button
+              type="button"
+              onClick={() => insertBreak(titleRef.current, title, setTitle)}
+              className="text-xs font-medium text-accent-blue hover:underline"
+            >
+              + Add line break
+            </button>
+          </div>
           <textarea
+            ref={titleRef}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Give your post a title…"
+            rows={1}
+            className="w-full resize-none border-0 bg-transparent text-2xl font-semibold text-white outline-none placeholder:text-white/25"
+          />
+        </div>
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center justify-between gap-3">
+            <label htmlFor="excerpt" className="text-xs font-medium text-white/40">
+              Short summary (optional)
+            </label>
+            <button
+              type="button"
+              onClick={() => insertBreak(excerptRef.current, excerpt, setExcerpt)}
+              className="text-xs font-medium text-accent-blue hover:underline"
+            >
+              + Add line break
+            </button>
+          </div>
+          <textarea
+            ref={excerptRef}
             id="excerpt"
             value={excerpt}
             onChange={(e) => setExcerpt(e.target.value)}

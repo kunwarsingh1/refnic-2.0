@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { buttonClass, inputClass, labelClass, secondaryButtonClass } from "@/components/admin/formStyles";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import { NewsletterContentField } from "@/components/admin/NewsletterContentField";
+import { LineBreakField } from "@/components/admin/LineBreakField";
 import type { NewsletterPost } from "@/lib/content/newsletter";
 import type { NewsletterTab } from "@/lib/content/newsletterTabs";
 import { NEWSLETTER_GRADIENTS } from "@/lib/newsletterGradients";
@@ -57,19 +58,9 @@ export function NewsletterPostForm({
         )}
       </div>
 
-      <div>
-        <label htmlFor="title" className={labelClass}>
-          Title
-        </label>
-        <input id="title" name="title" type="text" required defaultValue={post?.title} className={inputClass} />
-      </div>
+      <LineBreakField name="title" label="Title" defaultValue={post?.title} required />
 
-      <div>
-        <label htmlFor="excerpt" className={labelClass}>
-          Excerpt
-        </label>
-        <textarea id="excerpt" name="excerpt" required rows={3} defaultValue={post?.excerpt} className={inputClass} />
-      </div>
+      <LineBreakField name="excerpt" label="Excerpt" defaultValue={post?.excerpt} rows={3} required />
 
       <ImageUploadField name="imageUrl" label="Featured image" defaultValue={post?.imageUrl} />
 

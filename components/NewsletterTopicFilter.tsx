@@ -90,7 +90,7 @@ export default function NewsletterTopicFilter({
         <h2 className="font-sans font-bold text-4xl leading-tight text-white md:max-w-md md:text-7xl">{activeTab}</h2>
         {activeTabInfo?.tagline && (
           <p
-            className="ml-auto max-w-md text-right text-white/60 md:max-w-xl md:text-[clamp(0.8rem,calc(2.213vw_-_3.7px),21.64px)] md:leading-[32.46px]"
+            className="ml-auto max-w-md whitespace-pre-line text-right text-white/60 md:max-w-xl md:text-[clamp(0.8rem,calc(2.213vw_-_3.7px),21.64px)] md:leading-[32.46px]"
             style={{ fontFamily: "Plus Jakarta Sans", fontWeight: 400 }}
           >
             {activeTabInfo.tagline}

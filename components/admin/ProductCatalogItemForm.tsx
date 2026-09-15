@@ -7,6 +7,7 @@ import { ShowcaseContentFields } from "@/components/admin/ShowcaseContentFields"
 import { NewsletterContentField } from "@/components/admin/NewsletterContentField";
 import { NarrativeSectionsField } from "@/components/admin/NarrativeSectionsField";
 import { HeadingBodyListField } from "@/components/admin/HeadingBodyListField";
+import { LineBreakField } from "@/components/admin/LineBreakField";
 import type { ProductCatalogItem } from "@/lib/content/productCatalog";
 import type { ProductCategory } from "@/lib/content/productCategories";
 
@@ -58,19 +59,15 @@ export function ProductCatalogItemForm({
         )}
       </div>
 
-      <div>
-        <label htmlFor="title" className={labelClass}>
-          Title
-        </label>
-        <input id="title" name="title" type="text" required defaultValue={item?.title} className={inputClass} />
-      </div>
+      <LineBreakField name="title" label="Title" defaultValue={item?.title} required />
 
-      <div>
-        <label htmlFor="excerpt" className={labelClass}>
-          Short description <span className="text-white/40">(shown on the card)</span>
-        </label>
-        <textarea id="excerpt" name="excerpt" required rows={3} defaultValue={item?.excerpt} className={inputClass} />
-      </div>
+      <LineBreakField
+        name="excerpt"
+        label="Short description (shown on the card)"
+        defaultValue={item?.excerpt}
+        rows={3}
+        required
+      />
 
       <ImageUploadField name="imageUrl" label="Card image" defaultValue={item?.imageUrl} />
 
@@ -113,18 +110,11 @@ export function ProductCatalogItemForm({
       <div className="border-t border-white/10 pt-5">
         <p className="mb-3 text-sm font-semibold text-white">Detail page — recovered materials</p>
         <div className="space-y-5">
-          <div>
-            <label htmlFor="materialsHeading" className={labelClass}>
-              Section heading <span className="text-white/40">(e.g. &quot;Material Recovery&quot;)</span>
-            </label>
-            <input
-              id="materialsHeading"
-              name="materialsHeading"
-              type="text"
-              defaultValue={item?.materialsHeading}
-              className={inputClass}
-            />
-          </div>
+          <LineBreakField
+            name="materialsHeading"
+            label={'Section heading (e.g. "Material Recovery")'}
+            defaultValue={item?.materialsHeading}
+          />
           <HeadingBodyListField
             label="Materials"
             headingName="materialTitle"
@@ -152,30 +142,8 @@ export function ProductCatalogItemForm({
       <div className="border-t border-white/10 pt-5">
         <p className="mb-3 text-sm font-semibold text-white">Detail page — closing</p>
         <div className="space-y-5">
-          <div>
-            <label htmlFor="closingHeading" className={labelClass}>
-              Closing heading
-            </label>
-            <input
-              id="closingHeading"
-              name="closingHeading"
-              type="text"
-              defaultValue={item?.closingHeading}
-              className={inputClass}
-            />
-          </div>
-          <div>
-            <label htmlFor="closingTagline" className={labelClass}>
-              Closing tagline
-            </label>
-            <textarea
-              id="closingTagline"
-              name="closingTagline"
-              rows={3}
-              defaultValue={item?.closingTagline}
-              className={inputClass}
-            />
-          </div>
+          <LineBreakField name="closingHeading" label="Closing heading" defaultValue={item?.closingHeading} />
+          <LineBreakField name="closingTagline" label="Closing tagline" defaultValue={item?.closingTagline} rows={3} />
           <div>
             <label htmlFor="closingCtaLabel" className={labelClass}>
               Closing button label

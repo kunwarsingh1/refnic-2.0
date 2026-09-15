@@ -86,7 +86,9 @@ export default async function Footer() {
                 {config.brandName}
                 <sup className="ml-0.5 text-sm font-semibold">®</sup>
               </Link>
-              <p className="mt-4 max-w-xs text-sm leading-relaxed text-gray-500">{config.tagline}</p>
+              <p className="mt-4 max-w-xs whitespace-pre-line text-sm leading-relaxed text-gray-500">
+                {config.tagline}
+              </p>
               <div className="mt-6 flex items-center gap-3">
                 <a
                   href={config.social.linkedin}
@@ -144,7 +146,7 @@ export default async function Footer() {
                   <PhoneIcon className="mt-0.5 size-4 shrink-0 text-accent-blue" />
                   {config.contactPhone}
                 </a>
-                <p className="flex items-start gap-2">
+                <p className="flex items-start gap-2 whitespace-pre-line">
                   <LocationIcon className="mt-0.5 size-4 shrink-0 text-accent-blue" />
                   {config.contactAddress}
                 </p>

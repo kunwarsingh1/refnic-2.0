@@ -15,10 +15,10 @@ export default function SustainabilityItemHero({ heading, body }: { heading: str
       />
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <h1 className="font-display text-[clamp(2.0625rem,9vw,7.5rem)] font-bold leading-[1.02] text-[#F8F8F8]">
+        <h1 className="whitespace-pre-line font-display text-[clamp(2.0625rem,9vw,7.5rem)] font-bold leading-[1.02] text-[#F8F8F8]">
           {heading}
         </h1>
-        <p className="mx-auto mt-8 max-w-xl text-[21.64px] leading-[32.46px] text-white">{body}</p>
+        <p className="mx-auto mt-8 max-w-xl whitespace-pre-line text-[21.64px] leading-[32.46px] text-white">{body}</p>
         <CmsImagePlaceholder className="mx-auto mt-10 aspect-[495/488] w-48 rounded-2xl md:w-72" />
       </div>
     </section>

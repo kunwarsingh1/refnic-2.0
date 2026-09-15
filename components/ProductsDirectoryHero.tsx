@@ -21,7 +21,7 @@ export default function ProductsDirectoryHero({
           <br />
           In-House.
         </h1>
-        <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white md:text-[21.64px] md:leading-[32.46px]">
+        <p className="mx-auto mt-5 max-w-2xl whitespace-pre-line text-base leading-relaxed text-white md:text-[21.64px] md:leading-[32.46px]">
           {body}
         </p>
       </div>

@@ -14,7 +14,7 @@ export type ProductsDirectoryPageConfig = {
 export const DEFAULT_PRODUCTS_DIRECTORY_PAGE_CONFIG: ProductsDirectoryPageConfig = {
   heroBody:
     "Every machine, system, and service we design and manufacture — grouped by category. Explore the full range that goes into a Refnic plant.",
-  closingHeading: "Ready to Build Your Next Plant?",
+  closingHeading: "Ready to Build\nYour Next Plant?",
   closingBody:
     "From concept to commissioning, Refnic delivers complete engineering solutions tailored to your process, capacity, and business goals.",
   closingCtaLabel: "Start Your Project",
