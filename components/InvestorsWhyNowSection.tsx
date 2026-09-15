@@ -31,9 +31,9 @@ export default function InvestorsWhyNowSection({
               <div className="relative flex h-full flex-col gap-6 px-5 pb-5 pt-10">
                 {reason.imageUrl ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={reason.imageUrl} alt="" className="mx-auto h-[220px] w-[220px] rounded-xl object-contain" />
+                  <img src={reason.imageUrl} alt="" className="mx-auto h-[220px] w-[253px] rounded-xl object-contain" />
                 ) : (
-                  <CmsImagePlaceholder className="mx-auto h-[220px] w-[220px] rounded-xl" />
+                  <CmsImagePlaceholder className="mx-auto h-[220px] w-[253px] rounded-xl" />
                 )}
                 <p className="text-[18px] font-light leading-relaxed text-[#EBEBEB]">{reason.text}</p>
               </div>
