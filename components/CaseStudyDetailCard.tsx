@@ -30,12 +30,44 @@ export default function CaseStudyDetailCard({ cs }: { cs: CaseStudy }) {
               <span className="size-[27px] rounded-full bg-[#97F88C]" aria-hidden />
             </span>
           )}
+          {cs.city && (
+            <div className="ml-auto">
+              <LocationPinIcon className="h-8 w-8 shrink-0" />
+            </div>
+          )}
+        </div>
+
+        <div className="mt-8">
+          <h1
+            className="w-full max-w-xl whitespace-pre-line break-words text-[#07070C]"
+            style={{
+              fontFamily: "Plus Jakarta Sans",
+              fontWeight: 700,
+              fontSize: "40px",
+              lineHeight: "40px",
+            }}
+          >
+            {cs.label}
+          </h1>
+        </div>
+
+        <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+          <p
+            className="max-w-2xl whitespace-pre-line break-words text-[#030303]"
+            style={{
+              fontFamily: "Plus Jakarta Sans",
+              fontWeight: 400,
+              fontSize: "18px",
+              lineHeight: "32.46px",
+            }}
+          >
+            {cs.body}
+          </p>
 
           {cs.city && (
-            <div className="flex flex-col items-end">
-              <LocationPinIcon className="h-8 w-8 shrink-0" />
+            <div className="shrink-0 text-right">
               <p
-                className="mt-2 break-words text-right text-[#3152DF]"
+                className="break-words text-[#3152DF]"
                 style={{
                   fontFamily: "Plus Jakarta Sans",
                   fontWeight: 700,
@@ -54,30 +86,6 @@ export default function CaseStudyDetailCard({ cs }: { cs: CaseStudy }) {
             </div>
           )}
         </div>
-
-        <h1
-          className="mt-8 w-full max-w-xl whitespace-pre-line break-words text-[#07070C]"
-          style={{
-            fontFamily: "Plus Jakarta Sans",
-            fontWeight: 700,
-            fontSize: "40px",
-            lineHeight: "40px",
-          }}
-        >
-          {cs.label}
-        </h1>
-
-        <p
-          className="mt-6 max-w-2xl whitespace-pre-line break-words text-[#030303]"
-          style={{
-            fontFamily: "Plus Jakarta Sans",
-            fontWeight: 400,
-            fontSize: "18px",
-            lineHeight: "32.46px",
-          }}
-        >
-          {cs.body}
-        </p>
 
         <div className="mt-12">
           {cs.imageUrl ? (
