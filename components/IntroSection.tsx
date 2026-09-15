@@ -81,10 +81,10 @@ export default function IntroSection({ cards }: { cards: IntroCard[] }) {
       </div>
 
       <div className="relative z-10 mt-6 px-0 md:mt-24 md:px-16">
-        <div className="h-[19rem] overflow-hidden px-0 md:h-auto">
+        <div className="h-[19rem] overflow-hidden px-0 md:h-[22rem]">
           <div
             ref={trackRef}
-            className="flex h-full items-center gap-0 md:h-auto md:gap-8"
+            className="flex h-full items-center gap-0 md:gap-8"
             style={{
               transform: `translateX(-${position * step}px)`,
               transition: animate ? `transform ${TRANSITION_MS}ms ease` : "none",
@@ -96,7 +96,7 @@ export default function IntroSection({ cards }: { cards: IntroCard[] }) {
                 <div
                   key={i}
                   style={{ perspective: "1000px" }}
-                  className={`flex h-full w-full shrink-0 flex-col items-center justify-center border border-white/10 px-0 py-4 text-center transition-all duration-700 sm:w-[calc((100%-1.5rem)/2)] md:h-auto md:w-[calc((100%-4rem)/3)] md:p-6`}
+                  className={`flex h-full w-full shrink-0 flex-col items-center justify-center border border-white/10 px-0 py-4 text-center transition-all duration-700 sm:w-[calc((100%-1.5rem)/2)] md:w-[calc((100%-4rem)/3)] md:p-6`}
                 >
                   {c.imageUrl && (
                     <div
