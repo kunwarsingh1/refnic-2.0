@@ -71,6 +71,7 @@ export default async function GlobalMarketPage() {
             imageUrl={whyItMattersLegacy.imageUrl}
             imageClassName="h-56 w-80 rounded-2xl object-contain md:h-72 md:w-[26rem]"
             placeholderClassName="h-56 w-80 rounded-2xl md:h-72 md:w-[26rem]"
+            headingClassName="whitespace-pre-line font-display text-[40px] font-normal leading-tight text-[#EBEBEB]"
           />
         )}
 
@@ -82,6 +83,7 @@ export default async function GlobalMarketPage() {
             imageUrl={builtInIndia.imageUrl}
             imageClassName="h-56 w-80 rounded-2xl object-contain md:h-72 md:w-[26rem]"
             placeholderClassName="h-56 w-80 rounded-2xl md:h-72 md:w-[26rem]"
+            headingClassName="whitespace-pre-line font-display text-[40px] font-normal leading-tight text-[#EBEBEB]"
           />
         )}
 
