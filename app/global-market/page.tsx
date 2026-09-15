@@ -51,7 +51,12 @@ export default async function GlobalMarketPage() {
           />
         )}
 
-        <IndianMarketDriversSection heading="Global Market Drivers" badges={c.heroBadges} paragraphs={c.heroParagraphs} />
+        <IndianMarketDriversSection
+          heading="Global Market Drivers"
+          badges={c.heroBadges}
+          paragraphs={c.heroParagraphs}
+          headingClassName="whitespace-pre-line text-center font-display text-[40px] font-bold leading-tight text-[#EBEBEB]"
+        />
 
         <StatCardsSection heading="Markets We Enable" stats={c.marketCards} ringSide="none" />
 

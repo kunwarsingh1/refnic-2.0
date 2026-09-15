@@ -2,18 +2,18 @@ export default function IndianMarketDriversSection({
   heading,
   badges,
   paragraphs,
+  headingClassName = "whitespace-pre-line text-center font-display text-[40px] font-normal leading-tight text-[#EBEBEB]",
 }: {
   heading: string;
   badges: string[];
   paragraphs: string[];
+  headingClassName?: string;
 }) {
   return (
     <section className="relative overflow-hidden bg-black py-16 md:py-24">
       <div className="absolute inset-0 bg-grid-dark" aria-hidden />
       <div className="relative z-10 mx-auto max-w-6xl px-6">
-        <h2 className="whitespace-pre-line text-center font-display text-[40px] font-normal leading-tight text-[#EBEBEB]">
-          {heading}
-        </h2>
+        <h2 className={headingClassName}>{heading}</h2>
 
         <div className="mt-14 grid gap-8 md:grid-cols-3">
           {badges.map((badge, i) => (
