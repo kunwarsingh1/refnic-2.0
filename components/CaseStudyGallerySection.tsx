@@ -12,7 +12,7 @@ export default function CaseStudyGallerySection({ imageUrls }: { imageUrls: stri
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           {slots.map((url, i) =>
             url ? (
-              <img key={i} src={url} alt="" className="aspect-[510/327] w-full rounded-lg object-cover" />
+              <img key={i} src={url} alt="" className="aspect-[510/327] w-full rounded-lg object-contain" />
             ) : (
               <CmsImagePlaceholder key={i} className="aspect-[510/327] w-full rounded-lg" />
             ),
