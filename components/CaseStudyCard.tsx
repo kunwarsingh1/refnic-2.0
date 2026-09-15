@@ -18,11 +18,20 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
           {cs.subtitle && <p className="mt-1 w-full text-[13.12px] leading-[19.68px] text-white">{cs.subtitle}</p>}
         </div>
 
-        <div className="flex items-center justify-center">
-          <CmsImagePlaceholder className="h-32 w-32 shrink-0 md:h-[95%] md:w-auto md:aspect-[753/326]" />
+        <div className="min-w-0 overflow-hidden flex items-center justify-center md:max-w-[600px]">
+          {cs.imageUrl ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={cs.imageUrl}
+              alt={cs.label}
+              className="h-32 w-32 shrink-0 object-contain md:h-full md:w-auto md:max-w-full"
+            />
+          ) : (
+            <CmsImagePlaceholder className="h-32 w-32 shrink-0 md:h-full md:w-auto md:aspect-[753/326]" />
+          )}
         </div>
 
-        <div className="flex flex-col items-center justify-center gap-4 md:items-end md:justify-between">
+        <div className="min-w-0 flex flex-col items-center justify-center gap-4 md:h-full md:items-end">
           {cs.status && (
             <span className="inline-flex items-center gap-2 text-[21.64px] leading-[32.46px] text-white">
               {cs.status}
@@ -32,6 +41,7 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
           <GradientCtaButton
             href={`/case-study/${cs.slug}`}
             innerClassName="inline-flex items-center gap-[7px] rounded-[6.91px] bg-[#3152DF] px-[16.75px] py-[11.17px] text-[11.17px] font-bold leading-[12.56px] text-[#F4F4F4]"
+            className="md:mt-auto"
           >
             View Case Study
           </GradientCtaButton>
