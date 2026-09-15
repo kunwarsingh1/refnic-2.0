@@ -48,6 +48,8 @@ export default async function GlobalMarketPage() {
             body={globalShift.body}
             align="right"
             imageUrl={globalShift.imageUrl}
+            imageClassName="h-56 w-72 rounded-2xl object-contain md:h-72 md:w-[28rem] md:-ml-12"
+            placeholderClassName="h-56 w-72 rounded-2xl md:h-72 md:w-[28rem] md:-ml-12"
           />
         )}
 
