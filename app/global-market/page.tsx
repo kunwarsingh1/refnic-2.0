@@ -50,6 +50,7 @@ export default async function GlobalMarketPage() {
             imageUrl={globalShift.imageUrl}
             imageClassName="h-56 w-72 rounded-2xl object-contain md:h-72 md:w-[28rem] md:-ml-12"
             placeholderClassName="h-56 w-72 rounded-2xl md:h-72 md:w-[28rem] md:-ml-12"
+            headingClassName="whitespace-pre-line font-display text-[40px] font-normal leading-tight text-[#EBEBEB]"
           />
         )}
 
@@ -68,6 +69,8 @@ export default async function GlobalMarketPage() {
             body={whyItMattersBody}
             align="right"
             imageUrl={whyItMattersLegacy.imageUrl}
+            imageClassName="h-56 w-80 rounded-2xl object-contain md:h-72 md:w-[26rem]"
+            placeholderClassName="h-56 w-80 rounded-2xl md:h-72 md:w-[26rem]"
           />
         )}
 
@@ -77,6 +80,8 @@ export default async function GlobalMarketPage() {
             body={builtInIndia.body}
             align="left"
             imageUrl={builtInIndia.imageUrl}
+            imageClassName="h-56 w-80 rounded-2xl object-contain md:h-72 md:w-[26rem]"
+            placeholderClassName="h-56 w-80 rounded-2xl md:h-72 md:w-[26rem]"
           />
         )}
 
