@@ -17,7 +17,7 @@ export default function SustainabilityImpactGrid({ items }: { items: Sustainabil
                 aria-hidden
               />
               <div className="relative flex h-full flex-col p-5">
-                <h3 className="min-h-12 whitespace-pre-line font-display text-[40px] font-bold leading-tight text-[#EBEBEB] md:min-h-16">
+                <h3 className="min-h-12 whitespace-pre-line font-display text-[40px] font-normal leading-tight text-[#EBEBEB] md:min-h-16">
                   {item.title}
                 </h3>
 
