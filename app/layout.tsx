@@ -9,7 +9,7 @@ import "./globals.css";
 //   import { Plus_Jakarta_Sans, DM_Sans, Inter } from "next/font/google";
 
 export const metadata: Metadata = {
-  title: "Refine Nicely",
+  title: "Refnic",
   description:
     "Engineering the technologies that transform industrial waste into critical materials powering a cleaner, circular future through indigenous innovation.",
 };

@@ -4,8 +4,8 @@ import { logout } from "@/app/actions/admin";
 
 const NAV_SECTIONS: { heading: string; items: { label: string; href: string }[] }[] = [
   {
-    heading: "Approvals",
-    items: [{ label: "Pending Changes", href: "/admin/pending-changes" }],
+    heading: "",
+    items: [{ label: "", href: "/admin" }],
   },
   {
     heading: "Content",

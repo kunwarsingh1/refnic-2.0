@@ -1,5 +1,4 @@
 const SECTIONS = [
-  { label: "Pending Changes", href: "/admin/pending-changes" },
   { label: "Products / Solutions / Services", href: "/admin/cards" },
   { label: "Case Studies", href: "/admin/case-studies" },
   { label: "Process Steps", href: "/admin/process-steps" },
