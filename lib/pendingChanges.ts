@@ -34,6 +34,7 @@ export type ContentType =
   | "solutionsPage"
   | "sustainabilityPage"
   | "technologiesPage"
+  | "newsletterPage"
   | "servicesPage"
   | "resourcesPage"
   | "digitalToolsPage"

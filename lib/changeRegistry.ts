@@ -67,6 +67,7 @@ import { PRODUCTS_PAGE_KEY } from "@/lib/content/productsPage";
 import { SOLUTIONS_PAGE_KEY } from "@/lib/content/solutionsPage";
 import { SUSTAINABILITY_PAGE_KEY } from "@/lib/content/sustainabilityPage";
 import { TECHNOLOGIES_PAGE_KEY } from "@/lib/content/technologiesPage";
+import { NEWSLETTER_PAGE_KEY } from "@/lib/content/newsletterPage";
 import { SERVICES_PAGE_KEY } from "@/lib/content/servicesPage";
 import { RESOURCES_PAGE_KEY } from "@/lib/content/resourcesPage";
 import { DIGITAL_TOOLS_PAGE_KEY } from "@/lib/content/digitalToolsPage";
@@ -154,6 +155,7 @@ const REGISTRY: Record<string, (args: any) => Promise<void>> = {
   "solutionsPage:update": (args) => setSiteConfig(SOLUTIONS_PAGE_KEY, args),
   "sustainabilityPage:update": (args) => setSiteConfig(SUSTAINABILITY_PAGE_KEY, args),
   "technologiesPage:update": (args) => setSiteConfig(TECHNOLOGIES_PAGE_KEY, args),
+  "newsletterPage:update": (args) => setSiteConfig(NEWSLETTER_PAGE_KEY, args),
   "servicesPage:update": (args) => setSiteConfig(SERVICES_PAGE_KEY, args),
   "resourcesPage:update": (args) => setSiteConfig(RESOURCES_PAGE_KEY, args),
   "digitalToolsPage:update": (args) => setSiteConfig(DIGITAL_TOOLS_PAGE_KEY, args),

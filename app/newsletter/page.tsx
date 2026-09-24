@@ -6,6 +6,7 @@ import NewsletterSignupForm from "@/components/NewsletterSignupForm";
 import { CmsImagePlaceholder } from "@/components/ui/primitives";
 import { getNewsletterPosts } from "@/lib/content/newsletter";
 import { getNewsletterTabs } from "@/lib/content/newsletterTabs";
+import { getNewsletterPageConfig } from "@/lib/content/newsletterPage";
 
 export const metadata: Metadata = {
   title: "Newsletters — Refine Nicely",
@@ -18,6 +19,7 @@ export const revalidate = 60;
 export default async function NewsletterPage() {
   const posts = await getNewsletterPosts();
   const tabs = await getNewsletterTabs();
+  const pageConfig = await getNewsletterPageConfig();
 
   return (
     <>
@@ -50,7 +52,16 @@ export default async function NewsletterPage() {
               </p>
               <NewsletterSignupForm ctaLabel="Subscribe" />
             </div>
-            <CmsImagePlaceholder className="h-24 w-24 shrink-0 rounded-xl md:h-28 md:w-28" />
+            {pageConfig.subscribeImageUrl ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={pageConfig.subscribeImageUrl}
+                alt=""
+                className="aspect-square w-48 shrink-0 rounded-2xl object-contain md:w-72"
+              />
+            ) : (
+              <CmsImagePlaceholder className="aspect-square w-48 shrink-0 rounded-2xl md:w-72" />
+            )}
           </div>
         </div>
       </main>

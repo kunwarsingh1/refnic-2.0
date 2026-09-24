@@ -26,6 +26,7 @@ const SECTIONS = [
   { label: "Solutions Page", href: "/admin/solutions-page" },
   { label: "Sustainability Page", href: "/admin/sustainability-page" },
   { label: "Technologies Page", href: "/admin/technologies-page" },
+  { label: "Newsletter Page", href: "/admin/newsletter-page" },
   { label: "Products Page", href: "/admin/products-page" },
   { label: "Products Directory Page", href: "/admin/products-directory-page" },
   { label: "Services Page", href: "/admin/services-page" },
