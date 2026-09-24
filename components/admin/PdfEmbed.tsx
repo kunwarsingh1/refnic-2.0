@@ -34,7 +34,7 @@ export function PdfEmbed({
 
       try {
         const pdfjs = await import("pdfjs-dist");
-        pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
+        pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.js";
         loadingTask = pdfjs.getDocument({ url });
         const doc = await loadingTask.promise;
         if (cancelled) return;
