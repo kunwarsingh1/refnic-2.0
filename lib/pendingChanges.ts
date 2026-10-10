@@ -1,7 +1,8 @@
 import { ObjectId, type Collection } from "mongodb";
+import { revalidatePath } from "next/cache";
 import { getDb } from "@/lib/mongo";
 import { createChangeToken, verifyChangeToken } from "@/lib/changeToken";
-import { sendChangeApprovalEmail } from "@/lib/email";
+import { applyChange } from "@/lib/changeRegistry";
 
 const COLLECTION = "pendingChanges";
 
@@ -116,7 +117,7 @@ export async function submitChange(input: SubmitChangeInput): Promise<{ id: stri
   const token = createChangeToken(id.toHexString());
   const now = new Date().toISOString();
 
-  await col.insertOne({
+  const doc: PendingChangeDoc = {
     _id: id,
     contentType: input.contentType,
     operation: input.operation,
@@ -125,30 +126,29 @@ export async function submitChange(input: SubmitChangeInput): Promise<{ id: stri
     label: input.label,
     submittedBy: input.submittedBy,
     submittedAt: now,
-    status: "pending",
-    resolvedAt: null,
+    status: "approved",
+    resolvedAt: now,
     token,
     emailSent: false,
     publicRevalidatePaths: input.publicRevalidatePaths,
-  });
+  };
 
-  const to = process.env.CEO_EMAIL ?? "";
-  const from = process.env.SUPPORT_EMAIL ?? "";
-  const baseUrl = (process.env.APP_URL ?? "").replace(/\/$/, "");
+  await col.insertOne(doc);
 
-  if (to && from) {
-    try {
-      await sendChangeApprovalEmail({
-        to,
-        from,
-        label: input.label,
-        contentType: input.contentType,
-        submittedBy: input.submittedBy,
-        reviewUrl: `${baseUrl}/review/${encodeURIComponent(token)}`,
-      });
-      await col.updateOne({ _id: id }, { $set: { emailSent: true } });
-    } catch (err) {
-      console.error("Failed to send change approval email:", err);
+  try {
+    await applyChange(toPendingChange(doc));
+  } catch (err) {
+    console.error(`Failed to apply change "${input.label}":`, err);
+  }
+
+  for (const path of input.publicRevalidatePaths) {
+    // "/" is revalidated layout-wide since site-chrome content (footer, navbar)
+    // is rendered per-page rather than from the root layout, so a plain
+    // page-level revalidation of "/" alone would miss every other route.
+    if (path === "/") {
+      revalidatePath("/", "layout");
+    } else {
+      revalidatePath(path);
     }
   }
 
